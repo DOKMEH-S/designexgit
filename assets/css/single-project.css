@@ -1,0 +1,484 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+*{
+    cursor:none;
+}
+/*-----------------------------projectSingle-banner*/
+section.projectSingle-banner {
+    width: 100%;
+    height: 70vh;
+    opacity: 0;
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
+    -webkit-transition: all ease-in-out .4s .4s;
+    -o-transition: all ease-in-out .4s .4s;
+    transition: all ease-in-out .4s .4s;
+}
+
+section.projectSingle-banner > * {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+/*-----------------------------projectSingle-banner*/
+/*-----------------------------projectSingle-info*/
+section.projectSingle-info {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin: 3rem 0;
+    opacity: 0;
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
+    -webkit-transition: all ease-in-out .4s .4s;
+    -o-transition: all ease-in-out .4s .4s;
+    transition: all ease-in-out .4s .4s;
+}
+body.load section.projectSingle-banner,body.load section.projectSingle-info,body.load section.wp-content,body.load aside.related {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+/*-----------------------------projectSingle-info_visual-container*/
+section.projectSingle-info .visual-container .lightGallery-wrapper .icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-column-gap: .5rem;
+    -moz-column-gap: .5rem;
+    column-gap: .5rem;
+    cursor: pointer;
+}
+section.projectSingle-info .visual-container .lightGallery-wrapper .icon img{
+    width: 1rem;
+    height: 1rem;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+section.projectSingle-info .visual-container .lightGallery-wrapper .icon span{
+    -webkit-transition: color ease-in-out .3s;
+    -o-transition: color ease-in-out .3s;
+    transition: color ease-in-out .3s;
+}
+section.projectSingle-info .visual-container .lightGallery-wrapper .icon:hover span{
+    color: var(--green);
+}
+.projectSingleGallery{
+    display: none;
+}
+section.projectSingle-info .visual-container .chart-wrapper {
+    margin: 6rem 0 0;
+}
+/*-----------------------------projectSingle-info_visual-container*/
+/*-----------------------------projectSingle-info_spec-container*/
+section.projectSingle-info .spec-container {}
+
+section.projectSingle-info .spec-container .breadCrumbs {
+    margin-bottom: 4rem;
+}
+
+section.projectSingle-info .spec-container .breadCrumbs > * {
+    font-size: .875rem;
+    font-weight: 300;
+}
+section.projectSingle-info .spec-container .breadCrumbs a {
+    text-decoration: underline;
+    -webkit-transition: color ease-in-out .3s;
+    -o-transition: color ease-in-out .3s;
+    transition: color ease-in-out .3s;
+}
+
+section.projectSingle-info .spec-container .breadCrumbs a:hover {
+    color: var(--green);
+}
+section.projectSingle-info .spec-container .des {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: .75rem;
+}
+
+section.projectSingle-info .spec-container .vr-award {
+    margin: 3rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+section.projectSingle-info .spec-container .vr-award .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-column-gap: .5rem;
+    -moz-column-gap: .5rem;
+    column-gap: .5rem;
+}
+
+section.projectSingle-info .spec-container .vr-award .item span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+section.projectSingle-info .spec-container .features .items{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+section.projectSingle-info .spec-container .features .item {}
+
+section.projectSingle-info .spec-container .features .item span.header {
+    opacity: .5;
+    margin-bottom: .5rem;
+}
+
+section.projectSingle-info .spec-container .features .item span {
+    display: block;
+    font-size: .875rem;
+    font-weight: 400;
+}
+
+section.projectSingle-info .spec-container .features .view {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-column-gap: .25rem;
+    -moz-column-gap: .25rem;
+    column-gap: .25rem;
+    margin-top: 2.5rem;
+    opacity: .5;
+}
+section.projectSingle-info .spec-container .features .view:hover{
+    opacity: 1;
+}
+
+section.projectSingle-info .spec-container .features .view.active > * > *:first-child {
+    opacity: 0;
+}
+
+section.projectSingle-info .spec-container .features .view > * > *:last-child {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+section.projectSingle-info .spec-container .features .view.active > * > *:last-child{
+    opacity: 1;
+}
+/*-----------------------------projectSingle-info_spec-container*/
+/*-----------------------------projectSingle-info*/
+/*-----------------------------wp-content*/
+section.wp-content{
+    margin: 3rem 0 5rem;
+    opacity: 0;
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
+    -webkit-transition: all ease-in-out .4s .4s;
+    -o-transition: all ease-in-out .4s .4s;
+    transition: all ease-in-out .4s .4s;
+}
+section.wp-content .two-column-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+section.wp-content p {
+    margin-bottom: 1rem;
+}
+section.wp-content img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+section.wp-content .two-column-wrapper.images {
+    grid-gap: 2.5rem;
+}
+section.wp-content .white-space{
+    height: 2.5rem;
+}
+/*-----------------------------wp-content*/
+/*-----------------------------related*/
+aside.related .title-link {
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-top: 5rem;
+    border-top: 1px solid var(--darkGrayOpacity);
+}
+
+aside.related .title-link .title {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+aside.related .title-link a {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--green);
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+}
+aside.related .title-link a:hover {
+    color: var(--darkGray);
+}
+aside.related {
+    margin-bottom: 3rem;
+    opacity: 0;
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
+    -webkit-transition: all ease-in-out .4s .4s;
+    -o-transition: all ease-in-out .4s .4s;
+    transition: all ease-in-out .4s .4s;
+}
+
+aside.related section.projectItems {
+    background-color: transparent;
+    padding-top: 0;
+}
+aside.related  section.projectItems .projectBoxes{
+    padding-bottom: 0;
+}
+
+aside.related .grid {
+    /* display: grid; */
+    -ms-grid-columns: 1fr 40px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+}
+
+html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-img {
+    height: 40vh;
+    margin-bottom: .5rem;
+}
+
+html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-img img {
+    height: 100%;
+}
+aside.related .grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 40px 1fr 40px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item {
+    width: 100%;
+}
+/*-----------------------------related*/
+/*==================R E S P O N S I V E==================*/
+@media only screen and (max-width: 768px){
+    /*============PAGE INTRo===============*/
+    body[data-pagetype="projectSingle"] section.pageIntro .info .description {
+        padding: 4.563rem 0;
+    }
+    body[data-pagetype="projectSingle"] section.pageIntro .background {
+        padding-bottom: 1rem;
+    }
+    section.pageIntro .info .specs span {
+        font-size: 0.875rem;
+    }
+    section.pageIntro .info .specs {
+        margin-bottom: 0;
+    }
+    body[data-pagetype="projectSingle"] section.pageIntro {
+        padding-bottom: 1rem;
+    }
+    /*============PAGE INTRo===============*/
+    /*=======SINGLE PROJECT SECTION==========*/
+    section.projectSingle-banner {
+        height: auto;
+    }
+    section.projectSingle-info {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        margin: 1rem 0;
+    }
+
+    section.projectSingle-info .visual-container {
+        width: 100%;
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2;
+        position: static;
+    }
+    section.projectSingle-info .visual-container .chart-wrapper {
+        margin: 5rem 0 0;
+    }
+    section.projectSingle-info .visual-container .chart-wrapper svg {
+        width: calc(100vw - var(--spaceX)*2);
+        height: calc(100vw - var(--spaceX)*2);
+    }
+    section.projectSingle-info .spec-container {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+        padding-top: 4rem;
+    }
+    section.projectSingle-info .visual-container .lightGallery-wrapper {
+        position: absolute;
+        top: 0;
+        left: var(--spaceX);
+    }
+    section.projectSingle-info .spec-container .breadCrumbs {
+        margin-bottom: 1.5rem;
+    }
+    section.projectSingle-info .visual-container .lightGallery-wrapper .icon span {
+        font-size: 1.25rem;
+        color: var(--green);
+        font-weight: 400;
+        display: block;
+    }
+    section.projectSingle-info .spec-container .des {
+        font-size: .875rem;
+    }
+    section.projectSingle-info .spec-container .breadCrumbs > * {
+        font-size: 0.75rem;
+    }
+    section.projectSingle-info .spec-container .vr-award .item span {
+        font-size: .875rem;
+    }
+    section.projectSingle-info .spec-container .features .item span {
+        font-size: .75rem;
+    }
+    section.projectSingle-info .spec-container .features .view {
+        font-size: .875rem;
+    }
+    section.wp-content .two-column-wrapper {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    /*=======SINGLE PROJECT SECTION==========*/
+    /*=======RELATED PROJECTS SECTION==========*/
+    section.wp-content {
+        margin: 3rem 0;
+        font-size: .875rem;
+    }
+    aside.related .title-link {
+        margin-bottom: 1.5rem;
+        padding-top: 3rem;
+    }
+    aside.related .grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    html.gridDisplay section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-info .name {
+        margin-bottom: .25rem;
+    }
+    /*=======RELATED PROJECTS SECTION==========*/
+}
+@media only screen and (min-width: 640px) and (max-width: 768px){
+    /*=======RELATED PROJECTS SECTION==========*/
+    aside.related .grid {
+        -ms-grid-columns: 1fr 1.25rem 1fr 1.25rem 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1.25rem;
+    }
+    html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-img {
+        height: 16vh;
+    }
+    /*=======RELATED PROJECTS SECTION==========*/
+}
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    /*=======SINGLE PROJECT SECTION==========*/
+    section.projectSingle-banner {
+        height: auto;
+    }
+    section.projectSingle-info .visual-container .chart-wrapper svg {
+        width: 100%;
+        height: auto;
+    }
+    aside.related .grid {
+        grid-gap: 2rem;
+    }
+    html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-img {
+        height: 17vh;
+    }
+    /*=======SINGLE PROJECT SECTION==========*/
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+    section.pageIntro .info .specs span {
+        font-size: 1rem;
+    }
+    section.projectSingle-info .spec-container .des {
+        font-size: 1rem;
+    }
+
+    section.projectSingle-info .spec-container .vr-award .item span {
+        font-size: .9rem;
+    }
+
+    section.projectSingle-info .spec-container .features .item span {
+        font-size: .75rem;
+    }
+
+    section.projectSingle-info .spec-container .features .view {
+        font-size: .9rem;
+    }
+}
+@media only screen and (min-width: 1401px) and (max-width: 1600px){
+    section.pageIntro .info .specs span {
+        font-size: 1rem;
+    }
+    section.projectSingle-info .spec-container .des {
+        font-size: 1rem;
+    }
+
+    section.projectSingle-info .spec-container .vr-award .item span {
+        font-size: .9rem;
+    }
+
+    section.projectSingle-info .spec-container .features .item span {
+        font-size: .75rem;
+    }
+
+    section.projectSingle-info .spec-container .features .view {
+        font-size: .9rem;
+    }
+}
+@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (orientation: landscape){
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 940px) and (orientation: landscape){
+    html.gridDisplay aside.related section.projectItems .projectBoxes .grid .grid-item .projectBox .projectBox-img {
+        height: 25vh;
+    }
+}

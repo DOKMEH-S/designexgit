@@ -1,0 +1,208 @@
+/*====================IS MOBILE=====================*/
+/**/(function () {var f={};var g=/iPhone/i,i=/iPod/i,j=/iPad/i,k=/\biOS-universal(?:.+)Mac\b/i,h=/\bAndroid(?:.+)Mobile\b/i,m=/Android/i,c=/(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i,d=/Silk/i,b=/Windows Phone/i,n=/\bWindows(?:.+)ARM\b/i,p=/BlackBerry/i,q=/BB10/i,s=/Opera Mini/i,t=/\b(CriOS|Chrome)(?:.+)Mobile/i,u=/Mobile(?:.+)Firefox\b/i,v=function(l){return void 0!==l&&"MacIntel"===l.platform&&"number"==typeof l.maxTouchPoints&&l.maxTouchPoints>1&&"undefined"==typeof MSStream};function w(l){return function($){return $.test(l)}}function x(l){var $={userAgent:"",platform:"",maxTouchPoints:0};l||"undefined"==typeof navigator?"string"==typeof l?$.userAgent=l:l&&l.userAgent&&($={userAgent:l.userAgent,platform:l.platform,maxTouchPoints:l.maxTouchPoints||0}):$={userAgent:navigator.userAgent,platform:navigator.platform,maxTouchPoints:navigator.maxTouchPoints||0};var a=$.userAgent,e=a.split("[FBAN");void 0!==e[1]&&(a=e[0]),void 0!==(e=a.split("Twitter"))[1]&&(a=e[0]);var r=w(a),o={apple:{phone:r(g)&&!r(b),ipod:r(i),tablet:!r(g)&&(r(j)||v($))&&!r(b),universal:r(k),device:(r(g)||r(i)||r(j)||r(k)||v($))&&!r(b)},amazon:{phone:r(c),tablet:!r(c)&&r(d),device:r(c)||r(d)},android:{phone:!r(b)&&r(c)||!r(b)&&r(h),tablet:!r(b)&&!r(c)&&!r(h)&&(r(d)||r(m)),device:!r(b)&&(r(c)||r(d)||r(h)||r(m))||r(/\bokhttp\b/i)},windows:{phone:r(b),tablet:r(n),device:r(b)||r(n)},other:{blackberry:r(p),blackberry10:r(q),opera:r(s),firefox:r(u),chrome:r(t),device:r(p)||r(q)||r(s)||r(u)||r(t)},any:!1,phone:!1,tablet:!1};return o.any=o.apple.device||o.android.device||o.windows.device||o.other.device,o.phone=o.apple.phone||o.android.phone||o.windows.phone,o.tablet=o.apple.tablet||o.android.tablet||o.windows.tablet,o}f=x();if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f}else if(typeof define==="function"&&define.amd){define(function(){return f})}else{this["isMobile"]=f}})();
+/*====================IS MOBILE=====================*/
+if(! isMobile.any){
+    function animateFrom(elem, direction) {
+        direction = direction || 1;
+        var x = 0,
+            y = direction * 100;
+        elem.style.transform = "translate(" + x + "px, " + y + "px)";
+        elem.style.opacity = "0";
+        gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+            duration: 1.25,
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            ease: "expo",
+            overwrite: "auto"
+        });
+    }
+    function hide(elem) {
+        gsap.set(elem, {autoAlpha: 0});
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
+            hide(elem); // assure that the element is hidden when scrolled into view
+
+            ScrollTrigger.create({
+                trigger: elem,
+                onEnter: function() { animateFrom(elem) },
+                onEnterBack: function() { animateFrom(elem, -1) },
+                onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
+            });
+        });
+    });
+    ///////////FOR IMAGES
+    let proxy = { y: 0 },
+        skewElems = document.querySelectorAll(".skewElem");
+    ScrollTrigger.create({
+        onUpdate: (self) => {
+            let y = (self.getVelocity() / -1500) * 18; // Scale the scroll velocity to the desired range
+            if (Math.abs(y) > Math.abs(proxy.y)) {
+                proxy.y = y;
+                gsap.to(proxy, { y: 0, duration: .8, ease: "power3", overwrite: true, onUpdate: updateSkewElems });
+            }
+        }
+    });
+    function updateSkewElems() {
+        skewElems.forEach((elem) => {
+            elem.style.transform = `translate(-50%, -50%) translate3d(0px, ${proxy.y}px, 0px)`;
+        });
+    }
+    gsap.set(".skewElem", { transformOrigin: "center center", force3D: true });
+}
+document.querySelectorAll('section.aboutAnchorMenu .link[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        lenis.scrollTo(this.getAttribute('href'))
+    });
+})
+//=======History
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 0,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        640: {
+            slidesPerView: 4,
+        },
+        768: {
+            slidesPerView: 5,
+        },
+        1024: {
+            slidesPerView: 6,
+        },
+    },
+});
+var swiper2 = new Swiper(".mySwiper2", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: swiper,
+    },
+});
+//=======Accordion
+let accordionItems = document.querySelectorAll('.accordion .accordion-item');
+let accordionContents = document.querySelectorAll('.accordion .accordion-item .accordion-content');
+let accordionHeaders = document.querySelectorAll('.accordion .accordion-item .accordion-header');
+accordionContents.forEach(function(content) {
+    content.style.height = '0';
+    content.style.overflow = 'hidden';
+});
+accordionItems[0].classList.add('active');
+accordionContents[0].style.height = accordionContents[0].scrollHeight + 'px';
+accordionHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+        var accordionItem = this.parentNode;
+        var siblingAccordionItems = Array.from(accordionItem.parentNode.children).filter(function(item) {
+            return item !== accordionItem;
+        });
+        var content = this.nextElementSibling;
+        if (content.style.height === '0px') {
+            content.style.height = content.scrollHeight + 'px';
+        } else {
+            content.style.height = '0';
+        }
+        siblingAccordionItems.forEach(function(item) {
+            var siblingContent = item.querySelector('.accordion-content');
+            siblingContent.style.height = '0';
+        });
+        siblingAccordionItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        accordionItem.classList.toggle('active');
+    });
+});
+//=======Awards
+const link = document.querySelectorAll('.linkTwo');
+const linkHoverReveal = document.querySelectorAll('.hover-revealTwo');
+const linkImages = document.querySelectorAll('.hidden-imgTwo');
+
+for(let i = 0; i < link.length; i++) {
+    link[i].addEventListener('mousemove', (e) => {
+        linkHoverReveal[i].style.opacity = 1;
+        if(isMobile.phone){
+            linkHoverReveal[i].style.transform = `translate(-50%, -50% ) rotate(5deg)`;
+            console.log("mobile")
+        } else if(isMobile.tablet){
+            linkHoverReveal[i].style.transform = `translate(-170%, -50% ) rotate(5deg)`;
+            console.log("tablet")
+        } else {
+            linkHoverReveal[i].style.transform = `translate(-320%, -50% ) rotate(5deg)`;
+            console.log('desktop')
+        }
+        linkImages[i].style.transform = 'scale(1, 1)';
+        linkHoverReveal[i].style.left = e.clientX + "px";
+        link[i].classList.add('hover');
+    })
+    link[i].addEventListener('mouseleave', (e) => {
+        linkHoverReveal[i].style.opacity = 0;
+        linkHoverReveal[i].style.transform = `translate(-50%, -50%) rotate(-5deg)`;
+        linkImages[i].style.transform = 'scale(0.8, 0.8)';
+        link[i].classList.remove('hover');
+    })
+}
+//======Certificate lightbox
+new SimpleLightbox('.certificateGallery a', {
+    overlayOpacity: 1,
+});
+//======FixAnchorLinks
+function setFixAnchorHandler(){
+    let tlAnchorLinks = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#aboutWrapper",
+            anticipatePin: 1,
+            start: "top top",
+            end: "110% bottom",
+            scrub: 1,
+            pin: 'section.aboutAnchorMenu',
+            pinSpacing: false,
+        }
+    })
+}
+//=======AnchorLink
+function anchorSetHandler() {
+    const sections = [
+        "#section1",
+        "#section2",
+        "#section3",
+        "#section4",
+        "#section5",
+        "#section6",
+        "#section7",
+        "#section8",
+        "#section9"
+    ];
+    sections.forEach((section, index) => {
+        gsap.utils.toArray(section).forEach((tSection) => {
+            ScrollTrigger.create({
+                trigger: tSection,
+                start: "-100px top",
+                end: "80% top",
+                onEnter: () => {
+                    document.querySelectorAll('section.aboutAnchorMenu .link')[index].classList.add("active");
+                },
+                onLeave: () => {
+                    document.querySelectorAll('section.aboutAnchorMenu .link')[index].classList.remove("active");
+                },
+                onEnterBack: () => {
+                    document.querySelectorAll('section.aboutAnchorMenu .link')[index].classList.add("active");
+                },
+                onLeaveBack: () => {
+                    document.querySelectorAll('section.aboutAnchorMenu .link')[index].classList.remove("active");
+                },
+            });
+        });
+    });
+}
+setTimeout(function () {
+    anchorSetHandler();
+
+},1500)
+setTimeout(function () {
+    setFixAnchorHandler();
+},1700)

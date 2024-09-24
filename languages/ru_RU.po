@@ -1,0 +1,220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DORR\n"
+"POT-Creation-Date: 2024-05-02 12:19+0330\n"
+"PO-Revision-Date: 2024-05-02 12:19+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: archive-projects.php:7 single-projects.php:10
+msgid "Our projects"
+msgstr "Наши проекты"
+
+#: archive-projects.php:51
+msgid "List"
+msgstr "Список"
+
+#: archive-projects.php:59
+msgid "Grid"
+msgstr "Сетка"
+
+#: archive-projects.php:71
+msgid "Map"
+msgstr "карта"
+
+#: archive-projects.php:82
+msgid "Clear All"
+msgstr "Очистить все"
+
+#: archive-projects.php:114
+msgid "Filter"
+msgstr "Фильтр"
+
+#: archive-projects.php:116
+msgid "All"
+msgstr "Все"
+
+#: archive-projects.php:117
+msgid "item selected"
+msgstr "предметы"
+
+#: archive-projects.php:127 functions.php:376
+msgid "Project"
+msgstr "Проект"
+
+#: archive-projects.php:128 functions.php:377
+msgid "services"
+msgstr "услуги"
+
+#: archive-projects.php:129 functions.php:378
+msgid "year"
+msgstr "год"
+
+#: archive-projects.php:130 functions.php:379
+msgid "location"
+msgstr "расположение"
+
+#: footer.php:307
+msgid "view project"
+msgstr "просмотреть проект"
+
+#: footer.php:307
+msgid "Get Direction..."
+msgstr "Получить направление..."
+
+#: functions.php:312 functions.php:410
+msgid "Sorry, No resault found!"
+msgstr "К сожалению, результатов не найдено!"
+
+#: header.php:238
+msgid "Contact info"
+msgstr "Контактная информация"
+
+#: index.php:39
+msgid "Search"
+msgstr "Поиск"
+
+#: index.php:44
+msgid "sort by"
+msgstr "Сортировать по"
+
+#: index.php:46 index.php:49
+msgid "newest"
+msgstr "новейший"
+
+#: index.php:50
+msgid "popular"
+msgstr "популярный"
+
+#: index.php:51
+msgid "oldest"
+msgstr "самый старый"
+
+#: index.php:86
+msgid "No posts found"
+msgstr "Сообщений не найдено"
+
+#: single-projects.php:57
+msgid "Gallery"
+msgstr "Галерея"
+
+#: single-projects.php:75
+msgid "Projects"
+msgstr "Проекты"
+
+#: single-projects.php:143
+msgid "View More"
+msgstr "Посмотреть больше"
+
+#: single-projects.php:143
+msgid "View Less"
+msgstr "Посмотреть меньше"
+
+#: single-projects.php:157
+msgid "Related Projects"
+msgstr "связанные проекты"
+
+#: single-projects.php:158
+msgid "See All"
+msgstr "связанные проекты"
+
+#: single-rethink.php:9 single.php:12 tpls/home.php:62
+msgid "Discover"
+msgstr "Обнаружить"
+
+#: single-rethink.php:15
+msgid "rethink"
+msgstr "переосмыслить"
+
+#: single-rethink.php:28
+msgid "Related rethink"
+msgstr "Связанное переосмысление"
+
+#: single-rethink.php:29 single.php:32
+msgid "see all"
+msgstr "Увидеть все"
+
+#: single.php:18
+msgid "News"
+msgstr "Новости"
+
+#: single.php:31
+msgid "Related news"
+msgstr "Похожие новости"
+
+#: tpls/contact.php:6 tpls/contact.php:121 tpls/home.php:17
+msgid "Apply"
+msgstr "Применять"
+
+#: tpls/contact.php:100
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: tpls/contact.php:107
+msgid "Contact from"
+msgstr "Контакт из"
+
+#: tpls/contact.php:144
+msgid "Read More"
+msgstr "Читать далее"
+
+#: tpls/contact.php:144
+msgid "Read Less"
+msgstr "Читать меньше"
+
+#: tpls/contact.php:154
+msgid "Business Cooperation Form"
+msgstr "Форма делового сотрудничества"
+
+#: tpls/home.php:52
+msgid "view"
+msgstr "вид"
+
+#: tpls/home.php:73
+msgid "imagination"
+msgstr "воображение"
+
+#: tpls/home.php:90
+msgid "reality"
+msgstr "реальность"
+
+#: tpls/home.php:151
+msgid "see all projects"
+msgstr "посмотреть все проекты"
+
+#: tpls/home.php:198
+msgid "Send request"
+msgstr "Послать запрос"
+
+#. Theme Name of the plugin/theme
+msgid "DORR"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.hidokmeh.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Dorr Architecture theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Dokmeh Agency"
+msgstr ""

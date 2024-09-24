@@ -1,0 +1,47 @@
+let t;
+var e = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : "undefined" != typeof window ? window : "undefined" != typeof global ? global : {},
+    r = {},
+    o = {},
+    a = e.parcelRequire2524;
+null == a &&
+(((a = function (t) {
+    if (t in r) return r[t].exports;
+    if (t in o) {
+        var e = o[t];
+        delete o[t];
+        var a = { id: t, exports: {} };
+        return (r[t] = a), e.call(a.exports, a, a.exports), a.exports;
+    }
+    var l = Error("Cannot find module '" + t + "'");
+    throw ((l.code = "MODULE_NOT_FOUND"), l);
+}).register = function (t, e) {
+    o[t] = e;
+}),
+    (e.parcelRequire2524 = a)),
+    a.register;
+var l = a("5IQP4"),
+    c = a("92jPu"),
+    n = a("1oYLf"),
+    i = a("aV8T4"),
+    s = a("jPLxl");
+(0, n.gsap).registerPlugin(i.ScrollTrigger), (s && s.__esModule ? s.default : s)();
+const M = [...document.querySelectorAll(".content__title[data-splitting][data-effect25]")],
+    T = () => {
+        (t = new c.default({ lerp: 0.2, smooth: !0 })).on("scroll", () => (0, i.ScrollTrigger).update());
+        let e = (r) => {
+            t.raf(r), requestAnimationFrame(e);
+        };
+        requestAnimationFrame(e);
+    },
+    _ = () => {
+        M.forEach((t) => {
+            (0, n.gsap).fromTo(
+                t.querySelectorAll(".char"),
+                { "will-change": "transform", transformOrigin: "50% 100%", scaleY: 0 },
+                { ease: "power3.in", opacity: 1, scaleY: 1, stagger: 0.05, scrollTrigger: { trigger: t, start: "center center", end: "+=500%", scrub: !0, pin: t.parentNode } }
+            );
+        });
+    };
+(0, l.preloadFonts)("cvn8slu").then(() => {
+    document.body.classList.remove("loading"), T(), _();
+});
