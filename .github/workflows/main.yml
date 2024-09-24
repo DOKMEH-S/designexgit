@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - 'master'  # فقط برای برنچ master اعمال می‌شود
+      - 'main'  # فقط برای برنچ master اعمال می‌شود
 
 name: 🚀 Deploy website on push
 
