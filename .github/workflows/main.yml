@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - 'master'  # فقط برای برنچ master اعمال می‌شود
+
+name: 🚀 Deploy website on push
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.d-km.com 
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
+        protocol: ftp
+        passive: true
+        local-dir: ./  # مسیر لوکال فایل‌ها
+        server-dir: ./wp-content/themes/dokmeh/  #  آپلود به پوشه فالب روی سرور بعد از شروع داینامیک
+        #server-dir: ./Temp/  #  آپلود به پوشه استاتیک سرور بعد از شروع داینامیک
+        #server-dir: ./  #  آپلود به روت اصلی استاتیک سرور
+      
