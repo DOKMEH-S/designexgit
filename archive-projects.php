@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <main class="wrapper projectWrapper">
         <section class="pageIntro projectIntro paddingX">
-            <img class="background" src="<?php ThemeAssets('img/intro-logo.png');?>" alt="">
+            <img class="background" src="<?php ThemeAssets('img/intro-logo.png');?>" alt="intro-logo">
             <div class="info">
                 <?php $project_title = get_field('project_title','option');?>
                 <h1 class="title">/ <?php echo $project_title ? $project_title : __('Our projects','dokmeh');?></h1>
