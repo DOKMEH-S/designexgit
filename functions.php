@@ -40,7 +40,7 @@ add_action('acf/init', 'my_acf_init');
 ///////////////////////////////////////////////
 //------------ Scripts & Styles -------------//
 ///////////////////////////////////////////////
-echo 'alireza';
+
 function Dokmeh_scripts()
 {
 // Enqueue header and footer styles along with the default stylesheet
