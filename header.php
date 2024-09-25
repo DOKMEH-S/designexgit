@@ -15,6 +15,7 @@
     </style>
     <link href="<?php ThemeAssets('css/fonts.css');?>" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link href="<?php ThemeAssets('css/footer.css');?>" rel="stylesheet" type="text/css">
+    <?php wp_head(); ?>
 </head>
 <div id="loading" class="paddingX">
     <div class="loading-logoContainer">

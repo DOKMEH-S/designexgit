@@ -72,6 +72,7 @@
             <img src="<?php ThemeAssets('img/logo-dokmeh.webp');?>" alt="Dokmeh creative agency">
         </div>
     </div>
+    <?php wp_footer(); ?>
 </footer>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
