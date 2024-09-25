@@ -1,0 +1,326 @@
+body[data-pagetype="services"] main {
+    padding-right: var(--spaceX);
+}
+.pageTitle {
+    position: relative;
+    top: 10rem;
+    width: calc(50% - 8rem);
+}
+
+.pageTitle:before {
+    content: '';
+    background-image: url(../img/secondary-line.svg);
+    width: var(--spaceL);
+    position: absolute;
+    height: 6.188rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -1rem;
+    top: -1rem;
+    transform: translateX(-100%);
+}
+.pageTitle span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 .5rem;
+}
+
+.pageTitle h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+section.servicesContainer {
+    margin-bottom: 8rem;
+}
+.serviceItems {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+}
+
+.serviceItem .sides {
+    display: flex;
+    column-gap: 8rem;
+}
+.serviceItem .side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.serviceItem .title{
+    /*max-width: calc(50% + 12rem);*/
+    margin: 0 0 4rem auto;
+    text-align: right;
+    width:fit-content;
+}
+.serviceItem:nth-child(even) .title {
+    margin: 0 auto 4rem 0;
+    text-align: left;
+}
+.serviceItem .title h2 > *{
+    display: inline-block;
+}
+.serviceItem .title h2{
+}
+.serviceItem .title h2 {
+    display: inline;
+    font-size: clamp(2rem,4.75vw,5rem);
+    font-weight: 700;
+    word-break: break-word;
+    font-family: var(--robotoFont);
+    text-transform: uppercase;
+    display: inline;
+    line-height: 6rem;
+}
+.serviceItem .title .expandMedia{
+    max-width: 160px;
+    max-height: 5.563rem;
+    min-width: 0;
+    min-height: 0;
+    transition: all 0.35s ease;
+    border-radius: 10rem;
+    overflow: hidden;
+    /*transform-origin: center;*/
+}
+.serviceItem .title .expandMedia > *{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.serviceItem .media {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.serviceItem .media .mediaItem {
+    width: 100%;
+    height: 32vh;
+}
+
+.serviceItem .media .mediaItem > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.serviceItem h3 , section.approachContainer .descriptionTitle h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+}
+
+.serviceItem p , section.approachContainer .descriptionTitle p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+}
+
+.serviceItem .link {
+    float: right;
+    margin-left: auto;
+}
+
+.serviceItem .link span {
+    font-size: 1rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1rem;
+}
+.serviceItem .link img{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    cursor: pointer;
+    transform: translate(-1.1rem, 0.3rem);
+    transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+}
+.serviceItem .link:hover img {
+    filter: blur(0px);
+    transform: translate(-0.8rem, -0.3rem);
+}
+.serviceItem ul , section.approachContainer .descriptionTitle ul {
+    list-style: auto;
+}
+/*------approachContainer------*/
+section.approachContainer {
+    position: relative;
+    color: var(--white);
+}
+section.approachContainer .descriptionTitle{
+
+}
+section.approachContainer .descriptionTitle:before ,
+section.approachContainer .descriptionTitle:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(var(--spaceL)*-1);
+    background-color: var(--primary);
+    width: calc(100% + var(--spaceX) + var(--spaceL));
+    height: 100%;
+}
+section.approachContainer .descriptionTitle:before{
+    background-image: url(../img/footer-texture.webp);
+    background-size: cover;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+section.approachContainer .descriptionTitle:after {
+    background-color: var(--primary);
+    z-index: -1;
+}
+
+section.approachContainer .descriptionTitle {
+    position: relative;
+    width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    display: flex;
+    column-gap: 1rem;
+    justify-content: space-between;
+}
+section.approachContainer .descriptionTitle .description {
+    width: calc(50% - 8rem * .5);
+}
+section.approachContainer .descriptionTitle h2 {
+    width: 50%;
+    text-align: right;
+    margin: 0;
+    font-size: 3.813rem;
+    font-weight: 700;
+    font-family: var(--robotoFont);
+    text-transform: uppercase;
+}
+
+section.approachContainer .approachVideo {
+    position: relative;
+    width: 50%;
+    margin-left: 50%;
+    height: 35vh;
+    z-index: 3;
+    bottom: 16vh;
+}
+section.approachContainer .approachVideo .singleProjectVideoContainer{
+    width: 100%;
+    height: 100%;
+    /* margin-left: auto; */
+}
+section.approachContainer .approachVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section.approachContainer .approachVideo #playVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7.636rem;
+    height: 7.636rem;
+    transition: all ease-in-out .5s;
+    cursor: pointer;
+    transform-origin: center center;
+    transform-box: fill-box;
+}
+section.approachContainer .approachVideo #playVideo img:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.75);
+}
+#playVideo img:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.75);
+}
+
+#playVideo img:first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: rotateR 10s linear infinite;
+}
+
+@keyframes rotateR{
+    to{
+        transform:rotate(360deg)
+    }
+}
+section.approachContainer .approachVideo #playVideo:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+/*------approachContainer------*/
+/*------outLink------*/
+section.outLink {
+}
+
+section.outLink a {
+    display: flex;
+    font-size: 5rem;
+    font-family: var(--robotoFont);
+    font-weight: 700;
+    text-transform: uppercase;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: right;
+    width: 100%;
+    cursor: pointer;
+}
+section.outLink img {
+    width: 1.688rem;
+    height: 1.688rem;
+    object-fit: contain;
+}
+/*------outLink------*/
+/*==========MODAL VIDEO============*/
+#videoModal {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 101;
+    height: 100vh;
+    left: 0;
+    pointer-events: none;
+    transition: all ease-in-out .5s;
+    opacity: 0;
+}
+
+#videoModal .videoContainer {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    z-index: 0;
+}
+
+#closeModalVideo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    text-transform: uppercase;
+    z-index: 1;
+    cursor: pointer;
+    mix-blend-mode: difference;
+}
+
+#videoModal .videoContainer video#modalVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#closeModalVideo span {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+#videoModal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+/*==========MODAL VIDEO============*/

@@ -13,7 +13,9 @@
                 <div class="projectNameDescriptionWrapper">
                     <div class="projectLogo"><img src="./assets/img/sample/project-logo-1.png" alt=""></div>
                     <h1>Project Name</h1>
-                    <div class="description"><p>Communicate that Designex offers a full spectrum of services, from luxury renovation.</p></div>
+                    <div class="description">
+                        <p>Communicate that Designex offers a full spectrum of services, from luxury renovation.</p>
+                    </div>
                 </div>
                 <div class="projectsFeatureWrapper">
                     <div class="featureWrap"><span>Client :</span><span>Ms. Some one</span></div>
@@ -45,7 +47,8 @@
         </div>
         <div class="singleProjectVideoMapContainer">
             <div class="singleProjectVideoContainer">
-                <video autoplay muted loop playsinline preload="auto" poster="" id="projectVideo" data-url="./assets/video/coverr-city-skyscrapers-471-1080p.mp4">
+                <video autoplay muted loop playsinline preload="auto" poster="" id="projectVideo"
+                    data-url="./assets/video/coverr-city-skyscrapers-471-1080p.mp4">
                     <source src="./assets/video/coverr-city-skyscrapers-471-1080p.mp4" type="video/mp4">
                 </video>
                 <div id="playVideo">
@@ -61,30 +64,106 @@
     <section class="singleProjectContent"> <!-- It is sample, Gutenberg goes here ok Alireza!? -->
         <div class="columnTwo">
             <div class="box">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
-                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget
+                    dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis
+                    natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed
+                    elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi
+                    etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu
+                    dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in
+                    pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit
+                    ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id
+                    nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id
+                    semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet
+                    venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu
+                    tincidunt tortor aliquam nulla.</p>
+                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci.
+                    Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat
+                    blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et
+                    netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non
+                    diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc
+                    lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a
+                    erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem
+                    fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
                 <div class="white-space" style="height: 25px"></div>
                 <img src="./assets/img/sample/project-1.png" alt="">
                 <div class="white-space" style="height: 25px"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
-                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget
+                    dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis
+                    natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed
+                    elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi
+                    etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu
+                    dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in
+                    pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit
+                    ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id
+                    nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id
+                    semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet
+                    venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu
+                    tincidunt tortor aliquam nulla.</p>
+                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci.
+                    Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat
+                    blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et
+                    netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non
+                    diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc
+                    lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a
+                    erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem
+                    fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
                 <div class="white-space" style="height: 25px"></div>
                 <img src="./assets/img/sample/single-project-1.png" alt="">
             </div>
             <div class="box">
                 <img src="./assets/img/sample/project-2.png" alt="">
                 <div class="white-space" style="height: 25px"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
-                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget
+                    dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis
+                    natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed
+                    elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi
+                    etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu
+                    dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in
+                    pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit
+                    ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id
+                    nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id
+                    semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet
+                    venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu
+                    tincidunt tortor aliquam nulla.</p>
+                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci.
+                    Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat
+                    blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et
+                    netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non
+                    diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc
+                    lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a
+                    erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem
+                    fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
                 <div class="white-space" style="height: 25px"></div>
                 <img src="./assets/img/sample/project-03.webp" alt="">
                 <div class="white-space" style="height: 25px"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
-                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget
+                    dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis
+                    natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed
+                    elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi
+                    etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu
+                    dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi. Tincidunt augue interdum velit euismod in
+                    pellentesque. Semper eget duis at tellus at urna condimentum mattis pellentesque. Pellentesque elit
+                    ullamcorper dignissim cras tincidunt lobortis feugiat. At urna condimentum mattis pellentesque id
+                    nibh tortor id. Lectus urna duis convallis convallis tellus id interdum velit. Mollis nunc sed id
+                    semper risus in hendrerit gravida rutrum. Suspendisse in est ante in nibh. Dignissim enim sit amet
+                    venenatis. Faucibus in ornare quam viverra orci. Egestas tellus rutrum tellus pellentesque eu
+                    tincidunt tortor aliquam nulla.</p>
+                <p>Magna sit amet purus gravida. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci.
+                    Sem integer vitae justo eget magna fermentum iaculis eu. Enim blandit volutpat maecenas volutpat
+                    blandit aliquam etiam erat velit. Adipiscing elit pellentesque habitant morbi tristique senectus et
+                    netus et. Ut pharetra sit amet aliquam id diam maecenas. Sed risus pretium quam vulputate. Eu non
+                    diam phasellus vestibulum lorem sed risus. Ipsum a arcu cursus vitae congue. Felis eget nunc
+                    lobortis mattis aliquam. Cras semper auctor neque vitae tempus quam. In dictum non consectetur a
+                    erat nam at. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem
+                    fringilla ut morbi. Risus ultricies tristique nulla aliquet enim.</p>
             </div>
         </div>
     </section>
