@@ -47,8 +47,12 @@
             </div>
         </div>
         <div class="singleProjectVideoMapContainer">
-            <?php $video = get_field('video');
+            <?php
+            $video = get_field('video');
             $poster = get_field('poster');
+            $image = get_field('image');
+            $vr = get_field('vr_url');
+
             if ($video): ?>
                 <div class="singleProjectVideoContainer">
                     <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster; ?>" id="projectVideo"
@@ -60,6 +64,12 @@
                         <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
                     </div>
                 </div>
+            <?php
+            elseif ($image): ?>
+                <img src="<?php echo $image; ?>" alt="circle text">
+            <?php
+            elseif ($vr): ?>
+                <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
             <?php endif; ?>
             <?php
             $location = get_field('location');
