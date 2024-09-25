@@ -13,9 +13,9 @@
                 <div class="projectNameDescriptionWrapper">
                     <div class="projectLogo"><img src="<?php ThemeAssets('img/sample/project-logo-1.png'); ?>" alt="">
                     </div>
-                    <h1><?php get_the_title(); ?></h1>
+                    <h1><?php the_title(); ?></h1>
                     <div class="description">
-                        <p><?php get_the_excerpt(); ?></p>
+                        <p><?php the_excerpt(); ?></p>
                     </div>
                 </div>
                 <?php if (have_rows('features')): ?>
