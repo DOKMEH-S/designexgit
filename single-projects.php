@@ -118,8 +118,7 @@
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
-                                    <span><?php echo get_the_date('Y'); ?> -
-                                        <?php the_field('location'); ?></span>
+                                    <span><?php echo get_the_date('Y'); ?> - </span>
                                 </div>
                             </a>
                         </div>
