@@ -108,7 +108,7 @@ include get_template_directory() . '/inc/custom-post-type-projects.php';
 // Defer loading of stylesheets
 function dokmeh_style_filter($html, $handle)
 {
-    if (strcmp($handle, 'dorr-style') == 0 or strcmp($handle, 'base-style') == 0 or strcmp($handle, 'page-style') == 0 or strcmp($handle, 'page2-style') == 0) {
+    if (strcmp($handle, 'designex-style') == 0 or strcmp($handle, 'base-style') == 0 or strcmp($handle, 'page-style') == 0 or strcmp($handle, 'page2-style') == 0) {
         $html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" ", $html);
     }
     return $html;
