@@ -40,7 +40,7 @@ add_action('acf/init', 'my_acf_init');
 ///////////////////////////////////////////////
 //------------ Scripts & Styles -------------//
 ///////////////////////////////////////////////
-echo 'alireza';
+
 function Dokmeh_scripts()
 {
 // Enqueue header and footer styles along with the default stylesheet
@@ -58,7 +58,8 @@ function Dokmeh_scripts()
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
     } // Check if it's the projects archive page or a single project page
     elseif (is_post_type_archive('projects')) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/project.min.css', array(), _S_VERSION);
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-project.css', array(), _S_VERSION);
+        wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
     } // Check if it's a single project page
     elseif (is_singular('projects')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-project.css', array(), _S_VERSION);
