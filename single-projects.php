@@ -86,6 +86,7 @@
         }
 
         $related_args = array(
+            'post_type' => 'projects',
             'category__in' => $category_ids,
             'post__not_in' => array(get_the_ID()), 
             'posts_per_page' => 3 
