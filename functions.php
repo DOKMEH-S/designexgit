@@ -104,7 +104,7 @@ add_action('wp_enqueue_scripts', 'Dokmeh_scripts');
 
 // ###### -- INC - Custom post types -- ###### //
 include get_template_directory() . '/inc/custom-post-type-projects.php';
-
+include get_template_directory() . '/inc/custom-taxonomy-projects-types.php';
 // Defer loading of stylesheets
 function dokmeh_style_filter($html, $handle)
 {
