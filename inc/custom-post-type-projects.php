@@ -37,7 +37,7 @@ function dokmeh_custom_post_type_projects()
         'menu_icon'         => 'dashicons-table-col-after',
         'hierarchical'      => true,
         'menu_position'     => null,
-        'supports'          => array('title','editor','thumbnail')
+        'supports'          => array('title','editor','thumbnail','excerpt',)
 
     );
     register_post_type('projects', $args);
