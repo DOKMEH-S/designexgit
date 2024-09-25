@@ -78,28 +78,36 @@
         </div>
     </section>
     <?php
-    $terms = get_the_terms(get_the_ID(), 'project_type');
-    if ($terms) {
-        $term_ids = array();
-        foreach ($terms as $term) {
-            $term_ids[] = $term->term_id;
+    $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
+    if ($project_types) {
+        $project_type_ids = array();
+        foreach ($project_types as $project_type) {
+            $project_type_ids[] = $project_type->term_id;
         }
 
-        $related_projects = new WP_Query(array(
+        $related_args = array(
             'post_type' => 'projects',
-            'project_type' => $term_ids,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'project_type',
+                    'field' => 'term_id',
+                    'terms' => $project_type_ids,
+                ),
+            ),
             'post__not_in' => array(get_the_ID()),
             'posts_per_page' => 3
-        ));
+        );
 
-        if ($related_projects->have_posts()) { ?>
+        $related_query = new WP_Query($related_args);
+
+        if ($related_query->have_posts()) { ?>
             <section class="relatedProjectsContainer">
                 <div class="titleWrap">
                     <h2 class="title-roboto">related projects</h2>
                 </div>
                 <div class="relatedProjectsWrapper">
-                    <?php while ($related_projects->have_posts()) {
-                        $related_projects->the_post(); ?>
+                    <?php while ($related_query->have_posts()) {
+                        $related_query->the_post(); ?>
 
                         <div class="relatedProjectsWrap">
                             <div class="projectMedia">
@@ -110,7 +118,8 @@
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
-                                    <span><?php echo get_the_date('Y'); ?> - <?php the_field('location'); ?></span>
+                                    <span><?php echo get_the_date('Y'); ?> -
+                                        <?php the_field('location'); ?></span>
                                 </div>
                             </a>
                         </div>
@@ -122,6 +131,7 @@
         wp_reset_postdata();
     }
     ?>
+
 
 
 </main>
