@@ -84,6 +84,7 @@
     </section>
     <?php
     $gallery = get_field('gallery');
+    var_dump($gallery);
     if ($gallery): ?>
         <section class="singleProjectGalleryContainer">
 
