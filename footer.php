@@ -127,7 +127,7 @@
 
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-                var image = new google.maps.MarkerImage("./assets/img/pin.png");
+                var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.svg');?>");
 
 
 
