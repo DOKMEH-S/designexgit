@@ -88,15 +88,12 @@
         </div>
     </section>
     <?php
-    $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
-    if ($project_types) {
-<<<<<<< HEAD
-        
-=======
-        $project_type_ids = array_map(function($term) {
-            return $term->term_id;
-        }, $project_types);
->>>>>>> alireza
+    $categories = get_the_category();
+    if ($categories) {
+        $category_ids = array();
+        foreach ($categories as $category) {
+            $category_ids[] = $category->term_id;
+        }
 
         $related_args = array(
             'post_type' => 'projects',
@@ -134,12 +131,8 @@
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
-<<<<<<< HEAD
-                                    <span><?php echo get_the_date('Y'); ?> - </span>
-=======
-                                    <span><?php echo $sub_tax_5[0] ?? ''; ?> - </span>
-                                    <span><?php echo $sub_tax_3[0] ?? ''; ?></span>
->>>>>>> alireza
+                                    <span><?php echo get_the_date('Y'); ?> -
+                                        <?php the_field('location'); ?></span>
                                 </div>
                             </a>
                         </div>
@@ -151,9 +144,6 @@
         wp_reset_postdata();
     }
 ?>
-
-
-
 
 </main>
 <?php get_footer();
