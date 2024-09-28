@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-IR">
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        main.wrapper,
-        header {
+        main.wrapper, header {
             opacity: 0;
         }
         <?php if (is_singular('projects')): ?>
@@ -17,18 +15,16 @@
             }
         <?php endif;
         if(is_archive('projects')):?>
-        #menuContainer,#mapProjectsContainer{
+        #mapProjectsContainer{
             display: none;
         }
         <?php endif;?>
-        #menuContainer {
-            display: none;
-        }
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
+    <?php if(is_singular('projects') OR is_page_template('tpls/about.php')) :?>
     <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php ThemeAssets('css/footer.css'); ?>" rel="stylesheet" type="text/css">
+<?php endif;?>
     <?php wp_head(); ?>
 </head>
 <div id="loading" class="paddingX">
@@ -41,9 +37,7 @@
         <div class="line"></div>
     </div>
 </div>
-
-<body
-    data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):
+<body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):
         echo 'about'; endif; ?>">
     <div id="loading" class="paddingX">
         <div class="loading-logoContainer">
