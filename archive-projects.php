@@ -15,10 +15,11 @@
         if ($cats):?>
             <div class="projectHeader-container">
                 <div class="projectHeader-wrapper">
-                    <?php $args_c = array(
+                    <?php $parentID = $cats[0]->term_id;
+                    $args_c = array(
                         'taxonomy' => 'project_type',
                         'hide_empty' => false,
-                        'parent' => $cats[0]->term_id
+                        'parent' => $parentID
                     );
                     $children = get_categories($args_c);
                     if ($children):?>
@@ -28,7 +29,7 @@
                                     <span class="projectHeader-container_row-title"><?php echo $cats[0]->name; ?></span>
                                     <div class="projectHeader-container_row-items">
                                         <?php foreach ($children as $child): ?>
-                                            <span><?php echo $child->name; ?></span>
+                                            <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>"><?php echo $child->name; ?></span>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -40,10 +41,11 @@
                         if ($size > 1):?>
                             <div class="projectHeader-container_row-container">
                                 <?php for ($i = 1; $i < $size; $i++):
+                                    $parentID = $cats[$i]->term_id;
                                     $args_c = array(
                                         'taxonomy' => 'project_type',
                                         'hide_empty' => false,
-                                        'parent' => $cats[$i]->term_id
+                                        'parent' => $parentID
                                     );
                                     $children = get_categories($args_c);
                                     if ($children):?>
@@ -51,7 +53,7 @@
                                             <span class="projectHeader-container_row-title"><?php echo $cats[$i]->name; ?></span>
                                             <div class="projectHeader-container_row-items">
                                                 <?php foreach ($children as $child): ?>
-                                                    <span><?php echo $child->name; ?></span>
+                                                    <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>"><?php echo $child->name; ?></span>
                                                 <?php endforeach; ?>
                                             </div>
                                         </div>
@@ -68,10 +70,11 @@
         <?php endif;
         $args = array(
             'post_type' => 'projects',
-            'posts_per_page' => -1,
+            'posts_per_page' => 8,
         );
         $query = new WP_Query($args);
-        if ($query->have_posts()) :?>
+        if ($query->have_posts()) :
+            $i=0;?>
             <div class="projectBody-container">
                 <div class="projectItems">
                     <?php $locationArray = array();
@@ -79,11 +82,12 @@
                         $projectID = get_the_ID();
                         $location = get_field('location');
                         $title = get_the_title();
+                        $i++;
                         if ($location) {
                             $project_link = get_the_permalink();
                             $locationsArray [] = array($title, $location, get_the_post_thumbnail_url($projectID, 'thumbnail'), $project_link);
                         } ?>
-                        <div class="projectItem hover-box">
+                        <div class="projectItem hover-box" <?php if ($i==4){?> id ="infinity-loading" <?php }?>>
                             <div class="image"><img src="<?php the_post_thumbnail_url('large'); ?>"
                                                     alt="<?php echo $title; ?>"></div>
                             <a href="<?php the_permalink(); ?>" aria-label="project-01" class="info hover-info">
@@ -91,15 +95,17 @@
                                 <?php $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
                                 $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
                                 if ($year OR $loc):?>
-                                    <span class="dateLoc"><?php echo ($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc) : ''); ?></span>
+                                    <span class="dateLoc"><?php echo ($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : ''); ?></span>
                                 <?php endif; ?>
                             </a>
                         </div>
                     <?php endwhile;
                     wp_reset_postdata();?>
+                    <div class="see-more" id="see-more" offset = 8 style="display: none;">
+                        <span> <?php _e('loading','dokmeh');?></span>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
->>>>>>> fatemeh
     </main>
 <?php include get_template_directory() . '/footer.php';

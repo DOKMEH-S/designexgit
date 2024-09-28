@@ -73,13 +73,13 @@ function Dokmeh_scripts()
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.min.css?v=1.0.0', array(), _S_VERSION);
     }
 
-    // if (is_post_type_archive('projects')) :
-    //     wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.1.3', true);
-    //     wp_localize_script('frontend-ajax', 'frontend_ajax_object',
-    //         array(
-    //             'ajaxurl' => admin_url('admin-ajax.php'),
-    //         )
-    //     );
+     if (is_post_type_archive('projects')) :
+         wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.0', true);
+         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
+             array(
+                 'ajaxurl' => admin_url('admin-ajax.php'),
+             )
+         );
     // elseif (is_post_type_archive('rethink') OR is_home()):
     //     wp_enqueue_script('autoLoad-ajax', get_template_directory_uri() . '/assets/js/autoLoad-ajax.js', array(), '1.0.2', true);
     //     wp_localize_script('autoLoad-ajax', 'autoLoad_object',
@@ -87,7 +87,7 @@ function Dokmeh_scripts()
     //             'ajaxurl' => admin_url('admin-ajax.php'),
     //         )
     //     );
-    // endif;
+     endif;
 // // --- remove contact form 7 files from pages doesn't have form ----------
 //     if( is_front_page() OR is_page_template('tpls/contact.php') ) {
 //         wp_enqueue_script('contact-form-7');
@@ -154,5 +154,70 @@ function cc_mime_types($mimes)
 }
 
 add_filter('upload_mimes', 'cc_mime_types');
+
+//------ project filter -----------
+function project_filter_handler()
+{
+    $catIDs = $_POST['ch_id'];
+    $offset = $_POST['offset'];
+    if ($catIDs) {
+        $args = array(
+            'post_type' => 'projects',
+            'post_status' => 'publish',
+            'posts_per_page' => 8,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'project_type',
+                    'field' => 'term_id',
+                    'terms' => ($catIDs),
+                ),
+            ),
+            'offset' => $offset
+        );
+    } else {
+        $args = array(
+            'post_type' => 'projects',
+            'post_status' => 'publish',
+            'posts_per_page' => 8,
+        );
+    }
+
+    $Projectquery = new WP_Query($args);
+    $outputHTML = '';
+    $count = 0;
+    if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
+        $i=0;
+        while ($Projectquery->have_posts()) :$Projectquery->the_post();
+            $i++;
+            $projectID = get_the_ID();
+            $title = get_the_title();
+            $outputHTML .= '<div class="projectItem hover-box"';
+            if ($i==4) {
+                $outputHTML .= ' id ="infinity-loading"';
+            }
+            $outputHTML .= '>';
+            $outputHTML .= '<div class="image"><img src="'.get_the_post_thumbnail_url($projectID,'medium').'" alt="'.$title.'"></div>';
+            $outputHTML .= '<a href="'.get_the_permalink().'" aria-label="project-01" class="info hover-info">';
+            $outputHTML .= '<spna class="name">'.$title.'</spna>';
+            $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
+            $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
+                  if ($year OR $loc):
+                      $outputHTML .= '<span class="dateLoc">'.($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : '').'</span>';
+                                 endif;
+            $outputHTML .= '</a></div>';
+        endwhile;
+        wp_reset_postdata();
+    else:
+        $outputHTML = '<div class="no-result"><p>' . __('Sorry, No resault found!', 'dokmeh') . '</p></div>';
+    endif;
+    $results = array();
+    $results ['count'] = $count;
+    $results ['cat'] = $catIDs;
+    $results ['content'] = $outputHTML;
+    wp_die(json_encode($results));
+}
+
+add_action('wp_ajax_project_filter', 'project_filter_handler');
+add_action('wp_ajax_nopriv_project_filter', 'project_filter_handler');
 
 
