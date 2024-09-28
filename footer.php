@@ -139,7 +139,7 @@
 
                     // The latitude and longitude to center the map (always required)
 
-                    center: new google.maps.LatLng(25.032537, 55.140787), // Tehran 35.6892° N, 51.3890° E
+                    center: new google.maps.LatLng(<?php echo $location['lat'].','.$location['lng'];?>), // Tehran 35.6892° N, 51.3890° E
 
                     zoomControl: true,
 
