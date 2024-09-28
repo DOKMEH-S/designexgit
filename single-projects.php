@@ -90,10 +90,13 @@
     <?php
     $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
     if ($project_types) {
-        $project_type_ids = array();
-        foreach ($project_types as $project_type) {
-            $project_type_ids[] = $project_type->term_id;
-        }
+<<<<<<< HEAD
+        
+=======
+        $project_type_ids = array_map(function($term) {
+            return $term->term_id;
+        }, $project_types);
+>>>>>>> alireza
 
         $related_args = array(
             'post_type' => 'projects',
@@ -107,7 +110,7 @@
             'post__not_in' => array(get_the_ID()),
             'posts_per_page' => 3
         );
-
+// 
         $related_query = new WP_Query($related_args);
 
         if ($related_query->have_posts()) { ?>
@@ -117,7 +120,10 @@
                 </div>
                 <div class="relatedProjectsWrapper">
                     <?php while ($related_query->have_posts()) {
-                        $related_query->the_post(); ?>
+                        $related_query->the_post();
+
+                        $sub_tax_5 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
+                        $sub_tax_3 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 3, 'fields' => 'names')); ?>
 
                         <div class="relatedProjectsWrap">
                             <div class="projectMedia">
@@ -128,7 +134,12 @@
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
+<<<<<<< HEAD
                                     <span><?php echo get_the_date('Y'); ?> - </span>
+=======
+                                    <span><?php echo $sub_tax_5[0] ?? ''; ?> - </span>
+                                    <span><?php echo $sub_tax_3[0] ?? ''; ?></span>
+>>>>>>> alireza
                                 </div>
                             </a>
                         </div>
@@ -139,7 +150,8 @@
         <?php }
         wp_reset_postdata();
     }
-    ?>
+?>
+
 
 
 
