@@ -73,8 +73,8 @@
             'posts_per_page' => 8,
         );
         $query = new WP_Query($args);
-        if ($query->have_posts()) :
-            $i=0;?>
+        if ($query->have_posts()) : $count = $query->found_posts;
+            $i= ($count > 8) ?  0 : 5; ?>
             <div class="projectBody-container">
                 <div class="projectItems">
                     <?php $locationArray = array();
