@@ -74,7 +74,6 @@ if(projectVideo){
     let ceoVideoSrc = document.getElementById('modalVideoSrc');
     let modalVideo = document.getElementById('videoModal');
     let closeModal = document.getElementById('closeModalVideo');
-    console.log(videoURL);
     document.addEventListener('DOMContentLoaded', function() {
         ceoVideo.setAttribute('poster',videoPoster);
         ceoVideoSrc.setAttribute('src',videoURL);
@@ -115,7 +114,6 @@ function updateProgressBar() {
     // Get the progress bar and update its value
     const progressBar = document.getElementById("numbers");
     progressBar.value = Math.ceil(num.value + 1); // Set the value directly
-    console.log(num.value);
 }
 
 // Function to handle scroll

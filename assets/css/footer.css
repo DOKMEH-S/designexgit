@@ -84,7 +84,6 @@ footer:before{
     margin: 0;
     letter-spacing: 0rem;
     line-height: 1;
-    font-family: var(--robotoFont);
 }
 
 .footer-mailSocial {
@@ -293,4 +292,31 @@ footer form .textTypeInput input:-ms-input-placeholder { /* IE 10+ */
 }
 footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     color: var(--white);
+}
+@media only screen and (max-width: 768px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {}
+@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 1200px) and (max-width:1399px) {
+    .footer-logo img {
+        width: 8.5rem;
+        height: 6rem;
+    }
+    .footer-text > * {
+        font-size: 2.8rem;
+        line-height: 1.15;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width:1600px) {
+    .footer-logo img {
+        width: 9rem;
+        height: 7rem;
+    }
+    .footer-text > * {
+        font-size: 2.8rem;
+        line-height: 1.15;
+    }
+    .footer-text > * {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
 }

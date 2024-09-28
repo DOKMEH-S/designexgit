@@ -34,13 +34,11 @@ section.singleJobHeroSectionContainer {
     font-size: 1.5rem;
     display: block;
     font-weight: 700;
-    font-family: var(--robotoFont);
 }
 .job-title-media-wrapper h1.jobTitle {
     margin: 0 0 2.313rem 0;
     text-align: right;
     text-transform: uppercase;
-    font-family: var(--robotoFont);
     font-size: 3rem;
 }
 .job-media img {
@@ -181,6 +179,7 @@ form .upload input[type=file] {
     transform: translate(-50% , -50%);
     opacity: 0;
     z-index: 2;
+    cursor: pointer;
 }
 
 form .upload label * {
@@ -217,6 +216,7 @@ form .upload label {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 form .upload label span i {
     font-style: normal;
@@ -245,7 +245,6 @@ form .upload .warning {
 section.singleJobCultureContainer h2 {
     font-size: 3.25rem;
     margin-top: 0;
-    font-family: var(--robotoFont);
     font-weight: 400;
 }
 section.singleJobCultureContainer {

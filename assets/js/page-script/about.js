@@ -79,3 +79,35 @@ if (founderVideo){
         })
     });
 }
+//==========ANCHOR LINKS ACTIVE
+const sections = [
+    "#whyUs",
+    "#missionVision",
+    "#statement",
+    "#founder",
+    "#team",
+    "#awards",
+    "#theFuture"
+];
+sections.forEach((section, index) => {
+    gsap.utils.toArray(section).forEach((tSection) => {
+        ScrollTrigger.create({
+            trigger: tSection,
+            marker:true,
+            start: "-100px top",
+            end: "80% top",
+            onEnter: () => {
+                document.querySelectorAll('#aboutAnchorLinks a')[index].classList.add("active");
+            },
+            onLeave: () => {
+                document.querySelectorAll('#aboutAnchorLinks a')[index].classList.remove("active");
+            },
+            onEnterBack: () => {
+                document.querySelectorAll('#aboutAnchorLinks a')[index].classList.add("active");
+            },
+            onLeaveBack: () => {
+                document.querySelectorAll('#aboutAnchorLinks a')[index].classList.remove("active");
+            },
+        });
+    });
+});

@@ -1,10 +1,19 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 body[data-pagetype="contact"] main {
     padding-right: var(--spaceX);
 }
 section.contactInfoMapFormContainer {
     position: relative;
     width: 100%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 11.5rem 1fr;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 11.5rem;
     padding-top: 13rem;
@@ -13,8 +22,15 @@ section.contactInfoMapFormContainer {
 .contactInfoMapContainer {
     position: relative;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 .contactInfoMapContainer::before{
@@ -27,6 +43,8 @@ section.contactInfoMapFormContainer {
     background-repeat: no-repeat;
     left: -1rem;
     top: -1rem;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
     transform: translateX(-100%);
 }
 .contactInfoWrap {
@@ -44,8 +62,14 @@ section.contactInfoMapFormContainer {
 }
 
 .contactSocialMedia {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-column-gap: .875rem;
+    -moz-column-gap: .875rem;
     column-gap: .875rem;
     margin-bottom: 2.5rem;
 }
@@ -58,11 +82,11 @@ section.contactInfoMapFormContainer {
 #map > img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 h1.contact_title {
     margin: 0;
-    font-family: var(--robotoFont);
     text-transform: uppercase;
     text-align: right;
     font-size: 8rem;
@@ -88,6 +112,7 @@ form .textTypeInput input {
     height: 2rem;
     padding-left: 2rem;
     margin-bottom: .875rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -107,6 +132,7 @@ form .textTypeInput textarea {
     margin-bottom: .875rem;
     width: 100%;
     resize: none;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 form .textTypeInput input::-webkit-input-placeholder,form .textTypeInput textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -137,7 +163,9 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
 .checkboxWrap {
     position: relative;
     padding-left: 2rem;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     width: 70%;
     grid-row-gap: .75rem;
@@ -167,6 +195,7 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
     -webkit-appearance: none;
     background-color: transparent;
     /* border: 2px solid var(--black); */
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
     padding: 10px;
     display: inline-block;
@@ -191,6 +220,8 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
     height: 9px;
     border: solid var(--primary);
     border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 .checkBoxWrapper::before {
@@ -206,16 +237,27 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
 }
 form .submitForm {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: var(--primary);
     width: 50%;
     border-radius: 3.75rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
     column-gap: 0.5rem;
     height: 1.6rem;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
     border: 2px solid var(--primary);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -228,6 +270,8 @@ form .submitForm input[type="submit"] {
     z-index: 1;
     height: 100%;
     cursor: pointer;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 
@@ -239,6 +283,8 @@ form .submitForm svg {
 form .submitForm:hover svg path {fill: var(--primary);}
 
 form .submitForm svg path {
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 
@@ -248,6 +294,8 @@ form .submitForm:hover {
     background-color: var(--white);
 }
 .toggle-container {
+    -webkit-transition: height 0.35s ease-in-out;
+    -o-transition: height 0.35s ease-in-out;
     transition: height 0.35s ease-in-out;
     overflow: hidden;
 }
@@ -255,11 +303,15 @@ form .submitForm:hover {
     display: none;
 }
 .dropdownHeader.active span::before {
+    -webkit-transform: translate(-145%, -50%) rotate(180deg);
+    -ms-transform: translate(-145%, -50%) rotate(180deg);
     transform: translate(-145%, -50%) rotate(180deg);
 }
 section.faq-contactSlider-container {
     position: relative;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 11.5rem 1fr;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 11.5rem;
 }
@@ -271,6 +323,7 @@ section.faq-contactSlider-container {
 .accordion-item {
     position: relative;
     padding-left: 2rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 0.875rem;
     padding-bottom: 0.5rem;
@@ -292,6 +345,7 @@ section.faq-contactSlider-container {
     cursor: pointer;
     position: relative;
     padding-right: .75rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 .dropdownHeader span {font-weight: 700;}
@@ -306,6 +360,7 @@ section.faq-contactSlider-container {
 }
 .dropdownBody .content {
     padding-bottom: .5rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 .contactSlider {
@@ -325,9 +380,16 @@ section.faq-contactSlider-container {
     height: 100%;
 }
 .fade {
+    -webkit-animation-name: fade;
     animation-name: fade;
+    -webkit-animation-duration: 1.5s;
     animation-duration: 1.5s;
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 @keyframes fade {
     from {opacity: .4}
@@ -341,11 +403,14 @@ section.faq-contactSlider-container {
 .mySlides img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 .dropdownBody {
     max-height: 0;
     overflow: hidden;
+    -webkit-transition: max-height 0.5s ease;
+    -o-transition: max-height 0.5s ease;
     transition: max-height 0.5s ease; /* Smooth transition */
 }
 .accordion-item {
@@ -356,6 +421,8 @@ section.faq-contactSlider-container {
 .dropdownBody {
     max-height: 0;
     overflow: hidden;
+    -webkit-transition: max-height 0.5s ease;
+    -o-transition: max-height 0.5s ease;
     transition: max-height 0.5s ease; /* Smooth transition */
 }
 .active .dropdownBody {
@@ -370,6 +437,7 @@ section.faq-contactSlider-container {
 .videoWrapper > * {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 .contactCTAWrap {
@@ -377,14 +445,23 @@ section.faq-contactSlider-container {
     right: 0;
     background-color: var(--primary);
     padding: 0.45rem 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
     column-gap: 0.5rem;
     border-radius: 3.75rem;
     font-size: 0.75rem;
     color: var(--white);
-    border: 1px solid var(--primary);
+    border: 2px solid var(--primary);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
 }
 
@@ -407,9 +484,15 @@ section.faq-contactSlider-container {
     z-index: 1;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
     cursor: pointer;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
     transform-origin: center center;
     transform-box: fill-box;
 }
@@ -418,22 +501,36 @@ section.faq-contactSlider-container {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(.75);
+    -ms-transform: translate(-50%, -50%) scale(.75);
     transform: translate(-50%, -50%) scale(.75);
 }
 
 #playVideo img:first-child {
     width: 100%;
     height: 100%;
+    -o-object-fit: contain;
     object-fit: contain;
+    -webkit-animation: rotateR 10s linear infinite;
     animation: rotateR 10s linear infinite;
+}
+
+@-webkit-keyframes rotateR{
+    to{
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg)
+    }
 }
 
 @keyframes rotateR{
     to{
+        -webkit-transform:rotate(360deg);
         transform:rotate(360deg)
     }
 }
 #playVideo:hover {
+    -webkit-transform: translate(-50%, -50%) scale(1.15);
+    -ms-transform: translate(-50%, -50%) scale(1.15);
     transform: translate(-50%, -50%) scale(1.15);
 }
 .founderContent {
@@ -451,6 +548,8 @@ section.faq-contactSlider-container {
     height: 100vh;
     left: 0;
     pointer-events: none;
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
     opacity: 0;
 }
@@ -474,6 +573,7 @@ section.faq-contactSlider-container {
 #videoModal .videoContainer video#modalVideo {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -490,8 +590,12 @@ section.faq-contactSlider-container {
 /*==========PROGRESS BAR============*/
 section.contactStepsContainer {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -547,12 +651,21 @@ p.subtitle {
     font-weight:600;
     color: #444444;
     width: calc(100vh - var(--headerHeight) - 11rem);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
     transform-origin: left;
     height: 8px;
-    border-bottom: 1px solid var(--black););
+    border-bottom: 1px solid var(--black);
 }
-.progressWrap {position: relative;width: auto;height: 100%;width: 5px;margin: auto;}
+.progressWrap {
+    position: relative;
+    height: 100%;
+    width: 5px;
+    margin: auto;
+}
 .progressBar {
     width: var(--spaceL);
     position: sticky;
@@ -561,8 +674,14 @@ p.subtitle {
     height: calc(100vh - var(--headerHeight));
 }
 .number-percentage {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 8rem;
     font-weight: 700;
@@ -570,11 +689,107 @@ p.subtitle {
 }
 progress{
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 }
 progress[value]::-webkit-progress-bar {
     background-color: #ffffff;
     border-radius: 2px;
+    -webkit-box-shadow: 0 2px 5px transparent inset;
     box-shadow: 0 2px 5px transparent inset;
 }
 /*==========PROGRESS BAR============*/
+@media only screen and (max-width: 768px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {}
+@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 1200px) and (max-width:1399px) {
+    h1.contact_title {
+        font-size: 6rem;
+    }
+
+    .contactFormContainer {
+        padding-top: 6rem;
+    }
+
+    section.contactInfoMapFormContainer {
+        grid-column-gap: 9.5rem;
+        padding-top: 10rem;
+        margin-bottom: 8.188rem;
+    }
+
+    .contactInfoWrap {
+        font-size: .9rem;
+    }
+
+    .contactCTAWrap {
+        padding: 0.35rem 3rem;
+    }
+
+    .number-percentage {
+        font-size: 6rem;
+        height: 7rem;
+    }
+
+    #numbers {
+        width: calc(100vh - var(--headerHeight) - 8.5rem);
+    }
+
+    .stepWrap h2 {
+        font-size: 2.4rem;
+    }
+
+    .stepWrap h2::before {
+        font-size: 2.4rem;
+    }
+
+    .stepWrap .content,p.subtitle {
+        font-size: .9rem;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width:1600px) {
+    h1.contact_title {
+        font-size: 6rem;
+    }
+    section.contactInfoMapFormContainer {
+        grid-column-gap: 9.5rem;
+        padding-top: 10rem;
+    }
+    .contactCTAWrap {
+        padding: 0.35rem 3rem;
+    }
+    #map {
+        height: 35vh;
+    }
+    .videoWrapper {
+        height: 35vh;
+    }
+    .contactInfoWrap {
+        font-size: .9rem;
+    }
+    #playVideo {
+        width: 6.636rem;
+        height: 6.636rem;
+    }
+    #playVideo img:last-child {
+        -webkit-transform: translate(-50%, -50%) scale(.5);
+        -ms-transform: translate(-50%, -50%) scale(.5);
+        transform: translate(-50%, -50%) scale(.5);
+    }
+    .number-percentage {
+        font-size: 6.5rem;
+        height: 8rem;
+    }
+    #numbers {
+        width: calc(100vh - var(--headerHeight) - 10rem);
+    }
+    .stepWrap h2 {
+        font-size: 2.5rem;
+    }
+    .stepWrap h2::before {
+        font-size: 2.5rem;
+    }
+    #closeModalVideo span {
+        font-size: 1.4rem;
+    }
+
+}

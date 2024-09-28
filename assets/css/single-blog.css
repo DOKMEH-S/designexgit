@@ -29,7 +29,6 @@ section.dateTime-title .dateTime {
 section.dateTime-title h1 {
     width: 70%;
     margin: 0;
-    font-family: var(--robotoFont);
     font-size: 2.8rem;
     font-weight: 700;
     text-align: right;
@@ -176,6 +175,7 @@ section.blog-Information {
 
 .blog-Information_media {
     width: 70%;
+    height: 44vh;
 }
 
 .blog-Information_text .author {
@@ -236,7 +236,7 @@ section.blog-Information {
 
 .blog-Information_media > * {
     width: 100%;
-    height: auto;
+    height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
     -o-object-position: right;
@@ -258,7 +258,6 @@ aside.related:before {
 aside.related h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    font-family: var(--robotoFont);
     margin: 0;
     padding-bottom: 5rem;
     position: relative;
@@ -417,3 +416,23 @@ aside.related .items .item .media > * {
     pointer-events: auto;
 }
 /*==========RELATED PROJECTS============*/
+@media only screen and (max-width: 768px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {}
+@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 1200px) and (max-width:1399px) {
+    section.dateTime-title h1 {
+        font-size: 2rem;
+    }
+    section.dateTime-title .dateTime > *.date {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width:1600px) {
+    section.dateTime-title h1 {
+        font-size: 2rem;
+    }
+
+    section.dateTime-title .dateTime > *.date {
+        font-size: 1.2rem;
+    }
+}

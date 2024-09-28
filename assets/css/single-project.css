@@ -6,6 +6,16 @@
 */
 
 /*============SINGLE PROJECT HERO SECTION=============*/
+.singleProjectVideoContainer > * {
+    width: 100%;
+    height: 100%;
+}
+
+.singleProjectVideoContainer > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 body[data-pagetype="singleProject"] main {
     padding-right: var(--spaceX);
 }
@@ -20,12 +30,9 @@ section.singleProjectHeroSectionContainer {
 }
 .projectNameDescriptionWrapper .projectLogo {
     position: absolute;
-    left: 0;
-    top: 0;
-    -webkit-transform: translateX(-8rem);
-    -ms-transform: translateX(-8rem);
-    transform: translateX(-8rem);
-    width: 3.125rem;
+    bottom: 0;
+    left: calc(var(--spaceL)* -1);
+    width: var(--spaceL);
     height: 3.125rem;
 }
 .singleProjectVideoContainer {
@@ -84,10 +91,12 @@ section.singleProjectHeroSectionContainer {
     transform: translate(-100%, 10px);
 }
 .projectNameDescriptionWrapper .projectLogo img {
-    width: 100%;
+    width: 3.125rem;
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
+    margin: 5rem auto 0;
+    display: block;
 }
 
 .projectNameDescriptionWrapper h1 {
@@ -220,6 +229,72 @@ section.singleProjectHeroSectionContainer {
     margin-bottom: 0;
 }
 /*============SINGLE PROJECT HERO SECTION=============*/
+/*============SINGLE PROJECT SLIDER SECTION=============*/
+section.singleProjectGalleryContainer {
+    position: relative;
+    width: 100%;
+    display: block;
+    margin-top: 8rem;
+}
+
+section.singleProjectGalleryContainer .swiper {
+    width: 100%;
+    height: calc(100vh - var(--headerHeight));
+}
+
+section.singleProjectGalleryContainer .swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-arrows-pagination {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
+}
+
+.slider-arrows-pagination .swiper-button-next,.slider-arrows-pagination .swiper-pagination,.slider-arrows-pagination .swiper-button-prev  {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0;
+}
+.slider-arrows-pagination .swiper-button-next{
+    background-image: url("../img/link.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(45deg);
+    width: 1.8rem;
+    height: 1.8rem;
+    background-size: contain;
+}
+.slider-arrows-pagination .swiper-button-prev{
+    background-image: url("../img/link.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-45deg) scaleX(-1);
+    width: 1.8rem;
+    height: 1.8rem;
+    background-size: contain;
+}
+.slider-arrows-pagination .swiper-button-prev::after,.slider-arrows-pagination .swiper-button-next::after{
+    opacity: 0;
+}
+.slider-arrows-pagination .swiper-pagination {
+    min-width: 7rem;
+    width: auto;
+}
+
+.slider-arrows-pagination .swiper-pagination span {
+    font-variant-numeric: slashed-zero;
+}
+/*============SINGLE PROJECT SLIDER SECTION=============*/
 /*============SINGLE PROJECT GUTENBERG=============*/
 section.singleProjectContent {
     position: relative;
@@ -421,3 +496,8 @@ section.relatedProjectsContainer::before {
     pointer-events: auto;
 }
 /*==========MODAL VIDEO============*/
+@media only screen and (max-width: 768px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {}
+@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 1200px) and (max-width:1399px) { }
+@media only screen and (min-width: 1400px) and (max-width:1600px) {}

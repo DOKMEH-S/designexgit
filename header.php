@@ -9,7 +9,7 @@
             opacity: 0;
         }
         <?php if(is_singular('projects')):?>
-        #videoModal{
+        #videoModal,#menuContainer{
             display: none;
         }
         <?php endif;?>

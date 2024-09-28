@@ -31,3 +31,21 @@ if(projectVideo){
         })
     });
 }
+//============= GALLERY SLIDER
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    effect: "fade",
+    loop:true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+    },
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+});

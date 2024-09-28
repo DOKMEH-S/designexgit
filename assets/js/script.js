@@ -77,25 +77,53 @@ function updateUAETime() {
 updateUAETime();
 
 // =============================Menu
+const menuIcon = document.querySelector('.menu-icon');
 
-//     document.querySelectorAll('#menuContainer .infoSection .navItem .title').forEach(title => {
-//     title.addEventListener('mouseenter', () => {
-//         // Remove 'selected' class from all navItems
-//         document.querySelectorAll('#menuContainer .infoSection .navItem').forEach(item => {
-//             item.classList.remove('selected');
-//         });
-//
-//         // Add 'selected' class to the current navItem
-//         const navItem = title.parentElement;
-//         navItem.classList.add('selected');
-//
-//         // Get the image source from the current navItem
-//         const imgSrc = navItem.querySelector('.media img').src;
-//
-//         // Set the image source in the mediaSection
-//         document.querySelector('#menuContainer .mediaSection img').src = imgSrc;
-//     });
-// });
+menuIcon.addEventListener('click', function() {
+    document.body.classList.toggle('opMenu');
+});
+
+
+
+// Append all images to mediaSection
+const mediaSection = document.querySelector('#menuContainer .mediaSection');
+const navItems = document.querySelectorAll('#menuContainer .infoSection .navItem');
+
+navItems.forEach(item => {
+    const img = item.querySelector('.media img').cloneNode();
+    img.classList.add('notSelected'); // Set notSelected class initially
+    mediaSection.appendChild(img);
+});
+
+// Event listeners for hover effect
+document.querySelectorAll('#menuContainer .infoSection .navItem .title').forEach(title => {
+    title.addEventListener('mouseenter', () => {
+
+        // Remove 'selected' class from all navItems
+        document.querySelectorAll('#menuContainer .infoSection .navItem').forEach(item => {
+            item.classList.remove('selected');
+        });
+
+        // Add 'selected' class to the current navItem
+        const navItem = title.parentElement;
+        navItem.classList.add('selected');
+
+
+        const selectedImgSrc = title.parentElement.querySelector('.media img').src;
+        // Remove 'selected' class from all images and add 'notSelected'
+        document.querySelectorAll('#menuContainer .mediaSection img').forEach(img => {
+            img.classList.remove('selected');
+            img.classList.add('notSelected');
+        });
+
+        // Add 'selected' class to the current image
+        const currentImg = Array.from(mediaSection.children).find(img => img.src === selectedImgSrc);
+        if (currentImg) {
+            currentImg.classList.add('selected');
+            currentImg.classList.remove('notSelected');
+        }
+    });
+});
 /*=============Scroll Direction*/
 
 
