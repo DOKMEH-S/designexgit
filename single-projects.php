@@ -119,7 +119,7 @@
                         $related_query->the_post();
 
                         $date = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
-                        $location = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 3, 'fields' => 'names')); ?>
+                        $location = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 93, 'fields' => 'names')); ?>
 
                         <div class="relatedProjectsWrap">
                             <div class="projectMedia">
