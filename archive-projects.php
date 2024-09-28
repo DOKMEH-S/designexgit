@@ -108,4 +108,13 @@
             </div>
         <?php endif; ?>
     </main>
-<?php include get_template_directory() . '/footer.php';
+<?php if(sizeof($locationArray)>0){?>
+    <div id="mapProjectsContainer">
+        <div id="mapProjects"></div>
+        <div id="closeMap">
+            <img src="<?php ThemeAssets('img/link.svg');?>" alt="link icon">
+            <span>close</span>
+        </div>
+    </div>
+<?php }
+    include get_template_directory() . '/footer.php';
