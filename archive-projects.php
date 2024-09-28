@@ -108,8 +108,7 @@
             </div>
         <?php endif; ?>
     </main>
-<?php var_dump($locationsArray);
-if((sizeof($locationArray))>0){?>
+<?php if($locationsArray){?>
     <div id="mapProjectsContainer">
         <div id="mapProjects"></div>
         <div id="closeMap">
