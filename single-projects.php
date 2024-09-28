@@ -82,7 +82,35 @@
             <?php endif; ?>
         </div>
     </section>
-    
+    <?php
+    $gallery = get_field('gallery');
+    if ($gallery): ?>
+        <section class="singleProjectGalleryContainer">
+
+            <div class="swiper mySwiper">
+
+                <div class="swiper-wrapper">
+                    <?php foreach ($gallery as $image): ?>
+                        <div class="swiper-slide">
+                        <?php echo wp_get_attachment_image( $image, 'medium' ); ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+
+            <div class="slider-arrows-pagination">
+
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+
+            </div>
+
+        </section>
+    <?php endif; ?>
     <section class="singleProjectContent"> 
         <div class="columnTwo">
             <?php the_content(); ?>
