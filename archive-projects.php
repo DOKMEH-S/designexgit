@@ -101,9 +101,9 @@
                         </div>
                     <?php endwhile;
                     wp_reset_postdata();?>
-                    <div class="see-more" id="see-more" offset = 8 style="display: none;">
-                        <span> <?php _e('loading','dokmeh');?></span>
-                    </div>
+                </div>
+                <div class="see-more" id="see-more" offset = 8 style="display: none;">
+                    <span> <?php _e('loading','dokmeh');?></span>
                 </div>
             </div>
         <?php endif; ?>
