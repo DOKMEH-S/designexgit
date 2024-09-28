@@ -10,14 +10,17 @@
         header {
             opacity: 0;
         }
-
         <?php if (is_singular('projects')): ?>
             #videoModal,
             #menuContainer {
                 display: none;
             }
-
-        <?php endif; ?>
+        <?php endif;
+        if(is_archive('projects')):?>
+        #menuContainer,#mapProjectsContainer{
+            display: none;
+        }
+        <?php endif;?>
         #menuContainer {
             display: none;
         }

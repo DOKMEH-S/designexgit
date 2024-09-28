@@ -187,7 +187,7 @@ function project_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i=0;
+        $i= ($count > 8) ?  0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
             $i++;
             $projectID = get_the_ID();
