@@ -159,7 +159,7 @@ add_filter('upload_mimes', 'cc_mime_types');
 function project_filter_handler()
 {
     $catIDs = $_POST['ch_id'];
-    $offset = $_POST['offset'];
+    $offset = intval($_POST['offset']);
     if ($catIDs) {
         $args = array(
             'post_type' => 'projects',
