@@ -81,7 +81,6 @@
             <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
         </div>
     </div>
-    <?php wp_footer(); ?>
 </footer>
 <?php if (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/jQuery.min.js'); ?>"></script>
@@ -96,6 +95,7 @@
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
 <?php endif; ?>
+<?php wp_footer(); ?>
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('header').style.opacity = '1';
