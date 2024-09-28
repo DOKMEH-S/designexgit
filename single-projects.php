@@ -118,8 +118,8 @@
                     <?php while ($related_query->have_posts()) {
                         $related_query->the_post();
 
-                        $sub_tax_5 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
-                        $sub_tax_3 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 3, 'fields' => 'names')); ?>
+                        $date = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
+                        $location = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 3, 'fields' => 'names')); ?>
 
                         <div class="relatedProjectsWrap">
                             <div class="projectMedia">
@@ -130,8 +130,8 @@
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
-                                    <span><?php echo $sub_tax_5[0] ?? ''; ?> - </span>
-                                    <span><?php echo $sub_tax_3[0] ?? ''; ?></span>
+                                    <span><?php echo $date[0] ?? ''; ?> - </span>
+                                    <span><?php echo $location[0] ?? ''; ?></span>
                                 </div>
                             </a>
                         </div>
