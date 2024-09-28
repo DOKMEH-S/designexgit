@@ -180,6 +180,7 @@ function project_filter_handler()
             'post_type' => 'projects',
             'post_status' => 'publish',
             'posts_per_page' => 8,
+            'offset' => $offset
         );
     }
 
@@ -187,7 +188,7 @@ function project_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i= ($count > 8) ?  0 : 5;
+        $i= ($count > $offset) ?  0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
             $i++;
             $projectID = get_the_ID();
