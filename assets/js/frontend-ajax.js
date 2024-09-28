@@ -24,7 +24,9 @@ jQuery(document).ready(function ($) {
                     }else{
                         $('.projectItems').append(response.content);
                     }
-                    targetOffset = ($("#infinity-loading").offset().top) - 300;
+                    if (response.show) {
+                        targetOffset = ($("#infinity-loading").offset().top) - 200;
+                    }
                     $('.see-more').css('display','none');
                 }
             },//this function handle json response data
