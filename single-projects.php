@@ -78,22 +78,27 @@
         </div>
     </section>
     <?php
-    $categories = get_the_category();
-    if ($categories) {
-        $category_ids = array();
-        foreach ($categories as $category) {
-            $category_ids[] = $category->term_id;
-        }
+    $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
+    if ($project_types) {
+        $project_type_ids = array_map(function($term) {
+            return $term->term_id;
+        }, $project_types);
 
         $related_args = array(
-            'category__in' => $category_ids,
-            'post__not_in' => array(get_the_ID()), 
-            'posts_per_page' => 3 
+            'post_type' => 'projects',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'project_type',
+                    'field' => 'term_id',
+                    'terms' => $project_type_ids,
+                ),
+            ),
+            'post__not_in' => array(get_the_ID()),
+            'posts_per_page' => 3
         );
 
         $related_query = new WP_Query($related_args);
 
-    
         if ($related_query->have_posts()) { ?>
             <section class="relatedProjectsContainer">
                 <div class="titleWrap">
@@ -101,19 +106,22 @@
                 </div>
                 <div class="relatedProjectsWrapper">
                     <?php while ($related_query->have_posts()) {
-                        $related_query->the_post(); ?>
+                        $related_query->the_post();
+
+                        $sub_tax_5 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
+                        $sub_tax_3 = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 3, 'fields' => 'names')); ?>
 
                         <div class="relatedProjectsWrap">
                             <div class="projectMedia">
                                 <?php if (has_post_thumbnail()): ?>
                                     <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
-                                <?php endif;?>   
+                                <?php endif; ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="project-info">
                                 <p class="project-name"><?php the_title(); ?></p>
                                 <div class="year-location">
-                                    <span><?php echo get_the_date('Y'); ?> -
-                                        <?php the_field('location'); ?></span>
+                                    <span><?php echo $sub_tax_5[0] ?? ''; ?> - </span>
+                                    <span><?php echo $sub_tax_3[0] ?? ''; ?></span>
                                 </div>
                             </a>
                         </div>
@@ -124,7 +132,8 @@
         <?php }
         wp_reset_postdata();
     }
-    ?>
+?>
+
 
 </main>
 <?php get_footer();
