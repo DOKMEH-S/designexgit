@@ -113,9 +113,9 @@
     <?php endif; ?>
 
     <section class="singleProjectContent">
-        <div class="columnTwo">
+        
             <?php the_content(); ?>
-        </div>
+        
     </section>
     <?php
     $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
