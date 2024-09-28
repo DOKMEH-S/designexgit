@@ -84,17 +84,15 @@
     </section>
     <?php
     $gallery = get_field('gallery');
-    var_dump($gallery);
     if ($gallery): ?>
         <section class="singleProjectGalleryContainer">
 
             <div class="swiper mySwiper">
 
                 <div class="swiper-wrapper">
-                    <?php foreach ($gallery as $image): ?>
+                    <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
-                            <img src="<?php echo wp_get_attachment_image_url($image); ?>" alt="" />
-
+                            <img src="<?php echo esc_url($image_url); ?>" alt="Gallery Image">
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,6 +111,7 @@
 
         </section>
     <?php endif; ?>
+
     <section class="singleProjectContent">
         <div class="columnTwo">
             <?php the_content(); ?>
