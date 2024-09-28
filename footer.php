@@ -121,7 +121,7 @@
             function init() {
                 // Basic options for a simple Google Map
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-                var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
+                var image = new google.maps.MarkerImage("<?php ThemeAssets('img/mappin.png'); ?>");
 
                 var mapOptions = {
                     // How zoomed in you want the map to start at (always required)
