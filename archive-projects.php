@@ -71,7 +71,6 @@
             'posts_per_page' => -1,
         );
         $query = new WP_Query($args);
-        $outputHTML = '';
         if ($query->have_posts()) :?>
             <div class="projectBody-container">
                 <div class="projectItems">
