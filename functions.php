@@ -170,6 +170,7 @@ function project_filter_handler()
                     'taxonomy' => 'project_type',
                     'field' => 'term_id',
                     'terms' => ($catIDs),
+                    'operator' => 'AND',
                 ),
             ),
             'offset' => $offset
