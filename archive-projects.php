@@ -287,7 +287,8 @@
                                 <?php endif; ?>
                             </a>
                         </div>
-                    <?php endwhile; ?>
+                    <?php endwhile;
+                    wp_reset_postdata();?>
                 </div>
             </div>
         <?php endif; ?>
