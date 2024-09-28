@@ -89,6 +89,7 @@
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
+<script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
