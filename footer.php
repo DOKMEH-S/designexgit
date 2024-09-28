@@ -100,11 +100,12 @@
     document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main.wrapper').style.opacity = '1';
-        <?php if (is_singular('projects')): ?>
-            if (document.getElementById('videoModal')) {
-                document.getElementById('videoModal').style.display = 'block';
-            }
-        <?php endif; ?>
+        document.getElementById('menuContainer').style.display = 'flex';
+        <?php if(is_singular('projects')):?>
+        if (document.getElementById('videoModal')) {
+            document.getElementById('videoModal').style.display = 'block';
+        }
+        <?php endif;?>
         document.querySelector('html').classList.add('loadingDone');
     });
 </script>
