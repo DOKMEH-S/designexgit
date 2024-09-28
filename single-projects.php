@@ -96,7 +96,7 @@
             'post__not_in' => array(get_the_ID()),
             'posts_per_page' => 3
         );
-
+// 
         $related_query = new WP_Query($related_args);
 
         if ($related_query->have_posts()) { ?>
