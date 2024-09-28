@@ -551,7 +551,7 @@
     <?php endif; ?>
 <?php endif; ?>
 <?php if(is_archive('projects')):
-if(sizeof($locationArray)>0) {?>
+//if(sizeof($locationArray)>0) {?>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
     <script type="text/javascript">
@@ -968,7 +968,7 @@ if(sizeof($locationArray)>0) {?>
         }
 
     </script>
-<?php }
+<?php //}
 endif;?>
 </body>
 
