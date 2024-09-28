@@ -188,7 +188,7 @@ function project_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i= 0 ;
+        $i=$count > 8+$offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
             $i++;
             $projectID = get_the_ID();
@@ -215,7 +215,7 @@ function project_filter_handler()
     $results = array();
     $results ['count'] = $count;
     $results ['cat'] = $catIDs;
-    if(($count > 8+$offset)){
+    if($count > 8+$offset){
         $results ['show'] = true;
     }
     $results ['content'] = $outputHTML;
