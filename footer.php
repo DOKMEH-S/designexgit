@@ -1,13 +1,3 @@
-<div id="videoModal">
-    <div class="videoContainer">
-        <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
-            <source id="modalVideoSrc" src="" type="video/mp4">
-        </video>
-    </div>
-    <div id="closeModalVideo">
-        <span>close</span>
-    </div>
-</div>
 <footer class="paddingX">
     <div class="footerSides">
         <div class="footerSide">
@@ -95,6 +85,8 @@
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+<?php elseif (is_page_template('tpls/about.php')): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
 <script>
@@ -102,7 +94,7 @@
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main.wrapper').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        <?php if (is_singular('projects')): ?>
+        <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
             if (document.getElementById('videoModal')) {
                 document.getElementById('videoModal').style.display = 'block';
             }
@@ -128,7 +120,7 @@
 
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-                var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png');?>");
+                var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
 
 
 
@@ -140,7 +132,7 @@
 
                     // The latitude and longitude to center the map (always required)
 
-                    center: new google.maps.LatLng(<?php echo $location['lat'].','.$location['lng'];?>), // Tehran 35.6892° N, 51.3890° E
+                    center: new google.maps.LatLng(<?php echo $location['lat'] . ',' . $location['lng']; ?>), // Tehran 35.6892° N, 51.3890° E
 
                     zoomControl: true,
 
@@ -911,11 +903,11 @@
 
                 var marker = new google.maps.Marker({
 
-                    position: new google.maps.LatLng(<?php echo $location['lat'].','.$location['lng'];?>),
+                    position: new google.maps.LatLng(<?php echo $location['lat'] . ',' . $location['lng']; ?>),
 
                     map: map,
 
-                    url: 'https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'].','.$location['lng'];?>',
+                    url: 'https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>',
 
                     title: 'Designex',
 

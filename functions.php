@@ -52,7 +52,7 @@ function Dokmeh_scripts()
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/home.min.css', array(), _S_VERSION);
     } // Check if it's the about page
     elseif (is_page_template('tpls/about.php')) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.min.css', array(), _S_VERSION);
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
     } // Check if it's the rethink archive page
     elseif (is_post_type_archive('rethink') or is_singular('rethink')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
