@@ -910,11 +910,11 @@
 
                 var marker = new google.maps.Marker({
 
-                    position: new google.maps.LatLng(25.032537, 55.140787),
+                    position: new google.maps.LatLng(<?php echo $location['lat'].','.$location['lng'];?>),
 
                     map: map,
 
-                    url: 'https://www.google.com/maps/dir/?api=1&destination=35.812279,51.449358',
+                    url: 'https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'].','.$location['lng'];?>',
 
                     title: 'Designex',
 
