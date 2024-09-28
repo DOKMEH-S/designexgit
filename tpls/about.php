@@ -13,7 +13,7 @@
             <!--                <h1>Designex</h1>-->
             <!--            </div>-->
             <div class="aboutAnchorLinksWrap">
-                <img src="./assets/img/elm.svg" alt="">
+                <img src="<?php ThemeAssets('img/elm.svg'); ?>" alt="">
                 <div id="aboutAnchorLinks">
                     <a href="#whyUs">why us?</a>
                     <a href="#missionVision">mission & vision</a>
@@ -27,70 +27,52 @@
         </section>
         <section class="aboutSloganContainer paddingAboutX">
             <div class="logo-items">
-                <img src="./assets/img/about-logo.svg" alt="">
+                <?php $logo = get_field('logo', 'option'); ?>
+                <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/about-logo.svg'; ?>"
+                    alt="">
                 <h1>Designex</h1>
             </div>
-            <div class="aboutVideoWrap">
-                <video autoplay muted loop playsinline preload="auto" poster="">
-                    <source src="./assets/video/coverr-city-skyscrapers-471-1080p.mp4" type="video/mp4">
-                </video>
-            </div>
+            <?php
+            $video = get_field('main_video');
+            $poster = get_field('poster');
+
+            if ($video): ?>
+                <div class="aboutVideoWrap">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $video; ?>">
+                        <source src="<?php echo $video; ?>" type="video/mp4">
+                    </video>
+                </div>
+            <?php endif; ?>
             <div class="aboutSloganInfo">
-                <h2>Crafting Luxury, Driven by Research, Delivering Excellence from Concept to Completion.</h2>
+                <h2><?php echo get_field('about_title'); ?></h2>
                 <div class="content">
-                    <p>Communicate that Designex offers a full spectrum of services, from luxury renovation to urban
-                        planning and environmental studies, all grounded in research and executed with excellence.</p>
-                    <p>Communicate that Designex offers a full spectrum of services, from luxury renovation to urban
-                        planning and environmental studies, all grounded in research and executed with excellence.</p>
+                    <?php echo get_field('about_description'); ?>
                 </div>
             </div>
         </section>
-        <section class="whyUsContainer paddingAboutX" id="whyUs">
-            <div class="whyUsTitle aboutTitle">
-                <h2>Choosing Designex for your design and construction needs comes with a multitude of distinct
-                    advantages:</h2>
-            </div>
-            <div class="whyUsDescription">
-                <div class="descriptionSteps">
-                    <h3>World-class Expertise:</h3>
-                    <p>Our team comprises professionals with extensive experience in delivering luxury projects in
-                        Dubai. Additionally, we collaborate with leading international universities and experts to
-                        ensure the highest quality and reliability across all our services, including new ventures into
-                        urban design and environmental sustainability.</p>
+        <?php if (have_rows('reason')): ?>
+            <section class="whyUsContainer paddingAboutX" id="whyUs">
+                <?php $whyus = get_field('section_1');
+                if ($whyus): ?>
+                    <div class="whyUsTitle aboutTitle">
+                        <h2><?php echo $whyus; ?></h2>
+                    </div>
+                <?php endif; ?>
+                <div class="whyUsDescription">
+                    <?php while (have_rows('reason')):
+                        the_row(); 
+                        $title = get_sub_field('title');
+                        $des = get_sub_field('des');?>
+                        <div class="descriptionSteps">
+                            <h3><?php echo $title;?></h3>
+                            <p><?php echo $des;?></p>
+                        </div>
+                    <?php endwhile; ?>
+
                 </div>
-                <div class="descriptionSteps">
-                    <h3>Comprehensive Services:</h3>
-                    <p>We offer a wide array of services from architectural design, interior design, and construction
-                        management to urban planning, master planning, environmental impact assessments, and
-                        sustainability appraisals. Our diverse services make us your go-to partner for all your
-                        architectural and design needs, from luxury villas to sustainable urban developments.</p>
-                </div>
-                <div class="descriptionSteps">
-                    <h3>Eco-friendly Luxury:</h3>
-                    <p>Our unique vision of luxury incorporates respect for both humanity and the environment. Our
-                        design ethos centres on creating luxurious spaces in harmony with nature, promoting sustainable
-                        living, and driving ecological responsibility.</p>
-                </div>
-                <div class="descriptionSteps">
-                    <h3>Cost-effective Solutions:</h3>
-                    <p>Despite our emphasis on high-end sustainable design, we offer cost-effective solutions, ensuring
-                        that quality and luxury are accessible within your budget. Our extensive experience in design
-                        and construction enables us to deliver sustainable luxury that balances beauty with
-                        functionality.</p>
-                </div>
-                <div class="descriptionSteps">
-                    <h3>Cultural Sensitivity:</h3>
-                    <p>With a deep understanding of local and international cultures, Designex delivers projects that
-                        resonate with both local aesthetics and global best practices.</p>
-                </div>
-                <div class="descriptionSteps">
-                    <h3>Customized Approach:</h3>
-                    <p>We tailor every project to its unique context and the client's vision, enhancing the quality of
-                        life while striking a balance with the environment. Our projects aim to set a new standard for
-                        quality living and urban development in Dubai and beyond.</p>
-                </div>
-            </div>
-        </section>
+
+            </section>
+        <?php endif; ?>
         <section class="missionVisionContainer paddingAboutL" id="missionVision">
             <div class="aboutTitle">
                 <h2>Mission & Vision</h2>
