@@ -29,7 +29,7 @@
                                     <span class="projectHeader-container_row-title"><?php echo $cats[0]->name; ?></span>
                                     <div class="projectHeader-container_row-items">
                                         <?php foreach ($children as $child): ?>
-                                            <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>"><?php echo $child->name; ?></span>
+                                            <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>" group ="<?php echo $parentID;?>"><?php echo $child->name; ?></span>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                             <span class="projectHeader-container_row-title"><?php echo $cats[$i]->name; ?></span>
                                             <div class="projectHeader-container_row-items">
                                                 <?php foreach ($children as $child): ?>
-                                                    <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>"><?php echo $child->name; ?></span>
+                                                    <span class="project-filter group-<?php echo $parentID;?>" data-id="<?php echo $child->term_id;?>" group ="<?php echo $parentID;?>"><?php echo $child->name; ?></span>
                                                 <?php endforeach; ?>
                                             </div>
                                         </div>
