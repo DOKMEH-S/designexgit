@@ -4,22 +4,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Designex</title>
     <style>
         main.wrapper,header{
             opacity: 0;
         }
+        <?php if(is_singular('projects')):?>
         #videoModal{
             display: none;
         }
+        <?php endif;?>
     </style>
     <link href="<?php ThemeAssets('css/fonts.css');?>" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link href="<?php ThemeAssets('css/footer.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php ThemeAssets('css/swiper-bundle.min.css');?>" rel="stylesheet" type="text/css">
+<!--    <link href="--><?php //ThemeAssets('css/footer.css');?><!--" rel="stylesheet" type="text/css">-->
     <?php wp_head(); ?>
 </head>
 <div id="loading" class="paddingX">
     <div class="loading-logoContainer">
-        <a href="./index.html" aria-label="logo" class="logo-img"><img src="<?php ThemeAssets('img/logo.svg');?>" alt="logo"></a>
+        <a href="<?php echo site_url('/');?>" aria-label="logo" class="logo-img"><img src="<?php ThemeAssets('img/logo.svg');?>" alt="logo"></a>
         <img src="<?php ThemeAssets('img/logo-text.webp');?>" alt="logo" class="logo-text">
     </div>
     <div class="loading-lineContainer">
@@ -28,8 +30,9 @@
 </div>
 <body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_singular('projects')): echo 'singleProject';endif;?>">
 <header>
-    <a href="index.html" class="identity">
-        <img src="<?php ThemeAssets('img/logo.svg');?>" alt="">
+    <?php $logo = get_field('logo','option');?>
+    <a href="<?php echo site_url('/');?>" class="identity">
+        <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>" alt="site logo">
     </a>
     <div id="menu-container">
         <nav>

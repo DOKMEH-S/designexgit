@@ -45,7 +45,7 @@ function Dokmeh_scripts()
 {
 // Enqueue header and footer styles along with the default stylesheet
     wp_enqueue_style('designex-style', get_stylesheet_uri(), array(), _S_VERSION);
-
+    wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), _S_VERSION);
     // Check if it's the front page
 
     if (is_front_page()) {
