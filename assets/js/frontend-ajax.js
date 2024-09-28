@@ -19,7 +19,12 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 if (parseInt(response.count) >= 0) {
-                    $('.projectItems').html(response.content);
+                    if(offset==0){
+                        $('.projectItems').html(response.content);
+                    }else{
+                        $('.projectItems').append(response.content);
+                    }
+
                     $('.see-more').css('display','none');
                 }
             },//this function handle json response data
