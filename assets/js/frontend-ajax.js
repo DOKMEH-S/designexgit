@@ -5,6 +5,7 @@ jQuery(document).ready(function ($) {
             selected.push($(this).attr('data-id'));
         });
         $('.see-more').attr('offset',(parseInt(offset) + 8) );
+        targetOffset = 9999999999999999;
         $.ajax({
             url: frontend_ajax_object.ajaxurl,
             type: 'post',
