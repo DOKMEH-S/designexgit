@@ -90,9 +90,9 @@
             <div class="swiper mySwiper">
 
                 <div class="swiper-wrapper">
-                    <?php foreach ($images as $image_id): ?>
+                    <?php foreach ($gallery as $image): ?>
                         <div class="swiper-slide">
-                        <?php echo wp_get_attachment_image( $image_id, 'medium' ); ?>
+                        <?php echo wp_get_attachment_image( $image, 'medium' ); ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
