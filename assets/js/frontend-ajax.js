@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
         jQuery('.project-filter.selected').each(function () {
             selected.push($(this).attr('data-id'));
         });
-        $('.see-more').attr('offset',(parseInt(offset) + 4) );
+        $('.see-more').attr('offset',(parseInt(offset) + 8) );
         $.ajax({
             url: frontend_ajax_object.ajaxurl,
             type: 'post',
@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
                     }else{
                         $('.projectItems').append(response.content);
                     }
-
+                    targetOffset = ($("#infinity-loading").offset().top) - 300;
                     $('.see-more').css('display','none');
                 }
             },//this function handle json response data
