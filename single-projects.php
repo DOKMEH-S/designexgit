@@ -92,7 +92,8 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image): ?>
                         <div class="swiper-slide">
-                            <?php echo wp_get_attachment_image($image); ?>
+                            <img src="<?php echo wp_get_attachment_image_url($image); ?>" alt="" />
+
                         </div>
                     <?php endforeach; ?>
                 </div>
