@@ -92,7 +92,7 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image): ?>
                         <div class="swiper-slide">
-                        <?php echo wp_get_attachment_image( $image, 'medium' ); ?>
+                            <?php echo wp_get_attachment_image($image); ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -111,7 +111,7 @@
 
         </section>
     <?php endif; ?>
-    <section class="singleProjectContent"> 
+    <section class="singleProjectContent">
         <div class="columnTwo">
             <?php the_content(); ?>
         </div>
