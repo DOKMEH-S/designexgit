@@ -64,10 +64,10 @@
                         <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
                     </div>
                 </div>
-            <?php
+                <?php
             elseif ($image): ?>
                 <img src="<?php echo $image; ?>" alt="circle text">
-            <?php
+                <?php
             elseif ($vr): ?>
                 <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
             <?php endif; ?>
@@ -82,7 +82,36 @@
             <?php endif; ?>
         </div>
     </section>
-    <section class="singleProjectContent"> <!-- It is sample, Gutenberg goes here ok Alireza!? -->
+    <?php
+    $gallery = get_field('gallery');
+    if ($gallery): ?>
+        <section class="singleProjectGalleryContainer">
+
+            <div class="swiper mySwiper">
+
+                <div class="swiper-wrapper">
+                    <?php foreach ($images as $image_id): ?>
+                        <div class="swiper-slide">
+                        <?php echo wp_get_attachment_image( $image_id, 'medium' ); ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+
+            <div class="slider-arrows-pagination">
+
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+
+            </div>
+
+        </section>
+    <?php endif; ?>
+    <section class="singleProjectContent"> 
         <div class="columnTwo">
             <?php the_content(); ?>
         </div>
@@ -90,7 +119,7 @@
     <?php
     $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
     if ($project_types) {
-        $project_type_ids = array_map(function($term) {
+        $project_type_ids = array_map(function ($term) {
             return $term->term_id;
         }, $project_types);
 
@@ -106,7 +135,7 @@
             'post__not_in' => array(get_the_ID()),
             'posts_per_page' => 3
         );
-// 
+        // 
         $related_query = new WP_Query($related_args);
 
         if ($related_query->have_posts()) { ?>
@@ -142,7 +171,7 @@
         <?php }
         wp_reset_postdata();
     }
-?>
+    ?>
 
 </main>
 <?php get_footer();
