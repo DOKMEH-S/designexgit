@@ -8,7 +8,7 @@
         main.wrapper, header {
             opacity: 0;
         }
-        <?php if (is_singular('projects')): ?>
+        <?php if (is_singular('projects') or is_page_template('tpls/contact.php')): ?>
             #videoModal,
             #menuContainer {
                 display: none;
@@ -37,8 +37,7 @@
         <div class="line"></div>
     </div>
 </div>
-<body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):
-        echo 'about'; endif; ?>">
+<body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):echo 'about';elseif (is_page_template('tpls/contact.php')):echo 'contact'; endif; ?>">
     <div id="loading" class="paddingX">
         <div class="loading-logoContainer">
             <a href="<?php echo site_url('/'); ?>" aria-label="logo" class="logo-img"><img src="./assets/img/logo.svg"
@@ -56,13 +55,25 @@
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                 alt="site logo">
         </a>
-        <div class="startProject"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div>
+        <?php        $pages = get_pages(array(
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'contact.php'
+));
+        $contactID =$pages[0]->ID;        ?>
+        <div class="startProject"><a href="<?php echo get_the_permalink($contactID);?>" aria-label="Start a Project?">Start a Project?</a></div>
         <div class="menu-icon">
             <div class="quickMenu">
                 <nav>
                     <ul>
-                        <li><a href="./archive-projects.html" aria-label="Projects">Projects</a></li>
-                        <li><a href="./services.html" aria-label="Services">Services</a></li>
+                        <li><a href="<?php echo get_post_type_archive_link('projects');?>" aria-label="Projects">Projects</a></li>
+                        <?php  $pages = get_pages(array(
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'services.php'
+));
+        $serviceID =$pages[0]->ID;
+      if($serviceID){  ?>
+                        <li><a href="<?php echo get_the_permalink($serviceID);?>" aria-label="Services"><?php echo get_the_title($serviceID);?></a></li>
+                    <?php }?>
                     </ul>
                 </nav>
             </div>

@@ -24,6 +24,6 @@ jobs:
         passive: true
         local-dir: ./  # مسیر لوکال فایل‌ها
         server-dir: ./wp-content/themes/dokmeh/  #  آپلود به پوشه فالب روی سرور بعد از شروع داینامیک
-        #server-dir: ./Temp/  #  آپلود به پوشه استاتیک سرور بعد از شروع داینامیک
+        #server-dir: ./Designex Temp/  #  آپلود به پوشه استاتیک سرور بعد از شروع داینامیک
         #server-dir: ./  #  آپلود به روت اصلی استاتیک سرور
       

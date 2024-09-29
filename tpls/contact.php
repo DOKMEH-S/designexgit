@@ -1,175 +1,246 @@
 <?php //Template Name: Contact tpl
 get_header(); ?>
-<?php if (have_rows('opportunities')): ?>
-    <div id="modal" data-lenis-prevent>
-        <img src="<?php ThemeAssets('img/modal-close.svg'); ?>" alt="close" class="close hover-target">
-        <p class="title"><?php _e('Apply','dokmeh');?></p>
-        <?php $wpml_current_lang = ICL_LANGUAGE_CODE;
-        $form = ($wpml_current_lang == 'en')?  '[contact-form-7 id="e19baeb" title="opportunity form"]' : '[contact-form-7 id="927099a" title="opportunity form Ru"]';
-        if($form) :?>
-            <div class="form">
-                <?php echo apply_shortcodes($form); ?>
-            </div>
-        <?php endif; ?>
-    </div>
-<?php endif; ?>
     <main class="wrapper contactWrapper">
-        <section class="pageIntro paddingX">
-            <img class="background" src="<?php ThemeAssets('img/intro-logo.png');?>" alt="">
-            <div class="info">
-                <h1 class="title">/ <?php the_title();?></h1>
-                <?php
-                // Get the original text from the textarea field
-                $original_text = get_field('main_description');
-
-                // Get the repeater field
-                $repeater_field = get_field('color_text_c');
-
-                // If the original text and the repeater field exist
-                if ($original_text && $repeater_field) {
-                    // Loop through each item in the repeater field
-                    foreach ($repeater_field as $item) {
-                        // Get the word from the repeater field
-                        $word = $item['color_word_c'];
-
-                        // Replace the word in the original text with the colorful version
-                        $original_text = str_replace($word, '<span class="colorful">' . $word . '</span>', $original_text);
-                    }
-
-                    // Output the modified text
-                    echo '<p class="description">' . $original_text . '</p>';
-                }
-                ?>
+        <div id="newsletterLink-container">
+            <span>Monthly Newsletter</span>
+            <a href="">
+                <img src="./assets/img/link.svg" alt="link">
+                Subscribe here
+            </a>
+        </div>
+        <section class="contactInfoMapFormContainer">
+            <h1 class="contact_title">Do You have a<br> project?</h1>
+            <div class="contactInfoMapContainer">
+                <div class="contactInfoWrapper">
+                    <a aria-label="Designex Whatsapp" href="" class="contactCTAWrap whatsapp"><span class="icon-Whats-app" aria-hidden="true"></span><span>Small chat on WhatApp</span></a>
+                    <div class="contactInfoWrap">
+                        <span class="title">phone number</span>
+                        <a href="tel:00971544806995">+971 54 480 6995</a>
+                    </div>
+                    <div class="contactInfoWrap">
+                        <span class="title">phone number</span>
+                        <a href="tel:00971544806995">+971 (4) 374 1159</a>
+                    </div>
+                    <div class="contactInfoWrap">
+                        <span class="title">email</span>
+                        <a href="mailto:info@designex.ae">info@designex.ae</a>
+                    </div>
+                    <div class="contactInfoWrap address">
+                        <a href="mailto:info@designex.ae">P.O.Box: 118319 Office 605 Zone B Aspect Tower, Business Bay,<br> DUBAI - UAE</a>
+                    </div>
+                    <div class="contactSocialMedia">
+                        <a href="/#" aria-label="icon-Instagram"><span class="icon-Instagram" aria-hidden="true"></span></a>
+                        <a href="/#" aria-label="icon-Youtube"><span class="icon-Youtube" aria-hidden="true"></span></a>
+                        <a href="/#" aria-label="icon-Linkedin"><span class="icon-Linkedin" aria-hidden="true"></span></a>
+                    </div>
+                    <div class="ContactMapContainer" id="map">
+                        <img src="./assets/img/sample/map.jpg" alt="">
+                    </div>
+                </div>
+                <div class="contactVideoWrapper">
+                    <div class="titleWrap">
+                        <h2 class="title-roboto">How we work on your project</h2>
+                    </div>
+                    <div class="videoWrapper">
+                        <video autoplay muted loop playsinline preload="auto" poster="" id="projectVideo" data-url="./assets/video/coverr-city-skyscrapers-471-1080p.mp4">
+                            <source src="./assets/video/coverr-city-skyscrapers-471-1080p.mp4" type="video/mp4">
+                        </video>
+                        <div id="playVideo">
+                            <img src="./assets/img/outer-circle.svg" alt="circle text">
+                            <img src="./assets/img/inner-icon-play.svg" alt="play icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contactFormSliderContainer">
+                <div class="contactFormContainer">
+                    <form>
+                        <div class="textTypeInput">
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                        <div class="textTypeInput">
+                            <input type="text" placeholder="Your Phone Number">
+                        </div>
+                        <div class="textTypeInput">
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="textTypeInput">
+                            <textarea rows="7" placeholder="What is your request?"></textarea>
+                        </div>
+                        <div class="submitForm">
+                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.142578 0.142822H4.71401L4.71401 0.142897L5.83091 1.26386L4.18975 2.89908L5.76895 4.18678V5.85711H4.18653V2.90229L1.26845 5.80981L0.151542 4.68884L3.12591 1.72524H0.142578V0.142822Z" fill="white"/>
+                            </svg>
+                            <input type="submit" value="submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="contactSlider">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="./assets/img/sample/about-1.jpg" alt="">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./assets/img/sample/about-4.jpg" alt="">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./assets/img/sample/about-2.jpg" alt="">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./assets/img/sample/about-3.jpg" alt="">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./assets/img/sample/about-5.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <?php if( have_rows('data_repeater') ): ?>
-            <section class="aerospaceData paddingX">
-                <?php while( have_rows('data_repeater') ): the_row(); ?>
-                    <div class="item">
-                        <div class="ring">
-                            <i></i>
-                            <i></i>
+        <section class="faq-contactSlider-container" style="display:none;">
+            <div class="faqContainer">
+                <div class="titleWrap">
+                    <h2 class="title-roboto">FAQ</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item active"> <!-- First item active -->
+                        <div class="dropdownHeader js-toggle" data-container="toggle-1">
+                            <span>What if you denied all of our concepts?</span>
                         </div>
-                        <span class="title"><?php the_sub_field('title'); ?></span>
-                        <span class="amount"><?php the_sub_field('amount'); ?></span>
-                        <span class="unit"><?php the_sub_field('unit'); ?></span>
-                    </div>
-                <?php endwhile; ?>
-            </section>
-        <?php endif;
-        if(have_rows('branches')):
-            $locationsArray = array();?>
-            <section class="maps paddingX">
-                <?php $i=0;
-                while(have_rows('branches')):the_row();?>
-                    <div class="item">
-                        <div class="map" id="branch-<?php echo $i;?>">
-                            <!--                <img src="--><?php //ThemeAssets('img/sample/map-01.png');?><!--" alt="">-->
-                        </div>
-                        <div class="contactInfo">
-                            <?php $phone = get_sub_field('phone_number');
-                            $i++;
-                            if($phone):?>
-                                <div class="phones">
-                                    <div>
-                                        <img src="<?php ThemeAssets('img/icon-phone.svg');?>" alt="">
-                                        <a href="tel:<?php echo str_replace(' ','',$phone);?>"><?php echo $phone;?></a>
-                                    </div>
-                                </div>
-                            <?php endif;
-                            $location = get_sub_field('location');
-                            if ($location):
-                                $locationsArray [] = ($location);
-                            endif;
-                            $address = get_sub_field('address');
-                            if($address):?>
-                            <div class="addresses">
-                                <div>
-                                    <img src="<?php ThemeAssets('img/icon-location.svg');?>" alt="">
-                                    <<?php echo $location ? 'a href="https://www.google.com/maps/dir/?api=1&destination='.$location['lat'].','.$location['lng'].'" target="_blank"' : 'div';?>><?php echo $address;?></<?php echo $location ? 'a' : 'div';?>>
+                        <div class="dropdownBody" id="toggle-1">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus.</p>
+                                <p>In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
                             </div>
                         </div>
-                        <?php endif;?>
                     </div>
-                    </div>
-                <?php endwhile;?>
-            </section>
-        <?php endif;?>
-        <section class="contactItems-wrapper paddingX">
-            <div class="contactItems-container email">
-                <h2 class="title">/ <?php _e('Email address','dokmeh');?></h2>
-                <div class="contact-email-social-wrapper">
-                    <a href="mailto:<?php echo antispambot(get_field('email')); ?>"><?php echo antispambot(get_field('email')); ?></a>
-                    <?php if(have_rows('social_media','option')):?>
-                        <div class="social-media-wrapper">
-                            <?php while (have_rows('social_media','option')):the_row();
-                                $link = get_sub_field('link');?>
-                                <a href="<?php echo $link?>" target="_blank" aria-label="<?php echo get_bloginfo('name').get_sub_field('icon');?>"><span class="<?php echo get_sub_field('icon');?>" aria-hidden="true"></span></a>
-                            <?php endwhile; ?>
+                    <div class="accordion-item">
+                        <div class="dropdownHeader js-toggle" data-container="toggle-2">
+                            <span>What if you denied all of our concepts?</span>
                         </div>
-                    <?php endif;?>
+                        <div class="dropdownBody" id="toggle-2">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="dropdownHeader js-toggle" data-container="toggle-3">
+                            <span>What if you denied all of our concepts?</span>
+                        </div>
+                        <div class="dropdownBody" id="toggle-3">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a.</p>
+                                <p>Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="dropdownHeader js-toggle" data-container="toggle-4">
+                            <span>What if you denied all of our concepts?</span>
+                        </div>
+                        <div class="dropdownBody" id="toggle-4">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="dropdownHeader js-toggle" data-container="toggle-5">
+                            <span>What if you denied all of our concepts?</span>
+                        </div>
+                        <div class="dropdownBody" id="toggle-5">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="dropdownHeader js-toggle" data-container="toggle-6">
+                            <span>What if you denied all of our concepts?</span>
+                        </div>
+                        <div class="dropdownBody" id="toggle-6">
+                            <div class="content">
+                                <p>sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <?php $wpml_current_lang = ICL_LANGUAGE_CODE;
-            $form = ($wpml_current_lang == 'en')?  ('[contact-form-7 id="066a049" title="Contact form"]') : '[contact-form-7 id="8e90fbc" title="Contact form Ru"]';
-            if($form) :?>
-                <div class="contactItems-container form">
-                    <h2 class="title">/ <?php _e('Contact from','dokmeh');?></h2>
-                    <div class="form">
-                        <?php echo apply_shortcodes($form);?>
-                    </div>
+        </section>
+        <section class="contactStepsContainer">
+            <div class="progressBar">
+                <div class="number-percentage">
+                    <span id="percent-number">0</span>
+                    <span>%</span>
                 </div>
-            <?php endif;?>
-            <?php if(have_rows('opportunities')):?>
-            <div class="contactItems-container opportunities">
-                <h2 class="title">/ <?php echo get_field('opportunities_title'); ?></h2>
-                <div class="items">
-                    <?php while (have_rows('opportunities')):the_row();?>
-                        <div class="item">
-                            <div class="header">
-                                <h3 class="title"><?php the_sub_field('title');?></h3>
-                                <span class="applyBtn hover-target" job_name="<?php the_sub_field('title');?>"><?php _e('Apply','dokmeh');?></span>
-                            </div>
-                            <div class="body">
-                                <?php $items = get_sub_field('items');
-                                if($items):?>
-                                    <div class="data">
-                                        <ul>
-                                            <?php foreach ($items as $item):?>
-                                                <li><span><?php echo $item['item'];?></span>:<span><?php echo $item['value'];?></span></li>
-                                            <?php endforeach;?>
-                                        </ul>
-                                    </div>
-                                <?php endif;?>
-                                <?php $short_des = get_sub_field('short_description');?>
-                                <div class="text">
-                                    <p><?php echo $short_des;?></p>
-                                </div>
-                                <?php $description = get_sub_field('more_description');?>
-                                <?php if($description OR $short_des ):?>
-                                    <div class="more">
-                                        <div class="content">
-                                            <p><?php echo $description;?></p>
-                                        </div>
-                                        <div class="button hover-target"><span><?php _e('Read More','dokmeh' );?></span><span><?php _e('Read Less','dokmeh' );?></span></div>
-                                    </div>
-                                <?php endif;?>
-                            </div>
-                        </div>
-                    <?php endwhile;?>
+                <div class="progressWrap">
+                    <progress id="numbers" max="100" value>0 </progress>
                 </div>
-                <?php endif;?>
             </div>
-            <div class="contactItems-container form">
-                <h2 class="title">/ <?php _e('Business Cooperation Form','dokmeh');?></h2>
-                <?php
-                $form = ($wpml_current_lang == 'en')? '[contact-form-7 id="56e665f" title="BUSINESS COOPERATION FORM"]' : '[contact-form-7 id="5aef023" title="BUSINESS COOPERATION FORM Ru"]';
-                if($form):?>
-                    <div class="form">
-                        <?php echo apply_shortcodes($form);?>
+            <div class="stepsWrapper">
+                <div class="stepWrap">
+                    <h2>Research</h2>
+                    <P class="subtitle">How we solve your problem and Level up your project?</P>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                        <p>1. Research about your project</p>
+                        <p>2. good knowing about what you want</p>
+                        <p>3. Brain Storm</p>
+                        <p>4. Design</p>
+                        <p>5. Develop</p>
+                        <p>6. Maintenance</p>
                     </div>
-                <?php endif; ?>
+                </div>
+                <div class="stepWrap">
+                    <h2>Design</h2>
+                    <P class="subtitle">How we solve your problem and Level up your project?</P>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                        <p>1. Research about your project</p>
+                        <p>2. good knowing about what you want</p>
+                        <p>3. Brain Storm</p>
+                        <p>4. Design</p>
+                        <p>5. Develop</p>
+                        <p>6. Maintenance</p>
+                    </div>
+                </div>
+                <div class="stepWrap">
+                    <h2>Phase-01</h2>
+                    <P class="subtitle">How we solve your problem and Level up your project?</P>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                        <p>1. Research about your project</p>
+                        <p>2. good knowing about what you want</p>
+                        <p>3. Brain Storm</p>
+                        <p>4. Design</p>
+                        <p>5. Develop</p>
+                        <p>6. Maintenance</p>
+                    </div>
+                </div>
+                <div class="stepWrap">
+                    <h2>Phase-02</h2>
+                    <P class="subtitle">How we solve your problem and Level up your project?</P>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
+                        <p>1. Research about your project</p>
+                        <p>2. good knowing about what you want</p>
+                        <p>3. Brain Storm</p>
+                        <p>4. Design</p>
+                        <p>5. Develop</p>
+                        <p>6. Maintenance</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <div id="videoModal">
+        <div class="videoContainer">
+            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+                <source id="modalVideoSrc" src="" type="video/mp4">
+            </video>
+        </div>
+        <div id="closeModalVideo">
+            <span>close</span>
+        </div>
+    </div>
 <?php include get_template_directory() . '/footer.php';

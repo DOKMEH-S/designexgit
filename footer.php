@@ -89,6 +89,8 @@
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
+<?php elseif(is_page_template('tpls/contact.php')):?>
+    <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
 <script>
@@ -96,7 +98,7 @@
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main.wrapper').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
+        <?php if (is_singular('projects') or is_page_template(array('tpls/about.php','tpls/contact.php'))): ?>
         if (document.getElementById('videoModal')) {
             document.getElementById('videoModal').style.display = 'block';
         }
