@@ -2,54 +2,62 @@
     <main class="wrapper">
         <?php while (have_posts()) : the_post();
             $postID = get_the_ID();
-            global $post;?>
+            global $post; ?>
             <div id="newsletterLink-container">
                 <span>Monthly Newsletter</span>
                 <a href="">
-                    <img src="<?php ThemeAssets('img/link.svg');?>" alt="link">
+                    <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
                     Subscribe here
                 </a>
             </div>
             <section class="dateTime-title">
                 <div class="dateTime">
-                    <span class="date"><?php echo get_the_date('Y.m.d');?></span>
-                    <span><img src="<?php ThemeAssets('img/clock.webp');?>" alt="clock icon">12 min to Read</span>
+                    <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
+                    <?php $content = get_the_content();
+                    $wordcount = str_word_count(strip_tags($content));
+                    $time = ceil($wordcount / 250); ?>
+                    <span><img src="<?php ThemeAssets('img/clock.webp'); ?>"
+                               alt="clock icon"><?php echo $time . ($time == 1 ? ' minute' : 'minutes') . ' to Read'; ?></span>
                 </div>
                 <h1><?php the_title(); ?></h1>
             </section>
             <section class="blog-Information">
                 <div class="blog-Information_text">
-                    <?php $author_id = $post->post_author;?>
+                    <?php $author_id = $post->post_author; ?>
                     <div class="author">
-                        <?php $author_img = get_the_author_meta( 'avatar' , $author_id );
-                        if($author_img):?>
+                        <?php $author_img = get_the_author_meta('avatar', $author_id);
+                        if ($author_img):?>
+                            <img src="<?php echo $author_img; ?>" alt="author image">
                         <?php endif; ?>
                         <div class="div">
                             <span>Author:</span>
-                            <span><?php the_author_meta( 'display_name' , $author_id ); ?> </span>
+                            <span><?php the_author_meta('display_name', $author_id); ?> </span>
                         </div>
                     </div>
-                    <?php $summary = get_the_excerpt($postID);
-                    if ($summary) :?>
-                    <div class="description">
-                        <p><?php echo $summary;?></p>
-                    </div>
+                    <?php if (has_excerpt()) : ?>
+                        <div class="description">
+                            <p><?php the_excerpt(); ?></p>
+                        </div>
                     <?php endif;
                     $tags = get_the_tags();
                     if ($tags) :?>
-                    <div class="tags">
-                        <?php foreach($tags as $tag) {?>
-                        <a href="/#" aria-label="<?php echo $tag->name?>"><?php echo $tag->name?></a>
-                        <?php } ?>
-                    </div>
+                        <div class="tags">
+                            <?php foreach ($tags as $tag) { ?>
+                                <div aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></div>
+                            <?php } ?>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div class="blog-Information_media">
-                    <img src="<?php the_post_thumbnail_url($postID,'large');?>" alt="<?php the_title(); ?>">
+                    <img src="<?php the_post_thumbnail_url($postID, 'large'); ?>" alt="<?php the_title(); ?>">
                 </div>
             </section>
             <section class="blog-wpContent">
-                <?php the_content();?>
+                <div style="display:flex; column-gap: 7rem;margin-bottom: 2rem;font-size: 1rem;">
+                    <div>
+                <?php echo $content; ?>
+                    </div>
+                </div>
             </section>
             <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
             $query_args = array(
@@ -68,17 +76,18 @@
                             $relID = get_the_ID(); ?>
                             <div class="relatedBlogWrap">
                                 <div class="blogMedia">
-                                    <img src="<?php the_post_thumbnail($relID, 'medium'); ?>" alt="<?php echo get_the_title($relID);?>">
+                                    <img src="<?php the_post_thumbnail($relID, 'medium'); ?>"
+                                         alt="<?php echo get_the_title($relID); ?>">
                                 </div>
                                 <a href="<?php the_permalink(); ?>" class="blog-info">
-                                    <p class="blog-name"><?php echo get_the_title($relID);?></p>
+                                    <p class="blog-name"><?php echo get_the_title($relID); ?></p>
                                     <div class="year-location">
-                                        <span><?php echo get_the_date('Y.m.d');?></span>
+                                        <span><?php echo get_the_date('Y.M.d'); ?></span>
                                     </div>
                                 </a>
                             </div>
                         <?php endwhile;
-                        wp_reset_postdata();?>
+                        wp_reset_postdata(); ?>
                     </div>
                 </aside>
             <?php endif; ?>
