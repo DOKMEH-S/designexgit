@@ -81,8 +81,9 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
+                </div>
                     <div class="contactFormSliderContainer">
                         <?php $form = '[contact-form-7 id="066a049" title="Contact form"]'; ?>
                         <div class="contactFormContainer">
