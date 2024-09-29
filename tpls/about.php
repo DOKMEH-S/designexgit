@@ -27,8 +27,7 @@
         </section>
         <section class="aboutSloganContainer paddingAboutX">
             <div class="logo-items">
-                <?php $logo = get_field('logo', 'option'); ?>
-                <img src="<?php echo get_template_directory_uri() . '/assets/img/about-logo.svg'; ?>"
+                <img src="<?php ThemeAssets('img/about-logo.svg'); ?>"
                     alt="">
                 <h1>Designex</h1>
             </div>
