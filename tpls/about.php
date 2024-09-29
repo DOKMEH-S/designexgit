@@ -212,7 +212,7 @@ get_header(); ?>
             </div>
             <div class="awardsWrapper">
                 <?php
-                
+
                 $awards_query = new WP_Query(array('post_type' => 'projects'));
 
                 if ($awards_query->have_posts()):
@@ -225,13 +225,15 @@ get_header(); ?>
 
                         if ($p_link && $p_name && $p_image && $p_des): ?>
                             <div class="awardsWrap">
+                                <span></span>
+                                <span></span>
                                 <a href="<?php echo $p_link; ?>" target="_blank" class="awardTitleLink">
                                     <p><?php echo $p_name; ?></p>
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/link.svg" alt="link">
                                 </a>
                                 <p class="award-desc"><?php echo $p_des; ?></p>
                                 <div class="award-image">
-                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt'];?>">
+                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
                                 </div>
                             </div>
                         <?php endif;
