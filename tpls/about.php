@@ -127,7 +127,7 @@ get_header(); ?>
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     <?php foreach ($st_gallery as $image_url): ?>
-                                        <div class="swiper-slide"><img src="<?php echo esc_url($image_url); ?>" alt=""></div>
+                                        <div class="swiper-slide"><img src="<?php echo $image_url['sizes']['medium']; ?>" alt=""></div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
