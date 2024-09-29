@@ -67,18 +67,18 @@ get_header(); ?>
                         if ($video_title): ?>
                         <div class="titleWrap">
                             <h2 class="title-roboto"><?php echo $video_title; ?></h2>
-                            <?php endif; ?>
-                            <div class="videoWrapper">
-                                <video autoplay muted loop playsinline
-                                       preload="auto" <?php if ($poster) { ?> poster="<?php echo $poster['sizes']['medium']; ?>" <?php } ?>
-                                       id="projectVideo"
-                                       data-url="<?php echo $video; ?>">
-                                    <source src="<?php echo $video; ?>" type="video/mp4">
-                                </video>
-                                <div id="playVideo">
-                                    <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
-                                    <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
-                                </div>
+                        </div>
+                        <?php endif; ?>
+                        <div class="videoWrapper">
+                            <video autoplay muted loop playsinline
+                                   preload="auto" <?php if ($poster) { ?> poster="<?php echo $poster['sizes']['medium']; ?>" <?php } ?>
+                                   id="projectVideo"
+                                   data-url="<?php echo $video; ?>">
+                                <source src="<?php echo $video; ?>" type="video/mp4">
+                            </video>
+                            <div id="playVideo">
+                                <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
+                                <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
                             </div>
                         </div>
                     </div>

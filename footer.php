@@ -85,7 +85,7 @@
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
-<?php elseif (is_archive('projects')): ?>
+<?php elseif (is_archive('projects') or is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>

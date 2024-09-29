@@ -67,7 +67,10 @@ function Dokmeh_scripts()
     elseif (is_page_template('tpls/contact.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/contact.css', array(), _S_VERSION);
     } // Check if it's the news page or a single post page
-    elseif (is_home() or is_singular('post')) {
+    elseif (is_home()) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-blog.css', array(), _S_VERSION);
+        wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
+    }elseif (is_singular('post')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-blog.css', array(), _S_VERSION);
     } elseif (is_404()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.min.css?v=1.0.0', array(), _S_VERSION);
