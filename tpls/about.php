@@ -27,16 +27,16 @@ get_header(); ?>
             </div>
         </section>
         <section class="aboutSloganContainer paddingAboutX">
-            <div class="logo-items">
-                <img src="<?php ThemeAssets('img/about-logo.svg'); ?>"
-                    alt="">
-                <h1>Designex</h1>
-            </div>
             <?php
             $video = get_field('main_video');
             $poster = get_field('poster');
 
             if ($video): ?>
+                <div class="logo-items">
+                    <img src="<?php ThemeAssets('img/about-logo.svg'); ?>" alt="">
+                    <h1>Designex</h1>
+                </div>
+
                 <div class="aboutVideoWrap">
                     <video autoplay muted loop playsinline preload="auto" poster="<?php echo $video; ?>">
                         <source src="<?php echo $video; ?>" type="video/mp4">
