@@ -25,9 +25,7 @@
                 <div class="blog-Information_text">
                     <?php $author_id = $post->post_author; ?>
                     <div class="author">
-                        <?php $author_img = get_the_author_meta('avatar', $author_id);
-                        var_dump($author_img);
-                        var_dump(get_avatar_url($author_id));
+                        <?php $author_img = get_avatar_url($author_id);
                         if ($author_img):?>
                             <img src="<?php echo $author_img; ?>" alt="author image">
                         <?php endif; ?>
