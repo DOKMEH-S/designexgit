@@ -211,104 +211,37 @@ get_header(); ?>
                 <h2>Awards / Publications</h2>
             </div>
             <div class="awardsWrapper">
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
+                <?php
+                // دریافت پست‌های projects
+                $awards_query = new WP_Query(array('post_type' => 'projects'));
+
+                if ($awards_query->have_posts()):
+                    while ($awards_query->have_posts()):
+                        $awards_query->the_post();
+                        $p_link = get_field('p_link');
+                        $p_name = get_field('p_title');
+                        $p_image = get_field('p_image');
+                        $p_des = get_field('p_des');
+
+                        if ($p_link && $p_name && $p_image && $p_des): ?>
+                            <div class="awardsWrap">
+                                <a href="<?php echo $p_link; ?>" target="_blank" class="awardTitleLink">
+                                    <p><?php echo $p_name; ?></p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/link.svg" alt="link">
+                                </a>
+                                <p class="award-desc"><?php echo $p_des; ?></p>
+                                <div class="award-image">
+                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="">
+                                </div>
+                            </div>
+                        <?php endif;
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
             </div>
         </section>
+
         <section class="theFutureContainer" id="theFuture">
             <div class="theFutureWrapper paddingAboutX">
                 <div class="aboutTitle">
@@ -317,8 +250,8 @@ get_header(); ?>
                 <?php $u_title = get_field('u_title');
                 $u_des = get_field('u_des'); ?>
                 <div class="theFeatureContent">
-                    <h3><?php echo $u_title;?></h3>
-                    <p><?php echo $u_des;?></p>
+                    <h3><?php echo $u_title; ?></h3>
+                    <p><?php echo $u_des; ?></p>
                 </div>
             </div>
             <?php $u_gallery = get_field('u_gallery');
@@ -332,7 +265,7 @@ get_header(); ?>
                         <?php endforeach; ?>
                     </div>
                     <div class="content__title">
-                        <h2 class="content__title-main"><?php echo $b_text;?></h2>
+                        <h2 class="content__title-main"><?php echo $b_text; ?></h2>
                     </div>
                 </section>
             <?php endif; ?>
