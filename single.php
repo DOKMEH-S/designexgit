@@ -23,7 +23,6 @@
                     <div class="author">
                         <?php $author_img = get_the_author_meta( 'avatar' , $author_id );
                         if($author_img):?>
-                        <img src="<?php echo $author_img; ?>" alt="author image">
                         <?php endif; ?>
                         <div class="div">
                             <span>Author:</span>
@@ -52,37 +51,37 @@
             <section class="blog-wpContent">
                 <?php the_content();?>
             </section>
-    <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
-    $query_args = array(
-        'post_type' => 'post',
-        'category__in' => ($categories),
-        'post__not_in' => array($postID),
-        'posts_per_page' => '3',
-    );
-    $related_cats_post = new WP_Query($query_args);
-    if ($related_cats_post->have_posts()): ?>
-            <aside class="related">
-                <h2 class="">Related Articles</h2>
-                <div class="relatedBlogWrapper">
-        <?php while ($related_cats_post->have_posts()):
-            $related_cats_post->the_post();
-            $relID = get_the_ID(); ?>
-                    <div class="relatedBlogWrap">
-                        <div class="blogMedia">
-                            <img src="<?php the_post_thumbnail($relID, 'medium'); ?>" alt="<?php echo get_the_title($relID);?>">
-                        </div>
-                        <a href="<?php the_permalink(); ?>" class="blog-info">
-                            <p class="blog-name"><?php echo get_the_title($relID);?></p>
-                            <div class="year-location">
-                                <span><?php echo get_the_date('Y.m.d');?></span>
+            <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
+            $query_args = array(
+                'post_type' => 'post',
+                'category__in' => ($categories),
+                'post__not_in' => array($postID),
+                'posts_per_page' => '3',
+            );
+            $related_cats_post = new WP_Query($query_args);
+            if ($related_cats_post->have_posts()): ?>
+                <aside class="related">
+                    <h2 class="">Related Articles</h2>
+                    <div class="relatedBlogWrapper">
+                        <?php while ($related_cats_post->have_posts()):
+                            $related_cats_post->the_post();
+                            $relID = get_the_ID(); ?>
+                            <div class="relatedBlogWrap">
+                                <div class="blogMedia">
+                                    <img src="<?php the_post_thumbnail($relID, 'medium'); ?>" alt="<?php echo get_the_title($relID);?>">
+                                </div>
+                                <a href="<?php the_permalink(); ?>" class="blog-info">
+                                    <p class="blog-name"><?php echo get_the_title($relID);?></p>
+                                    <div class="year-location">
+                                        <span><?php echo get_the_date('Y.m.d');?></span>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        <?php endwhile;
+                        wp_reset_postdata();?>
                     </div>
-                    <?php endwhile;
-        wp_reset_postdata();?>
-                </div>
-            </aside>
-    <?php endif; ?>
+                </aside>
+            <?php endif; ?>
         <?php endwhile; ?>
     </main>
 <?php get_footer();
