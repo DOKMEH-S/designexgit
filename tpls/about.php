@@ -158,8 +158,8 @@ get_header(); ?>
                 <?php
                 if ($f_video): ?>
                     <div class="founderVideoWrapper">
-                        <video id="founderVideo" autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['url']; ?>"
-                            data-url="<?php echo $f_video['url']; ?>">
+                        <video id="founderVideo" autoplay muted loop playsinline preload="auto"
+                            poster="<?php echo $poster['url']; ?>" data-url="<?php echo $f_video['url']; ?>">
                             <source src="<?php echo $f_video['url']; ?>" type="video/mp4">
                         </video>
                         <div id="playFounder">
@@ -314,9 +314,11 @@ get_header(); ?>
                 <div class="aboutTitle">
                     <h2>The Future</h2>
                 </div>
+                <?php $u_title = get_field('u_title');
+                $u_des = get_field('u_des'); ?>
                 <div class="theFeatureContent">
-                    <h3>Mr. <br>Someone</h3>
-                    <p>Designex envisions being a trusted partner in creating spaces that inspire and positively impact people’s lives. Our goal is to be recognised as a leading design and construction firm, not just in Dubai, but internationally, as we expand into urban planning, master planning, and environmental studies. We aim to be at the forefront of designing vibrant, sustainable communities that reflect the highest standards of quality.</p>
+                    <h3><?php echo $u_title;?></h3>
+                    <p><?php echo $u_des;?></p>
                 </div>
             </div>
             <div class="scrolling-wrap" style="display: none">
@@ -469,37 +471,26 @@ get_header(); ?>
                     </figure>
                 </div>
             </div>
-            <section class="content content--padded content--full">
-                <div class="grid grid--spaced grid--wide" data-grid-fifth>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-1.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-2.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-3.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-4.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-5.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-6.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-7.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-8.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-9.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-10.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-11.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-12.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-13.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-1.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-2.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-3.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-1.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-2.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-3.jpg)"></div>
-                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-4.jpg)"></div>
-                </div>
-                <div class="content__title">
-                    <h2 class="content__title-main">This is Designex</h2>
-                </div>
-            </section>
+            <?php $u_gallery = get_field('u_gallery');
+            $b_text = get_field('gallery_text');
+            if ($st_gallery): ?>
+                <section class="content content--padded content--full">
+                    <div class="grid grid--spaced grid--wide" data-grid-fifth>
+                        <?php foreach ($u_gallery as $image_url): ?>
+                            <div class="grid__img" style="background-image:url(<?php echo $image_url['sizes']['medium']; ?>)">
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="content__title">
+                        <h2 class="content__title-main"><?php echo $b_text;?></h2>
+                    </div>
+                </section>
+            <?php endif; ?>
         </section>
     </section>
     <section class="projectsLink paddingAboutX">
-        <a href="<?php echo is_post_type_archive('projects');?>"><span>Projcts</span><img src="<?php ThemeAssets('img/link.svg');?>" alt="link"></a>
+        <a href="<?php echo is_post_type_archive('projects'); ?>"><span>Projcts</span><img
+                src="<?php ThemeAssets('img/link.svg'); ?>" alt="link"></a>
     </section>
 </main>
 <div id="videoModal">
