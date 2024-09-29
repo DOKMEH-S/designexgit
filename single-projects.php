@@ -40,7 +40,7 @@
                         <img src="<?php ThemeAssets('img/link.svg');?>" alt="">
                     </div>
                     <div class="awardsLogo">
-                        <img src="<?php echo $p_image['sizes']['thumbnail'];?>" alt="">
+                        <img src="<?php echo $p_image['sizes']['small'];?>" alt="<?php echo $p_image['alt'];?>">
                     </div>
                 </a>
                 <div class="awardsDescription">
