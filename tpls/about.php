@@ -94,7 +94,8 @@ get_header(); ?>
                             <p><?php echo $vdes; ?></p>
                         </div>
                     </div>
-                    <?php $vm_gallery = get_field('m_gallery');
+                    <?php
+                    $vm_gallery = get_field('m_gallery');
                     if ($vm_gallery): ?>
                         <div class="missionVisionSliderWrapper">
                             <div class="slideshow-container">
@@ -102,12 +103,13 @@ get_header(); ?>
                                     <div class="mySlides fade">
                                         <img src="<?php echo $image_url['url']; ?>" alt="">
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     <?php endif; ?>
                 </div>
             </section>
+
         <?php endif;
         $st_des = get_field('s_des');
         if ($st_des): ?>
