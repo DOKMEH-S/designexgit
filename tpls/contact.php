@@ -55,8 +55,8 @@ get_header(); ?>
                                 <?php endwhile; ?>
                             </div>
                         <?php endif; ?>
-                        <div class="ContactMapContainer" id="map">
-                            <img src="<?php ThemeAssets('img/sample/map.jpg'); ?>" alt="">
+                        <div class="ContactMapContainer" id="singleProjectMap">
+                            <img src="<?php ThemeAssets('img/map.jpg'); ?>" alt="">
                         </div>
                     </div>
                     <?php $video = get_field('video');
