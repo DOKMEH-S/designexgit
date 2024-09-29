@@ -11,12 +11,16 @@ get_header(); ?>
                 </a>
             </div>
             <section class="contactInfoMapFormContainer">
-                <h1 class="contact_title">Do You have a<br> project?</h1>
+                <?php $main_title = get_field('main_title');?>
+                <h1 class="contact_title"><?php echo $main_title ? $main_title : get_the_title();?></h1>
                 <div class="contactInfoMapContainer">
                     <div class="contactInfoWrapper">
-                        <a aria-label="Designex Whatsapp" href="" class="contactCTAWrap whatsapp"><span
-                                    class="icon-Whats-app" aria-hidden="true"></span><span>Small chat on WhatApp</span></a>
-                        <?php if (have_rows('phones')):
+                        <?php $whatsapp = get_field('whatsapp');
+                        if($whatsapp):?>
+                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>" class="contactCTAWrap whatsapp"><span
+                                    class="icon-Whats-app" aria-hidden="true"></span><span><?php echo get_field('whatsapp_text');?></span></a>
+                        <?php endif;
+                        if (have_rows('phones')):
                             while (have_rows('phones')):the_row();
                                 $phone = get_sub_field('phone') ?>
                                 <div class="contactInfoWrap">
