@@ -53,11 +53,7 @@
                 </div>
             </section>
             <section class="blog-wpContent">
-                <div style="display:flex; column-gap: 7rem;margin-bottom: 2rem;font-size: 1rem;">
-                    <div>
-                        <?php echo $content; ?>
-                    </div>
-                </div>
+                <?php echo $content; ?>
             </section>
             <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
             $query_args = array(
