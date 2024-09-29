@@ -15,9 +15,9 @@
                     <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                     <?php $content = get_the_content();
                     $wordcount = str_word_count(strip_tags($content));
-                    $time = ceil($wordcount / 250); ?>
+                    $time = ceil($wordcount / 200); ?>
                     <span><img src="<?php ThemeAssets('img/clock.webp'); ?>"
-                               alt="clock icon"><?php echo $time . ($time == 1 ? ' minute' : 'minutes') . ' to Read'; ?></span>
+                               alt="clock icon"><?php echo $time . ($time == 1 ? ' minute' : ' minutes') . ' to Read'; ?></span>
                 </div>
                 <h1><?php the_title(); ?></h1>
             </section>
@@ -53,11 +53,7 @@
                 </div>
             </section>
             <section class="blog-wpContent">
-                <div style="display:flex; column-gap: 7rem;margin-bottom: 2rem;font-size: 1rem;">
-                    <div>
                 <?php echo $content; ?>
-                    </div>
-                </div>
             </section>
             <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
             $query_args = array(
