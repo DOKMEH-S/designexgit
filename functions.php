@@ -65,7 +65,7 @@ function Dokmeh_scripts()
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-project.css', array(), _S_VERSION);
     } // Check if it's the contact page
     elseif (is_page_template('tpls/contact.php')) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/contact.min.css', array(), _S_VERSION);
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/contact.css', array(), _S_VERSION);
     } // Check if it's the news page or a single post page
     elseif (is_home() or is_singular('post')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
@@ -159,7 +159,7 @@ add_filter('upload_mimes', 'cc_mime_types');
 function project_filter_handler()
 {
     $catIDs = $_POST['ch_id'];
-    $offset = $_POST['offset'];
+    $offset = intval($_POST['offset']);
     if ($catIDs) {
         $args = array(
             'post_type' => 'projects',
@@ -180,6 +180,7 @@ function project_filter_handler()
             'post_type' => 'projects',
             'post_status' => 'publish',
             'posts_per_page' => 8,
+            'offset' => $offset
         );
     }
 
@@ -187,7 +188,7 @@ function project_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i= ($count > 8) ?  0 : 5;
+        $i=$count > 8+$offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
             $i++;
             $projectID = get_the_ID();
@@ -214,6 +215,9 @@ function project_filter_handler()
     $results = array();
     $results ['count'] = $count;
     $results ['cat'] = $catIDs;
+    if($count > 8+$offset){
+        $results ['show'] = true;
+    }
     $results ['content'] = $outputHTML;
     wp_die(json_encode($results));
 }

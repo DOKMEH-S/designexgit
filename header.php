@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-IR">
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        main.wrapper,
-        header {
+        main.wrapper, header {
             opacity: 0;
         }
-        <?php if (is_singular('projects')): ?>
+        <?php if (is_singular('projects') or is_page_template('tpls/contact.php')): ?>
             #videoModal,
             #menuContainer {
                 display: none;
             }
         <?php endif;
         if(is_archive('projects')):?>
-        #menuContainer,#mapProjectsContainer{
+        #mapProjectsContainer{
             display: none;
         }
         <?php endif;?>
-        #menuContainer {
-            display: none;
-        }
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
+    <?php if(is_singular('projects') OR is_page_template('tpls/about.php')) :?>
     <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php ThemeAssets('css/footer.css'); ?>" rel="stylesheet" type="text/css">
+<?php endif;?>
     <?php wp_head(); ?>
 </head>
 <div id="loading" class="paddingX">
@@ -41,10 +37,7 @@
         <div class="line"></div>
     </div>
 </div>
-
-<body
-    data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):
-        echo 'about'; endif; ?>">
+<body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')):echo 'about';elseif (is_page_template('tpls/contact.php')):echo 'contact'; endif; ?>">
     <div id="loading" class="paddingX">
         <div class="loading-logoContainer">
             <a href="<?php echo site_url('/'); ?>" aria-label="logo" class="logo-img"><img src="./assets/img/logo.svg"
@@ -62,13 +55,25 @@
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                 alt="site logo">
         </a>
-        <div class="startProject"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div>
+        <?php        $pages = get_pages(array(
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'contact.php'
+));
+        $contactID =$pages[0]->ID;        ?>
+        <div class="startProject"><a href="<?php echo get_the_permalink($contactID);?>" aria-label="Start a Project?">Start a Project?</a></div>
         <div class="menu-icon">
             <div class="quickMenu">
                 <nav>
                     <ul>
-                        <li><a href="./archive-projects.html" aria-label="Projects">Projects</a></li>
-                        <li><a href="./services.html" aria-label="Services">Services</a></li>
+                        <li><a href="<?php echo get_post_type_archive_link('projects');?>" aria-label="Projects">Projects</a></li>
+                        <?php  $pages = get_pages(array(
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'services.php'
+));
+        $serviceID =$pages[0]->ID;
+      if($serviceID){  ?>
+                        <li><a href="<?php echo get_the_permalink($serviceID);?>" aria-label="Services"><?php echo get_the_title($serviceID);?></a></li>
+                    <?php }?>
                     </ul>
                 </nav>
             </div>
