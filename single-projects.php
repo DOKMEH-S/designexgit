@@ -29,7 +29,7 @@
                     </div>
                 <?php endif; ?>
             </div>
-            <?php $p_link = get_field('p_link');
+            <?php $p_link = get_field('p_title');
             $p_name = get_field('p_name');
             $p_image = get_field('p_image');
             $p_des = get_field('p_des');?>
