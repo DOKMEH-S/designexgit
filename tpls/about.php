@@ -158,9 +158,9 @@ get_header(); ?>
                 <?php
                 if ($f_video): ?>
                     <div class="founderVideoWrapper">
-                        <video id="founderVideo" autoplay muted loop playsinline preload="auto" poster="<?php echo $poster; ?>"
-                            data-url="<?php echo $f_video; ?>">
-                            <source src="<?php echo $f_video; ?>" type="video/mp4">
+                        <video id="founderVideo" autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['url']; ?>"
+                            data-url="<?php echo $f_video['url']; ?>">
+                            <source src="<?php echo $f_video['url']; ?>" type="video/mp4">
                         </video>
                         <div id="playFounder">
                             <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
