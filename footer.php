@@ -3,8 +3,8 @@
         <div class="footerSide">
             <?php $logo = get_field('logo', 'option'); ?>
             <div class="footer-logo"><img
-                        src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                        alt="footer logo"></div>
+                    src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                    alt="footer logo"></div>
             <div class="footer-text">
                 <p>WHERE QUALITY MEETS LUXURY AND INNOVATION DRIVES SUSTAINABILITY</p>
             </div>
@@ -16,8 +16,8 @@
                             the_row();
                             $link = get_sub_field('link'); ?>
                             <a href="<?php echo $link ?>"
-                               aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
-                                        class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
+                                aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                                    class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
                         <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
@@ -72,26 +72,29 @@
         </div>
     </div>
 </footer>
-<?php if (is_archive('projects')): ?>
+<?php if (is_archive('projects') or is_page_template('tpls/services.php')): ?>
     <script defer src="<?php ThemeAssets('js/jQuery.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
-<?php if(is_singular('projects') OR is_page_template('tpls/about.php')) :?>
-<script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
-<?php endif;?>
+<?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
+    <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
+<?php endif; ?>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
 <?php elseif (is_archive('projects') or is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+<?php elseif (is_page_template('tpls/services.php')): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/services.js'); ?>"></script>
+
 <?php elseif (is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>
     <script defer type="module" src="<?php ThemeAssets('js/index.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
-<?php elseif(is_page_template('tpls/contact.php')):?>
+<?php elseif (is_page_template('tpls/contact.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
@@ -100,14 +103,14 @@
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main.wrapper').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        <?php if (is_singular('projects') or is_page_template(array('tpls/about.php','tpls/contact.php'))): ?>
-        if (document.getElementById('videoModal')) {
-            document.getElementById('videoModal').style.display = 'block';
-        }
+        <?php if (is_singular('projects') or is_page_template(array('tpls/about.php', 'tpls/contact.php', 'tpls/services.php'))): ?>
+            if (document.getElementById('videoModal')) {
+                document.getElementById('videoModal').style.display = 'block';
+            }
         <?php endif;
-        if(is_archive('projects')):?>
-        document.getElementById('mapProjectsContainer').style.display = 'flex';
-        <?php endif;?>
+        if (is_archive('projects')): ?>
+            document.getElementById('mapProjectsContainer').style.display = 'flex';
+        <?php endif; ?>
         document.querySelector('html').classList.add('loadingDone');
     });
 </script>
@@ -115,7 +118,7 @@
     $location = get_field('location');
     if ($location): ?>
         <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
         <script type="text/javascript">
             // When the window has finished loading create our google map below
             window.addEventListener('load', init);
@@ -556,10 +559,10 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-<?php if(is_archive('projects')):
-//if(sizeof($locationArray)>0) {?>
+<?php if (is_archive('projects')):
+    //if(sizeof($locationArray)>0) { ?>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
     <script type="text/javascript">
         // When the window has finished loading create our google map below
         window.addEventListener('load', init);
@@ -571,15 +574,15 @@
         var mapElement;
         var project_location = [
             <?php foreach ($locationsArray as $Data): ?>
-            ['<h3 class="info-window-header"><?php echo $Data[0];?></h3>','<a href ="<?php echo $Data[3];?>" ><span><?php _e('view project','dokmeh');?></span></a>', <?php echo $Data[1]['lat'];?>, <?php echo $Data[1]['lng'];?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng'];?>" target="_blank"><?php _e('Get Direction...', 'dokmeh')?></a>'],
+                ['<h3 class="info-window-header"><?php echo $Data[0]; ?></h3>', '<a href ="<?php echo $Data[3]; ?>" ><span><?php _e('view project', 'dokmeh'); ?></span></a>', <?php echo $Data[1]['lat']; ?>, <?php echo $Data[1]['lng']; ?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng']; ?>" target="_blank"><?php _e('Get Direction...', 'dokmeh') ?></a>'],
             <?php endforeach; ?>
         ];
         function init() {
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
-             mapOptions = {
+            mapOptions = {
                 zoom: 12,
-                center: new google.maps.LatLng(35.6892,51.3890), // Tehran 35.6892° N, 51.3890° E
+                center: new google.maps.LatLng(35.6892, 51.3890), // Tehran 35.6892° N, 51.3890° E
                 zoomControl: true,
                 mapTypeControl: false,
                 scaleControl: false,
@@ -952,7 +955,7 @@
                     }
                 ]
             };
-             mapElement = document.getElementById('mapProjects');
+            mapElement = document.getElementById('mapProjects');
             // Create the Google Map using our element and options defined above
             map = new google.maps.Map(mapElement, mapOptions);
             // Let's also add a marker while we're at it
@@ -965,7 +968,7 @@
                 });
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(project_location[i][4] + project_location[i][0] + project_location[i][1] +project_location[i][5]);
+                        infowindow.setContent(project_location[i][4] + project_location[i][0] + project_location[i][1] + project_location[i][5]);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
@@ -974,7 +977,7 @@
         }
     </script>
 <?php //}
-endif;?>
+endif; ?>
 </body>
 
 </html>

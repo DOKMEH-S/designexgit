@@ -53,7 +53,11 @@ function Dokmeh_scripts()
     } // Check if it's the about page
     elseif (is_page_template('tpls/about.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
-    } // Check if it's the rethink archive page
+    }
+    elseif (is_page_template('tpls/services.php')) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/services.css', array(), _S_VERSION);
+    }
+    // Check if it's the rethink archive page
     elseif (is_post_type_archive('rethink') or is_singular('rethink')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
     } // Check if it's the projects archive page or a single project page
