@@ -583,10 +583,12 @@ body.scrollingDown #loading .loading-logoContainer .logo-text {
     pointer-events: none;
     opacity: 0;
     transition: all ease-in-out .45s;
+    visibility: hidden;
 }
 body.opMenu #menuContainer {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
 }
 #menuContainer:before{
     content: '';
@@ -763,7 +765,36 @@ body.opMenu #menuContainer {
     transform: translate(15% ,-65%);
 }
 /*=============new menuContainer===============*/
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    :root {
+        --headerHeight: 4rem;
+    }
+    main {
+        padding-top: calc(var(--headerHeight) + 1.875rem);
+        padding-left: var(--spaceX);
+        padding-bottom: 5rem;
+    }
+    #newsletterLink-container{
+        display: none;
+    }
+    header .startProject {
+        display: none;
+    }
+
+    header .menu-icon .quickMenu {
+        display: none;
+    }
+
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header .menu-icon {
+        justify-content: flex-end;
+    }
+
+    header .menu-icon .icon {width: 16vw;}
+}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
