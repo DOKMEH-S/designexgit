@@ -316,146 +316,10 @@ get_header(); ?>
                 </div>
                 <div class="theFeatureContent">
                     <h3>Mr. <br>Someone</h3>
-                    <p>Designex envisions being a trusted partner in creating spaces that inspire and positively impact
-                        people’s lives. Our goal is to be recognised as a leading design and construction firm, not just
-                        in Dubai, but internationally, as we expand into urban planning, master planning, and
-                        environmental studies. We aim to be at the forefront of designing vibrant, sustainable
-                        communities that reflect the highest standards of quality.</p>
+                    <p>Designex envisions being a trusted partner in creating spaces that inspire and positively impact people’s lives. Our goal is to be recognised as a leading design and construction firm, not just in Dubai, but internationally, as we expand into urban planning, master planning, and environmental studies. We aim to be at the forefront of designing vibrant, sustainable communities that reflect the highest standards of quality.</p>
                 </div>
             </div>
-            <div class="scrolling-wrap">
-                <div class="comm">
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-1.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-2.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-3.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-4.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-5.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-6.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-7.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="comm">
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-1.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-2.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-3.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-4.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-5.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-6.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-7.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="scrolling-wrap">
+            <div class="scrolling-wrap" style="display: none">
                 <div class="comm">
                     <figure class="theFeatureGalleryWrap">
                         <div class="galleryMedia">
@@ -605,10 +469,37 @@ get_header(); ?>
                     </figure>
                 </div>
             </div>
+            <section class="content content--padded content--full">
+                <div class="grid grid--spaced grid--wide" data-grid-fifth>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-1.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-2.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-3.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-4.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-5.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-6.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-7.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-8.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-9.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-10.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-11.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-12.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-13.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-1.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-2.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/home-project-3.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-1.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-2.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-3.jpg)"></div>
+                    <div class="grid__img" style="background-image:url(./assets/img/sample/about-4.jpg)"></div>
+                </div>
+                <div class="content__title">
+                    <h2 class="content__title-main">This is Designex</h2>
+                </div>
+            </section>
         </section>
     </section>
     <section class="projectsLink paddingAboutX">
-        <a href=""><span>Projcts</span><img src="./assets/img/link.svg" alt="link"></a>
+        <a href="<?php echo is_post_type_archive('projects');?>"><span>Projcts</span><img src="<?php ThemeAssets('img/link.svg');?>" alt="link"></a>
     </section>
 </main>
 <div id="videoModal">
