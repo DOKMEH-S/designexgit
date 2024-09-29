@@ -184,7 +184,7 @@ get_header(); ?>
                             $position = get_sub_field('position'); ?>
                             <div class="teamWrap">
                                 <div class="teamMedia">
-                                    <img src="<?php echo $image; ?>" alt="">
+                                    <img src="<?php echo $image['sizes']['large']; ?>" alt="">
                                 </div>
                                 <div class="teamInfo">
                                     <h3><?php echo $name; ?></h3>
