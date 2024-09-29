@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php //Template Name: About tpl
+get_header(); ?>
 <main class="wrapper aboutWrapper">
     <div id="newsletterLink-container">
         <span>Monthly Newsletter</span>
