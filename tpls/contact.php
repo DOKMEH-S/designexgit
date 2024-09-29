@@ -17,7 +17,7 @@ get_header(); ?>
                     <div class="contactInfoWrapper">
                         <?php $whatsapp = get_field('whatsapp');
                         if($whatsapp):?>
-                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>" class="contactCTAWrap whatsapp"><span
+                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>" class="contactCTAWrap whatsapp" target="_blank"><span
                                     class="icon-Whats-app" aria-hidden="true"></span><span><?php echo get_field('whatsapp_text');?></span></a>
                         <?php endif;
                         if (have_rows('phones')):
@@ -49,7 +49,7 @@ get_header(); ?>
                                     the_row();
                                     $link = get_sub_field('link'); ?>
                                     <a href="<?php echo $link ?>"
-                                       aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                                       aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>" target="_blank"><span
                                                 class="<?php echo get_sub_field('icon'); ?>"
                                                 aria-hidden="true"></span></a>
                                 <?php endwhile; ?>
