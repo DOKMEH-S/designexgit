@@ -212,7 +212,7 @@ get_header(); ?>
             </div>
             <div class="awardsWrapper">
                 <?php
-                // دریافت پست‌های projects
+                
                 $awards_query = new WP_Query(array('post_type' => 'projects'));
 
                 if ($awards_query->have_posts()):
