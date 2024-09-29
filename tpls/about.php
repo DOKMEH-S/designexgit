@@ -212,7 +212,7 @@ get_header(); ?>
             </div>
             <div class="awardsWrapper">
                 <?php
-                // دریافت پست‌های projects
+                
                 $awards_query = new WP_Query(array('post_type' => 'projects'));
 
                 if ($awards_query->have_posts()):
@@ -231,7 +231,7 @@ get_header(); ?>
                                 </a>
                                 <p class="award-desc"><?php echo $p_des; ?></p>
                                 <div class="award-image">
-                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="">
+                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt'];?>">
                                 </div>
                             </div>
                         <?php endif;

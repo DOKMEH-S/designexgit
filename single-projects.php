@@ -40,7 +40,7 @@
                         <img src="<?php ThemeAssets('img/link.svg');?>" alt="">
                     </div>
                     <div class="awardsLogo">
-                        <img src="<?php echo $p_image['sisez']['thumbnail'];?>" alt="">
+                        
                     </div>
                 </a>
                 <div class="awardsDescription">
@@ -68,7 +68,7 @@
                 </div>
                 <?php
             elseif ($image): ?>
-                <img src="<?php echo $image; ?>" alt="circle text">
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 <?php
             elseif ($vr): ?>
                 <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
@@ -94,7 +94,7 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
-                            <img src="<?php echo esc_url($image_url); ?>" alt="Gallery Image">
+                            <img src="<?php echo esc_url($image_url['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                         </div>
                     <?php endforeach; ?>
                 </div>
