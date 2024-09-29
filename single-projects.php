@@ -29,20 +29,22 @@
                     </div>
                 <?php endif; ?>
             </div>
+            <?php $p_link = get_field('p_link');
+            $p_name = get_field('p_title');
+            $p_image = get_field('p_image');
+            $p_des = get_field('p_des'); ?>
             <div class="singleProjectAwardsWrapper">
-                <a href="#" target="_blank" class="awardsTitleLogoWrapper">
+                <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
                     <div class="awardsTitle">
-                        <h2>Good Design Awards</h2>
-                        <img src="./assets/img/link.svg" alt="">
+                        <h2><?php echo $p_name; ?></h2>
+                        <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="">
                     </div>
                     <div class="awardsLogo">
-                        <img src="./assets/img/sample/awards.png" alt="">
+                        <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
                     </div>
                 </a>
                 <div class="awardsDescription">
-                    <p>best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting</p>
+                    <p><?php echo $p_des; ?></p>
                 </div>
             </div>
         </div>
@@ -66,7 +68,7 @@
                 </div>
                 <?php
             elseif ($image): ?>
-                <img src="<?php echo $image; ?>" alt="circle text">
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 <?php
             elseif ($vr): ?>
                 <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
@@ -92,7 +94,8 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
-                            <img src="<?php echo esc_url($image_url); ?>" alt="Gallery Image">
+                            <img src="<?php echo esc_url($image_url['sizes']['large']); ?>"
+                                alt="<?php echo esc_attr($image['alt']); ?>">
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,9 +116,9 @@
     <?php endif; ?>
 
     <section class="singleProjectContent">
-        
-            <?php the_content(); ?>
-        
+
+        <?php the_content(); ?>
+
     </section>
     <?php
     $project_types = wp_get_post_terms(get_the_ID(), 'project_type');

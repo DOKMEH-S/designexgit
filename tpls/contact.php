@@ -17,7 +17,7 @@ get_header(); ?>
                     <div class="contactInfoWrapper">
                         <?php $whatsapp = get_field('whatsapp');
                         if($whatsapp):?>
-                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>" class="contactCTAWrap whatsapp"><span
+                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>" class="contactCTAWrap whatsapp" target="_blank"><span
                                     class="icon-Whats-app" aria-hidden="true"></span><span><?php echo get_field('whatsapp_text');?></span></a>
                         <?php endif;
                         if (have_rows('phones')):
@@ -49,7 +49,7 @@ get_header(); ?>
                                     the_row();
                                     $link = get_sub_field('link'); ?>
                                     <a href="<?php echo $link ?>"
-                                       aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                                       aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>" target="_blank"><span
                                                 class="<?php echo get_sub_field('icon'); ?>"
                                                 aria-hidden="true"></span></a>
                                 <?php endwhile; ?>
@@ -67,22 +67,23 @@ get_header(); ?>
                         if ($video_title): ?>
                         <div class="titleWrap">
                             <h2 class="title-roboto"><?php echo $video_title; ?></h2>
-                            <?php endif; ?>
-                            <div class="videoWrapper">
-                                <video autoplay muted loop playsinline
-                                       preload="auto" <?php if ($poster) { ?> poster="<?php echo $poster['sizes']['medium']; ?>" <?php } ?>
-                                       id="projectVideo"
-                                       data-url="<?php echo $video; ?>">
-                                    <source src="<?php echo $video; ?>" type="video/mp4">
-                                </video>
-                                <div id="playVideo">
-                                    <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
-                                    <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
-                                </div>
-                            </div>
                         </div>
                         <?php endif; ?>
+                        <div class="videoWrapper">
+                            <video autoplay muted loop playsinline
+                                   preload="auto" <?php if ($poster) { ?> poster="<?php echo $poster['sizes']['medium']; ?>" <?php } ?>
+                                   id="projectVideo"
+                                   data-url="<?php echo $video; ?>">
+                                <source src="<?php echo $video; ?>" type="video/mp4">
+                            </video>
+                            <div id="playVideo">
+                                <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
+                                <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
+                            </div>
+                        </div>
                     </div>
+                    <?php endif; ?>
+                </div>
                     <div class="contactFormSliderContainer">
                         <?php $form = '[contact-form-7 id="066a049" title="Contact form"]'; ?>
                         <div class="contactFormContainer">
@@ -103,7 +104,7 @@ get_header(); ?>
                         <?php endif; ?>
                     </div>
             </section>
-            <?php if (have_rows('step_text')) : ?>
+            <?php if (have_rows('steps_text')) : ?>
                 <section class="contactStepsContainer">
                     <div class="progressBar">
                         <div class="number-percentage">
@@ -115,7 +116,7 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="stepsWrapper">
-                        <?php while (have_rows('step_text')) :the_row(); ?>
+                        <?php while (have_rows('steps_text')) :the_row(); ?>
                             <div class="stepWrap">
                                 <h2><?php echo get_sub_field('title'); ?></h2>
                                 <P class="subtitle"><?php echo get_sub_field('sub_title'); ?></P>

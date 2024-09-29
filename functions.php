@@ -53,7 +53,11 @@ function Dokmeh_scripts()
     } // Check if it's the about page
     elseif (is_page_template('tpls/about.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
-    } // Check if it's the rethink archive page
+    }
+    elseif (is_page_template('tpls/services.php')) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/services.css', array(), _S_VERSION);
+    }
+    // Check if it's the rethink archive page
     elseif (is_post_type_archive('rethink') or is_singular('rethink')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
     } // Check if it's the projects archive page or a single project page
@@ -67,8 +71,11 @@ function Dokmeh_scripts()
     elseif (is_page_template('tpls/contact.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/contact.css', array(), _S_VERSION);
     } // Check if it's the news page or a single post page
-    elseif (is_home() or is_singular('post')) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
+    elseif (is_home()) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-blog.css', array(), _S_VERSION);
+        wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
+    }elseif (is_singular('post')) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-blog.css', array(), _S_VERSION);
     } elseif (is_404()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.min.css?v=1.0.0', array(), _S_VERSION);
     }

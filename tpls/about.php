@@ -211,104 +211,39 @@ get_header(); ?>
                 <h2>Awards / Publications</h2>
             </div>
             <div class="awardsWrapper">
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
-                <div class="awardsWrap">
-                    <span></span>
-                    <span></span>
-                    <a href="#" target="_blank" class="awardTitleLink">
-                        <p>Good Design Awards</p>
-                        <img src="./assets/img/link.svg" alt="link">
-                    </a>
-                    <p class="award-desc">
-                        best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting
-                    </p>
-                    <div class="award-image">
-                        <img src="./assets/img/sample/awards.png" alt="">
-                    </div>
-                </div>
+                <?php
+
+                $awards_query = new WP_Query(array('post_type' => 'projects'));
+
+                if ($awards_query->have_posts()):
+                    while ($awards_query->have_posts()):
+                        $awards_query->the_post();
+                        $p_link = get_field('p_link');
+                        $p_name = get_field('p_title');
+                        $p_image = get_field('p_image');
+                        $p_des = get_field('p_des');
+
+                        if ($p_link && $p_name && $p_image && $p_des): ?>
+                            <div class="awardsWrap">
+                                <span></span>
+                                <span></span>
+                                <a href="<?php echo $p_link; ?>" target="_blank" class="awardTitleLink">
+                                    <p><?php echo $p_name; ?></p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/link.svg" alt="link">
+                                </a>
+                                <p class="award-desc"><?php echo $p_des; ?></p>
+                                <div class="award-image">
+                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
+                                </div>
+                            </div>
+                        <?php endif;
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
             </div>
         </section>
+
         <section class="theFutureContainer" id="theFuture">
             <div class="theFutureWrapper paddingAboutX">
                 <div class="aboutTitle">
@@ -317,158 +252,8 @@ get_header(); ?>
                 <?php $u_title = get_field('u_title');
                 $u_des = get_field('u_des'); ?>
                 <div class="theFeatureContent">
-                    <h3><?php echo $u_title;?></h3>
-                    <p><?php echo $u_des;?></p>
-                </div>
-            </div>
-            <div class="scrolling-wrap" style="display: none">
-                <div class="comm">
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-8.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-7.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-6.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-5.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-4.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-3.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-2.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-1.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="comm">
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-8.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-7.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-6.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-5.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-4.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-3.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-2.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="theFeatureGalleryWrap">
-                        <div class="galleryMedia">
-                            <img src="./assets/img/sample/h-scroll-1.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <p class="title">Project Name</p>
-                            <span>2022 - Dubai</span>
-                        </figcaption>
-                    </figure>
+                    <h3><?php echo $u_title; ?></h3>
+                    <p><?php echo $u_des; ?></p>
                 </div>
             </div>
             <?php $u_gallery = get_field('u_gallery');
@@ -482,14 +267,14 @@ get_header(); ?>
                         <?php endforeach; ?>
                     </div>
                     <div class="content__title">
-                        <h2 class="content__title-main"><?php echo $b_text;?></h2>
+                        <h2 class="content__title-main"><?php echo $b_text; ?></h2>
                     </div>
                 </section>
             <?php endif; ?>
         </section>
     </section>
     <section class="projectsLink paddingAboutX">
-        <a href="<?php echo is_post_type_archive('projects'); ?>"><span>Projcts</span><img
+        <a href="<?php echo home_url('/projects'); ?>"><span>Projcts</span><img
                 src="<?php ThemeAssets('img/link.svg'); ?>" alt="link"></a>
     </section>
 </main>
