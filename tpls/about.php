@@ -60,210 +60,149 @@
                 <?php endif; ?>
                 <div class="whyUsDescription">
                     <?php while (have_rows('reason')):
-                        the_row(); 
+                        the_row();
                         $title = get_sub_field('title');
-                        $des = get_sub_field('des');?>
+                        $des = get_sub_field('des'); ?>
                         <div class="descriptionSteps">
-                            <h3><?php echo $title;?></h3>
-                            <p><?php echo $des;?></p>
+                            <h3><?php echo $title; ?></h3>
+                            <p><?php echo $des; ?></p>
                         </div>
                     <?php endwhile; ?>
 
                 </div>
 
             </section>
+        <?php endif;
+        $mtitle = get_field('title1');
+        $mdes = get_field('m_des');
+        $vtitle = get_field('title2');
+        $vdes = get_field('v_des');
+        if (($mtitle and $mdes) or ($vtitle and $vdes)): ?>
+
+            <section class="missionVisionContainer paddingAboutL" id="missionVision">
+                <div class="aboutTitle">
+                    <h2>Mission & Vision</h2>
+                </div>
+                <div class="missionVisionWrapper">
+                    <div class="missionVisionInfoWrapper">
+                        <div class="missionVisionContent">
+                            <h3><?php echo $mtitle; ?></h3>
+                            <p><?php echo $mdes; ?></p>
+                        </div>
+                        <div class="missionVisionContent">
+                            <h3><?php echo $vtitle; ?></h3>
+                            <p><?php echo $vdes; ?></p>
+                        </div>
+                    </div>
+                    <?php $vm_gallery = get_field('m_gallery');
+                    if ($vm_gallery): ?>
+                        <div class="missionVisionSliderWrapper">
+                            <div class="slideshow-container">
+                                <?php foreach ($vm_gallery as $image_url): ?>
+                                    <div class="mySlides fade">
+                                        <img src="<?php echo esc_url($image_url); ?>" alt="">
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php endif;
+        $st_des = get_field('s_des');
+        if ($st_des): ?>
+            <section class="statementContainer paddingAboutL" id="statement">
+                <div class="aboutTitle">
+                    <h2>Our Statement</h2>
+                </div>
+                <div class="statementWrapper">
+                    <div class="statementInfoWrapper">
+                        <?php echo $st_des; ?>
+                    </div>
+                    <?php $st_gallery = get_field('s_gallery');
+                    if ($st_gallery): ?>
+                        <div class="statementSliderWrapper" data-lenis-prevent>
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <?php foreach ($st_gallery as $image_url): ?>
+                                        <div class="swiper-slide"><img src="<?php echo esc_url($image_url); ?>" alt=""></div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php endif;
+        $f_name = get_field('f_name');
+        $position = get_field('position');
+        $f_text = get_field('f_text');
+        if ($f_name or $f_text or $position): ?>
+
+            <section class="founderContainer paddingAboutL" id="founder">
+                <div class="founderInfoWrapper">
+                    <div class="aboutTitle">
+                        <h2><?php echo $f_name; ?></h2>
+                        <span><?php echo $position; ?></span>
+                    </div>
+                    <div class="founderContent">
+                        <?php echo $f_text; ?>
+                    </div>
+                </div>
+                <?php
+                $f_video = get_field('f_video');
+                $poster = get_field('video_poster');
+                if ($f_video): ?>
+                    <div class="founderVideoWrapper">
+                        <video id="founderVideo" autoplay muted loop playsinline preload="auto" poster="<?php echo $poster; ?>"
+                            data-url="<?php echo $f_video; ?>">
+                            <source src="<?php echo $f_video; ?>" type="video/mp4">
+                        </video>
+                        <div id="playFounder">
+                            <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
+                            <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </section>
         <?php endif; ?>
-        <section class="missionVisionContainer paddingAboutL" id="missionVision">
-            <div class="aboutTitle">
-                <h2>Mission & Vision</h2>
-            </div>
-            <div class="missionVisionWrapper">
-                <div class="missionVisionInfoWrapper">
-                    <div class="missionVisionContent">
-                        <h3>Our<br> Mission</h3>
-                        <p>Our mission is to provide comprehensive design and construction services that blend
-                            functionality, aesthetics, research, and sustainability. We are committed to delivering
-                            projects on time, within budget, and to the highest quality standards. Designex seeks to
-                            foster long-term partnerships with clients based on trust, transparency, and shared success.
-                        </p>
+        <?php if (have_rows('team')): ?>
+            <section class="teamContainer" id="team">
+                <section class="teamContainerName paddingAboutX">
+                    <div class="aboutTitle">
+                        <h2>team</h2>
                     </div>
-                    <div class="missionVisionContent">
-                        <h3>Our<br> vision</h3>
-                        <p>Designex envisions being a trusted partner in creating spaces that inspire and positively
-                            impact people’s lives. Our goal is to be recognised as a leading design and construction
-                            firm, not just in Dubai, but internationally, as we expand into urban planning, master
-                            planning, and environmental studies. We aim to be at the forefront of designing vibrant,
-                            sustainable communities that reflect the highest standards of quality.</p>
+                    <div class="teamWrapper">
+                        <?php while (have_rows('team')):
+                            the_row();
+                            $image = get_sub_field('mem_img');
+                            $name = get_sub_field('name');
+                            $position = get_sub_field('position'); ?>
+                            <div class="teamWrap">
+                                <div class="teamMedia">
+                                    <img src="<?php echo $image; ?>" alt="">
+                                </div>
+                                <div class="teamInfo">
+                                    <h3><?php echo $name; ?></h3>
+                                    <span><?php echo $position; ?></span>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
                     </div>
-                </div>
-                <div class="missionVisionSliderWrapper">
-                    <div class="slideshow-container">
-                        <div class="mySlides fade">
-                            <img src="./assets/img/sample/about-1.jpg" alt="">
-                        </div>
-                        <div class="mySlides fade">
-                            <img src="./assets/img/sample/about-4.jpg" alt="">
-                        </div>
-                        <div class="mySlides fade">
-                            <img src="./assets/img/sample/about-2.jpg" alt="">
-                        </div>
-                        <div class="mySlides fade">
-                            <img src="./assets/img/sample/about-3.jpg" alt="">
-                        </div>
-                        <div class="mySlides fade">
-                            <img src="./assets/img/sample/about-5.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="statementContainer paddingAboutL" id="statement">
-            <div class="aboutTitle">
-                <h2>Our Statement</h2>
-            </div>
-            <div class="statementWrapper">
-                <div class="statementInfoWrapper">
-                    <p>Choose Designex because we epitomise the highest quality craftsmanship with a focus on innovation
-                        and sustainability. Rooted in the rich tradition of architectural design and construction,
-                        Designex combines timeless aesthetics with cutting-edge sustainable methods, delivering luxury
-                        and quality without compromise.</p>
-                    <p>Designex has earned a reputation in Dubai for its luxurious and meticulously designed villas,
-                        apartments, and commercial spaces. Now, we are expanding our expertise into broader realms,
-                        including urban planning, master planning, and environmental projects that enhance not just
-                        individual buildings but entire communities.</p>
-                    <p>With Designex, experience the elegance of superior design incorporated seamlessly into
-                        sustainable and environmentally respectful projects that meet the highest standards of luxury.
-                        Choose Designex – where quality meets luxury, and innovation drives sustainability.</p>
-                    <p>Choose Designex because we epitomise the highest quality craftsmanship with a focus on innovation
-                        and sustainability. Rooted in the rich tradition of architectural design and construction,
-                        Designex combines timeless aesthetics with cutting-edge sustainable methods, delivering luxury
-                        and quality without compromise.</p>
-                    <p>Designex has earned a reputation in Dubai for its luxurious and meticulously designed villas,
-                        apartments, and commercial spaces. Now, we are expanding our expertise into broader realms,
-                        including urban planning, master planning, and environmental projects that enhance not just
-                        individual buildings but entire communities.</p>
-                    <p>With Designex, experience the elegance of superior design incorporated seamlessly into
-                        sustainable and environmentally respectful projects that meet the highest standards of luxury.
-                        Choose Designex – where quality meets luxury, and innovation drives sustainability.</p>
-                </div>
-                <div class="statementSliderWrapper" data-lenis-prevent>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-7.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-8.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-9.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-10.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-11.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-12.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="./assets/img/sample/about-13.jpg" alt=""></div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-        <section class="founderContainer paddingAboutL" id="founder">
-            <div class="founderInfoWrapper">
-                <div class="aboutTitle">
-                    <h2>The Founder Name</h2>
-                    <span>CEO, Founder</span>
-                </div>
-                <div class="founderContent">
-                    <p>Choose Designex because we epitomise the highest quality craftsmanship with a focus on innovation
-                        and sustainability. Rooted in the rich tradition of architectural design and construction,
-                        Designex combines timeless aesthetics with cutting-edge sustainable methods, delivering luxury
-                        and quality without compromise.</p>
-                    <p>Designex has earned a reputation in Dubai for its luxurious and meticulously designed villas,
-                        apartments, and commercial spaces. Now, we are expanding our expertise into broader realms,
-                        including urban planning, master planning, and environmental projects that enhance not just
-                        individual buildings but entire communities.</p>
-                    <p>With Designex, experience the elegance of superior design incorporated seamlessly into
-                        sustainable and environmentally respectful projects that meet the highest standards of luxury.
-                        Choose Designex – where quality meets luxury, and innovation drives sustainability.</p>
-                </div>
-            </div>
-            <div class="founderVideoWrapper">
-                <video id="founderVideo" autoplay muted loop playsinline preload="auto"
-                    poster="./assets/img/sample/founder-poster.jpg" data-url="./assets/video/founder.mp4">
-                    <source src="./assets/video/founder.mp4" type="video/mp4">
-                </video>
-                <div id="playFounder">
-                    <img src="./assets/img/outer-circle.svg" alt="circle text">
-                    <img src="./assets/img/inner-icon-play.svg" alt="play icon">
-                </div>
-            </div>
-        </section>
-        <section class="teamContainer" id="team">
-            <section class="teamContainerName paddingAboutX">
-                <div class="aboutTitle">
-                    <h2>team</h2>
-                </div>
-                <div class="teamWrapper">
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-1.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-2.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-3.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-1.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-2.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                    <div class="teamWrap">
-                        <div class="teamMedia">
-                            <img src="./assets/img/sample/member-3.png" alt="">
-                        </div>
-                        <div class="teamInfo">
-                            <h3>Team Members Name</h3>
-                            <span>PMO, Co-Founder</span>
-                        </div>
-                    </div>
-                </div>
+                </section>
+                <?php $team_banner = get_field('banner');
+                if ($team_banner): ?>
+                    <section class="aboutOfficeContainer">
+                        <picture>
+                            <source srcset="<?php echo $team_banner['sizes']['medium']; ?>" media="(max-width: 600px)">
+                            <!-- medium size -->
+                            <img src="<?php echo $team_banner['url']; ?>" alt=""> <!-- Original Size -->
+                        </picture>
+                    </section>
+                <?php endif; ?>
             </section>
-            <section class="aboutOfficeContainer">
-                <picture>
-                    <source srcset="./assets/img/sample/about-full-image.jpg" media="(max-width: 600px)">
-                    <!-- medium size -->
-                    <img src="./assets/img/sample/about-full-image.jpg" alt=""> <!-- Original Size -->
-                </picture>
-            </section>
-        </section>
+        <?php endif; ?>
         <section class="awardsContainer paddingAboutX" id="awards">
             <div class="aboutTitle">
                 <h2>Awards / Publications</h2>
