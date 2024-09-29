@@ -29,20 +29,22 @@
                     </div>
                 <?php endif; ?>
             </div>
+            <?php $p_link = get_field('p_link');
+            $p_name = get_field('p_title');
+            $p_image = get_field('p_image');
+            $p_des = get_field('p_des');?>
             <div class="singleProjectAwardsWrapper">
-                <a href="#" target="_blank" class="awardsTitleLogoWrapper">
+                <a href="<?php echo $p_link;?>" target="_blank" class="awardsTitleLogoWrapper">
                     <div class="awardsTitle">
-                        <h2>Good Design Awards</h2>
-                        <img src="./assets/img/link.svg" alt="">
+                        <h2><?php echo $p_name;?></h2>
+                        <img src="<?php ThemeAssets('img/link.svg');?>" alt="">
                     </div>
                     <div class="awardsLogo">
-                        <img src="./assets/img/sample/awards.png" alt="">
+                        <img src="<?php echo $p_image['sisez']['thumbnail'];?>" alt="">
                     </div>
                 </a>
                 <div class="awardsDescription">
-                    <p>best in class 2018<br>
-                        13 / flush<br>
-                        Product Design Furniture & Lighting</p>
+                    <p><?php echo $p_des;?></p>
                 </div>
             </div>
         </div>
