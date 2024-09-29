@@ -103,7 +103,7 @@ get_header(); ?>
                         <?php endif; ?>
                     </div>
             </section>
-            <?php if (have_rows('step_text')) : ?>
+            <?php if (have_rows('steps_text')) : ?>
                 <section class="contactStepsContainer">
                     <div class="progressBar">
                         <div class="number-percentage">
@@ -115,7 +115,7 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="stepsWrapper">
-                        <?php while (have_rows('step_text')) :the_row(); ?>
+                        <?php while (have_rows('steps_text')) :the_row(); ?>
                             <div class="stepWrap">
                                 <h2><?php echo get_sub_field('title'); ?></h2>
                                 <P class="subtitle"><?php echo get_sub_field('sub_title'); ?></P>
