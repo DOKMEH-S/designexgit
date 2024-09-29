@@ -38,7 +38,7 @@ get_header(); ?>
                 </div>
 
                 <div class="aboutVideoWrap">
-                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['url']; ?>">
                         <source src="<?php echo $video['url']; ?>" type="video/mp4">
                     </video>
                 </div>
@@ -100,7 +100,7 @@ get_header(); ?>
                             <div class="slideshow-container">
                                 <?php foreach ($vm_gallery as $image_url): ?>
                                     <div class="mySlides fade">
-                                        <img src="<?php echo esc_url($image_url); ?>" alt="">
+                                        <img src="<?php echo $image_url['sizes']['large']; ?>" alt="">
                                     </div>
                                 </div>
                             <?php endforeach; ?>
