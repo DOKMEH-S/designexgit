@@ -127,7 +127,8 @@ get_header(); ?>
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     <?php foreach ($st_gallery as $image_url): ?>
-                                        <div class="swiper-slide"><img src="<?php echo $image_url['sizes']['medium']; ?>" alt=""></div>
+                                        <div class="swiper-slide"><img src="<?php echo $image_url['sizes']['medium']; ?>" alt="">
+                                        </div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -140,7 +141,9 @@ get_header(); ?>
         $f_name = get_field('f_name');
         $position = get_field('position');
         $f_text = get_field('f_text');
-        if ($f_name or $f_text or $position): ?>
+        $f_video = get_field('f_video');
+        $poster = get_field('video_poster');
+        if (($f_name and $f_video) or ($f_text and $f_video) or ($f_name and $f_text)): ?>
 
             <section class="founderContainer paddingAboutL" id="founder">
                 <div class="founderInfoWrapper">
@@ -153,8 +156,6 @@ get_header(); ?>
                     </div>
                 </div>
                 <?php
-                $f_video = get_field('f_video');
-                $poster = get_field('video_poster');
                 if ($f_video): ?>
                     <div class="founderVideoWrapper">
                         <video id="founderVideo" autoplay muted loop playsinline preload="auto" poster="<?php echo $poster; ?>"
