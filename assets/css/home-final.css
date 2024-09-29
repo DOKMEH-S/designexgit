@@ -6,6 +6,7 @@ canvas#defaultCanvas0 {
     top: 0;
     left: 0;
     opacity: .4;
+    transform: scale(1.2);
 }
 main.homeWrapper {
     /* height: 100vh; */

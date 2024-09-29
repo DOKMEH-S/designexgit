@@ -226,7 +226,7 @@ footer:before{
     row-gap: 1rem;
 }
 
-.footer-contact-items .item > * {
+.footer-contact-items .item > * , .footer-subscribe-form .checkboxTypeInput label {
     display: block;
     font-size: 1rem;
 }
@@ -254,6 +254,8 @@ footer:before{
     -webkit-column-gap: 3rem;
     -moz-column-gap: 3rem;
     column-gap: 3rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .footerPolicyDokmeh .footer-policy-items > * , .footerPolicyDokmeh .dokmeh > * {
@@ -293,7 +295,86 @@ footer form .textTypeInput input:-ms-input-placeholder { /* IE 10+ */
 footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     color: var(--white);
 }
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    footer {
+        padding-top: 4.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .footer-logo img {
+        width: 3.375rem;
+        height: 3.5rem;
+    }
+
+    .footerSides {
+        display: block;
+    }
+
+    .footerSide:nth-child(1) {
+        width: 100%;
+        row-gap: 2.5rem;
+    }
+
+    .footer-text > * {
+        font-size: 2rem;
+    }
+
+    .footer-mailSocial {flex-direction: column;align-items: flex-start;row-gap: 1rem;margin-bottom: 1.5rem;}
+
+    .footerSide:nth-child(2) {
+        width: 100%;
+    }
+
+    .footerPolicyDokmeh {
+        display: block;
+    }
+
+    .footerPolicyDokmeh .footer-policy-items > * {
+        width: calc(50% - 3rem*2/3);
+    }
+
+    .footerPolicyDokmeh .footer-policy-items {
+        row-gap: 1rem;
+    }
+
+    .footerPolicyDokmeh .dokmeh {
+        justify-content: flex-end;
+        margin-top: 1rem;
+    }
+
+    .footerPolicyDokmeh .dokmeh img {
+        width: 4.563rem;
+        height: 1.5rem;
+    }
+
+    .footer-contact-items .item > * , .footer-subscribe-form .checkboxTypeInput label {
+        font-size: .75rem;
+    }
+
+
+    .footer-subscribe-form .checkboxTypeInput input[type="checkbox"] {
+        margin-right: .75rem;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .footer-subscribe-form input[type="checkbox"]:before {
+        width: .75rem;
+        height: .75rem;
+    }
+    .footer-subscribe .title {
+        font-size: .875rem;
+    }
+
+    .footer-mailSocial_mail {
+        font-size: .875rem;
+    }
+
+    .footer-subscribe-form input[type="text"] {
+        font-size: .875rem;
+        height: 1.5rem;
+    }
+}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {

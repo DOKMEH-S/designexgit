@@ -49,6 +49,10 @@ section.servicesContainer {
     flex-direction: column;
     justify-content: space-between;
 }
+.serviceItem .side ul {
+    padding-left: 1rem;
+}
+.se
 .serviceItem .title{
     /*max-width: calc(50% + 12rem);*/
     margin: 0 0 4rem auto;
@@ -93,6 +97,7 @@ section.servicesContainer {
     display: flex;
     align-items: center;
     column-gap: 2rem;
+    margin: 1rem 0;
 }
 
 .serviceItem .media .mediaItem {
@@ -130,7 +135,7 @@ section.servicesContainer {
     content: '';
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     display: block;
     width: 1.625rem;
     height: 1.625rem;
@@ -189,6 +194,9 @@ section.approachContainer .descriptionTitle {
 }
 section.approachContainer .descriptionTitle .description {
     width: calc(50% - 8rem * .5);
+}
+section.approachContainer .descriptionTitle .description ul {
+    padding-left: 1rem;
 }
 section.approachContainer .descriptionTitle h2 {
     width: 50%;
@@ -272,11 +280,27 @@ section.outLink a {
     text-align: right;
     width: 100%;
     cursor: pointer;
+    position: relative;
+    padding-top: 2rem;
 }
-section.outLink img {
-    width: 1.688rem;
-    height: 1.688rem;
-    object-fit: contain;
+section.outLink a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 1.625rem;
+    height: 1.625rem;
+    cursor: pointer;
+    transition: all ease-in-out .35s;
+    background-image: url(../img/link.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+section.outLink a:hover:before {
+    transform: translate(.5rem, -1rem);
+    filter:blur(3px);
 }
 /*------outLink------*/
 /*==========MODAL VIDEO============*/
@@ -325,7 +349,65 @@ section.outLink img {
     pointer-events: auto;
 }
 /*==========MODAL VIDEO============*/
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    .serviceItem .sides {
+        display: block;
+    }
+    .serviceItem .link {
+        margin-left: 0;
+    }
+
+    .serviceItem .media {
+        column-gap: 1rem;
+    }
+
+    .serviceItem .title h2 {
+        font-size: clamp(2rem, 7.5vw, 3rem);
+        line-height: 4rem;
+    }
+
+    .serviceItem .title .expandMedia {
+        max-height: 2.5rem;
+    }
+    section.approachContainer .descriptionTitle {
+        padding-top: 3rem;
+        flex-direction: column-reverse;
+    }
+
+    section.approachContainer .descriptionTitle .description {
+        width: 100%;
+    }
+
+    section.approachContainer .descriptionTitle h2 {
+        width: 100%;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .serviceItem h3, section.approachContainer .descriptionTitle h3 {
+        font-size: 1rem;
+    }
+
+    section.approachContainer .approachVideo {
+        width: 100%;
+        margin-left: 0;
+        height: 30vh;
+    }
+
+    section.approachContainer .approachVideo #playVideo {
+        width: 5.636rem;
+        height: 5.636rem;
+    }
+
+    section.approachContainer .approachVideo #playVideo img:last-child {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    section.outLink a {
+        font-size: 4rem;
+    }
+}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
