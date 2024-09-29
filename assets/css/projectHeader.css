@@ -114,7 +114,10 @@ span.projectHeader-container_row-title {
     font-size: .75rem;
     text-transform: capitalize;
 }
-
+.projectHeader-container_row-items > *.selected {
+    font-weight: 700;
+    color: var(--primary);
+}
 .projectHeader-container_row-above .projectHeader-container_row-items > * {
     font-weight: 700;
 }

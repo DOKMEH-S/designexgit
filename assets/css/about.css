@@ -766,6 +766,7 @@ section.theFutureContainer {
     width: 100%;
     display: block;
     padding-top: var(--gridGapTop);
+    overflow-x: hidden;
 }
 .theFeatureContent {
     margin-top: 4.5rem;
@@ -908,12 +909,83 @@ figure.theFeatureGalleryWrap:hover figcaption {
 figure.theFeatureGalleryWrap:hover::before {
     opacity: 1;
 }
-.galleryMedia img {
+.theFutureContainer .galleryMedia img {
     width: 100%;
     height: 100%;
     max-width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+}
+.theFutureContainer .content--full {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    grid-template-areas: 'main';
+    grid-template-rows: 100%;
+    grid-template-columns: 100%;
+}
+.theFutureContainer .content {
+    position: relative;
+    min-height: 100dvh;
+    align-content: center;
+}
+.theFutureContainer .grid {
+    grid-area: main;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin-left: 1.4rem;
+}
+.theFutureContainer .grid--spaced {
+    gap: 1rem;
+}
+.theFutureContainer .grid--wide {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+.theFutureContainer .grid__img {
+    background-size: cover;
+    background-position: 50% 50%;
+    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0.1px);
+    width: 100%;
+    height: 100%;
+}
+.theFutureContainer .content__title {
+    grid-area: main;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    mix-blend-mode: difference;
+    z-index: 2;
+    color: var(--white);
+}
+.theFutureContainer .grid__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.theFutureContainer .content__title-main {
+    font-size: clamp(2rem, 13vw, 11.5rem);
+    line-height: 1;
+    margin: 0.5rem 0 0;
+    font-weight: 500;
+    font-variation-settings: "wght" 500;
+    text-wrap: balance;
+    text-transform: uppercase;
+}
+.theFutureContainer .content__title-main + p {
+    margin: 0;
+    max-width: 100px;
+}
+section.theFutureContainer .pin-spacer {
+    mix-blend-mode: normal;
 }
 /*==========THE FUTURE===========*/
 /*==========PROJECT LINK============*/

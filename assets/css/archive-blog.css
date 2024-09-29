@@ -86,8 +86,8 @@ body[data-pagetype="archiveBlog"] main {
     font-weight: 400;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 6; /* number of lines to show */
-    line-clamp: 6;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    line-clamp: 5;
     -webkit-box-orient: vertical;
 }
 
@@ -107,7 +107,7 @@ body[data-pagetype="archiveBlog"] main {
 .blogItem-info_more .tags > * {
     display: block;
     text-align: center;
-    border: 1px solid var(--black);
+    border: 1px solid var(--primary);
     padding: .25rem;
     border-radius: 1rem;
     cursor: pointer;
@@ -118,38 +118,31 @@ body[data-pagetype="archiveBlog"] main {
 .blogItem-info .link {
     float: right;
     display: block;
-    padding-right: 1rem;
-}
-
-.blogItem-info .link span {
+    margin-right: 1rem;
     font-size: 1rem;
     font-weight: 700;
     display: block;
-    margin-bottom: 1rem;
+    padding-bottom: 3rem;
+    position: relative;
 }
-
-.blogItem-info .link img {
+.blogItem-info .link:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    -o-object-fit: contain;
-    object-fit: contain;
+    width: 1.625rem;
+    height: 1.625rem;
     cursor: pointer;
-    -webkit-transform: translate(-1.1rem, 0.3rem);
-    -ms-transform: translate(-1.1rem, 0.3rem);
-    transform: translate(-1.1rem, 0.3rem);
-    -webkit-transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, -webkit-filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
-    transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, -webkit-filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
-    -o-transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
-    transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
-    transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s, -webkit-filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+    transition: all ease-in-out .35s;
+    background-image: url(../img/link.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.blogItem-info .link:hover img {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    -webkit-transform: translate(-0.8rem, -0.3rem);
-    -ms-transform: translate(-0.8rem, -0.3rem);
-    transform: translate(-0.8rem, -0.3rem);
+.blogItem-info .link:hover:before{
+    transform: translate(.5rem, -1rem);
+    filter: blur(3px);
 }
 
 @media only screen and (max-width: 768px) {}

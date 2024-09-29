@@ -61,6 +61,9 @@ section.homeContainer {
 }
 /*=============VERTICAL SLIDER================*/
 /*=============SLOGAN CONTAINER===============*/
+main.homeWrapper {
+    padding: 0;
+}
 .homeSloganInfo {
     position: relative;
     width: 52%;
@@ -72,6 +75,7 @@ section.homeContainer {
     display: inline-block !important;
     font-size: 0.75rem;
     color: var(--gray);
+    line-height: 1.7;
 }
 
 .homeSloganInfo p video {

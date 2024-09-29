@@ -100,7 +100,7 @@ get_header(); ?>
                             <div class="slideshow-container">
                                 <?php foreach ($vm_gallery as $image_url): ?>
                                     <div class="mySlides fade">
-                                        <img src="<?php echo $image_url['sizes']['large']; ?>" alt="">
+                                        <img src="<?php echo $image_url['url']; ?>" alt="">
                                     </div>
                                 </div>
                             <?php endforeach; ?>

@@ -120,26 +120,30 @@ section.servicesContainer {
 .serviceItem .link {
     float: right;
     margin-left: auto;
-}
-
-.serviceItem .link span {
     font-size: 1rem;
     font-weight: 700;
     display: block;
-    margin-bottom: 1rem;
+    padding-bottom: 3rem;
+    position: relative;
 }
-.serviceItem .link img{
+.serviceItem .link:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: block;
-    width: 2rem;
-    height: 2rem;
-    object-fit: contain;
+    width: 1.625rem;
+    height: 1.625rem;
     cursor: pointer;
-    transform: translate(-1.1rem, 0.3rem);
-    transition: opacity cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s, filter cubic-bezier(0.18, 0.89, 0.32, 1.28) .6s .1s, transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+    transition: all ease-in-out .35s;
+    background-image: url(../img/link.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.serviceItem .link:hover img {
-    filter: blur(0px);
-    transform: translate(-0.8rem, -0.3rem);
+.serviceItem .link:hover:before{
+    transform: translate(.5rem, -1rem);
+    filter:blur(3px);
 }
 .serviceItem ul , section.approachContainer .descriptionTitle ul {
     list-style: auto;

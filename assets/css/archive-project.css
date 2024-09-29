@@ -22,6 +22,7 @@ body[data-pagetype="archiveProject"] main {
     margin-top: 8rem;
     margin-bottom: 8rem;
     overflow: hidden;
+    position: relative;
 }
 
 .projectItems {
@@ -160,6 +161,22 @@ body[data-pagetype="archiveProject"] main {
 #closeMap span {
     margin-bottom: 2px;
     text-transform: uppercase;
+}
+#see-more {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, .4);
+}
+
+#see-more > * {
+    display: block;
+    text-align: center;
+    padding: 5rem 0 2rem;
+    text-transform: capitalize;
 }
 @media only screen and (max-width: 768px) {}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
