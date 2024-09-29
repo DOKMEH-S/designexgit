@@ -38,7 +38,7 @@ get_header(); ?>
                 </div>
 
                 <div class="aboutVideoWrap">
-                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $video; ?>">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>">
                         <source src="<?php echo $video; ?>" type="video/mp4">
                     </video>
                 </div>
