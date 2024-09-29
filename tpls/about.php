@@ -231,7 +231,7 @@ get_header(); ?>
                                 </a>
                                 <p class="award-desc"><?php echo $p_des; ?></p>
                                 <div class="award-image">
-                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="">
+                                    <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt'];?>">
                                 </div>
                             </div>
                         <?php endif;
