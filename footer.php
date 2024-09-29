@@ -88,6 +88,8 @@
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/about.php')): ?>
+    <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>
+    <script defer type="module" src="<?php ThemeAssets('js/index.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
 <?php elseif(is_page_template('tpls/contact.php')):?>
     <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
