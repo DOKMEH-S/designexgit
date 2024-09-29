@@ -14,50 +14,53 @@ function showSlides() {
     setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 //========DROPDOWN
-var linkToggle = document.querySelectorAll('.js-toggle');
+// Check if there is an accordion on the page
+if (document.querySelector('.accordion')) {
+    var linkToggle = document.querySelectorAll('.js-toggle');
 
-for (var i = 0; i < linkToggle.length; i++) {
-    linkToggle[i].addEventListener('click', function(event) {
-        event.preventDefault();
+    for (var i = 0; i < linkToggle.length; i++) {
+        linkToggle[i].addEventListener('click', function(event) {
+            event.preventDefault();
 
-        // Close other open dropdowns
-        linkToggle.forEach(function(link) {
-            var container = document.getElementById(link.dataset.container);
-            if (container !== document.getElementById(this.dataset.container)) {
+            // Close other open dropdowns
+            linkToggle.forEach(function(link) {
+                var container = document.getElementById(link.dataset.container);
+                if (container !== document.getElementById(this.dataset.container)) {
+                    container.style.maxHeight = '0px'; // Collapse
+                    link.classList.remove('active');
+                    container.classList.remove('active');
+                }
+            }, this);
+
+            var container = document.getElementById(this.dataset.container);
+
+            if (!container.classList.contains('active')) {
+                this.classList.add('active');
+                container.classList.add('active');
+                container.style.maxHeight = 'none'; // Allow to calculate height
+
+                var height = container.scrollHeight + 'px'; // Get the scroll height
                 container.style.maxHeight = '0px'; // Collapse
-                link.classList.remove('active');
-                container.classList.remove('active');
+                setTimeout(function () {
+                    container.style.maxHeight = height; // Expand
+                }, 0);
+            } else {
+                container.style.maxHeight = '0px'; // Collapse
+                this.classList.remove('active');
+                container.addEventListener('transitionend', function () {
+                    container.classList.remove('active');
+                }, {
+                    once: true
+                });
             }
-        }, this);
+        });
+    }
 
-        var container = document.getElementById(this.dataset.container);
-
-        if (!container.classList.contains('active')) {
-            this.classList.add('active');
-            container.classList.add('active');
-            container.style.maxHeight = 'none'; // Allow to calculate height
-
-            var height = container.scrollHeight + 'px'; // Get the scroll height
-            container.style.maxHeight = '0px'; // Collapse
-            setTimeout(function () {
-                container.style.maxHeight = height; // Expand
-            }, 0);
-        } else {
-            container.style.maxHeight = '0px'; // Collapse
-            this.classList.remove('active');
-            container.addEventListener('transitionend', function () {
-                container.classList.remove('active');
-            }, {
-                once: true
-            });
-        }
-    });
+    // Open the first dropdown by default
+    var firstContainer = document.getElementById(linkToggle[0].dataset.container);
+    firstContainer.classList.add('active');
+    firstContainer.style.maxHeight = firstContainer.scrollHeight + 'px'; // Set initial height
 }
-
-// Open the first dropdown by default
-var firstContainer = document.getElementById(linkToggle[0].dataset.container);
-firstContainer.classList.add('active');
-firstContainer.style.maxHeight = firstContainer.scrollHeight + 'px'; // Set initial height
 //=======PLAY VIDEO
 let projectVideo = document.getElementById('projectVideo');
 if(projectVideo){
