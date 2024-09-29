@@ -489,7 +489,7 @@ get_header(); ?>
         </section>
     </section>
     <section class="projectsLink paddingAboutX">
-        <a href="<?php site_url('projects/'); ?>"><span>Projcts</span><img
+        <a href="<?php site_url('/projects'); ?>"><span>Projcts</span><img
                 src="<?php ThemeAssets('img/link.svg'); ?>" alt="link"></a>
     </section>
 </main>
