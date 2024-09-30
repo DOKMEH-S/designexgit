@@ -89,7 +89,7 @@ $page_id = get_queried_object_id(); ?>
                         </div>
                     <?php endwhile; ?>
                 </div>
-                <div class="see-more" id="see-more" offset ="4" style="display: none;">
+                <div class="see-more" id="see-more" offset =4 style="display: none;">
                     <span> <?php _e('loading','dokmeh');?></span>
                 </div>
             </div>
