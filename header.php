@@ -78,7 +78,7 @@
                                 aria-label="Projects">Projects</a></li>
                         <?php $pages = get_pages(array(
                             'meta_key' => '_wp_page_template',
-                            'meta_value' => 'services.php'
+                            'meta_value' => 'tpls/services.php'
                         ));
                         $serviceID = $pages[0]->ID;
                         if ($serviceID) { ?>
