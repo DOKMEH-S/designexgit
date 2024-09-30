@@ -236,7 +236,7 @@ function blog_filter_handler()
 {
     $catID = $_POST['cat'];
     $tagIDs = $_POST['tags'];
-    $offset = intval($_POST['tags']);
+    $offset = intval($_POST['offset']);
     if ($catID) {
         if($tagIDs) :
             $args = array(
