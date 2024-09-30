@@ -113,9 +113,9 @@ get_header(); ?>
                     <h3><?php echo $a_title; ?></h3>
                     <?php echo $a_des; ?>
 
-                    <?php if (have_rows('left_items')): ?>
+                    <?php if (have_rows('a_items')): ?>
                         <ul>
-                            <?php while (have_rows('left_items')):
+                            <?php while (have_rows('a_items')):
                                 the_row();
                                 $items = get_sub_field('item'); ?>
                                 <li><?php echo $items; ?></li>
