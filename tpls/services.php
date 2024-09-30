@@ -90,11 +90,12 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                                 <?php if ($link): ?>
-                                    <a href="<?php echo esc_url(get_permalink($link->ID)); ?>"
-                                        aria-label="Related Success Projects" class="link">
+                                    <a href="<?php echo esc_url(get_permalink($link)); ?>" aria-label="Related Success Projects"
+                                        class="link">
                                         Related Success Projects
                                     </a>
                                 <?php endif; ?>
+
 
                             </div>
                         </div>
