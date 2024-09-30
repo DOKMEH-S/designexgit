@@ -20,7 +20,7 @@ get_header(); ?>
                     $title1 = get_sub_field('title1');
                     $media = get_sub_field('title_media');
                     $title2 = get_sub_field('title2');
-                    
+
                     $des_title1 = get_sub_field('services_data');
                     $des1 = get_sub_field('title');
                     $gallery = get_sub_field('title');
@@ -31,7 +31,7 @@ get_header(); ?>
                     <div class="serviceItem">
                         <div class="title">
                             <h2>
-                                <?php echo $title1;?> <br>
+                                <?php echo $title1; ?> <br>
                                 <?php
                                 if ($media):
                                     $file_type = wp_check_filetype($media['url']);
@@ -43,7 +43,7 @@ get_header(); ?>
                                                 <source src="<?php echo esc_url($media['url']); ?>" type="video/mp4">
                                             </video>
                                         </div>
-                                    <?php
+                                        <?php
                                     elseif (in_array($file_extension, ['jpg', 'jpeg', 'png', 'webp'])): ?>
                                         <div class="expandMedia" style="max-width: 11.375rem">
                                             <img src="<?php echo esc_url($media['url']); ?>" alt="services-item">
@@ -51,58 +51,18 @@ get_header(); ?>
                                     <?php endif;
                                 endif;
                                 ?>
-                                <?php echo $title2;?>
+                                <?php echo $title2; ?>
                             </h2>
                         </div>
                         <div class="sides">
-                            <div class="side">
-                                <div class="des">
-                                    <h3>About this service</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque
-                                        sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu
-                                        lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut
-                                        porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae
-                                        turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim
-                                        lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan
-                                        sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                                </div>
-                                <div class="media">
-                                    <div class="mediaItem"><img src="./assets/img/sample/service-01.webp" alt="service-01">
-                                    </div>
-                                    <div class="mediaItem"><img src="./assets/img/sample/service-02.webp" alt="service-02">
-                                    </div>
-                                    <div class="mediaItem"><img src="./assets/img/sample/service-03.webp" alt="service-03">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side">
-                                <div class="des">
-                                    <h3>How we solve your problem and Level up your project?</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque
-                                        sit amet porttitor eget dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu
-                                        lobortis. Gravida cum sociis natoque penatibus et magnis. Lorem mollis aliquam ut
-                                        porttitor leo a. Vitae turpis massa sed elementum tempus egestas sed sed risus. In vitae
-                                        turpis massa sed elementum tempus egestas. Facilisi etiam dignissim diam quis enim
-                                        lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu dui vivamus. Accumsan
-                                        sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                                    <ul>
-                                        <li>Research about your project</li>
-                                        <li>good knowing about what you want</li>
-                                        <li>Brain Storm</li>
-                                        <li>Design</li>
-                                        <li>Develop</li>
-                                        <li>Maintenance</li>
-                                    </ul>
-                                </div>
-                                <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
-                                <?php echo $des_title1;?>
-                            </div>
+                            <?php echo $des_title1; ?>
+                            <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
+
                         </div>
-                       
                     </div>
-                <?php endwhile; ?>
+
+                </div>
+            <?php endwhile; ?>
             </div>
         </section>
     <?php endif; ?>
