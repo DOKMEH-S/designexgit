@@ -80,7 +80,7 @@ $page_id = get_queried_object_id(); ?>
                                 </div>
                             </div>
                             <a href="<?php the_permalink(); ?>" aria-label="blog-01" class="blogItem-media">
-                                <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="blog-01">
+                                <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="<?php the_title();?>">
                                 <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                             </a>
                         </div>

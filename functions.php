@@ -53,11 +53,9 @@ function Dokmeh_scripts()
     } // Check if it's the about page
     elseif (is_page_template('tpls/about.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
-    }
-    elseif (is_page_template('tpls/services.php')) {
+    } elseif (is_page_template('tpls/services.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/services.css', array(), _S_VERSION);
-    }
-    // Check if it's the rethink archive page
+    } // Check if it's the rethink archive page
     elseif (is_post_type_archive('rethink') or is_singular('rethink')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/news.min.css', array(), _S_VERSION);
     } // Check if it's the projects archive page or a single project page
@@ -74,27 +72,27 @@ function Dokmeh_scripts()
     elseif (is_home()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-blog.css', array(), _S_VERSION);
         wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
-    }elseif (is_singular('post')) {
+    } elseif (is_singular('post')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-blog.css', array(), _S_VERSION);
     } elseif (is_404()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.min.css?v=1.0.0', array(), _S_VERSION);
     }
 
-     if (is_post_type_archive('projects')) :
-         wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.0', true);
-         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
-             array(
-                 'ajaxurl' => admin_url('admin-ajax.php'),
-             )
-         );
-    // elseif (is_post_type_archive('rethink') OR is_home()):
-    //     wp_enqueue_script('autoLoad-ajax', get_template_directory_uri() . '/assets/js/autoLoad-ajax.js', array(), '1.0.2', true);
-    //     wp_localize_script('autoLoad-ajax', 'autoLoad_object',
-    //         array(
-    //             'ajaxurl' => admin_url('admin-ajax.php'),
-    //         )
-    //     );
-     endif;
+    if (is_post_type_archive('projects')) :
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.0', true);
+        wp_localize_script('frontend-ajax', 'frontend_ajax_object',
+            array(
+                'ajaxurl' => admin_url('admin-ajax.php'),
+            )
+        );
+    elseif (is_home()):
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/blog-ajax.js', array(), '1.0.0', true);
+        wp_localize_script('frontend-ajax', 'frontend_ajax_object',
+            array(
+                'ajaxurl' => admin_url('admin-ajax.php'),
+            )
+        );
+    endif;
 // // --- remove contact form 7 files from pages doesn't have form ----------
 //     if( is_front_page() OR is_page_template('tpls/contact.php') ) {
 //         wp_enqueue_script('contact-form-7');
@@ -195,24 +193,24 @@ function project_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i=$count > 8+$offset ? 0 : 5;
+        $i = $count > 8 + $offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
             $i++;
             $projectID = get_the_ID();
             $title = get_the_title();
             $outputHTML .= '<div class="projectItem hover-box"';
-            if ($i==4) {
+            if ($i == 4) {
                 $outputHTML .= ' id ="infinity-loading"';
             }
             $outputHTML .= '>';
-            $outputHTML .= '<div class="image"><img src="'.get_the_post_thumbnail_url($projectID,'medium').'" alt="'.$title.'"></div>';
-            $outputHTML .= '<a href="'.get_the_permalink().'" aria-label="project-01" class="info hover-info">';
-            $outputHTML .= '<spna class="name">'.$title.'</spna>';
+            $outputHTML .= '<div class="image"><img src="' . get_the_post_thumbnail_url($projectID, 'medium') . '" alt="' . $title . '"></div>';
+            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="project-01" class="info hover-info">';
+            $outputHTML .= '<spna class="name">' . $title . '</spna>';
             $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
-                  if ($year OR $loc):
-                      $outputHTML .= '<span class="dateLoc">'.($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : '').'</span>';
-                                 endif;
+            if ($year or $loc):
+                $outputHTML .= '<span class="dateLoc">' . ($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : '') . '</span>';
+            endif;
             $outputHTML .= '</a></div>';
         endwhile;
         wp_reset_postdata();
@@ -222,7 +220,7 @@ function project_filter_handler()
     $results = array();
     $results ['count'] = $count;
     $results ['cat'] = $catIDs;
-    if($count > 8+$offset){
+    if ($count > 8 + $offset) {
         $results ['show'] = true;
     }
     $results ['content'] = $outputHTML;
@@ -231,5 +229,93 @@ function project_filter_handler()
 
 add_action('wp_ajax_project_filter', 'project_filter_handler');
 add_action('wp_ajax_nopriv_project_filter', 'project_filter_handler');
+
+
+//------ blog filter -----------
+function blog_filter_handler()
+{
+    $catID = $_POST['cat'];
+    $tagIDs = $_POST['tags'];
+    $offset = intval($_POST['tags']);
+    if ($catID) {
+        if($tagIDs) :
+            $args = array(
+                'post_type' => 'projects',
+                'post_status' => 'publish',
+                'posts_per_page' => 4,
+                'category__in' => $catID,
+                'tag__in' => $tagIDs,
+                'offset' => $offset
+            );
+            else:
+                $args = array(
+                    'post_type' => 'projects',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 4,
+                    'category__in' => $catID,
+                    'offset' => $offset
+                );
+                endif;
+    }
+    elseif($tagIDs) {
+        $args = array(
+            'post_type' => 'projects',
+            'post_status' => 'publish',
+            'posts_per_page' => 4,
+            'tag__in' => $tagIDs,
+            'offset' => $offset
+        );
+    }else{
+        $args = array(
+            'post_type' => 'projects',
+            'post_status' => 'publish',
+            'posts_per_page' => 8,
+            'offset' => $offset
+        );
+    }
+
+    $Projectquery = new WP_Query($args);
+    $outputHTML = '';
+    $count = 0;
+    if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
+        $i = $count > 8 + $offset ? 0 : 5;
+        while ($Projectquery->have_posts()) :$Projectquery->the_post();
+            $blogID = get_the_ID();
+            $outputHTML .= '<div class="blogItem">';
+            $outputHTML .= '<div class="blogItem-info">';
+            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="blog-01">';
+            $outputHTML .= '<h2 class="title">' . get_the_title() . '</h2></a>';
+            $outputHTML .= '<div class="blogItem-info_more">';
+            $outputHTML .= '<p class="des"' . (has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30, ' ...')) . '</p>';
+            $tags = get_the_tags();
+            if ($tags) :
+                $outputHTML .= '<div class="tags">';
+                foreach ($tags as $tag) {
+                    $outputHTML .= '<a aria-label="' . $tag->name . '">' . $tag->name . '</a>';
+                }
+                $outputHTML .= '</div>';
+            endif;
+            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="Read More" class="link">Read More</a>';
+            $outputHTML .= '</div> </div><a href="' . get_the_permalink() . '" aria-label="blog-01" class="blogItem-media">';
+            $outputHTML .= '<img src="' . get_the_post_thumbnail_url($blogID, 'large') . '" alt="' . get_the_title() . '">';
+            $outputHTML .= '<span class="date">' . get_the_date('Y.M.d') . '</span></a></div>';
+
+        endwhile;
+        wp_reset_postdata();
+    else:
+        $outputHTML = '<div class="no-result"><p>' . __('Sorry, No resault found!', 'dokmeh') . '</p></div>';
+    endif;
+    $results = array();
+    $results ['count'] = $count;
+    $results ['cat'] = $catIDs;
+    if ($count > 8 + $offset) {
+        $results ['show'] = true;
+    }
+    $results ['content'] = $outputHTML;
+    wp_die(json_encode($results));
+}
+
+add_action('wp_ajax_blog_filter', 'blog_filter_handler');
+add_action('wp_ajax_nopriv_blog_filter', 'blog_filter_handler');
 
 
