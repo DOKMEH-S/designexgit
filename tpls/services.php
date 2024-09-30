@@ -92,7 +92,7 @@ get_header(); ?>
         </section>
     <?php endif; ?>
     <section class="outLink">
-        <a href="./archive-projects.html" aria-label="Projects">Projects</a>
+        <a href="<?php echo home_url('/projects'); ?>" aria-label="Projects">Projects</a>
     </section>
 </main>
 <div id="videoModal">
