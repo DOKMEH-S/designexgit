@@ -73,11 +73,11 @@ body[data-pagetype="archiveBlog"] main {
     mix-blend-mode: difference;
     z-index: 1;
     position: relative;
-    word-break: break-word;
+    /*word-break: break-word;*/
     word-wrap: unset;
     word-spacing: revert;
     width: 120%;
-    white-space: pre;
+    /*white-space: pre;*/
 }
 
 .blogItem-info_more .des {

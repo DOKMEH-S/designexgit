@@ -617,6 +617,7 @@ section.contactStepsContainer {
     font-size: 3rem;
     font-weight: 300;
     position: relative;
+    text-transform: uppercase;
 }
 
 .stepWrap:last-child {
@@ -650,7 +651,7 @@ p.subtitle {
 #numbers{
     font-weight:600;
     color: #444444;
-    width: calc(100vh - var(--headerHeight) - 11rem);
+    width: calc(100vh - var(--headerHeight) - 10rem);
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -699,7 +700,58 @@ progress[value]::-webkit-progress-bar {
     box-shadow: 0 2px 5px transparent inset;
 }
 /*==========PROGRESS BAR============*/
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    section.contactInfoMapFormContainer {
+        grid-template-columns: 1fr;
+        padding-top: 3rem;
+    }
+
+    h1.contact_title {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        font-size: 3rem;
+    }
+
+    .contactCTAWrap {
+        position: relative;
+    }
+
+    .number-percentage {
+        font-size: 2rem;
+        height: 4rem;
+    }
+
+    .stepsWrapper {
+        width: 78%;
+    }
+
+    .progressBar {
+        width: 18%;
+    }
+
+    .stepWrap {
+        margin-bottom: 2.5rem;
+        width: 100%;
+    }
+
+    .stepWrap:nth-of-type(even) p.subtitle , .stepWrap:nth-of-type(even) .content {
+        text-align: left;
+    }
+
+    #numbers {
+        width: calc(100vh - var(--headerHeight) - 5rem);
+    }
+
+    .stepWrap h2 {
+        font-size: 2rem;
+    }
+
+    .stepWrap h2::before {
+        font-size: 2rem;
+    }
+}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
@@ -791,5 +843,61 @@ progress[value]::-webkit-progress-bar {
     #closeModalVideo span {
         font-size: 1.4rem;
     }
+    h1.contact_title {
+        font-size: 2.5rem;
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        margin-bottom: 2rem;
+    }
 
+    section.contactInfoMapFormContainer {
+        padding-top: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .contactCTAWrap {
+        position: relative;
+        right: auto;
+        top: auto;
+        left: auto;
+    }
+
+    .contactInfoWrapper {
+        /* display: flex; */
+        /* flex-direction: column-reverse; */
+    }
+
+    .number-percentage {
+        font-size: 3rem;
+        height: 4rem;
+    }
+
+    .stepsWrapper {
+        width: calc(var(--space)*7.5);
+    }
+
+    .stepWrap h2::before {
+        font-size: 2rem;
+    }
+
+    .stepWrap h2 {font-size: 2.5rem;}
+
+    .stepWrap:nth-of-type(even) {
+        margin: 0;
+    }
+
+    .stepWrap {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .stepWrap:nth-of-type(even) p.subtitle {
+        text-align: inherit;
+    }
+
+    .stepWrap:nth-of-type(even) .content {
+        text-align: inherit;
+    }
 }

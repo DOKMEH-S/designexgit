@@ -8,11 +8,17 @@
 body[data-pagetype="archiveProject"] main {
     padding-right: var(--spaceL);
 }
-.projectHeader-container .mapView_icon {
+.projectHeader-container .mapView_icon.desktop {
     cursor: pointer;
     display: inline-block;
     position: absolute;
     right: 0;
+}
+.projectHeader-container .mapView_icon.mobile {
+    display: none;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    text-align: right;
 }
 .projectHeader-container .mapView_icon > * {
     text-transform: capitalize;
@@ -180,7 +186,30 @@ body[data-pagetype="archiveProject"] main {
     width: fit-content;
     margin: auto;
 }
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    .projectBody-container {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    body[data-pagetype="archiveProject"] main {
+        padding-right: var(--spaceX);
+    }
+
+    .projectItems {
+        width: calc(100vw - var(--spaceX) * 2);
+    }
+    .projectItem {
+        width: calc(100vw - var(--spaceX)* 2);
+        height: calc(100vw - var(--spaceX)* 2);
+    }
+    .projectHeader-container .mapView_icon.desktop {
+        display: none;
+    }
+    .projectHeader-container .mapView_icon.mobile {
+        display: block;
+    }
+}
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {

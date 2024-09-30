@@ -26,12 +26,27 @@
 }
 
 html.loadingDone #loading {
-    background-color: transparent;
+    animation: opacity 1.2s forwards;
+    animation-delay: .5s;
 }
-
+html.loadingDone body[data-pagetype="home"] #loading {
+    animation-delay: 1s;
+}
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
 .loading-container {
     position: absolute;
-    left: calc(10rem + 50%);
+    left: calc(10rem - 10rem + 50%);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone body[data-pagetype="home"] .loading-container{
+    left: calc(100% - 10rem - var(--spaceX));
 }
 #loading .loading-container .loading-point {
     width: 1rem;
@@ -173,17 +188,19 @@ html.loadingDone #loading {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
+#loading .loading-container.getNumber .loading_text_canvas.two > .justLoading{
 
-#loading .loading-container.getNumber .loading_text_canvas.one > .justLoading {
-    -webkit-transform: translate(0,-100%);
-    -ms-transform: translate(0,-100%);
-    transform: translate(0,-100%);
+    /* opacity: 1; */
 }
-#loading .loading-container.missNumber .loading_text_canvas.one > .justLoading {
+#loading .loading-container.getNumber .loading_text_canvas.two > .justLoading {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    /* opacity: 1; */
+}
+#loading .loading-container.missNumber .loading_text_canvas.two > .justLoading {
     -webkit-transform: translate(100%,-100%);
     -ms-transform: translate(100%,-100%);
     transform: translate(100%,-100%);
@@ -202,6 +219,7 @@ html.loadingDone #loading {
     border-top: 10rem solid var(--white);
     border-right: calc(10rem * .4) solid transparent;
     left: 0;
+    z-index: 3;
 }
 #loading .loading-container .loading_text_canvas.two {
     border-bottom: 10rem solid var(--white);
@@ -214,17 +232,15 @@ html.loadingDone #loading {
 
 
 
-.loading-container:before {
+#loading .loading-container:before {
     content: '';
     position: absolute;
     top: 50%;
-    left: -10rem;
-    width: 20rem;
-    height: 7px;
+    right: 50%;
+    width: 30rem;
+    /*height: 7px;*/
+    height: 2px;
     /* background: linear-gradient(to right, #1FA066, #000000); */
-    -webkit-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    transform: scaleX(0);
     -webkit-transform-origin: right;
     -ms-transform-origin: right;
     transform-origin: right;
@@ -232,11 +248,18 @@ html.loadingDone #loading {
     -o-transition: all ease-in-out 1s;
     transition: all ease-in-out 1s;
     z-index: 1;
-    background-image: url(../img/Union.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-color: var(--black);
+    /*background-image: url(../img/Union.svg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
 }
-html.loadingDone .loading-container:before {
+#loading .loading-container:before ,
+body[data-pagetype]:not([data-pagetype="home"])  #loading .loading-container.getNumber.loseNumber:before{
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+}
+#loading .loading-container.getNumber:before {
     -webkit-transform: scaleX(1);
     -ms-transform: scaleX(1);
     transform: scaleX(1);
@@ -251,11 +274,12 @@ html.loadingDone #loading .loading-container .loading_text_canvas > *.projectInf
     -o-transition: all ease-in-out 1.2s;
     transition: all ease-in-out 1.2s;
 }
-#loading .loading-container .loading_text_canvas.one > *{
-    /*margin-bottom: -7rem;*/
-    -webkit-transform: translate(100%,-100%);
-    -ms-transform: translate(100%,-100%);
-    transform: translate(100%,-100%);
+#loading .loading-container .loading_text_canvas.two > *, #loading .loading-container.getNumber.loseNumber .loading_text_canvas.two > *{
+    margin-bottom: -7rem;
+    -webkit-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    /* opacity: 0; */
 }
 html.loadingDone #loading .loading-container .loading_text_canvas.one > *.projectInfo {
     -webkit-transform: translate(0%, -100%);
@@ -263,7 +287,7 @@ html.loadingDone #loading .loading-container .loading_text_canvas.one > *.projec
     transform: translate(0%, -100%);
 }
 #loading .loading-container .loading_text_canvas.two > *{
-    opacity: 0;
+    /* opacity: 0; */
 }
 html.loadingDone #loading .loading-container .loading_text_canvas.two > *.projectInfo {
     opacity: 1;
