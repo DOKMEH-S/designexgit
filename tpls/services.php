@@ -93,7 +93,6 @@ get_header(); ?>
                                     Projects</a>
                             </div>
                         </div>
-                        <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
                     </div>
                 <?php endwhile; ?>
             </div>
