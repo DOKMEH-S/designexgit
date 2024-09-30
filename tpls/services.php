@@ -20,10 +20,9 @@ get_header(); ?>
                     $title1 = get_sub_field('title1');
                     $media = get_sub_field('title_media');
                     $title2 = get_sub_field('title2');
-
                     $des = get_sub_field('services_data');
-
                     $post_object = get_sub_field('title'); ?>
+
                     <div class="serviceItem">
                         <div class="title">
                             <h2>
@@ -55,11 +54,10 @@ get_header(); ?>
                         </div>
                         <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
                     </div>
-
-                </div>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
             </div>
         </section>
+
     <?php endif;
     $a_des = get_field('a_des');
     $a_video = get_field('a_video');
@@ -68,7 +66,7 @@ get_header(); ?>
         <section class="approachContainer">
             <div class="descriptionTitle">
                 <div class="description">
-                    <?php echo $a_des;?>
+                    <?php echo $a_des; ?>
                 </div>
                 <h2>Our <br>
                     Approach</h2>
@@ -76,13 +74,13 @@ get_header(); ?>
             <div class="approachVideo">
 
                 <div class="singleProjectVideoContainer">
-                    <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="<?php echo $a_poster['url'];?>"
-                        data-url="<?php echo $a_video['url'];?>">
-                        <source src="<?php echo $a_video['url'];?>" type="video/mp4">
+                    <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto"
+                        poster="<?php echo $a_poster['url']; ?>" data-url="<?php echo $a_video['url']; ?>">
+                        <source src="<?php echo $a_video['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
-                        <img src="<?php ThemeAssets('img/outer-circle.svg');?>" alt="circle text">
-                        <img src="<?php ThemeAssets('img/inner-icon-play.svg')?>" alt="play icon">
+                        <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
+                        <img src="<?php ThemeAssets('img/inner-icon-play.svg') ?>" alt="play icon">
                     </div>
                 </div>
             </div>
