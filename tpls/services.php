@@ -52,10 +52,8 @@ get_header(); ?>
                         </div>
                         <div class="sides">
                             <?php echo $des; ?>
-
-                            <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
-
                         </div>
+                        <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
                     </div>
 
                 </div>
