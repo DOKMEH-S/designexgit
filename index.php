@@ -73,7 +73,7 @@ if ($Blogs->have_posts()):$count = $Blogs->found_posts; ?>
                             if ($tags) :?>
                                 <div class="tags">
                                     <?php foreach ($tags as $tag) { ?>
-                                        <div aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></div>
+                                        <a aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></a>
                                     <?php } ?>
                                 </div>
                             <?php endif; ?>
