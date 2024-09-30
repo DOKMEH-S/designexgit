@@ -240,7 +240,7 @@ function blog_filter_handler()
     if ($catID) {
         if($tagIDs) :
             $args = array(
-                'post_type' => 'projects',
+                'post_type' => 'post',
                 'post_status' => 'publish',
                 'posts_per_page' => 4,
                 'category__in' => $catID,
@@ -249,7 +249,7 @@ function blog_filter_handler()
             );
             else:
                 $args = array(
-                    'post_type' => 'projects',
+                    'post_type' => 'post',
                     'post_status' => 'publish',
                     'posts_per_page' => 4,
                     'category__in' => $catID,
@@ -259,7 +259,7 @@ function blog_filter_handler()
     }
     elseif($tagIDs) {
         $args = array(
-            'post_type' => 'projects',
+            'post_type' => 'post',
             'post_status' => 'publish',
             'posts_per_page' => 4,
             'tag__in' => $tagIDs,
@@ -267,26 +267,31 @@ function blog_filter_handler()
         );
     }else{
         $args = array(
-            'post_type' => 'projects',
+            'post_type' => 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 8,
+            'posts_per_page' => 4,
             'offset' => $offset
         );
     }
-
     $Projectquery = new WP_Query($args);
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i = $count > 8 + $offset ? 0 : 5;
+        $i = $count > 5 + $offset ? 0 : 6;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
+        $i++;
             $blogID = get_the_ID();
-            $outputHTML .= '<div class="blogItem">';
+            $title = get_the_title();
+            $outputHTML .= '<div class="blogItem" ';
+            if ($i==3){
+                $outputHTML .= 'id ="infinity-loading"';
+            }
+            $outputHTML .= '>';
             $outputHTML .= '<div class="blogItem-info">';
-            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="blog-01">';
-            $outputHTML .= '<h2 class="title">' . get_the_title() . '</h2></a>';
+            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="'.$title.'">';
+            $outputHTML .= '<h2 class="title">'.$title.'</h2></a>';
             $outputHTML .= '<div class="blogItem-info_more">';
-            $outputHTML .= '<p class="des"' . (has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30, ' ...')) . '</p>';
+            $outputHTML .= '<p class="des">' . (has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30, ' ...')) . '</p>';
             $tags = get_the_tags();
             if ($tags) :
                 $outputHTML .= '<div class="tags">';
@@ -296,8 +301,8 @@ function blog_filter_handler()
                 $outputHTML .= '</div>';
             endif;
             $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="Read More" class="link">Read More</a>';
-            $outputHTML .= '</div> </div><a href="' . get_the_permalink() . '" aria-label="blog-01" class="blogItem-media">';
-            $outputHTML .= '<img src="' . get_the_post_thumbnail_url($blogID, 'large') . '" alt="' . get_the_title() . '">';
+            $outputHTML .= '</div> </div><a href="' . get_the_permalink() . '" aria-label="'.$title.'" class="blogItem-media">';
+            $outputHTML .= '<img src="' . get_the_post_thumbnail_url($blogID, 'large') . '" alt="'.$title.'">';
             $outputHTML .= '<span class="date">' . get_the_date('Y.M.d') . '</span></a></div>';
 
         endwhile;
@@ -307,7 +312,8 @@ function blog_filter_handler()
     endif;
     $results = array();
     $results ['count'] = $count;
-    $results ['cat'] = $catIDs;
+    $results ['cat'] = $catID;
+    $results ['tag'] = $tagIDs;
     if ($count > 8 + $offset) {
         $results ['show'] = true;
     }
