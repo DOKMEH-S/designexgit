@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
                 action: 'blog_filter',
                 cat: catID,
                 tag: tagIDs,
-                offset: offset
+                offset: parseInt(offset)
             },
             beforeSend: function () {
                 $('.see-more').css('display', 'flex');
