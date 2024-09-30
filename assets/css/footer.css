@@ -376,7 +376,20 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 769px) and (max-width:1199px) {
+    .footer-text > * {
+        font-size: 3rem;
+        line-height: normal;
+    }
+    .footerSides {
+        column-gap: 5rem;
+    }
+
+    .footer-logo img {
+        width: 7.375rem;
+        height: 6.5rem;
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     .footer-logo img {
         width: 8.5rem;

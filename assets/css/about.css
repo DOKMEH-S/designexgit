@@ -20,10 +20,9 @@ body[data-pagetype="about"] main{
 .aboutTitle{
     position: relative;
     padding-top: calc(var(--spaceY)/2);
-    padding-left: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    padding-left: .5re;
+    padding-left: .5rem;
 }
 .aboutTitle::before{
     content: '';
@@ -97,7 +96,7 @@ section.logo-anchor-links {
     box-sizing: border-box;
 }
 .paddingAboutL{
-    padding-right: var(--spaceL);
+    padding-right: var(--spaceX);
     padding-left: var(--spaceLL);
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -112,6 +111,7 @@ section.aboutSloganContainer {
     -ms-flex-align: center;
     align-items: center;
     margin-top: var(--headerHeight);
+    position: relative;
 }
 
 .aboutVideoWrap {
@@ -1078,22 +1078,433 @@ section.projectsLink a img {
 }
 /*==========MODAL VIDEO============*/
 @media only screen and (max-width: 768px) {
+    :root{
+        --gridGap:2.375rem;
+        --spaceY: 5rem
+    }
+    /*============GENERAL CLASS===============*/
+    .paddingAboutX {
+        padding-right: var(--spaceX);
+        padding-left: var(--spaceX);
+    }
+    .paddingAboutL {
+        padding-left: var(--spaceX);
+        padding-right: var(--spaceX);
+    }
+    /*============GENERAL CLASS===============*/
     /*=============ANCHOR LINKS===============*/
     section.logo-anchor-links {
         width: 100%;
+        top: var(--headerHeight);
+        position: sticky;
     }
     .aboutAnchorLinksWrap {
         width: 100%;
+        padding-right: var(--spaceX);
+        padding-top: 0;
+        padding-left: var(--spaceX);
     }
 
     #aboutAnchorLinks {
         width: 100%;
         padding: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 0.5rem;
+    }
+    .aboutAnchorLinksWrap img {
+        height: 2.75rem;
+        object-position: right;
+    }
+
+    #aboutAnchorLinks a {
+        font-size: 0.75rem;
     }
     /*=============ANCHOR LINKS===============*/
+    /*=============HERO SECTION===============*/
+    section.aboutSloganContainer {
+        grid-template-columns: 1fr;
+        grid-row-gap: var(--gridGap);
+        margin-top: calc(var(--headerHeight) + 1rem);
+    }
+    .aboutVideoWrap {
+        height: 42vh;
+        padding-left: var(--spaceL);
+        box-sizing: border-box;
+    }
+    .aboutSloganInfo .content {
+        margin-top: var(--gridGap);
+    }
+    .aboutSloganInfo h2 {
+        font-size: 1.25rem;
+    }
+
+    main.aboutWrapper p{
+        font-size: 0.875rem;
+    }
+    section.whyUsContainer {
+        grid-template-columns: 1fr;
+        grid-row-gap: var(--gridGap)rem;
+    }
+
+    .logo-items img {
+        width: 50vw;
+    }
+    /*=============HERO SECTION===============*/
+    /*================WHY US==================*/
+    .aboutTitle {
+        padding-left: var(--spaceL);
+    }
+
+    .whyUsDescription {
+        padding-left: var(--spaceL);
+    }
+
+    .aboutTitle::before {
+        left: -0.5rem;
+    }
+
+    .descriptionSteps::before {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        line-height: 3rem;
+    }
+
+    .descriptionSteps h3 {
+        margin-bottom: 0;
+    }
+
+    .descriptionSteps {
+        transform: none !important;
+    }
+
+    .descriptionSteps:nth-of-type(even) {
+        text-align: right;
+    }
+
+    .descriptionSteps:nth-of-type(even) p {
+        text-align: right;
+    }
+
+    .descriptionSteps:nth-of-type(6)::after {
+        right: 0;
+        bottom: -6rem;
+    }
+    /*=============WHY US===============*/
+    /*=============STATEMENT===============*/
+    .missionVisionWrapper {
+        grid-template-columns: 1fr;
+        grid-row-gap: var(--gridGap);
+        margin-top: 3rem;
+    }
+    .missionVisionInfoWrapper {
+        padding-left: var(--spaceL);
+    }
+    .missionVisionContent {
+        margin-bottom: 3rem;
+    }
+    .missionVisionSliderWrapper {
+        height: 45vh;
+    }
+    .statementWrapper {
+        grid-template-columns: 1fr;
+        margin-top: 3rem;
+        grid-row-gap: var(--gridGap);
+    }
+    .statementInfoWrapper {
+        column-count: 1;
+        padding-left: var(--spaceL););
+    }
+    .statementSliderWrapper {
+        height: 50vh;
+    }
+    /*=============STATEMENT===============*/
+    /*=============FOUNDER===============*/
+    section.founderContainer {
+        grid-template-columns: 1fr;
+        grid-row-gap: var(--gridGap);
+    }
+
+    .founderContent {
+        padding-left: var(--spaceL);
+    }
+
+    .founderVideoWrapper {
+        height: 60vh;
+    }
+
+    #playFounder {
+        width: 8.636rem;
+        height: 8.636rem;
+    }
+
+    #playFounder img:last-child {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    /*=============FOUNDER===============*/
+    /*=============TEAM===============*/
+    section.teamContainer .aboutTitle {
+        margin-bottom: 3rem;
+    }
+    .teamWrapper {
+        grid-template-columns: 1fr;
+    }
+    .teamWrap {
+        height: 47vh;
+    }
+    .teamInfo h3 {
+        font-size: 1.3rem;
+    }
+
+    .teamInfo span {
+        font-size: 0.75rem;
+    }
+    section.aboutOfficeContainer {
+        height: 35vh;
+    }
+    /*=============TEAM===============*/
+    /*=============AWARDS===============*/
+    section.awardsContainer .aboutTitle {
+        margin-bottom: 3rem;
+    }
+    .awardsWrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 1.25rem;
+    }
+
+    .awardTitleLink {
+        width: 100%;
+        order: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    section.awardsContainer {
+        padding-right: var(--spaceX);
+    }
+    .award-desc {
+        width: calc(100% - 7rem);
+        order: 2;
+    }
+    .awardTitleLink p {
+        font-size: 1.25rem !important;
+        font-weight: 700;
+        margin: 0;
+    }
+    .awardTitleLink img {
+        width: 1.875rem;
+        height: 1.875rem;
+        object-fit: contain;
+    }
+    /*=============AWARDS===============*/
+    /*===========THE-FUTURE=============*/
+    .theFeatureContent {
+        width: 100%;
+        margin-top: 3rem;
+        margin-bottom: 0;
+        padding-left: var(--spaceL);
+        box-sizing: border-box;
+    }
+    .theFutureContainer .grid {
+        margin-left: 0;
+        gap: 0.5rem;
+    }
+    .theFutureContainer .content__title-main {
+        font-size: clamp(2rem, 10vw, 9.5rem);
+    }
+    /*===========THE-FUTURE=============*/
+    /*===========PROJECTS LINK=============*/
+    section.projectsLink {
+        height: 15rem;
+    }
+    section.projectsLink a span {
+        font-size: 4rem;
+    }
+    section.projectsLink a {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    section.projectsLink a img {
+        margin: 0;
+        width: 1.875rem;
+        height: 1.875rem;
+    }
+    /*===========PROJECTS LINK=============*/
 }
-@media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {
+    .aboutAnchorLinksWrap {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    #aboutAnchorLinks {
+        flex-wrap: nowrap;
+    }
+
+    .aboutAnchorLinksWrap img {
+        width: auto;
+    }
+    .aboutTitle::before {
+        left: 0.5rem;
+        top: 0.2rem;
+    }
+    .teamWrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .teamWrap {
+        height: 37vh;
+    }
+
+    section.aboutOfficeContainer {
+        height: 50vh;
+    }
+
+    .award-image {
+        width: 7.75rem;
+        height: 5.938rem;
+    }
+
+    .award-desc {
+        width: calc(100% - 8.5rem);
+    }
+    section.projectsLink {
+        height: 19rem;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:1199px) {
+    :root{
+        --gridGap: 5rem;
+        --gridGapTop: calc(var(--headerHeight) + 1rem);
+    }
+    #aboutAnchorLinks {
+        width: 100%;
+        padding-right: 2rem;
+    }
+    section.aboutSloganContainer {
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+    }
+    .aboutVideoWrap {
+        height: 41vh;
+    }
+
+    .aboutSloganInfo .content {
+        margin-top: 3rem;
+    }
+
+    .logo-items {
+        left: 4rem;
+    }
+
+    .logo-items img {
+        width: 30vw;
+    }
+
+    .aboutTitle::before {
+        width: 2.2rem;
+        left: -1.8rem;
+    }
+
+    #aboutAnchorLinks a {
+        font-size: .875rem;
+    }
+
+    .aboutTitle h2 {
+        font-size: 1.4rem;
+    }
+
+    .descriptionSteps::before {
+        font-size: 2.8rem;
+    }
+
+    .descriptionSteps:nth-of-type(6)::after {
+        width: 2.2rem;
+        right: -3rem;
+        bottom: -4rem;
+    }
+    .missionVisionWrapper {
+        grid-template-columns: 1fr;
+        grid-row-gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .missionVisionInfoWrapper::before {
+        width: 2.2rem;
+    }
+
+    .missionVisionInfoWrapper {
+        padding-bottom: 4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2rem;
+    }
+
+    .missionVisionSliderWrapper {
+        height: 38vh;
+    }
+
+    .statementWrapper {
+        grid-column-gap: 2.75rem;
+    }
+
+    .founderVideoWrapper {
+        height: 45vh;
+    }
+    #playFounder {
+        width: 8.636rem;
+        height: 8.636rem;
+    }
+
+    #playFounder img:last-child {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    .teamWrap {
+        height: 24vh;
+    }
+    .teamInfo {
+        padding-bottom: 2rem;
+    }
+
+    .teamInfo h3 {
+        font-size: 1.3rem;
+    }
+
+    .teamInfo span {
+        font-size: .875rem;
+    }
+
+    section.aboutOfficeContainer {
+        height: 52vh;
+    }
+    .theFutureContainer .content__title-main {
+        font-size: clamp(2rem, 10vw, 11.5rem);
+    }
+
+    .theFutureContainer .grid {
+        margin-left: 0;
+    }
+    section.projectsLink {
+        height: 30.188rem;
+    }
+
+    section.projectsLink a span {
+        font-size: 6rem;
+    }
+
+    section.projectsLink a img {
+        margin-top: 13px;
+        width: 2rem;
+        height: 2rem;
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     :root {
         --gridGap: 7.375rem;
@@ -1131,7 +1542,10 @@ section.projectsLink a img {
         height: 2rem;
     }
     .logo-items img {
-        width: 25vw;
+        width: 22vw;
+    }
+    .logo-items{
+        left: 4rem;
     }
     figcaption {
         padding: 0 1.5rem 1.5rem;
@@ -1157,6 +1571,23 @@ section.projectsLink a img {
 
     #closeModalVideo span {
         font-size: 1.3rem;
+    }
+    .descriptionSteps:nth-of-type(6)::after {
+        width: 2.75rem;
+        right: -3rem;
+        bottom: -5rem;
+    }
+
+    .missionVisionInfoWrapper::before {
+        width: 2.75rem;
+    }
+
+    .missionVisionInfoWrapper {
+        padding-bottom: calc(var(--spaceY) + -0.5rem);
+    }
+
+    .theFutureContainer .content__title-main {
+        font-size: clamp(2rem, 9vw, 11.5rem);
     }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {

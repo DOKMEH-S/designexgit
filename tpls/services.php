@@ -26,7 +26,7 @@ get_header(); ?>
                     $left_side_text = get_sub_field('left_side_text');
                     $right_side_text = get_sub_field('right_side_text');
                     $left_media = get_sub_field('left_media');
-                    $left_items = get_sub_field('left_items'); ?>
+                    $link = get_sub_field('right_link'); ?>
 
                     <div class="serviceItem">
                         <div class="title">
@@ -82,15 +82,21 @@ get_header(); ?>
                                     if (have_rows('left_items')): ?>
                                         <ul>
                                             <?php while (have_rows('left_items')):
-                                                the_row(); 
-                                                $items = get_sub_field('item');?>
-                                                <li><?php echo $items;?></li>
+                                                the_row();
+                                                $items = get_sub_field('item'); ?>
+                                                <li><?php echo $items; ?></li>
                                             <?php endwhile; ?>
                                         </ul>
                                     <?php endif; ?>
                                 </div>
-                                <a href="./#" aria-label="Related Success Projects" class="link">Related Success
-                                    Projects</a>
+                                <?php if ($link): ?>
+                                    <a href="<?php echo esc_url(get_permalink($link)); ?>" aria-label="Related Success Projects"
+                                        class="link">
+                                        Related Success Projects
+                                    </a>
+                                <?php endif; ?>
+
+
                             </div>
                         </div>
                     </div>
@@ -99,14 +105,27 @@ get_header(); ?>
         </section>
 
     <?php endif;
-    $a_des = get_field('a_des');
+    $a_des = get_field('text');
+    $a_title = get_field('a_title');
     $a_video = get_field('a_video');
     $a_poster = get_field('a_poster');
-    if ($a_des or $a_video): ?>
+    if ($a_des or $a_title or $a_video): ?>
         <section class="approachContainer">
             <div class="descriptionTitle">
                 <div class="description">
+
+                    <h3><?php echo $a_title; ?></h3>
                     <?php echo $a_des; ?>
+
+                    <?php if (have_rows('a_items')): ?>
+                        <ul>
+                            <?php while (have_rows('a_items')):
+                                the_row();
+                                $items = get_sub_field('item'); ?>
+                                <li><?php echo $items; ?></li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
                 <h2>Our <br>
                     Approach</h2>
