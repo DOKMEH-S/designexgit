@@ -245,6 +245,7 @@ function blog_filter_handler()
                 'posts_per_page' => 4,
                 'category__in' => $catID,
                 'tag__in' => $tagIDs,
+                'relation' => 'AND',
                 'offset' => $offset
             );
             else:
