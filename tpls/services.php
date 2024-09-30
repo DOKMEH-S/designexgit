@@ -97,9 +97,10 @@ get_header(); ?>
                                     </ul>
                                 </div>
                                 <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
+                                <?php echo $des_title1;?>
                             </div>
                         </div>
-                        <?php echo $des_title1;?>
+                       
                     </div>
                 <?php endwhile; ?>
             </div>
