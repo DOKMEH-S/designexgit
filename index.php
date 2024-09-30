@@ -10,129 +10,84 @@ $page_id = get_queried_object_id(); ?>
         </div>
         <div class="projectHeader-container">
             <div class="projectHeader-wrapper">
+<?php $terms = get_terms([
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+]);
+if ($terms):?>
                 <div class="projectHeader-container_row-above">
                     <div class="projectHeader-container_row-container">
                         <div class="projectHeader-container_row">
                             <span class="projectHeader-container_row-title">Main Tag</span>
                             <div class="projectHeader-container_row-items">
-                                <span>Blog</span>
-                                <span>News</span>
-                                <span>Publications</span>
-                                <span>media</span>
+                                <?php foreach ($terms as $term): ?>
+                                    <span class="blog-cat"
+                                          data-id="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></span>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
+<?php endif; ?>
+<?php $tags = get_tags(array(
+    'hide_empty' => true
+));
+if ($tags):?>
                 <div class="projectHeader-container_row-under">
                     <div class="projectHeader-container_row-container">
                         <div class="projectHeader-container_row">
                             <span class="projectHeader-container_row-title">Filter</span>
                             <div class="projectHeader-container_row-items">
-                                <span>Tag 01</span>
-                                <span>Tag 02</span>
-                                <span>Tag 03</span>
-                                <span>Tag 04</span>
-                                <span>Tag 05</span>
-                                <span>Tag 06</span>
-                                <span>Tag 07</span>
-                                <span>Tag 08</span>
+                                <?php foreach ($tags as $tag) : ?>
+                                    <span class="blog-tag"
+                                          data-id="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></span>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
+<?php endif; ?>
             </div>
         </div>
+<?php $Args = array(
+    'post_type' => 'post',
+    'posts_per_page' => 4,
+    'paged' => 1,
+);
+$Blogs = new WP_Query($Args);
+if ($Blogs->have_posts()):$count = $Blogs->found_posts; ?>
         <div class="blogBody">
             <div class="blogItems">
+    <?php while ($Blogs->have_posts()):$Blogs->the_post();
+        $blogID = get_the_ID(); ?>
                 <div class="blogItem">
                     <div class="blogItem-info">
-                        <a href="./single-blog.html" aria-label="blog-01">
-                            <h2 class="title"> Architectural <br>Design</h2>
+                        <a href="<?php the_permalink(); ?>" aria-label="blog-01">
+                            <h2 class="title"><?php the_title(); ?></h2>
                         </a>
                         <div class="blogItem-info_more">
-                            <p class="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis mag
-                            </p>
-                            <div class="tags">
-                                <a href="/#">Tag 01</a>
-                                <a href="/#">Tag 02</a>
-                                <a href="/#">Tag 03</a>
-                            </div>
-                            <a href="./single-blog.html" aria-label="Read More" class="link">Read More</a>
+                            <?php if (has_excerpt()) : ?>
+                                <p class="des"><?php the_excerpt(); ?></p>
+                            <?php endif; ?>
+                            <?php  $tags = get_the_tags();
+                            if ($tags) :?>
+                                <div class="tags">
+                                    <?php foreach ($tags as $tag) { ?>
+                                        <div aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></div>
+                                    <?php } ?>
+                                </div>
+                            <?php endif; ?>
+                            <a href="<?php the_permalink(); ?>" aria-label="Read More" class="link">Read More</a>
                         </div>
                     </div>
-                    <a href="./single-blog.html" aria-label="blog-01" class="blogItem-media">
-                        <img src="./assets/img/sample/blog-01.webp" alt="blog-01">
-                        <span class="date">2024.SEP.01</span>
+                    <a href="<?php the_permalink(); ?>" aria-label="blog-01" class="blogItem-media">
+                        <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="blog-01">
+                        <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                     </a>
                 </div>
-                <div class="blogItem">
-                    <div class="blogItem-info">
-                        <a href="./single-blog.html" aria-label="blog-02">
-                            <h2 class="title"> The <br>Blog title <br> Gose here</h2>
-                        </a>
-                        <div class="blogItem-info_more">
-                            <p class="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis mag
-                            </p>
-                            <div class="tags">
-                                <a href="/#">Tag 01</a>
-                                <a href="/#">Tag 02</a>
-                                <a href="/#">Tag 03</a>
-                            </div>
-                            <a href="./single-blog.html" aria-label="Read More" class="link">Read More</a>
-                        </div>
-                    </div>
-                    <a href="./single-blog.html" aria-label="blog-02" class="blogItem-media">
-                        <img src="./assets/img/sample/blog-02.webp" alt="blog-02">
-                        <span class="date">2024.SEP.01</span>
-                    </a>
-                </div>
-                <div class="blogItem">
-                    <div class="blogItem-info">
-                        <a href="./single-blog.html" aria-label="blog-03">
-                            <h2 class="title"> The <br>Blog title <br> Gose here</h2>
-                        </a>
-                        <div class="blogItem-info_more">
-                            <p class="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis mag
-                            </p>
-                            <div class="tags">
-                                <a href="/#">Tag 01</a>
-                                <a href="/#">Tag 02</a>
-                                <a href="/#">Tag 03</a>
-                            </div>
-                            <a href="./single-blog.html" aria-label="Read More" class="link">Read More</a>
-                        </div>
-                    </div>
-                    <a href="./single-blog.html" aria-label="blog-03" class="blogItem-media">
-                        <img src="./assets/img/sample/blog-03.webp" alt="blog-03">
-                        <span class="date">2024.SEP.01</span>
-                    </a>
-                </div>
-                <div class="blogItem">
-                    <div class="blogItem-info">
-                        <a href="./single-blog.html" aria-label="blog-04">
-                            <h2 class="title"> The <br>Blog title <br> Gose here</h2>
-                        </a>
-                        <div class="blogItem-info_more">
-                            <p class="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Facilisis mag
-                            </p>
-                            <div class="tags">
-                                <a href="/#">Tag 01</a>
-                                <a href="/#">Tag 02</a>
-                                <a href="/#">Tag 03</a>
-                            </div>
-                            <a href="./single-blog.html" aria-label="Read More" class="link">Read More</a>
-                        </div>
-                    </div>
-                    <a href="./single-blog.html" aria-label="blog-04" class="blogItem-media">
-                        <img src="./assets/img/sample/blog-04.webp" alt="blog-04">
-                        <span class="date">2024.SEP.01</span>
-                    </a>
-                </div>
+    <?php endwhile; ?>
             </div>
         </div>
+<?php endif; ?>
     </main>
 <?php get_footer();
