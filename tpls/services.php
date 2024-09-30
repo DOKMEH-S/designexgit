@@ -12,31 +12,46 @@ get_header(); ?>
         <span>What We Offer</span>
         <h1>our services</h1>
     </div>
-    <?php if (have_rows('features')): ?>
+    <?php if (have_rows('services')): ?>
         <section class="servicesContainer">
             <div class="serviceItems">
-                <?php while (have_rows('features')):
-                    the_row(); 
-                    $title = get_sub_field('title');
-                    $poster = get_sub_field('title');
-                    $video = get_sub_field('title');
-                    $image = get_sub_field('title');
-                    $des_title = get_sub_field('title');
+                <?php while (have_rows('services')):
+                    the_row();
+                    $title1 = get_sub_field('title1');
+                    $media = get_sub_field('title_media');
+                    $title2 = get_sub_field('title2');
+                    
+                    $des_title1 = get_sub_field('services_data');
                     $des1 = get_sub_field('title');
                     $gallery = get_sub_field('title');
                     $des_title2 = get_sub_field('title');
                     $des2 = get_sub_field('title');
                     $repeater = get_sub_field('title');
-                    $post_object = get_sub_field('title');?>
+                    $post_object = get_sub_field('title'); ?>
                     <div class="serviceItem">
                         <div class="title">
                             <h2>
-                                Architectural <br> Design
-                                <div class="expandMedia" style="max-width: 27.375rem">
-                                    <video autoplay muted loop playsinline preload="auto" poster="">
-                                        <source src="./assets/video/coverr-city-skyscrapers-471-1080p.mp4" type="video/mp4">
-                                    </video>
-                                </div> .
+                                <?php echo $title1;?> <br>
+                                <?php
+                                if ($media):
+                                    $file_type = wp_check_filetype($media['url']);
+                                    $file_extension = $file_type['ext'];
+
+                                    if (in_array($file_extension, ['mp4', 'webm'])): ?>
+                                        <div class="expandMedia" style="max-width: 27.375rem">
+                                            <video autoplay muted loop playsinline preload="auto" poster="">
+                                                <source src="<?php echo esc_url($media['url']); ?>" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    <?php
+                                    elseif (in_array($file_extension, ['jpg', 'jpeg', 'png', 'webp'])): ?>
+                                        <div class="expandMedia" style="max-width: 11.375rem">
+                                            <img src="<?php echo esc_url($media['url']); ?>" alt="services-item">
+                                        </div>
+                                    <?php endif;
+                                endif;
+                                ?>
+                                <?php echo $title2;?>
                             </h2>
                         </div>
                         <div class="sides">
@@ -84,6 +99,7 @@ get_header(); ?>
                                 <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
                             </div>
                         </div>
+                        <?php echo $des_title1;?>
                     </div>
                 <?php endwhile; ?>
             </div>
