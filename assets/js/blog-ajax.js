@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
             data: {
                 action: 'blog_filter',
                 cat: catID,
-                tag: tagIDs,
+                tags: tagIDs,
                 offset: parseInt(offset)
             },
             beforeSend: function () {
@@ -40,8 +40,8 @@ jQuery(document).ready(function ($) {
 
 //----- blog - category filter ----
     jQuery('.blog-cat').click(function (e) {
-        jQuery('.blog-cat.selected').removeClass('selected');
-        $(this).addClass('selected');
+        jQuery('.blog-cat.selected').not(this).removeClass('selected');
+        $(this).toggleClass('selected');
         // var catID = $(this).attr('data-id');
         AjaxFunc(0);
         // $('.see-more').attr('offset',(parseInt(offset) + 4) );
