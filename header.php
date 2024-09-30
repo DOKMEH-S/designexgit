@@ -32,16 +32,16 @@
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
-<div id="loading" class="paddingX">
-    <div class="loading-logoContainer">
-        <a href="<?php echo site_url('/'); ?>" aria-label="logo" class="logo-img"><img
-                src="<?php ThemeAssets('img/logo.svg'); ?>" alt="logo"></a>
-        <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
-    </div>
-    <div class="loading-lineContainer">
-        <div class="line"></div>
-    </div>
-</div>
+<!--<div id="loading" class="paddingX">-->
+<!--    <div class="loading-logoContainer">-->
+<!--        <a href="--><?php //echo site_url('/'); ?><!--" aria-label="logo" class="logo-img"><img-->
+<!--                src="--><?php //ThemeAssets('img/logo.svg'); ?><!--" alt="logo"></a>-->
+<!--        <img src="--><?php //ThemeAssets('img/logo-text.webp'); ?><!--" alt="logo" class="logo-text">-->
+<!--    </div>-->
+<!--    <div class="loading-lineContainer">-->
+<!--        <div class="line"></div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <body
     data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
