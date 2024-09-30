@@ -21,12 +21,8 @@ get_header(); ?>
                     $media = get_sub_field('title_media');
                     $title2 = get_sub_field('title2');
 
-                    $des_title1 = get_sub_field('services_data');
-                    $des1 = get_sub_field('title');
-                    $gallery = get_sub_field('title');
-                    $des_title2 = get_sub_field('title');
-                    $des2 = get_sub_field('title');
-                    $repeater = get_sub_field('title');
+                    $des = get_sub_field('services_data');
+
                     $post_object = get_sub_field('title'); ?>
                     <div class="serviceItem">
                         <div class="title">
@@ -55,7 +51,8 @@ get_header(); ?>
                             </h2>
                         </div>
                         <div class="sides">
-                            <?php echo $des_title1; ?>
+                            <?php echo $des; ?>
+
                             <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
 
                         </div>
@@ -65,45 +62,35 @@ get_header(); ?>
             <?php endwhile; ?>
             </div>
         </section>
-    <?php endif; ?>
-    <section class="approachContainer">
-        <div class="descriptionTitle">
-            <div class="description">
-                <h3>How we solve your problem and Level up your project?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Eros in cursus turpis massa tincidunt. Pellentesque sit amet porttitor eget
-                    dolor morbi non arcu risus. Facilisis magna etiam tempor orci eu lobortis. Gravida cum sociis
-                    natoque penatibus et magnis. Lorem mollis aliquam ut porttitor leo a. Vitae turpis massa sed
-                    elementum tempus egestas sed sed risus. In vitae turpis massa sed elementum tempus egestas. Facilisi
-                    etiam dignissim diam quis enim lobortis scelerisque. Blandit libero volutpat sed cras ornare arcu
-                    dui vivamus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id.</p>
-                <ul>
-                    <li>Research about your project</li>
-                    <li>good knowing about what you want</li>
-                    <li>Brain Storm</li>
-                    <li>Design</li>
-                    <li>Develop</li>
-                    <li>Maintenance</li>
-                </ul>
+    <?php endif;
+    $a_des = get_field('a_des');
+    $a_video = get_field('a_video');
+    $a_poster = get_field('a_poster');
+    if ($a_des or $a_video): ?>
+        <section class="approachContainer">
+            <div class="descriptionTitle">
+                <div class="description">
+                    <?php echo $a_des;?>
+                </div>
+                <h2>Our <br>
+                    Approach</h2>
             </div>
-            <h2>Our <br>
-                Approach</h2>
-        </div>
-        <div class="approachVideo">
+            <div class="approachVideo">
 
-            <div class="singleProjectVideoContainer">
-                <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto" poster=""
-                    data-url="./assets/video/coverr-city-skyscrapers-471-1080p.mp4">
-                    <source src="./assets/video/coverr-city-skyscrapers-471-1080p.mp4" type="video/mp4">
-                </video>
-                <div id="playVideo">
-                    <img src="./assets/img/outer-circle.svg" alt="circle text">
-                    <img src="./assets/img/inner-icon-play.svg" alt="play icon">
+                <div class="singleProjectVideoContainer">
+                    <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="<?php echo $a_poster['url'];?>"
+                        data-url="<?php echo $a_video['url'];?>">
+                        <source src="<?php echo $a_video['url'];?>" type="video/mp4">
+                    </video>
+                    <div id="playVideo">
+                        <img src="<?php ThemeAssets('img/outer-circle.svg');?>" alt="circle text">
+                        <img src="<?php ThemeAssets('img/inner-icon-play.svg')?>" alt="play icon">
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
+    <?php endif; ?>
     <section class="outLink">
         <a href="./archive-projects.html" aria-label="Projects">Projects</a>
     </section>
