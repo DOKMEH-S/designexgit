@@ -40,7 +40,8 @@ jQuery(document).ready(function ($) {
 
 //----- blog - category filter ----
     jQuery('.blog-cat').click(function (e) {
-        $(this).toggleClass('selected');
+        jQuery('.blog-cat.selected').removeClass('selected');
+        $(this).addClass('selected');
         // var catID = $(this).attr('data-id');
         AjaxFunc(0);
         // $('.see-more').attr('offset',(parseInt(offset) + 4) );
