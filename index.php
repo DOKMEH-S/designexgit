@@ -51,19 +51,22 @@ $page_id = get_queried_object_id(); ?>
         </div>
         <?php $Args = array(
             'post_type' => 'post',
-            'posts_per_page' => 4,
+            'posts_per_page' => 5,
             'paged' => 1,
         );
         $Blogs = new WP_Query($Args);
-        if ($Blogs->have_posts()):$count = $Blogs->found_posts; ?>
+        if ($Blogs->have_posts()):$count = $Blogs->found_posts;
+            $i= ($count > 5) ?  0 : 6;?>
             <div class="blogBody">
                 <div class="blogItems">
                     <?php while ($Blogs->have_posts()):$Blogs->the_post();
-                        $blogID = get_the_ID(); ?>
-                        <div class="blogItem">
+                        $blogID = get_the_ID();
+                        $i++;
+                        $title = get_the_title();?>
+                        <div class="blogItem" <?php if ($i==3){?> id ="infinity-loading" <?php }?>>
                             <div class="blogItem-info">
-                                <a href="<?php the_permalink(); ?>" aria-label="blog-01">
-                                    <h2 class="title"><?php the_title(); ?></h2>
+                                <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>">
+                                    <h2 class="title"><?php echo $title;?></h2>
                                 </a>
                                 <div class="blogItem-info_more">
                                         <p class="des"><?php echo has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30 , ' ...'); ?></p>
@@ -79,12 +82,15 @@ $page_id = get_queried_object_id(); ?>
                                         More</a>
                                 </div>
                             </div>
-                            <a href="<?php the_permalink(); ?>" aria-label="blog-01" class="blogItem-media">
-                                <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="<?php the_title();?>">
+                            <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="blogItem-media">
+                                <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="<?php echo $title;?>">
                                 <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                             </a>
                         </div>
                     <?php endwhile; ?>
+                </div>
+                <div class="see-more" id="see-more" offset = 8 style="display: none;">
+                    <span> <?php _e('loading','dokmeh');?></span>
                 </div>
             </div>
         <?php endif; ?>
