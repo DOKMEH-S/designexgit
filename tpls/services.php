@@ -83,7 +83,7 @@ get_header(); ?>
                                         <ul>
                                             <?php while (have_rows('left_items')):
                                                 the_row(); 
-                                                $items = get_sub_field('left_items');?>
+                                                $items = get_sub_field('item');?>
                                                 <li><?php echo $items;?></li>
                                             <?php endwhile; ?>
                                         </ul>
@@ -93,7 +93,6 @@ get_header(); ?>
                                     Projects</a>
                             </div>
                         </div>
-                        <a href="./#" aria-label="Related Success Projects" class="link">Related Success Projects</a>
                     </div>
                 <?php endwhile; ?>
             </div>
