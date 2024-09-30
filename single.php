@@ -43,7 +43,7 @@
                     if ($tags) :?>
                         <div class="tags">
                             <?php foreach ($tags as $tag) { ?>
-                                <div aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></div>
+                                <div><?php echo $tag->name ?></div>
                             <?php } ?>
                         </div>
                     <?php endif; ?>
