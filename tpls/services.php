@@ -83,7 +83,7 @@ get_header(); ?>
                                         <ul>
                                             <?php while (have_rows('left_items')):
                                                 the_row(); 
-                                                $items = get_sub_field('left_items');?>
+                                                $items = get_sub_field('item');?>
                                                 <li><?php echo $items;?></li>
                                             <?php endwhile; ?>
                                         </ul>
