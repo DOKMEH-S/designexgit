@@ -15,7 +15,7 @@ body[data-pagetype="services"] main {
     height: 6.188rem;
     background-size: contain;
     background-repeat: no-repeat;
-    left: -1rem;
+    left: 0;
     top: -1rem;
     transform: translateX(-100%);
 }
@@ -49,10 +49,6 @@ section.servicesContainer {
     flex-direction: column;
     justify-content: space-between;
 }
-.serviceItem .side ul {
-    padding-left: 1rem;
-}
-.se
 .serviceItem .title{
     /*max-width: calc(50% + 12rem);*/
     margin: 0 0 4rem auto;
@@ -63,11 +59,16 @@ section.servicesContainer {
     margin: 0 auto 4rem 0;
     text-align: left;
 }
+.serviceItem .title {
+    max-width: calc(50% + 12rem);
+    margin: 0 0 4rem auto;
+    text-align: right;
+    width: fit-content;
+}
 .serviceItem .title h2 > *{
     display: inline-block;
 }
-.serviceItem .title h2{
-}
+
 .serviceItem .title h2 {
     display: inline;
     font-size: clamp(2rem,4.75vw,5rem);
@@ -97,7 +98,6 @@ section.servicesContainer {
     display: flex;
     align-items: center;
     column-gap: 2rem;
-    margin: 1rem 0;
 }
 
 .serviceItem .media .mediaItem {
@@ -135,7 +135,7 @@ section.servicesContainer {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     display: block;
     width: 1.625rem;
     height: 1.625rem;
@@ -194,9 +194,6 @@ section.approachContainer .descriptionTitle {
 }
 section.approachContainer .descriptionTitle .description {
     width: calc(50% - 8rem * .5);
-}
-section.approachContainer .descriptionTitle .description ul {
-    padding-left: 1rem;
 }
 section.approachContainer .descriptionTitle h2 {
     width: 50%;
@@ -280,27 +277,11 @@ section.outLink a {
     text-align: right;
     width: 100%;
     cursor: pointer;
-    position: relative;
-    padding-top: 2rem;
 }
-section.outLink a:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    width: 1.625rem;
-    height: 1.625rem;
-    cursor: pointer;
-    transition: all ease-in-out .35s;
-    background-image: url(../img/link.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-section.outLink a:hover:before {
-    transform: translate(.5rem, -1rem);
-    filter:blur(3px);
+section.outLink img {
+    width: 1.688rem;
+    height: 1.688rem;
+    object-fit: contain;
 }
 /*------outLink------*/
 /*==========MODAL VIDEO============*/
@@ -350,6 +331,24 @@ section.outLink a:hover:before {
 }
 /*==========MODAL VIDEO============*/
 @media only screen and (max-width: 768px) {
+    .pageTitle {
+        top: auto;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding-left: calc(var(--spaceL)*1);
+    }
+
+    .serviceItem .title {
+        margin: 0 0 2rem auto;
+    }
+    .pageTitle span {
+        margin: 0;
+    }
+    .pageTitle:before {
+        width: calc(var(--spaceX) + var(--spaceL)););
+        left: var(--spaceL);
+        top: 0;
+    }
     .serviceItem .sides {
         display: block;
     }

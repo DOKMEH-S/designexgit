@@ -4,7 +4,7 @@ $page_id = get_queried_object_id(); ?>
         <div id="newsletterLink-container">
             <span>Monthly Newsletter</span>
             <a href="">
-                <img src="./assets/img/link.svg" alt="link">
+                <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
                 Subscribe here
             </a>
         </div>

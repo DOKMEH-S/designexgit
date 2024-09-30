@@ -72,7 +72,7 @@
         </div>
     </div>
 </footer>
-<?php if (is_archive('projects') or is_page_template('tpls/services.php')): ?>
+<?php if (is_archive('projects') or is_page_template('tpls/services.php') or is_home()): ?>
     <script defer src="<?php ThemeAssets('js/jQuery.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
