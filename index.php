@@ -51,19 +51,19 @@ $page_id = get_queried_object_id(); ?>
         </div>
         <?php $Args = array(
             'post_type' => 'post',
-            'posts_per_page' => 5,
+            'posts_per_page' => 4,
             'paged' => 1,
         );
         $Blogs = new WP_Query($Args);
         if ($Blogs->have_posts()):$count = $Blogs->found_posts;
-            $i= ($count > 5) ?  0 : 6;?>
+            $i= ($count > 4) ?  0 : 5;?>
             <div class="blogBody">
                 <div class="blogItems">
                     <?php while ($Blogs->have_posts()):$Blogs->the_post();
                         $blogID = get_the_ID();
                         $i++;
                         $title = get_the_title();?>
-                        <div class="blogItem" <?php if ($i==3){?> id ="infinity-loading" <?php }?>>
+                        <div class="blogItem" <?php if ($i==2){?> id ="infinity-loading" <?php }?>>
                             <div class="blogItem-info">
                                 <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>">
                                     <h2 class="title"><?php echo $title;?></h2>
@@ -89,7 +89,7 @@ $page_id = get_queried_object_id(); ?>
                         </div>
                     <?php endwhile; ?>
                 </div>
-                <div class="see-more" id="see-more" offset = 8 style="display: none;">
+                <div class="see-more" id="see-more" offset ="4" style="display: none;">
                     <span> <?php _e('loading','dokmeh');?></span>
                 </div>
             </div>

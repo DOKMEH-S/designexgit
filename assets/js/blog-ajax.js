@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
                         $('.blogItems').append(response.content);
                     }
                     if (response.show) {
-                        targetOffset = ($("#infinity-loading").offset().top) - 100;
+                        targetOffset = ($("#infinity-loading").offset().top) - 200;
                     }
                     $('.see-more').css('display', 'none');
                 }
@@ -54,7 +54,7 @@ jQuery(document).ready(function ($) {
         // $('.see-more').attr('offset',(parseInt(offset) + 4) );
     });
     // blog - Infinity loading --------------------------------------
-    var targetOffset = (jQuery("#infinity-loading").offset().top) - 100;
+    var targetOffset = (jQuery("#infinity-loading").offset().top) - 200;
     var $w = $(window).scroll(function () {
         if ($w.scrollTop() > targetOffset) {
             targetOffset = 9999999999999999;

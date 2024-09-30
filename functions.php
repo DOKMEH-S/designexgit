@@ -278,13 +278,13 @@ function blog_filter_handler()
     $outputHTML = '';
     $count = 0;
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
-        $i = $count > 5 + $offset ? 0 : 6;
+        $i = $count > 4 + $offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
         $i++;
             $blogID = get_the_ID();
             $title = get_the_title();
             $outputHTML .= '<div class="blogItem" ';
-            if ($i==3){
+            if ($i==2){
                 $outputHTML .= 'id ="infinity-loading"';
             }
             $outputHTML .= '>';
@@ -315,7 +315,8 @@ function blog_filter_handler()
     $results ['count'] = $count;
     $results ['cat'] = $catID;
     $results ['tag'] = $tagIDs;
-    if ($count > 8 + $offset) {
+    $results ['offset'] = $offset;
+    if ($count > 4 + $offset) {
         $results ['show'] = true;
     }
     $results ['content'] = $outputHTML;
