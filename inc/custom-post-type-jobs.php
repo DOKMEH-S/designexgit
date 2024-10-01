@@ -29,7 +29,7 @@ function dokmeh_custom_post_type_projects()
         'show_in_menu'      => true,
         'show_in_nav_menus' => true,
         'show_in_rest'      => true,
-        // 'taxonomies'        => array('project_type'),
+        'taxonomies'        => false,
         'query_var'         => true,
         'rewrite'           => array('slug' => 'jobs'),
         'capability_type'   => 'post',
