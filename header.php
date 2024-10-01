@@ -44,7 +44,7 @@
 <!--</div>-->
 
 <body
-    data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
+    data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject';elseif (is_singular('jobs')): echo 'jobs'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
         echo 'singleBlog'; elseif (is_page_template('tpls/services.php')): echo 'services'; endif; ?>">
     <div id="loading" class="paddingX">
         <div class="loading-logoContainer">
