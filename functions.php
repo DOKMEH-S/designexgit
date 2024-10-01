@@ -108,21 +108,6 @@ function Dokmeh_scripts()
 add_action('wp_enqueue_scripts', 'Dokmeh_scripts');
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-// حذف استایل‌های پیش‌فرض Contact Form 7
-add_action('wp_print_styles', 'remove_cf7_styles', 100);
-function remove_cf7_styles() {
-    if (function_exists('wpcf7')) {
-        wp_deregister_style('contact-form-7');
-    }
-}
-
-// حذف اسکریپت‌های پیش‌فرض Contact Form 7
-add_action('wp_print_scripts', 'remove_cf7_scripts', 100);
-function remove_cf7_scripts() {
-    if (function_exists('wpcf7')) {
-        wp_deregister_script('contact-form-7');
-    }
-}
 
 // ###### -- INC - Custom post types -- ###### //
 include get_template_directory() . '/inc/custom-post-type-projects.php';
