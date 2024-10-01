@@ -5,20 +5,20 @@
 function dokmeh_custom_post_type_projects()
 {
     $labels = array(
-        'name'              => 'Projects',
-        'singular_name'     => 'Project',
-        'menu_name'         => 'Projects',
-        'name_admin_bar'    => 'Project',
-        'add_new'           => 'Add Project',
-        'add_new_item'      => 'Add Project Item',
-        'new_item'          => 'New Project',
-        'edit_item'         => 'Edit Project',
-        'view_item'         => 'View Project',
-        'all_items'         => 'All Projects',
-        'search_items'      => 'Search Projects',
-        'parent_item_colon' => 'Project parent',
-        'not_found'         => 'No project found',
-        'not_found_in_trash'=> 'No projects are in the trash'
+        'name'              => 'jobs',
+        'singular_name'     => 'job',
+        'menu_name'         => 'jobs',
+        'name_admin_bar'    => 'job',
+        'add_new'           => 'Add job',
+        'add_new_item'      => 'Add job Item',
+        'new_item'          => 'New job',
+        'edit_item'         => 'Edit job',
+        'view_item'         => 'View job',
+        'all_items'         => 'All jobs',
+        'search_items'      => 'Search jobs',
+        'parent_item_colon' => 'job parent',
+        'not_found'         => 'No job found',
+        'not_found_in_trash'=> 'No jobs are in the trash'
     );
     $args = array(
         'labels'            => $labels,
@@ -29,18 +29,18 @@ function dokmeh_custom_post_type_projects()
         'show_in_menu'      => true,
         'show_in_nav_menus' => true,
         'show_in_rest'      => true,
-        'taxonomies'        => array('project_type'),
+        // 'taxonomies'        => array('project_type'),
         'query_var'         => true,
-        'rewrite'           => array('slug' => 'projects'),
+        'rewrite'           => array('slug' => 'jobs'),
         'capability_type'   => 'post',
         'has_archive'       => true,
-        'menu_icon'         => 'dashicons-table-col-after',
+        'menu_icon'         => 'dashicons-groups',
         'hierarchical'      => true,
         'menu_position'     => null,
         'supports'          => array('title','editor','thumbnail','excerpt',)
 
     );
-    register_post_type('projects', $args);
+    register_post_type('jobs', $args);
 
 
 }
