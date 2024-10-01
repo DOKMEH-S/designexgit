@@ -2,7 +2,7 @@
 ///////////////////////////////////////////////
 //------- Custom Post type projects -----------//
 ///////////////////////////////////////////////
-function dokmeh_custom_post_type_projects()
+function dokmeh_custom_post_type_jobs()
 {
     $labels = array(
         'name'              => 'jobs',
@@ -44,7 +44,7 @@ function dokmeh_custom_post_type_projects()
 
 
 }
-add_action('init','dokmeh_custom_post_type_projects');
+add_action('init','dokmeh_custom_post_type_jobs');
 
 
 
