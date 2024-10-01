@@ -46,7 +46,7 @@ get_header(); ?>
                                         <?php
                                     elseif (in_array($file_extension, ['jpg', 'jpeg', 'png', 'webp'])): ?>
                                         <div class="expandMedia" style="max-width: 11.375rem">
-                                            <img src="<?php echo esc_url($media['url']); ?>" alt="services-item">
+                                            <img src="<?php echo esc_url($media['sizes']['thumbnail']); ?>" alt="services-item">
                                         </div>
                                     <?php endif;
                                 endif;
@@ -105,6 +105,7 @@ get_header(); ?>
         </section>
 
     <?php endif;
+    $sec1 = get_field('sec_title');
     $a_des = get_field('text');
     $a_title = get_field('a_title');
     $a_video = get_field('a_video');
@@ -127,14 +128,13 @@ get_header(); ?>
                         </ul>
                     <?php endif; ?>
                 </div>
-                <h2>Our <br>
-                    Approach</h2>
+                <h2><?php echo $sec1; ?></h2>
             </div>
             <div class="approachVideo">
 
                 <div class="singleProjectVideoContainer">
                     <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto"
-                        poster="<?php echo $a_poster['url']; ?>" data-url="<?php echo $a_video['url']; ?>">
+                        poster="<?php echo $a_poster['sizes']['medium']; ?>" data-url="<?php echo $a_video['url']; ?>">
                         <source src="<?php echo $a_video['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
@@ -150,14 +150,16 @@ get_header(); ?>
         <a href="<?php echo home_url('/projects'); ?>" aria-label="Projects">Projects</a>
     </section>
 </main>
-<div id="videoModal">
-    <div class="videoContainer">
-        <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
-            <source id="modalVideoSrc" src="" type="video/mp4">
-        </video>
+<?php if ($a_video): ?>
+    <div id="videoModal">
+        <div class="videoContainer">
+            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+                <source id="modalVideoSrc" src="" type="video/mp4">
+            </video>
+        </div>
+        <div id="closeModalVideo">
+            <span>close</span>
+        </div>
     </div>
-    <div id="closeModalVideo">
-        <span>close</span>
-    </div>
-</div>
+<?php endif; ?>
 <?php get_footer();
