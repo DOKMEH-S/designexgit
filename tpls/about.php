@@ -16,13 +16,39 @@ get_header(); ?>
             <div class="aboutAnchorLinksWrap">
                 <img src="<?php ThemeAssets('img/elm.svg'); ?>" alt="">
                 <div id="aboutAnchorLinks">
-                    <a href="#whyUs">why us?</a>
-                    <a href="#missionVision">mission & vision</a>
-                    <a href="#statement">Statement</a>
-                    <a href="#founder">Founder</a>
-                    <a href="#team">team</a>
-                    <a href="#awards">awards</a>
-                    <a href="#theFuture">The Future</a>
+                    <?php
+                    if (have_rows('reason')): ?>
+                        <a href="#whyUs"><?php echo get_field('section_1') ? get_field('section_1') : 'Why Us?'; ?></a>
+                    <?php endif; ?>
+
+                    <?php if (get_field('title1') || get_field('title2')): ?>
+                        <a
+                            href="#missionVision"><?php echo get_field('section_2') ? get_field('section_2') : 'Mission & Vision'; ?></a>
+                    <?php endif; ?>
+
+                    <?php if (get_field('s_des')): ?>
+                        <a
+                            href="#statement"><?php echo get_field('section_3') ? get_field('section_3') : 'Statement'; ?></a>
+                    <?php endif; ?>
+
+                    <?php if (get_field('f_name') || get_field('f_text')): ?>
+                        <a href="#founder"><?php echo get_field('f_name') ? get_field('f_name') : 'Founder'; ?></a>
+                    <?php endif; ?>
+
+                    <?php if (have_rows('team')): ?>
+                        <a href="#team"><?php echo get_field('section_4') ? get_field('section_4') : 'Team'; ?></a>
+                    <?php endif; ?>
+
+                    <?php
+                    $awards_query = new WP_Query(array('post_type' => 'projects'));
+                    if ($awards_query->have_posts()): ?>
+                        <a href="#awards"><?php echo get_field('section_5') ? get_field('section_5') : 'Awards'; ?></a>
+                    <?php endif; ?>
+
+                    <?php if (get_field('u_title') || get_field('u_des')): ?>
+                        <a
+                            href="#theFuture"><?php echo get_field('section_6') ? get_field('section_6') : 'The Future'; ?></a>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -38,7 +64,7 @@ get_header(); ?>
                 </div>
 
                 <div class="aboutVideoWrap">
-                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['url']; ?>">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['large']; ?>">
                         <source src="<?php echo $video['url']; ?>" type="video/mp4">
                     </video>
                 </div>
@@ -52,10 +78,10 @@ get_header(); ?>
         </section>
         <?php if (have_rows('reason')): ?>
             <section class="whyUsContainer paddingAboutX" id="whyUs">
-                <?php $whyus = get_field('section_1');
-                if ($whyus): ?>
+                <?php $sec1 = get_field('section_1');
+                if ($sec1): ?>
                     <div class="whyUsTitle aboutTitle">
-                        <h2><?php echo $whyus; ?></h2>
+                        <h2><?php echo $sec1 ?: 'whyUs?'; ?></h2>
                     </div>
                 <?php endif; ?>
                 <div class="whyUsDescription">
@@ -77,11 +103,12 @@ get_header(); ?>
         $mdes = get_field('m_des');
         $vtitle = get_field('title2');
         $vdes = get_field('v_des');
+        $sec2 = get_field('section_2');
         if (($mtitle and $mdes) or ($vtitle and $vdes)): ?>
 
             <section class="missionVisionContainer paddingAboutL" id="missionVision">
                 <div class="aboutTitle">
-                    <h2>Mission & Vision</h2>
+                    <h2><?php echo $sec2 ?: 'Mission & Vision'; ?></h2>
                 </div>
                 <div class="missionVisionWrapper">
                     <div class="missionVisionInfoWrapper">
@@ -101,7 +128,8 @@ get_header(); ?>
                             <div class="slideshow-container">
                                 <?php foreach ($vm_gallery as $image_url): ?>
                                     <div class="mySlides fade">
-                                        <img src="<?php echo $image_url['url']; ?>" alt="">
+                                        <img src="<?php echo $image_url['sizes']['large']; ?>"
+                                            alt="<?php echo $image_url['alt']; ?>">
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -112,10 +140,11 @@ get_header(); ?>
 
         <?php endif;
         $st_des = get_field('s_des');
+        $sec3 = get_field('section_3');
         if ($st_des): ?>
             <section class="statementContainer paddingAboutL" id="statement">
                 <div class="aboutTitle">
-                    <h2>Our Statement</h2>
+                    <h2><?php echo $sec3 ?: 'Statement'; ?></h2>
                 </div>
                 <div class="statementWrapper">
                     <div class="statementInfoWrapper">
@@ -127,7 +156,8 @@ get_header(); ?>
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     <?php foreach ($st_gallery as $image_url): ?>
-                                        <div class="swiper-slide"><img src="<?php echo $image_url['sizes']['medium']; ?>" alt="">
+                                        <div class="swiper-slide"><img src="<?php echo $image_url['sizes']['medium']; ?>"
+                                                alt="<?php echo $image_url['alt']; ?>">
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -159,7 +189,7 @@ get_header(); ?>
                 if ($f_video): ?>
                     <div class="founderVideoWrapper">
                         <video id="founderVideo" autoplay muted loop playsinline preload="auto"
-                            poster="<?php echo $poster['url']; ?>" data-url="<?php echo $f_video['url']; ?>">
+                            poster="<?php echo $poster['sizes']['large']; ?>" data-url="<?php echo $f_video['url']; ?>">
                             <source src="<?php echo $f_video['url']; ?>" type="video/mp4">
                         </video>
                         <div id="playFounder">
@@ -170,11 +200,12 @@ get_header(); ?>
                 <?php endif; ?>
             </section>
         <?php endif; ?>
-        <?php if (have_rows('team')): ?>
+        <?php if (have_rows('team')):
+            $sec4 = get_field('section_4'); ?>
             <section class="teamContainer" id="team">
                 <section class="teamContainerName paddingAboutX">
                     <div class="aboutTitle">
-                        <h2>team</h2>
+                        <h2><?php echo $sec4 ?: 'Team'; ?></h2>
                     </div>
                     <div class="teamWrapper">
                         <?php while (have_rows('team')):
@@ -184,7 +215,7 @@ get_header(); ?>
                             $position = get_sub_field('position'); ?>
                             <div class="teamWrap">
                                 <div class="teamMedia">
-                                    <img src="<?php echo $image['sizes']['large']; ?>" alt="">
+                                    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
                                 </div>
                                 <div class="teamInfo">
                                     <h3><?php echo $name; ?></h3>
@@ -200,23 +231,24 @@ get_header(); ?>
                         <picture>
                             <source srcset="<?php echo $team_banner['sizes']['medium']; ?>" media="(max-width: 600px)">
                             <!-- medium size -->
-                            <img src="<?php echo $team_banner['url']; ?>" alt=""> <!-- Original Size -->
+                            <img src="<?php echo $team_banner['url']; ?>" alt="<?php echo $team_banner['alt']; ?>">
+                            <!-- Original Size -->
                         </picture>
                     </section>
                 <?php endif; ?>
             </section>
-        <?php endif; ?>
-        <section class="awardsContainer paddingAboutX" id="awards">
-            <div class="aboutTitle">
-                <h2>Awards / Publications</h2>
-            </div>
-            <div class="awardsWrapper">
-                <?php
+        <?php endif;
 
-                $awards_query = new WP_Query(array('post_type' => 'projects'));
+        $awards_query = new WP_Query(array('post_type' => 'projects'));
+        if ($awards_query->have_posts()): ?>
+            <section class="awardsContainer paddingAboutX" id="awards">
+                <?php $sec5 = get_field('section_5'); ?>
+                <div class="aboutTitle">
+                    <h2><?php echo $sec5 ?: 'Awards / Publications'; ?></h2>
+                </div>
+                <div class="awardsWrapper">
 
-                if ($awards_query->have_posts()):
-                    while ($awards_query->have_posts()):
+                    <?php while ($awards_query->have_posts()):
                         $awards_query->the_post();
                         $p_link = get_field('p_link');
                         $p_name = get_field('p_title');
@@ -239,15 +271,15 @@ get_header(); ?>
                         <?php endif;
                     endwhile;
                     wp_reset_postdata();
-                endif;
-                ?>
-            </div>
-        </section>
-
+                    ?>
+                </div>
+            </section>
+        <?php endif; ?>
         <section class="theFutureContainer" id="theFuture">
             <div class="theFutureWrapper paddingAboutX">
                 <div class="aboutTitle">
-                    <h2>The Future</h2>
+                    <?php $sec6 = get_field('section_6'); ?>
+                    <h2><?php echo $sec6 ?: 'The Future'; ?></h2>
                 </div>
                 <?php $u_title = get_field('u_title');
                 $u_des = get_field('u_des'); ?>
@@ -258,7 +290,7 @@ get_header(); ?>
             </div>
             <?php $u_gallery = get_field('u_gallery');
             $b_text = get_field('gallery_text');
-            if ($st_gallery): ?>
+            if ($u_gallery): ?>
                 <section class="content content--padded content--full">
                     <div class="grid grid--spaced grid--wide" data-grid-fifth>
                         <?php foreach ($u_gallery as $image_url): ?>
@@ -278,14 +310,16 @@ get_header(); ?>
                 src="<?php ThemeAssets('img/link.svg'); ?>" alt="link"></a>
     </section>
 </main>
-<div id="videoModal">
-    <div class="videoContainer">
-        <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
-            <source id="modalVideoSrc" src="" type="video/mp4">
-        </video>
+<?php if ($f_video): ?>
+    <div id="videoModal">
+        <div class="videoContainer">
+            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+                <source id="modalVideoSrc" src="" type="video/mp4">
+            </video>
+        </div>
+        <div id="closeModalVideo">
+            <span>close</span>
+        </div>
     </div>
-    <div id="closeModalVideo">
-        <span>close</span>
-    </div>
-</div>
+<?php endif; ?>
 <?php get_footer();
