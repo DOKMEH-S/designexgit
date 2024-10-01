@@ -106,6 +106,7 @@ function Dokmeh_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'Dokmeh_scripts');
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 // ###### -- INC - Custom post types -- ###### //
 include get_template_directory() . '/inc/custom-post-type-projects.php';
