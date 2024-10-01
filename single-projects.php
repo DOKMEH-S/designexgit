@@ -178,14 +178,16 @@
     ?>
 
 </main>
-<div id="videoModal">
-    <div class="videoContainer">
-        <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
-            <source id="modalVideoSrc" src="" type="video/mp4">
-        </video>
+<?php if ($video): ?>
+    <div id="videoModal">
+        <div class="videoContainer">
+            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+                <source id="modalVideoSrc" src="" type="video/mp4">
+            </video>
+        </div>
+        <div id="closeModalVideo">
+            <span>close</span>
+        </div>
     </div>
-    <div id="closeModalVideo">
-        <span>close</span>
-    </div>
-</div>
+<?php endif; ?>
 <?php get_footer();
