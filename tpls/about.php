@@ -18,7 +18,7 @@ get_header(); ?>
                 <div id="aboutAnchorLinks">
                     <?php
                     if (have_rows('reason')): ?>
-                        <a href="#whyUs"><?php echo get_field('section_1') ? get_field('section_1') : 'Why Us?'; ?></a>
+                        <a href="#whyUs"> Why Us? </a>
                     <?php endif; ?>
 
                     <?php if (get_field('title1') || get_field('title2')): ?>
