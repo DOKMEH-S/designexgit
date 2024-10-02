@@ -104,7 +104,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('header').style.opacity = '1';
-        document.querySelector('main.wrapper').style.opacity = '1';
+        document.querySelector('main').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
         <?php if (is_singular('projects') or is_page_template(array('tpls/about.php', 'tpls/contact.php', 'tpls/services.php'))): ?>
             if (document.getElementById('videoModal')) {
@@ -114,7 +114,7 @@
         if (is_archive('projects')): ?>
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
-        document.querySelector('html').classList.add('loadingDone');
+        
     });
 </script>
 <?php if (is_page_template('tpls/contact.php') or is_singular('projects')):

@@ -52,7 +52,7 @@
                     <img src="<?php the_post_thumbnail_url($postID, 'large'); ?>" alt="<?php the_title(); ?>">
                 </div>
             </section>
-            <section class="blog-wpContent">
+            <section class="blog-wpContent skewText">
                 <?php echo $content; ?>
             </section>
             <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
@@ -65,7 +65,7 @@
             $related_cats_post = new WP_Query($query_args);
             if ($related_cats_post->have_posts()): ?>
                 <aside class="related">
-                    <h2 class="">Related Articles</h2>
+                    <h2 class="skewText">Related Articles</h2>
                     <div class="relatedBlogWrapper">
                         <?php while ($related_cats_post->have_posts()):
                             $related_cats_post->the_post();
