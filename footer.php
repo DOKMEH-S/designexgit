@@ -72,14 +72,12 @@
         </div>
     </div>
 </footer>
-<?php if (is_archive('projects') or is_page_template('tpls/services.php') or is_home()): ?>
-    <script defer src="<?php ThemeAssets('js/jQuery.min.js'); ?>"></script>
-<?php endif; ?>
+
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
-<script defer src="<?php ThemeAssets('js/loading.js')?>"></script>
+<script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
 <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
@@ -88,8 +86,10 @@
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
 <?php elseif (is_singular('jobs')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-job.js'); ?>"></script>
-<?php elseif (is_archive('projects') or is_home()): ?>
+<?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+<?php elseif (is_home()): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/services.js'); ?>"></script>
 
