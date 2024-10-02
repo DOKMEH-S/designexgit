@@ -188,3 +188,34 @@ window.addEventListener('scroll', () => {
 let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+//==================SKEW FOR TEXT
+const skewTexts = document.querySelectorAll(".skewText");
+let skewTBlock = document.querySelector('.skewText');
+if(skewTBlock){
+    skewTexts.forEach((text) => {
+        gsap.fromTo(text,
+            {
+                opacity: 0,
+                z:0,
+                x: -20,
+                y:30,
+            },
+            {
+                opacity: 1,
+                z: 0,
+                x: 0,
+                y: 0,
+                duration: .5,
+                scrollTrigger: {
+                    trigger: text,
+                    ease: "power4.out",
+                    start: "top 80%", // Trigger when the top of the element hits 80% of the viewport height
+                    toggleActions: "play none none reverse", // Play on enter, reverse on leave
+                    once: true // Animation only happens once
+                }
+            }
+        );
+    });
+}

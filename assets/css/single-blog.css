@@ -8,7 +8,17 @@
 body[data-pagetype="singleBlog"] main{
     padding-right: var(--spaceX);
 }
+.twoColumnSample {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 11rem;
+}
 
+.twoColumnSample img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
 section.dateTime-title , section.blog-Information{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -35,6 +45,14 @@ section.dateTime-title h1 {
     font-weight: 700;
     text-align: right;
     text-transform: uppercase;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone section.dateTime-title h1{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.5s;
 }
 section.blog-wpContent {
     margin: 5rem 0 5rem;
@@ -45,8 +63,15 @@ section.dateTime-title .dateTime > * {
     margin-bottom: .5rem;
     font-size: 1rem;
     font-weight: 400;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
 }
-
+html.loadingDone section.dateTime-title .dateTime > *{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.75s;
+}
 section.dateTime-title .dateTime img {
     width: 1rem;
     height: 1rem;
@@ -175,8 +200,15 @@ section.blog-Information {
     row-gap: 2rem;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
 }
-
+html.loadingDone .blog-Information_text{
+    opacity: 1;
+    transform: translate(0,0);
+    transition-delay: 1s;
+}
 .blog-Information_media {
     width: 70%;
     height: 44vh;
@@ -248,7 +280,7 @@ section.blog-Information {
 }
 aside.related {
     position: relative;
-    padding-top: 5rem;
+    padding-top: 5.75rem;
 }
 aside.related:before {
     content: '';
@@ -263,23 +295,22 @@ aside.related h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    padding-bottom: 5rem;
     position: relative;
+    padding-left: 4.5rem;
+    margin-bottom: 5.5rem;
 }
 aside.related h2:before {
     content: '';
     background-image: url(../img/diagonal.webp);
-    width: var(--spaceL);
     position: absolute;
-    height: 5rem;
-    background-size: cover;
+    width: 4.5rem;
+    height: var(--spaceY);
     background-repeat: no-repeat;
-    background-position: right;
-    left: .5rem;
-    top: -1.5rem;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
+    background-size: contain;
+    background-position: left;
+    top: 50%;
+    left: 0;
+    transform: translateY(-63%);
 }
 aside.related .items {
     display: -ms-grid;
@@ -426,7 +457,28 @@ aside.related .items .item .media > * {
         width: 100%;
         text-align: left;
     }
+    .twoColumnSample {
+        grid-template-columns: 1fr;
+        grid-row-gap: 3rem;
+    }
 
+    .relatedBlogWrap {
+        width: calc(100vw - var(--spaceX)* 2);
+        height: calc(100vw - var(--spaceX)* 2);
+    }
+
+    .relatedBlogWrapper {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        margin-top: 3.5rem;
+    }
+
+    aside.related h2 {
+        padding-left: 4rem;
+        margin-bottom: 4.5rem;
+        font-size: 1.3rem;
+    }
     section.dateTime-title, section.blog-Information {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -486,6 +538,15 @@ aside.related .items .item .media > * {
         -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
     }
+    .relatedBlogWrapper {
+        -ms-grid-columns: 1fr 1rem 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .relatedBlogWrap {
+        width: calc((100vw - var(--spaceX)* 2) / 2 - (1rem* 1 / 2));
+        height: calc((100vw - var(--spaceX)* 2) / 2 - (1rem* 1 / 2));
+    }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
     section.dateTime-title h1 {
@@ -498,6 +559,17 @@ aside.related .items .item .media > * {
     .blog-Information_media {
         height: 22vh;
     }
+    .relatedBlogWrap {
+        height: 18vh;
+    }
+
+    aside.related h2 {
+        padding-left: 4.5rem;
+        margin-bottom: 5rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 6rem;
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     section.dateTime-title h1 {
@@ -506,13 +578,25 @@ aside.related .items .item .media > * {
     section.dateTime-title .dateTime > *.date {
         font-size: 1.2rem;
     }
+    aside.related h2 {
+        padding-left: 4rem;
+        margin-bottom: 5rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 9rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     section.dateTime-title h1 {
         font-size: 2rem;
     }
-
+    aside.related h2 {
+        padding-left: 4.5rem;
+    }
     section.dateTime-title .dateTime > *.date {
         font-size: 1.2rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 10rem;
     }
 }

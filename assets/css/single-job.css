@@ -49,12 +49,28 @@ section.singleJobHeroSectionContainer {
     font-size: 1.5rem;
     display: block;
     font-weight: 700;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone .job-date span{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.5s;
 }
 .job-title-media-wrapper h1.jobTitle {
     margin: 0 0 2.313rem 0;
     text-align: right;
     text-transform: uppercase;
     font-size: 3rem;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone .job-title-media-wrapper h1.jobTitle{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.75s;
 }
 .job-media img {
     width: 100%;

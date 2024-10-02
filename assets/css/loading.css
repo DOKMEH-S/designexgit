@@ -24,11 +24,12 @@
     z-index: 101;
     background-color: var(--white);
     pointer-events: none;
+    overflow: hidden;
 }
 
 html.loadingDone #loading {
-    -webkit-animation: opacity 1.2s forwards;
-    animation: opacity 1.2s forwards;
+    -webkit-animation: opacity .5s forwards;
+    animation: opacity .5s forwards;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
 }
@@ -71,8 +72,6 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     -ms-transform-origin: center;
     transform-origin: center;
     margin: 5rem auto;
-    /*animation: scale 0.6s forwards, rotate 0.6s 2.6s forwards; !* Scale then rotate after 2s *!*/
-    /*animation: scale 0.6s forwards;*/
     position: relative;
     z-index: 1;
     -webkit-transition: -webkit-transform 1s;
@@ -81,7 +80,6 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     transition: transform 1s;
     transition: transform 1s, -webkit-transform 1s;
 }
-
 .loading-point:before {
     content: '';
     position: absolute;
@@ -96,11 +94,12 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     -webkit-transform: scaleY(0);
     -ms-transform: scaleY(0);
     transform: scaleY(0);
-    -webkit-transition: -webkit-transform .5s;
-    transition: -webkit-transform .5s;
-    -o-transition: transform .5s;
-    transition: transform .5s;
-    transition: transform .5s, -webkit-transform .5s;
+    /*-webkit-transition: -webkit-transform 1s;*/
+    /*transition: -webkit-transform 1s;*/
+    /*-o-transition: transform 1s;*/
+    /*transition: transform 1s;*/
+    /*transition: transform 1s, -webkit-transform 1s;*/
+    animation: getScale 1s forwards;
 }
 
 .loading-point:after {
@@ -117,18 +116,26 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     -webkit-transform: scaleY(0);
     -ms-transform: scaleY(0);
     transform: scaleY(0);
-    -webkit-transition: -webkit-transform .5s;
-    transition: -webkit-transform .5s;
-    -o-transition: transform .5s;
-    transition: transform .5s;
-    transition: transform .5s, -webkit-transform .5s;
+    /*-webkit-transition: -webkit-transform .5s;*/
+    /*transition: -webkit-transform .5s;*/
+    /*-o-transition: transform .5s;*/
+    /*transition: transform .5s;*/
+    /*transition: transform .5s, -webkit-transform .5s;*/
+    animation: getScale 1s forwards;
 }
-.getScale .loading-point:before ,
-.getScale .loading-point:after{
-    -webkit-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    transform: scaleY(1);
+@-webkit-keyframes getScale{
+    to{
+        -webkit-transform: scaleY(1);
+        -ms-transform: scaleY(1);
+        transform: scaleY(1);
+    }
 }
+/*.getScale .loading-point:before ,*/
+/*.getScale .loading-point:after{*/
+/*    -webkit-transform: scaleY(1);*/
+/*    -ms-transform: scaleY(1);*/
+/*    transform: scaleY(1);*/
+/*}*/
 .getRotate .loading-point {
     -webkit-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
@@ -261,9 +268,9 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     -webkit-transform-origin: right;
     -ms-transform-origin: right;
     transform-origin: right;
-    -webkit-transition: all ease-in-out 1s;
-    -o-transition: all ease-in-out 1s;
-    transition: all ease-in-out 1s;
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
+    transition: all ease-in-out .5s;
     z-index: 1;
     /*background-color: var(--black);*/
     background-image: url(../img/Union.svg);

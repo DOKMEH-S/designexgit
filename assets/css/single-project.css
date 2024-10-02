@@ -104,8 +104,36 @@ section.singleProjectHeroSectionContainer {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 5px;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+.description {
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
 }
 
+.singleProjectAwardsWrapper {
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone .projectNameDescriptionWrapper h1,html.loadingDone .description{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.5s;
+}
+html.loadingDone .projectsFeatureWrapper{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.75s;
+}
+html.loadingDone .singleProjectAwardsWrapper{
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 1s;
+}
 .projectNameDescriptionWrapper .description p {
     margin: 0;
 }
@@ -115,6 +143,9 @@ section.singleProjectHeroSectionContainer {
     position: relative;
     width: 100%;
     display: block;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
 }
 
 .featureWrap {
@@ -537,8 +568,12 @@ section.relatedProjectsContainer::before {
         margin-top: 4rem;
     }
     section.singleProjectContent {
-        margin-top: 6rem;
+        margin-top: 4rem;
         margin-bottom: 4rem;
+    }
+    .columnTwo {
+        grid-template-columns: 1fr;
+        grid-row-gap: 2rem;
     }
     .relatedProjectsWrapper {-ms-grid-columns: 1fr;grid-template-columns: 1fr;grid-gap: 1rem;margin-top: 3.5rem;}
 
@@ -573,6 +608,9 @@ section.relatedProjectsContainer::before {
     }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
+    .columnTwo {
+        grid-gap: 6.375rem;
+    }
     #closeModalVideo span {
         font-size: 1rem;
     }
@@ -637,7 +675,9 @@ section.relatedProjectsContainer::before {
     .projectsFeatureWrapper {
         margin-top: 2.25rem;
     }
-
+    .columnTwo {
+        grid-gap: 7.375rem;
+    }
     .awardsTitleLogoWrapper {
         margin: 2rem 0;
     }
@@ -684,7 +724,9 @@ section.relatedProjectsContainer::before {
     .projectsFeatureWrapper {
         margin-top: 2.25rem;
     }
-
+    .columnTwo {
+        grid-gap: 8.375rem;
+    }
     .awardsTitleLogoWrapper {
         margin: 2rem 0;
     }

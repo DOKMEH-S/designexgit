@@ -4,7 +4,11 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-
+body[data-pagetype="archiveProject"] header,
+body[data-pagetype="archiveBlog"] header ,
+.projectHeader-container {
+    background-color: rgba(255, 255, 255, .5) !important;
+}
 .projectHeader-element img {
     display: block;
     -o-object-fit: contain;
@@ -186,6 +190,9 @@ span.projectHeader-container_row-title {
 
 
 @media only screen and (max-width: 768px) {
+    .projectHeader-container {
+        background-color: transparent !important;
+    }
     .projectHeader-container .mobileIcon{
         display: block;
         z-index: 1;

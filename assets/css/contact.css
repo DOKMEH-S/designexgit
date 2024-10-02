@@ -93,6 +93,34 @@ h1.contact_title {
     right: 0;
     top: -1rem;
     line-height: normal;
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+.contactInfoWrapper {
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+.contactFormSliderContainer {
+    opacity: 0;
+    transform: translate(-20px, 30px);
+    transition: all ease-in-out .5s;
+}
+html.loadingDone h1.contact_title{
+    opacity: 1;
+    transform: translate(0,0);
+    transition-delay: 0.5s;
+}
+html.loadingDone .contactInfoWrapper{
+    opacity: 1;
+    transform: translate(0,0);
+    transition-delay: 0.75s;
+}
+html.loadingDone .contactFormSliderContainer{
+    opacity: 1;
+    transform: translate(0,0);
+    transition-delay: 1s;
 }
 .contactFormContainer {
     position: relative;
