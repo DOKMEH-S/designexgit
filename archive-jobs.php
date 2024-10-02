@@ -25,7 +25,7 @@ if ($jobs_query->have_posts()): ?>
                 $end_time = get_field('time');
                 $current_time = current_time('Y-m-d'); 
 
-                if ($end_time && $current_time <= $end_time): ?>
+                if ($current_time <= $end_time): ?>
                     <a href="<?php the_permalink(); ?>" class="jobsItemWrap">
                         <div class="jobsMedia">
                             <?php if (has_post_thumbnail()):
