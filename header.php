@@ -59,7 +59,7 @@
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
-    
+    <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div>
     <header>
         <?php $logo = get_field('logo', 'option'); ?>
         <a href="<?php echo site_url('/'); ?>" class="identity">
