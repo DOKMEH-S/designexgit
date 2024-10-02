@@ -14,7 +14,8 @@
             <div class="footer-mailSocial">
                 <?php $f_email = get_field('f_email', 'option');
                 if ($f_dess): ?>
-                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail" aria-label="mail"><?php echo antispambot($f_email); ?></a>
+                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail"
+                        aria-label="mail"><?php echo antispambot($f_email); ?></a>
                 <?php endif; ?>
                 <?php if (have_rows('social_media', 'option')): ?>
                     <div class="footer-mailSocial_social">
@@ -83,11 +84,16 @@
         </div>
     </div>
     <div class="footerPolicyDokmeh">
-        <div class="footer-policy-items">
-            <a href="/#" class="item" aria-label="2024. All Right Reserved"> 2024. All Right Reserved</a>
-            <a href="/#" class="item" aria-label="Cookie Policy"> Cookie Policy</a>
-            <a href="/#" class="item" aria-label="Privecy Policy"> Privecy Policy</a>
-        </div>
+        <?php if (have_rows('footer_policy', 'option')): ?>
+            <div class="footer-policy-items">
+                <?php while (have_rows('footer_policy', 'option')):
+                    the_row();
+                    $text = get_sub_field('text');
+                    $link = get_sub_field('link'); ?>
+                    <a href="<?php echo $link;?>" class="item" aria-label="2024. All Right Reserved"> <?php echo $text;?></a>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
         <div class="dokmeh">
             <span>Made with Love by </span>
             <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
