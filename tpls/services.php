@@ -54,7 +54,7 @@ get_header(); ?>
                                 <?php echo $title2; ?>
                             </h2>
                         </div>
-                        <div class="sides">
+                        <div class="sides skewText">
                             <div class="side">
                                 <?php if ($left_side_title or $left_side_text): ?>
                                     <div class="des">
