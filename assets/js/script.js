@@ -51,30 +51,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //===========GET UAE TIME ZONE
-const timeZone = document.getElementById('timeZone');
-function updateUAETime() {
-    // Get the current date and time
-    const now = new Date();
+// const timeZone = document.getElementById('timeZone');
+// function updateUAETime() {
+//     // Get the current date and time
+//     const now = new Date();
 
-    // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
-    const options = {
-        timeZone: 'Asia/Dubai',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false // استفاده از فرمت 24 ساعته
-    };
-    const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
+//     // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
+//     const options = {
+//         timeZone: 'Asia/Dubai',
+//         hour: '2-digit',
+//         minute: '2-digit',
+//         second: '2-digit',
+//         hour12: false // استفاده از فرمت 24 ساعته
+//     };
+//     const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
 
-    // console.log(`Current time in UAE: ${uaeTime}`);
-    timeZone.innerHTML = uaeTime;
+//     // console.log(`Current time in UAE: ${uaeTime}`);
+//     timeZone.innerHTML = uaeTime;
 
-    // Call the function again after 1000 ms (1 second)
-    setTimeout(updateUAETime, 1000);
-}
+//     // Call the function again after 1000 ms (1 second)
+//     setTimeout(updateUAETime, 1000);
+// }
 
-// Start the time update
-updateUAETime();
+// // Start the time update
+// updateUAETime();
 
 // =============================Menu
 const menuIcon = document.querySelector('.menu-icon');
