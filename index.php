@@ -84,8 +84,9 @@ $page_id = get_queried_object_id(); ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="blogItem-media">
                                 <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="<?php echo $title;?>">
-                                <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
+                                
                             </a>
+                            <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                         </div>
                     <?php endwhile; ?>
                 </div>
