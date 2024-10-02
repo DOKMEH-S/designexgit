@@ -106,12 +106,10 @@
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        <?php if (is_singular('projects') or is_page_template(array('tpls/about.php', 'tpls/contact.php', 'tpls/services.php'))): ?>
-            if (document.getElementById('videoModal')) {
-                document.getElementById('videoModal').style.display = 'block';
-            }
-        <?php endif;
-        if (is_archive('projects')): ?>
+        if (document.getElementById('videoModal')) {
+            document.getElementById('videoModal').style.display = 'block';
+        }
+        if (is_archive('projects')): ?> 
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
         
