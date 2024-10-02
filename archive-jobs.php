@@ -7,90 +7,48 @@
             Subscribe here
         </a>
     </div>
+    <?php
+$args = array(
+    'post_type' => 'jobs',
+    'posts_per_page' => -1,
+);
+
+$jobs_query = new WP_Query($args);
+
+if ($jobs_query->have_posts()): ?>
     <section class="jobsContainer">
-        <h1>job position</h1>
+        <h1>Job Positions</h1>
         <div class="jobItemsWrapper">
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-1.jpg" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-2.png" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-1.jpg" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-2.png" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-1.jpg" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-2.png" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-1.jpg" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
-            <a href="single-job.html" class="jobsItemWrap">
-                <div class="jobsMedia">
-                    <img src="./assets/img/sample/job-2.png" alt="">
-                </div>
-                <div class="jobsInfo">
-                    <h2>Job Position Title</h2>
-                    <span>Full Time</span>
-                    <span>Relocation job</span>
-                </div>
-            </a>
+            <?php while ($jobs_query->have_posts()):
+                $jobs_query->the_post(); 
+                
+                $end_time = get_field('time');
+                $current_time = current_time('Y-m-d'); 
+
+                if ($end_time && $current_time <= $end_time): ?>
+                    <a href="<?php the_permalink(); ?>" class="jobsItemWrap">
+                        <div class="jobsMedia">
+                            <?php if (has_post_thumbnail()):
+                                the_post_thumbnail();
+                            endif; ?>
+                        </div>
+                        <div class="jobsInfo">
+                            <h2><?php the_title(); ?></h2>
+                            <?php if (have_rows('item_job')): ?>
+                                <?php while (have_rows('item_job')):
+                                    the_row(); ?>
+                                    <span><?php the_sub_field('item'); ?></span>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                <?php endif; ?>
+            <?php endwhile; ?>
         </div>
     </section>
+    <?php wp_reset_postdata();
+endif; ?>
+
+
 </main>
 <?php include get_template_directory() . '/footer.php';
