@@ -33,6 +33,25 @@
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
+<div id="loading" class="loading-wrapper">
+    <div class="loading-container ">
+        <div class="loading_line">
+            <div class="loading-point_canvas one"></div>
+            <div class="loading-point"></div>
+            <div class="loading-point_canvas two"></div>
+        </div>
+        <div class="loading_text">
+            <div class="loading_text_canvas one right">
+
+            </div>
+            <div class="loading_text_canvas two left">
+                <div class="loading-percentage justLoading">
+                    <div class="percentCounter" data-speed="1000">100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--<div id="loading" class="paddingX">-->
 <!--    <div class="loading-logoContainer">-->
 <!--        <a href="--><?php //echo site_url('/'); ?><!--" aria-label="logo" class="logo-img"><img-->
