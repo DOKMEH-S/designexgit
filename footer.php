@@ -72,7 +72,6 @@
         </div>
     </div>
 </footer>
-<script defer src='./assets/js/jQuery.min.js'></script>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
