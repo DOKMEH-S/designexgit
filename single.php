@@ -52,7 +52,7 @@
                     <img src="<?php the_post_thumbnail_url($postID, 'large'); ?>" alt="<?php the_title(); ?>">
                 </div>
             </section>
-            <section class="blog-wpContent skewText">
+            <section class="blog-wpContent">
                 <?php echo $content; ?>
             </section>
             <?php $categories = wp_get_object_terms($postID, 'category', array('fields' => 'ids'));
