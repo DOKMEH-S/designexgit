@@ -5,11 +5,17 @@
             <div class="footer-logo"><img
                     src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                     alt="footer logo"></div>
-            <div class="footer-text">
-                <p>WHERE QUALITY MEETS LUXURY AND INNOVATION DRIVES SUSTAINABILITY</p>
-            </div>
+            <?php $f_dess = get_field('f_des', 'option');
+            if ($f_dess): ?>
+                <div class="footer-text">
+                    <p><?php echo $f_dess; ?></p>
+                </div>
+            <?php endif; ?>
             <div class="footer-mailSocial">
-                <a href="/#" class="footer-mailSocial_mail" aria-label="mail">info@designex.ae</a>
+                <?php $f_email = get_field('f_email', 'option');
+                if ($f_dess): ?>
+                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail" aria-label="mail"><?php echo antispambot($f_email); ?></a>
+                <?php endif; ?>
                 <?php if (have_rows('social_media', 'option')): ?>
                     <div class="footer-mailSocial_social">
                         <?php while (have_rows('social_media', 'option')):
