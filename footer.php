@@ -109,7 +109,7 @@
         if (document.getElementById('videoModal')) {
             document.getElementById('videoModal').style.display = 'block';
         }
-        if (is_archive('projects')): ?> 
+        <?php if (is_archive('projects')): ?> 
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
         
