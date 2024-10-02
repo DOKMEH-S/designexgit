@@ -38,25 +38,36 @@
                     </form>
                 </div>
             </div>
+            <?php $contact = get_page_by_template('Contact tpl'); ?>
             <div class="footer-contact-items">
-                <div class="item">
-                    <span class="title">Phone Number</span>
-                    <a href="/#" aria-label="Phone Number">+971 54 480 6995</a>
-                </div>
-                <div class="item">
-                    <span class="title">Phone Number</span>
-                    <a href="/#" aria-label="Phone Number">+971 (4) 374 1159</a>
-                </div>
-                <div class="item">
-                    <span class="title">Email</span>
-                    <a href="/#" aria-label="Email">info@designex.ae</a>
-                </div>
-                <div class="item">
-                    <span class="title">P.O.Box</span>
-                    <a href="/#" aria-label="P.O.Box">118319 Office 605
-                        Zone B Aspect Tower, Business Bay,
-                        DUBAI - UAE</a>
-                </div>
+                <?php if (have_rows('phones', $contact->ID)):
+                    while (have_rows('phones', $contact->ID)):
+                        the_row();
+                        $phone = get_sub_field('phone') ?>
+                        <div class="item">
+                            <span class="title"><?php echo get_sub_field('title'); ?></span>
+                            <a href="tel:<?php echo str_replace(' ', '', $phone) ?>"
+                                aria-label="Phone Number"><?php echo $phone; ?></a>
+                        </div>
+                    <?php endwhile;
+                endif;
+                $email = get_field('email', $contact->ID);
+                if ($email): ?>
+
+                    <div class="item">
+                        <span class="title"><?php echo get_field('email_title', $contact->ID); ?></span>
+                        <a href="mailto:<?php echo antispambot($email); ?>"
+                            aria-label="Email"><?php echo antispambot($email); ?></a>
+                    </div>
+                <?php endif;
+                $address = get_field('address',  $contact->ID);
+                if ($address):
+                    $location = get_field('location',  $contact->ID); ?>
+                    <div class="item">
+                        <!-- <span class="title">P.O.Box</span> -->
+                        <a href="mailto:https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>"><?php echo $address; ?></a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
