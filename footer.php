@@ -72,6 +72,9 @@
         </div>
     </div>
 </footer>
+<?php if (is_archive('projects')): ?>
+    <script defer src='<?php ThemeAssets('js/jQuery.min.js'); ?>'></script>
+<?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
@@ -87,7 +90,7 @@
     <script defer src="<?php ThemeAssets('js/page-script/single-job.js'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
-    <script defer src='<?php ThemeAssets('js/jQuery.min.js');?>'></script>
+
 <?php elseif (is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
@@ -109,10 +112,10 @@
         if (document.getElementById('videoModal')) {
             document.getElementById('videoModal').style.display = 'block';
         }
-        <?php if (is_archive('projects')): ?> 
+        <?php if (is_archive('projects')): ?>
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
-        
+
     });
 </script>
 <?php if (is_page_template('tpls/contact.php') or is_singular('projects')):
