@@ -9,6 +9,10 @@ $page_id = get_queried_object_id(); ?>
             </a>
         </div>
         <div class="projectHeader-container">
+        <div class="mobileIcon">
+                <span class="open">open filter</span>
+                <span class="close">close filter</span>
+            </div>
             <div class="projectHeader-wrapper">
                 <?php $terms = get_terms([
                     'taxonomy' => 'category',
