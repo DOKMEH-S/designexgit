@@ -78,11 +78,15 @@ updateUAETime();
 
 // =============================Menu
 const menuIcon = document.querySelector('.menu-icon');
-
+// Assuming lenis is already defined and initialized somewhere in your code
 menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
+    if (document.body.classList.contains('opMenu')) {
+        lenis.stop(); // Stop lenis when opMenu is added
+    } else {
+        lenis.start(); // Start lenis when opMenu is removed
+    }
 });
-
 
 
 // Append all images to mediaSection
@@ -169,3 +173,18 @@ window.addEventListener('scroll', function() {
         document.querySelector('body').classList.add('noMove');
     }
 });
+window.addEventListener('scroll', () => {
+    // Calculate the scroll position
+    const scrollTop = window.scrollY; // Current scroll position from the top
+    const windowHeight = window.innerHeight; // Height of the viewport
+    const documentHeight = document.body.offsetHeight; // Total height of the document
+    // Check if the user has scrolled to the bottom
+    if (scrollTop + windowHeight >= documentHeight) {
+        document.querySelector('body').classList.remove('scrollEnd');
+    }
+});
+// ==========================vh
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);

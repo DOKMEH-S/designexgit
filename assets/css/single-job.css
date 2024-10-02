@@ -1,17 +1,30 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 main.singleJobWrapper {
     position: relative;
     padding: calc(var(--headerHeight) + 3.875rem) 0 10rem;
     width: 100%;
     display: block;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 section.singleJobHeroSectionContainer {
     position: relative;
     width: 100%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 0.4fr 1fr;
     grid-template-columns: 0.4fr 1fr;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
-    padding: 0 var(--spaceX) 0 var(--spaceM);
+    padding: 0 var(--spaceX) 0 var(--spaceL);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 .job-date {
@@ -28,6 +41,8 @@ section.singleJobHeroSectionContainer {
     background-repeat: no-repeat;
     left: -1rem;
     top: 50%;
+    -webkit-transform: translate(-100%,-50%);
+    -ms-transform: translate(-100%,-50%);
     transform: translate(-100%,-50%);
 }
 .job-date span {
@@ -47,13 +62,16 @@ section.singleJobHeroSectionContainer {
 }
 section.singleJobContentFormContainer {
     position: relative;
+    display: -ms-grid;
     display: grid;
     width: 100%;
+    -ms-grid-columns: 1fr 11.5rem 1fr;
     grid-template-columns: 1fr 1fr;
     margin-top: 4.813rem;
     grid-column-gap: 11.5rem;
     margin-bottom: 6.625rem;
-    padding: 0 var(--spaceX) 0 var(--spaceM);
+    padding: 0 var(--spaceX) 0 var(--spaceL);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -71,6 +89,7 @@ form .textTypeInput input {
     height: 2rem;
     padding-left: 2rem;
     margin-bottom: .875rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -90,6 +109,7 @@ form .textTypeInput textarea {
     margin-bottom: .875rem;
     width: 100%;
     resize: none;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 form .textTypeInput input::-webkit-input-placeholder,form .textTypeInput textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -106,16 +126,27 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
 }
 form .submitForm {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: var(--primary);
     width: 50%;
     border-radius: 3.75rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
     column-gap: 0.5rem;
     height: 1.6rem;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
     border: 2px solid var(--primary);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -128,6 +159,8 @@ form .submitForm input[type="submit"] {
     z-index: 1;
     height: 100%;
     cursor: pointer;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 
@@ -139,6 +172,8 @@ form .submitForm svg {
 form .submitForm:hover svg path {fill: var(--primary);}
 
 form .submitForm svg path {
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 
@@ -151,12 +186,21 @@ form .submitForm:hover {
 /*========Upload========*/
 form .textTypeInput.upload {
     cursor: pointer;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     height: 12rem;
     text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-column-gap: .5rem;
+    -moz-column-gap: .5rem;
     column-gap: .5rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     padding-left: 2rem;
@@ -176,6 +220,8 @@ form .upload input[type=file] {
     height: 3rem;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
     transform: translate(-50% , -50%);
     opacity: 0;
     z-index: 2;
@@ -212,9 +258,16 @@ form .upload label {
     padding: .75rem;
     width: 100%;
     height: 3rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer;
 }
@@ -239,6 +292,8 @@ form .warning.right {
 form .upload .warning {
     top: calc(50% + 2rem);
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 /*========Upload========*/
@@ -258,5 +313,139 @@ section.singleJobCultureContainer .content img {
     height: auto;
 }
 section.singleJobCultureContainer .content .twoColumn{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
     column-count: 2;
+}
+@media only screen and (max-width: 768px){
+    main.wrapper.singleJobWrapper {
+        padding: calc(var(--headerHeight) + 1.875rem) 0 5rem;
+    }
+    section.singleJobHeroSectionContainer {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        padding: 0 var(--spaceX);
+    }
+    .job-date {
+        margin-top: 0;
+        padding-left: calc(var(--spaceL) + 1rem);
+    }
+    .job-date::before {
+        width: 7rem;
+        position: absolute;
+        height: 6.188rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: 0;
+        top: 0;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        transform: translateX(-3.5rem);
+        background-position: top;
+    }
+
+    .job-title-media-wrapper h1.jobTitle {
+        font-size: 2.5rem;
+    }
+
+    .job-date span {
+        font-size: 1.25rem;
+    }
+
+    section.singleJobContentFormContainer {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        margin-top: 2.813rem;
+        grid-row-gap: 2.5rem;
+        margin-bottom: 3.625rem;
+        padding: 0 var(--spaceX);
+    }
+    section.singleJobCultureContainer {
+        width: calc(100% - var(--spaceX));
+    }
+}
+@media only screen and (min-width: 640px) and (max-width:768px){}
+@media only screen and (min-width: 769px) and (max-width:1199px){
+    .job-title-media-wrapper h1.jobTitle {
+        font-size: 2.5rem;
+    }
+
+    .job-date span {
+        font-size: 1.25rem;
+    }
+
+    .job-date {
+        margin-top: 13rem;
+    }
+
+    .job-date::before {
+        background-position: center;
+    }
+
+    section.singleJobContentFormContainer {
+        margin-top: 4.813rem;
+        grid-column-gap: 5.5rem;
+        margin-bottom: 4.625rem;
+    }
+
+    section.singleJobCultureContainer {
+        width: 51vw;
+    }
+
+    section.singleJobCultureContainer h2 {
+        font-size: 2.25rem;
+    }
+
+    main.singleJobWrapper {
+        padding: calc(var(--headerHeight) + 3.875rem) 0 6rem;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width:1399px){
+    main.singleJobWrapper {
+        padding: calc(var(--headerHeight) + 1.875rem) 0 6rem;
+    }
+
+    .job-title-media-wrapper h1.jobTitle {
+        font-size: 2.5rem;
+    }
+
+    .job-date span {
+        font-size: 1.2rem;
+    }
+
+    .job-date::before {
+        background-position: center;
+    }
+
+    section.singleJobContentFormContainer {
+        margin-top: 3.813rem;
+        grid-column-gap: 6.5rem;
+        margin-bottom: 5.625rem;
+    }
+    section.singleJobCultureContainer h2 {
+        font-size: 2.6rem;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width:1600px){
+    .job-title-media-wrapper h1.jobTitle {
+        font-size: 2.6rem;
+    }
+
+    .job-date span {
+        font-size: 1.4rem;
+    }
+
+    section.singleJobContentFormContainer {
+        margin-top: 3.813rem;
+        grid-column-gap: 5.5rem;
+        margin-bottom: 5.625rem;
+    }
+
+    section.singleJobCultureContainer h2 {
+        font-size: 2.7rem;
+    }
+
+    main.singleJobWrapper {
+        padding: calc(var(--headerHeight) + 2.875rem) 0 6rem;
+    }
 }

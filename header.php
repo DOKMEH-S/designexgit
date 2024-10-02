@@ -27,6 +27,7 @@
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
+    <link href="<?php ThemeAssets('css/loading.css');?>" rel="stylesheet" type="text/css">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
     <?php endif; ?>
@@ -43,9 +44,11 @@
 <!--    </div>-->
 <!--</div>-->
 
-<body
-    data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject';elseif (is_singular('jobs')): echo 'jobs'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
-        echo 'singleBlog'; elseif (is_page_template('tpls/services.php')): echo 'services'; endif; ?>">
+<body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_archive('jobs')): echo 'jobs'; elseif (is_singular('jobs')): echo 'jobs'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
+    echo 'singleBlog';
+elseif (is_page_template('tpls/services.php')):
+    echo 'services';
+endif; ?>">
     <div id="loading" class="paddingX">
         <div class="loading-logoContainer">
             <a href="<?php echo site_url('/'); ?>" aria-label="logo" class="logo-img"><img src="./assets/img/logo.svg"

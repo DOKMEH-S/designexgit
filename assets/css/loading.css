@@ -5,6 +5,7 @@
 * Browsers: last 4 version
 */
 
+
 #loading {
     position: fixed;
     top: 0;
@@ -26,11 +27,22 @@
 }
 
 html.loadingDone #loading {
+    -webkit-animation: opacity 1.2s forwards;
     animation: opacity 1.2s forwards;
+    -webkit-animation-delay: .5s;
     animation-delay: .5s;
 }
 html.loadingDone body[data-pagetype="home"] #loading {
+    -webkit-animation-delay: 1s;
     animation-delay: 1s;
+}
+@-webkit-keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 @keyframes opacity {
     from {
@@ -42,13 +54,16 @@ html.loadingDone body[data-pagetype="home"] #loading {
 }
 .loading-container {
     position: absolute;
-    left: calc(10rem - 10rem + 50%);
+    /*left: calc(10rem - 10rem + 50%);*/
+    left: calc(50% - 10rem);
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
 }
 html.loadingDone body[data-pagetype="home"] .loading-container{
     left: calc(100% - 10rem - var(--spaceX));
 }
-#loading .loading-container .loading-point {
+.loading-point {
     width: 1rem;
     height: 1rem;
     background-color: #000;
@@ -67,7 +82,7 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     transition: transform 1s, -webkit-transform 1s;
 }
 
-#loading .loading-container .loading-point:before {
+.loading-point:before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -88,7 +103,7 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     transition: transform .5s, -webkit-transform .5s;
 }
 
-#loading .loading-container .loading-point:after {
+.loading-point:after {
     content: '';
     position: absolute;
     top: 0;
@@ -108,13 +123,13 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     transition: transform .5s;
     transition: transform .5s, -webkit-transform .5s;
 }
-#loading .loading-container.getScale .loading-point:before ,
-#loading .loading-container.getScale .loading-point:after{
+.getScale .loading-point:before ,
+.getScale .loading-point:after{
     -webkit-transform: scaleY(1);
     -ms-transform: scaleY(1);
     transform: scaleY(1);
 }
-#loading .loading-container.getRotate .loading-point {
+.getRotate .loading-point {
     -webkit-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
     transform: rotate(20deg);
@@ -160,7 +175,7 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     align-items: center;
     /*overflow: hidden;*/
 }
-#loading .loading-container .loading_text_canvas > * {
+.loading_text_canvas > * {
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -177,51 +192,53 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     display: flex;
 }
 
-#loading .loading-container .loading_text_canvas.two > * {
+.loading_text_canvas.two > * {
     margin-top: calc(10rem * .5);
 }
-#loading .loading-container .loading_text_canvas.two > *{
+.loading_text_canvas.two > *{
     text-align: left;
     text-indent: 3rem;
 }
-#loading .loading-container .loading_text_canvas > *.justLoading{
+.loading_text_canvas > *.justLoading{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
-#loading .loading-container.getNumber .loading_text_canvas.two > .justLoading{
+.loading-container.getNumber .loading_text_canvas.two > .justLoading{
 
     /* opacity: 1; */
 }
-#loading .loading-container.getNumber .loading_text_canvas.two > .justLoading {
+.loading-container.getNumber .loading_text_canvas.two > .justLoading {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
     /* opacity: 1; */
 }
-#loading .loading-container.missNumber .loading_text_canvas.two > .justLoading {
+.loading-container.missNumber .loading_text_canvas.two > .justLoading {
     -webkit-transform: translate(100%,-100%);
     -ms-transform: translate(100%,-100%);
     transform: translate(100%,-100%);
 }
-#loading .loading-container .loading_text_canvas {
+.loading_text_canvas {
     z-index: 2;
     position: relative;
     pointer-events: none;
 }
-#loading .loading-container .loading_text_canvas{
+.loading_text_canvas{
     width: calc(10rem * 1.4);
     height: calc(10rem * .5);
     margin: 0 -5rem;
 }
-#loading .loading-container .loading_text_canvas.one {
+.loading_text_canvas.one {
     border-top: 10rem solid var(--white);
     border-right: calc(10rem * .4) solid transparent;
     left: 0;
     z-index: 3;
 }
-#loading .loading-container .loading_text_canvas.two {
+.loading_text_canvas.two {
     border-bottom: 10rem solid var(--white);
     border-left: calc(10rem* .4) solid transparent;
     left: calc(10rem* .4);
@@ -232,14 +249,14 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
 
 
 
-#loading .loading-container:before {
+.loading-container:before {
     content: '';
     position: absolute;
     top: 50%;
     right: 50%;
-    width: 30rem;
-    /*height: 7px;*/
-    height: 2px;
+    width: calc((100vw / 3)* 1 - var(--spaceX) - 4rem);
+    height: 7px;
+    /* height: 2px; */
     /* background: linear-gradient(to right, #1FA066, #000000); */
     -webkit-transform-origin: right;
     -ms-transform-origin: right;
@@ -248,48 +265,48 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     -o-transition: all ease-in-out 1s;
     transition: all ease-in-out 1s;
     z-index: 1;
-    background-color: var(--black);
-    /*background-image: url(../img/Union.svg);*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: contain;*/
+    /*background-color: var(--black);*/
+    background-image: url(../img/Union.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#loading .loading-container:before ,
-body[data-pagetype]:not([data-pagetype="home"])  #loading .loading-container.getNumber.loseNumber:before{
+.loading-container:before ,
+body[data-pagetype]:not([data-pagetype="home"])   .loading-container.getNumber.loseNumber:before{
     -webkit-transform: scaleX(0);
     -ms-transform: scaleX(0);
     transform: scaleX(0);
 }
-#loading .loading-container.getNumber:before {
+.loading-container.getNumber:before {
     -webkit-transform: scaleX(1);
     -ms-transform: scaleX(1);
     transform: scaleX(1);
 }
-html.loadingDone #loading .loading-container .loading_text_canvas > *.projectInfo.fraction{
+html.loadingDone .loading_text_canvas > *.projectInfo.fraction{
     -webkit-transition: all ease-in-out 1s;
     -o-transition: all ease-in-out 1s;
     transition: all ease-in-out 1s;
 }
-html.loadingDone #loading .loading-container .loading_text_canvas > *.projectInfo.data{
+html.loadingDone .loading_text_canvas > *.projectInfo.data{
     -webkit-transition: all ease-in-out 1.2s;
     -o-transition: all ease-in-out 1.2s;
     transition: all ease-in-out 1.2s;
 }
-#loading .loading-container .loading_text_canvas.two > *, #loading .loading-container.getNumber.loseNumber .loading_text_canvas.two > *{
+.loading_text_canvas.two > *,  .loading-container.getNumber.loseNumber .loading_text_canvas.two > *{
     margin-bottom: -7rem;
     -webkit-transform: translate(-100%, 0);
     -ms-transform: translate(-100%, 0);
     transform: translate(-100%, 0);
     /* opacity: 0; */
 }
-html.loadingDone #loading .loading-container .loading_text_canvas.one > *.projectInfo {
+html.loadingDone .loading_text_canvas.one > *.projectInfo {
     -webkit-transform: translate(0%, -100%);
     -ms-transform: translate(0%, -100%);
     transform: translate(0%, -100%);
 }
-#loading .loading-container .loading_text_canvas.two > *{
+.loading_text_canvas.two > *{
     /* opacity: 0; */
 }
-html.loadingDone #loading .loading-container .loading_text_canvas.two > *.projectInfo {
+html.loadingDone .loading_text_canvas.two > *.projectInfo {
     opacity: 1;
 }
 
@@ -319,4 +336,20 @@ html.loadingDone #loading .loading-container .loading_text_canvas.two > *.projec
 .loading_text .projectInfo.data > *.function{
     font-size: .75rem;
     margin-left: -1.5rem;
+}
+
+
+@media only screen and (max-width: 768px){
+    .loading-container:before {
+        width: calc((100vw / 2) * 1 - var(--spaceX) - 1rem);
+    }
+
+    .loading-point {
+        width: .6rem;
+        height: .6rem;
+    }
+
+    .loading_text_canvas.two > * {
+        font-size: 2rem;
+    }
 }

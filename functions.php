@@ -50,25 +50,28 @@ function Dokmeh_scripts()
 
     if (is_front_page()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/home.min.css', array(), _S_VERSION);
-    } // Check if it's the about page
+    } 
     elseif (is_page_template('tpls/about.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
     } elseif (is_page_template('tpls/services.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/services.css', array(), _S_VERSION);
-    } // Check if it's the rethink archive page
+    } 
     elseif (is_singular('jobs')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-job.css', array(), _S_VERSION);
-    } // Check if it's the projects archive page or a single project page
+    } 
+    elseif (is_post_type_archive('jobs')) {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/jobs.css', array(), _S_VERSION);
+    } 
     elseif (is_post_type_archive('projects')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-project.css', array(), _S_VERSION);
         wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
-    } // Check if it's a single project page
+    } 
     elseif (is_singular('projects')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-project.css', array(), _S_VERSION);
-    } // Check if it's the contact page
+    } 
     elseif (is_page_template('tpls/contact.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/contact.css', array(), _S_VERSION);
-    } // Check if it's the news page or a single post page
+    } 
     elseif (is_home()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/archive-blog.css', array(), _S_VERSION);
         wp_enqueue_style('page2-style', get_template_directory_uri() . '/assets/css/projectHeader.css', array(), _S_VERSION);
