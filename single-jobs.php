@@ -26,7 +26,7 @@
     $form = '[contact-form-7 id="e19baeb" title="Job form"]';
     if ($expert or $form): ?>
         <section class="singleJobContentFormContainer">
-            <div class="singleJobDescription">
+            <div class="singleJobDescription skewText ">
                 <?php echo $expert; ?>
             </div>
             <div class="singleJobFormContainer">
@@ -35,7 +35,7 @@
         </section>
     <?php endif; ?>
     <section class="singleJobCultureContainer">
-        <div class="content">
+        <div class="content skewText ">
             <?php the_content(); ?>
         </div>
     </section>
