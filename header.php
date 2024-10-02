@@ -59,17 +59,7 @@
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
-    <div id="loading" class="paddingX">
-        <div class="loading-logoContainer">
-            <a href="<?php echo site_url('/'); ?>" aria-label="logo" class="logo-img"><img src="./assets/img/logo.svg"
-                    alt="logo"></a>
-            <img src="<?php echo get_template_directory_uri() . '/assets/img/logo-text.webp'; ?>" alt="logo"
-                class="logo-text">
-        </div>
-        <div class="loading-lineContainer">
-            <div class="line"></div>
-        </div>
-    </div>
+    
     <header>
         <?php $logo = get_field('logo', 'option'); ?>
         <a href="<?php echo site_url('/'); ?>" class="identity">
