@@ -80,7 +80,7 @@ get_header(); ?>
             <section class="whyUsContainer paddingAboutX" id="whyUs">
                 <?php $sec1 = get_field('section_1');
                 if ($sec1): ?>
-                    <div class="whyUsTitle aboutTitle">
+                    <div class="whyUsTitle aboutTitle skewText">
                         <h2><?php echo $sec1 ?: 'whyUs?'; ?></h2>
                     </div>
                 <?php endif; ?>
@@ -89,9 +89,9 @@ get_header(); ?>
                         the_row();
                         $title = get_sub_field('title');
                         $des = get_sub_field('des'); ?>
-                        <div class="descriptionSteps">
-                            <h3><?php echo $title; ?></h3>
-                            <p><?php echo $des; ?></p>
+                        <div class="descriptionSteps ">
+                            <h3 class="skewText"><?php echo $title; ?></h3>
+                            <p class="skewText "><?php echo $des; ?></p>
                         </div>
                     <?php endwhile; ?>
 
@@ -107,16 +107,16 @@ get_header(); ?>
         if (($mtitle and $mdes) or ($vtitle and $vdes)): ?>
 
             <section class="missionVisionContainer paddingAboutL" id="missionVision">
-                <div class="aboutTitle">
+                <div class="aboutTitle skewText">
                     <h2><?php echo $sec2 ?: 'Mission & Vision'; ?></h2>
                 </div>
                 <div class="missionVisionWrapper">
                     <div class="missionVisionInfoWrapper">
-                        <div class="missionVisionContent">
+                        <div class="missionVisionContent skewText">
                             <h3><?php echo $mtitle; ?></h3>
                             <p><?php echo $mdes; ?></p>
                         </div>
-                        <div class="missionVisionContent">
+                        <div class="missionVisionContent skewText ">
                             <h3><?php echo $vtitle; ?></h3>
                             <p><?php echo $vdes; ?></p>
                         </div>
@@ -143,11 +143,11 @@ get_header(); ?>
         $sec3 = get_field('section_3');
         if ($st_des): ?>
             <section class="statementContainer paddingAboutL" id="statement">
-                <div class="aboutTitle">
+                <div class="aboutTitle skewText">
                     <h2><?php echo $sec3 ?: 'Statement'; ?></h2>
                 </div>
                 <div class="statementWrapper">
-                    <div class="statementInfoWrapper">
+                    <div class="statementInfoWrapper skewText">
                         <?php echo $st_des; ?>
                     </div>
                     <?php $st_gallery = get_field('s_gallery');
@@ -177,11 +177,11 @@ get_header(); ?>
 
             <section class="founderContainer paddingAboutL" id="founder">
                 <div class="founderInfoWrapper">
-                    <div class="aboutTitle">
+                    <div class="aboutTitle skewText">
                         <h2><?php echo $f_name; ?></h2>
                         <span><?php echo $position; ?></span>
                     </div>
-                    <div class="founderContent">
+                    <div class="founderContent skewText">
                         <?php echo $f_text; ?>
                     </div>
                 </div>
@@ -204,7 +204,7 @@ get_header(); ?>
             $sec4 = get_field('section_4'); ?>
             <section class="teamContainer" id="team">
                 <section class="teamContainerName paddingAboutX">
-                    <div class="aboutTitle">
+                    <div class="aboutTitle skewText">
                         <h2><?php echo $sec4 ?: 'Team'; ?></h2>
                     </div>
                     <div class="teamWrapper">
@@ -243,10 +243,10 @@ get_header(); ?>
         if ($awards_query->have_posts()): ?>
             <section class="awardsContainer paddingAboutX" id="awards">
                 <?php $sec5 = get_field('section_5'); ?>
-                <div class="aboutTitle">
+                <div class="aboutTitle skewText ">
                     <h2><?php echo $sec5 ?: 'Awards / Publications'; ?></h2>
                 </div>
-                <div class="awardsWrapper">
+                <div class="awardsWrapper skewText ">
 
                     <?php while ($awards_query->have_posts()):
                         $awards_query->the_post();
@@ -277,13 +277,13 @@ get_header(); ?>
         <?php endif; ?>
         <section class="theFutureContainer" id="theFuture">
             <div class="theFutureWrapper paddingAboutX">
-                <div class="aboutTitle">
+                <div class="aboutTitle skewText ">
                     <?php $sec6 = get_field('section_6'); ?>
                     <h2><?php echo $sec6 ?: 'The Future'; ?></h2>
                 </div>
                 <?php $u_title = get_field('u_title');
                 $u_des = get_field('u_des'); ?>
-                <div class="theFeatureContent">
+                <div class="theFeatureContent skewText">
                     <h3><?php echo $u_title; ?></h3>
                     <p><?php echo $u_des; ?></p>
                 </div>
