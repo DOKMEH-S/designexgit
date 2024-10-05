@@ -1,19 +1,3 @@
-//========MODAL VIDEO
-let ceoVideoCTA = document.getElementById('playVideo');
-let ceoVideo = document.getElementById('modalVideo');
-let modalVideo = document.getElementById('videoModal');
-let closeModal = document.getElementById('closeModalVideo');
-ceoVideoCTA.addEventListener('click',function () {
-    modalVideo.classList.add('show');
-    if(ceoVideo.paused){
-        ceoVideo.play()
-    }
-})
-closeModal.addEventListener('click',function () {
-    modalVideo.classList.remove('show');
-    ceoVideo.pause()
-})
-
 // ==============expandContainer
 document.addEventListener("DOMContentLoaded", function() {
     const serviceItems = document.querySelectorAll('.serviceItem');
@@ -66,55 +50,62 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 //=======PLAY VIDEO
-let projectVideo = document.getElementById('servicesVideo');
-if(projectVideo){
-    projectVideo.addEventListener('timeupdate', function() {
-        if (projectVideo.currentTime >= 5) {
-            projectVideo.currentTime = 0; // Reset to the start
+// Function to set up the time update event for a video element
+function setupVideoReset(videoElement) {
+    videoElement.addEventListener('timeupdate', function () {
+        if (videoElement.currentTime >= 5) {
+            videoElement.currentTime = 0; // Reset to the start
         }
     });
-    //========MODAL VIDEO
-    document.addEventListener('DOMContentLoaded', function() {
-        let ceoVideo = document.getElementById('modalVideo');
-        let ceoVideoSrc = document.getElementById('modalVideoSrc');
-        let modalVideo = document.getElementById('videoModal');
-        let closeModal = document.getElementById('closeModalVideo');
 
-        // Function to handle video click
-        function handleVideoClick(video) {
-            let videoURL = video.getAttribute('data-url');
-            let videoPoster = video.getAttribute('poster');
+// Get the main tag
+    let mainTag = document.querySelector('main');
 
-            ceoVideo.setAttribute('poster', videoPoster);
-            ceoVideoSrc.setAttribute('src', videoURL);
-            ceoVideo.load();
-
-            modalVideo.classList.add('show');
-            if (ceoVideo.paused) {
-                ceoVideo.play();
-            }
-        }
-
-        // Attach event listeners to videos with the class .needModal
-        let needModalVideos = document.querySelectorAll('.needModal');
-        needModalVideos.forEach(video => {
-            video.addEventListener('click', function() {
-                handleVideoClick(video);
-            });
-        });
-
-        // Attach event listener to the play button in the singleProjectVideoContainer
-        let videoCTA = document.getElementById('playVideo');
-        let servicesVideo = document.getElementById('servicesVideo');
-
-        videoCTA.addEventListener('click', function() {
-            handleVideoClick(servicesVideo);
-        });
-
-        // Close modal functionality
-        closeModal.addEventListener('click', function() {
-            modalVideo.classList.remove('show');
-            ceoVideo.pause();
-        });
-    });
+// Get all video elements within the main tag
+    let videos = mainTag.querySelectorAll('video');
+    videos.forEach(video => setupVideoReset(video));
 }
+//========MODAL VIDEO
+document.addEventListener('DOMContentLoaded', function() {
+    let ceoVideo = document.getElementById('modalVideo');
+    let ceoVideoSrc = document.getElementById('modalVideoSrc');
+    let modalVideo = document.getElementById('videoModal');
+    let closeModal = document.getElementById('closeModalVideo');
+
+    // Function to handle video click
+    function handleVideoClick(video) {
+        let videoURL = video.getAttribute('data-url');
+        let videoPoster = video.getAttribute('poster');
+
+        ceoVideo.setAttribute('poster', videoPoster);
+        ceoVideoSrc.setAttribute('src', videoURL);
+        ceoVideo.load();
+
+        modalVideo.classList.add('show');
+        if (ceoVideo.paused) {
+            ceoVideo.play();
+        }
+    }
+
+    // Attach event listeners to videos with the class .needModal
+    let needModalVideos = document.querySelectorAll('.needModal');
+    needModalVideos.forEach(video => {
+        video.addEventListener('click', function() {
+            handleVideoClick(video);
+        });
+    });
+
+    // Attach event listener to the play button in the singleProjectVideoContainer
+    let videoCTA = document.getElementById('playVideo');
+    let servicesVideo = document.getElementById('servicesVideo');
+
+    videoCTA.addEventListener('click', function() {
+        handleVideoClick(servicesVideo);
+    });
+
+    // Close modal functionality
+    closeModal.addEventListener('click', function() {
+        modalVideo.classList.remove('show');
+        ceoVideo.pause();
+    });
+});
