@@ -143,8 +143,8 @@
 }
 #closeMap {
     position: absolute;
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--primary) ;
     border-radius: 3.75rem;
     -webkit-box-align: center;
     -ms-flex-align: center;
