@@ -33,7 +33,11 @@
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
-<div id="loading" class="loading-wrapper">
+<div id="loading">
+    <div class="loadingCovers">
+        <div class="loadingCover"></div>
+        <div class="loadingCover"></div>
+    </div>
     <div class="loading-container ">
         <div class="loading_line">
             <div class="loading-point_canvas one"></div>
@@ -42,7 +46,6 @@
         </div>
         <div class="loading_text">
             <div class="loading_text_canvas one right">
-
             </div>
             <div class="loading_text_canvas two left">
                 <div class="loading-percentage justLoading">
@@ -52,8 +55,6 @@
         </div>
     </div>
 </div>
-
-
 <body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_archive('jobs')): echo 'jobs'; elseif (is_singular('jobs')): echo 'jobs'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
     echo 'singleBlog';
 elseif (is_page_template('tpls/services.php')):
