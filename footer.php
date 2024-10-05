@@ -145,6 +145,7 @@
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
         document.getElementById('screenSaver').style.display = 'flex';
+        document.getElementById('menuContainer').style.display = 'flex';
 
     });
 </script>
