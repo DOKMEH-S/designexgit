@@ -65,6 +65,7 @@ endif; ?>">
         <a href="<?php echo site_url('/'); ?>" class="identity">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                 alt="site logo">
+            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </a>
         <?php $pages = get_pages(array(
             'meta_key' => '_wp_page_template',
@@ -91,15 +92,15 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-            <?php if (have_rows('menu_items')): ?>
+<!--            --><?php //if (have_rows('menu_items')): ?>
                 <div class="icon">
                     <span class="menu">MENU</span>
                     <span class="close">CloSe</span>
                 </div>
-            <?php endif; ?>
+<!--            --><?php //endif; ?>
         </div>
     </header>
-    <?php if (have_rows('menu_items')): ?>
+<!--    --><?php //if (have_rows('menu_items')): ?>
         <div id="menuContainer" data-lenis-prevent>
             <div class="infoSection paddingX">
                 <div class="nav">
@@ -141,7 +142,7 @@ endif; ?>">
                     class="selected">
             </div>
         </div>
-    <?php endif; ?>
+<!--    --><?php //endif; ?>
     <div id="screenSaver"><img src="https://hidokmeh.com/media/2024/09/logo-dark.svg" alt="logo"
             data-no-lazy="1">
     </div>
