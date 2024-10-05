@@ -569,24 +569,18 @@ body.opMenu header .menu-icon .icon > *.menu {
     top: var(--headerHeight);
     left: 0;
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+    height: 100vh;
     z-index: 99;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     pointer-events: none;
-    -webkit-transition: all ease-in-out .45s;
-    -o-transition: all ease-in-out .45s;
-    transition: all ease-in-out .45s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     transform: translateY(calc(-100% - var(--headerHeight)));
 }
-body.scrollingDown #menuContainer ,
-body.scrollEnd #menuContainer{
-    height: calc(100vh - var(--headerHeight));
-}
-body.noMove.scrollingDown #menuContainer{
-    height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
-}
+
 body.opMenu #menuContainer {
     pointer-events: auto;
     transform: translateY(0);
@@ -967,6 +961,16 @@ body.opMenu #menuContainer {
         right: auto !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
+    }
+    #menuContainer {
+        height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+    }
+    body.scrollingDown #menuContainer ,
+    body.scrollEnd #menuContainer{
+        height: calc(100vh - var(--headerHeight));
+    }
+    body.noMove.scrollingDown #menuContainer{
+        height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
     }
 
 }

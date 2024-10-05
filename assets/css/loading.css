@@ -22,20 +22,52 @@
     width: 100%;
     height: 100%;
     z-index: 101;
-    background-color: var(--white);
+    /*background-color: var(--white);*/
     pointer-events: none;
     overflow: hidden;
 }
+#loading .loadingCovers {
+    width: 100%;
+    height: 100%;
+}
 
+#loading .loadingCovers .loadingCover {
+    width: 100%;
+    height: 50%;
+    -webkit-transition: all ease-in-out .55s;
+    -o-transition: all ease-in-out .55s;
+    transition: all ease-in-out .55s;
+    -webkit-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    transition-delay: .5s;
+    background-color: var(--white);
+}
+
+body[data-pagetype="home"] #loading .loadingCovers .loadingCover{
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+html.loadingDone #loading .loadingCovers .loadingCover:nth-child(1) {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+html.loadingDone #loading .loadingCovers .loadingCover:nth-child(2) {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
 html.loadingDone #loading {
-    -webkit-animation: opacity .5s forwards;
-    animation: opacity .5s forwards;
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s;
+    /*-webkit-animation: opacity .5s forwards;*/
+    /*animation: opacity .5s forwards;*/
+    /*-webkit-animation-delay: .5s;*/
+    /*animation-delay: .5s;*/
 }
 html.loadingDone body[data-pagetype="home"] #loading {
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
+    /*-webkit-animation-delay: 1s;*/
+    /*animation-delay: 1s;*/
 }
 @-webkit-keyframes opacity {
     from {
@@ -57,11 +89,27 @@ html.loadingDone body[data-pagetype="home"] #loading {
     position: absolute;
     /*left: calc(10rem - 10rem + 50%);*/
     left: calc(50% - 10rem);
+    -webkit-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    transition-delay: .5s;
+    /*-webkit-transition: all ease-in-out 0.5;*/
+    /*-o-transition: all ease-in-out 0.5;*/
+    /*transition: all ease-in-out 0.5;*/
+}
+body[data-pagetype="home"] .loading-container{
     -webkit-transition: all ease-in-out .5s;
     -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
+    -webkit-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s;
 }
-html.loadingDone body[data-pagetype="home"] .loading-container{
+
+html.loadingDone .loading-container {
+    opacity: 0;
+}
+html.loadingDone body[data-pagetype="home"] .loading-container {
+    opacity: 1;
     left: calc(100% - 10rem - var(--spaceX));
 }
 .loading-point {
@@ -99,6 +147,7 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     /*-o-transition: transform 1s;*/
     /*transition: transform 1s;*/
     /*transition: transform 1s, -webkit-transform 1s;*/
+    -webkit-animation: getScale 1s forwards;
     animation: getScale 1s forwards;
 }
 
@@ -121,6 +170,7 @@ html.loadingDone body[data-pagetype="home"] .loading-container{
     /*-o-transition: transform .5s;*/
     /*transition: transform .5s;*/
     /*transition: transform .5s, -webkit-transform .5s;*/
+    -webkit-animation: getScale 1s forwards;
     animation: getScale 1s forwards;
 }
 @-webkit-keyframes getScale{

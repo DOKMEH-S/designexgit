@@ -92,19 +92,22 @@ section.logo-anchor-links {
 #aboutAnchorLinks a::before {
     content: '';
     position: absolute;
-    width: 2px;
+    width: 23px;
     height: 15px;
-    background-color: var(--primary);
-    -webkit-transform: skew(-20deg) translateY(-50%);
-    -ms-transform: skew(-20deg) translateY(-50%);
-    transform: skew(-20deg) translateY(-50%);
+    background-image: url(../img/small-elem-green.svg);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     top: 50%;
-    right: 4px;
+    right: -3px;
     z-index: 1;
     opacity: 0;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 #aboutAnchorLinks a.active::before {
@@ -158,25 +161,41 @@ section.aboutSloganContainer {
 .aboutSloganInfo h2 {
     margin: 0;
     opacity: 0;
+    -webkit-transform: translate(-20px,30px);
+    -ms-transform: translate(-20px,30px);
     transform: translate(-20px,30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 
 .aboutSloganInfo .content {
     margin-top: 8rem;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out 0.5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 html.loadingDone .aboutSloganInfo h2 {
     opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
     transform: translate(0,0);
-    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
 }
 html.loadingDone .aboutSloganInfo .content {
     opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
     transform: translate(0,0);
-    transition-delay: 0.75s;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
 }
 /*=============ABOUT SLOGAN================*/
 /*=============WHY US================*/
@@ -1262,6 +1281,8 @@ section.projectsLink a img {
     margin-top: 37px;
     width: 2.375rem;
     height: 2.375rem;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
 }
 section.projectsLink a:hover img {
@@ -1683,7 +1704,7 @@ section.projectsLink a:hover img {
     }
     #aboutAnchorLinks {
         width: 100%;
-        padding-right: 2rem;
+        padding-right: 3rem;
     }
     section.aboutSloganContainer {
         -ms-grid-columns: 1fr;
@@ -1712,7 +1733,7 @@ section.projectsLink a:hover img {
     }
 
     #aboutAnchorLinks a {
-        font-size: .875rem;
+        font-size: .75rem;
     }
 
     .aboutTitle h2 {
@@ -1808,6 +1829,13 @@ section.projectsLink a:hover img {
         width: 2rem;
         height: 2rem;
     }
+    .aboutAnchorLinksWrap{
+        padding-top: 1rem;
+    }
+    #aboutAnchorLinks a::before {
+        width: 20px;
+        height: 13px;
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     :root {
@@ -1819,7 +1847,7 @@ section.projectsLink a:hover img {
         width: var(--spaceL);
     }
     #aboutAnchorLinks a {
-        font-size: .9rem;
+        font-size: .875rem;
     }
     .aboutAnchorLinksWrap {
         padding-top: 0;
@@ -1895,6 +1923,11 @@ section.projectsLink a:hover img {
     .theFutureContainer .content__title-main {
         font-size: clamp(2rem, 9vw, 11.5rem);
     }
+    #aboutAnchorLinks a::before {
+        width: 20px;
+        height: 12px;
+        right: -1px;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     :root{
@@ -1935,5 +1968,8 @@ section.projectsLink a:hover img {
     }
     .teamWrap {
         height: 53vh;
+    }
+    .aboutTitle::before {
+        left: -3rem;
     }
 }

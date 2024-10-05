@@ -50,13 +50,21 @@ section.singleJobHeroSectionContainer {
     display: block;
     font-weight: 700;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 html.loadingDone .job-date span{
     opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    transition-delay: 0.5s;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
 }
 .job-title-media-wrapper h1.jobTitle {
     margin: 0 0 2.313rem 0;
@@ -64,12 +72,20 @@ html.loadingDone .job-date span{
     text-transform: uppercase;
     font-size: 3rem;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 html.loadingDone .job-title-media-wrapper h1.jobTitle{
     opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
     transition-delay: 0.75s;
 }
 .job-media img {
