@@ -153,7 +153,7 @@ get_header(); ?>
 <?php if ($a_video or in_array($file_extension, ['mp4', 'webm'])): ?>
     <div id="videoModal">
         <div class="videoContainer">
-            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+            <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $a_poster['sizes']['medium']; ?>" controls>
                 <source id="modalVideoSrc" src="" type="video/mp4">
             </video>
         </div>
