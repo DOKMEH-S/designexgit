@@ -25,7 +25,7 @@
 // updateUAETime();
 
 // =============================Menu
-const menuIcon = document.querySelector('.menu-icon');
+const menuIcon = document.querySelector('.menu-icon .icon');
 // Assuming lenis is already defined and initialized somewhere in your code
 menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
