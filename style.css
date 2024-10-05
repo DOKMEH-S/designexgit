@@ -891,6 +891,7 @@ body.opMenu #menuContainer {
     width: 100%;
     height: 100%;
     z-index: 10000;
+    background-color: var(--primary);
     background-size: initial;
     background-repeat: repeat;
     -webkit-transition: .2s ease-in;
@@ -899,7 +900,6 @@ body.opMenu #menuContainer {
     -webkit-backdrop-filter: blur(0px);
     backdrop-filter: blur(0px);
     pointer-events: none;
-     mix-blend-mode: difference;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -909,8 +909,21 @@ body.opMenu #menuContainer {
     -ms-flex-pack: center;
     opacity: 0;
 }
+#screenSaver:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(./assets/img/footer-texture.webp);
+    background-size: cover;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
 html.mouseStopped #screenSaver {
-    opacity: 1;
+    opacity: .95;
     -webkit-transition-duration: 5s;
     -o-transition-duration: 5s;
     transition-duration: 5s;
