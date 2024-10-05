@@ -126,7 +126,7 @@
     <div id="mapProjectsContainer">
         <div id="mapProjects"></div>
         <div id="closeMap">
-            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link icon">
+            <img src="<?php ThemeAssets('img/link-primary.svg'); ?>" alt="link icon">
             <span>close</span>
         </div>
     </div>
