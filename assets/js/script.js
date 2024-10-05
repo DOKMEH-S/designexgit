@@ -1,80 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loading = document.querySelector('#loading');
-    if (loading) {
-        loading.classList.add('animate');
-
-        setTimeout(() => {
-            const logoContainer = loading.querySelector('.loading-logoContainer');
-            if (logoContainer) {
-                const translateX = -logoContainer.getBoundingClientRect().left;
-                const translateY = -logoContainer.getBoundingClientRect().top;
-
-                // Step 2: Transform the loading logo container
-                logoContainer.style.transform = `translate(${translateX}px, ${translateY}px)`;
-
-                const header = document.querySelector('.identity');
-                if (header) {
-                    header.style.display = 'block';
-                }
-
-                // Scale the logo image and text
-                const logoImg = logoContainer.querySelector('.logo-img');
-                const logoText = logoContainer.querySelector('.logo-text');
-
-                if (logoImg) {
-                    logoImg.style.transform = 'scale(1)';
-                    logoImg.style.transition = 'transform 0.5s ease';
-                    logoImg.style.margin = '0'; // Set margin to 0
-                }
-
-                if (logoText) {
-                    logoText.style.transform = 'scale(1)';
-                    logoText.style.transition = 'all 0.5s ease';
-                }
-
-                // Delay for 1 second before adding the loadingDone class
-                setTimeout(() => {
-                    // Step 3: Add the loadingDone class to the body
-                    document.body.classList.add('loadingDone');
-
-                    // Fade out the logo text after 3 seconds
-                    // setTimeout(() => {
-                    //     if (logoText) {
-                    //         logoText.style.opacity = '0';
-                    //         logoText.style.transition = 'opacity 0.5s ease';
-                    //     }
-                    // }, 3000); // Fade out delay
-                }, 500); // 1 second delay after scaling
-            }
-        }, 2000); // Initial delay for loading animation
-    }
-});
-
 //===========GET UAE TIME ZONE
-// const timeZone = document.getElementById('timeZone');
-// function updateUAETime() {
-//     // Get the current date and time
-//     const now = new Date();
+const timeZone = document.getElementById('timeZone');
+function updateUAETime() {
+    // Get the current date and time
+    const now = new Date();
 
-//     // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
-//     const options = {
-//         timeZone: 'Asia/Dubai',
-//         hour: '2-digit',
-//         minute: '2-digit',
-//         second: '2-digit',
-//         hour12: false // استفاده از فرمت 24 ساعته
-//     };
-//     const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
+    // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
+    const options = {
+        timeZone: 'Asia/Dubai',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // استفاده از فرمت 24 ساعته
+    };
+    const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
 
-//     // console.log(`Current time in UAE: ${uaeTime}`);
-//     timeZone.innerHTML = uaeTime;
+    // console.log(`Current time in UAE: ${uaeTime}`);
+    timeZone.innerHTML = uaeTime;
 
-//     // Call the function again after 1000 ms (1 second)
-//     setTimeout(updateUAETime, 1000);
-// }
+    // Call the function again after 1000 ms (1 second)
+    setTimeout(updateUAETime, 1000);
+}
 
-// // Start the time update
-// updateUAETime();
+// Start the time update
+updateUAETime();
 
 // =============================Menu
 const menuIcon = document.querySelector('.menu-icon');
@@ -82,9 +30,9 @@ const menuIcon = document.querySelector('.menu-icon');
 menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
     if (document.body.classList.contains('opMenu')) {
-        lenis.stop(); // Stop lenis when opMenu is added
+        // lenis.stop(); // Stop lenis when opMenu is added
     } else {
-        lenis.start(); // Start lenis when opMenu is removed
+        // lenis.start(); // Start lenis when opMenu is removed
     }
 });
 
@@ -207,7 +155,7 @@ if(skewTBlock){
                 z: 0,
                 x: 0,
                 y: 0,
-                duration: .5,
+                duration: .8,
                 scrollTrigger: {
                     trigger: text,
                     ease: "power4.out",
