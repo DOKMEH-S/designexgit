@@ -1,11 +1,22 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*=============VERTICAL SLIDER================*/
 /*.menu {*/
 /*    width: 40vw;*/
 /*}*/
 #menu-container nav ul.angle, #menu-container .menu-items.angle {
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
     transition-delay: 1s;
 }
 section.homeContainer .menu.angle{
+    -webkit-transition-delay: 2s;
+    -o-transition-delay: 2s;
     transition-delay: 2s;
 }
 section.homeContainer > * {
@@ -13,8 +24,12 @@ section.homeContainer > * {
 }
 .homeSloganInfo-container {
     /*background-color: red;*/
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end;
     padding-bottom: calc(var(--spaceX)*.25);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 #homeContainer{
@@ -22,13 +37,18 @@ section.homeContainer > * {
 }
 .menu__item.box {
     display: block;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 .img-box {
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     height: 40vh;
     margin-bottom: 1.5rem;
@@ -37,23 +57,34 @@ section.homeContainer > * {
 .img-box img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 .image-box {
+    display: -ms-grid;
     display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     padding-left: 5rem;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 .img-box:last-child img {
+    -o-object-fit: contain;
     object-fit: contain;
 }
 section.homeContainer {
     padding-left: var(--spaceX);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .menu__item.box.active .image-box{
@@ -120,15 +151,25 @@ main.homeWrapper {
 }
 
 #newsletterLink-container > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
     margin: auto;
     background-color: var(--primary);
     padding: .25rem .75rem;
     border-radius: 2rem;
     color: var(--white);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: .75rem;
 }
@@ -136,12 +177,20 @@ main.homeWrapper {
 #newsletterLink-container > a img {
     width: .75rem;
     height: .75rem;
+    -o-object-fit: contain;
     object-fit: contain;
+    -webkit-filter: invert(1);
     filter: invert(1);
+    -webkit-transition: -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+    transition: -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+    -o-transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
     transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
+    transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s, -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
 }
 
 #newsletterLink-container > a:hover img {
+    -webkit-transform: translate(0.8rem, -0.3rem);
+    -ms-transform: translate(0.8rem, -0.3rem);
     transform: translate(0.8rem, -0.3rem);
 }
 .homeSloganInfo p strong {

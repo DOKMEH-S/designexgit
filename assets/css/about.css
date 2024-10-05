@@ -10,12 +10,10 @@
     --gridGapTop: calc(var(--headerHeight) + 2rem);
     counter-reset: item;
 }
-.pin-spacer {
-    mix-blend-mode: difference;
-}
 body[data-pagetype="about"] main{
     padding-left: 0;
     padding-top: 0;
+    padding-right: 0;
 }
 .aboutTitle{
     position: relative;
@@ -71,14 +69,18 @@ section.logo-anchor-links {
     row-gap: .5rem;
     text-transform: capitalize;
     padding-right: 6rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 #aboutAnchorLinks a {
-    color: var(--white);
-    font-weight: 300;
+    color: var(--black);
+    font-weight: 400;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s;
+    position: relative;
 }
-#aboutAnchorLinks a.active {color: var(--gray);}
+#aboutAnchorLinks a.active {color: var(--primary);padding-right: 10px;}
 .logo-items {
     margin-left: var(--spaceX);
     position: absolute;
@@ -86,6 +88,30 @@ section.logo-anchor-links {
     left: 0;
     z-index: 1;
     /* mix-blend-mode: difference; */
+}
+#aboutAnchorLinks a::before {
+    content: '';
+    position: absolute;
+    width: 23px;
+    height: 15px;
+    background-image: url(../img/small-elem-green.svg);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    right: -3px;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#aboutAnchorLinks a.active::before {
+    opacity: 1;
 }
 /*=============ANCHOR LINKS================*/
 /*=============ABOUT SLOGAN================*/
@@ -134,10 +160,42 @@ section.aboutSloganContainer {
 
 .aboutSloganInfo h2 {
     margin: 0;
+    opacity: 0;
+    -webkit-transform: translate(-20px,30px);
+    -ms-transform: translate(-20px,30px);
+    transform: translate(-20px,30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 
 .aboutSloganInfo .content {
     margin-top: 8rem;
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+}
+html.loadingDone .aboutSloganInfo h2 {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
+}
+html.loadingDone .aboutSloganInfo .content {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
 }
 /*=============ABOUT SLOGAN================*/
 /*=============WHY US================*/
@@ -165,7 +223,7 @@ section.whyUsContainer {
     width: var(--spaceLL);
 }
 
-.aboutAnchorLinksWrap img {margin-left: auto;margin-right: 0;display: block;width: 100%;height: var(--spaceY);object-fit: contain;}
+.aboutAnchorLinksWrap img {margin-left: auto;margin-right: 0;display: block;width: 100%;height: var(--spaceY);-o-object-fit: contain;object-fit: contain;}
 
 .whyUsDescription {
     padding-top: calc(var(--spaceY)/2);
@@ -917,50 +975,246 @@ figure.theFeatureGalleryWrap:hover::before {
     object-fit: cover;
 }
 .theFutureContainer .content--full {
+    display: -ms-grid;
     display: grid;
     height: 100vh;
     place-items: center;
     grid-template-areas: 'main';
+    -ms-grid-rows: 100%;
     grid-template-rows: 100%;
+    -ms-grid-columns: 100%;
     grid-template-columns: 100%;
 }
 .theFutureContainer .content {
     position: relative;
     min-height: 100dvh;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 .theFutureContainer .grid {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
     grid-area: main;
+    display: -ms-grid;
     display: grid;
     width: 100%;
     height: 100%;
+    -ms-grid-columns: (1fr)[8];
     grid-template-columns: repeat(8, 1fr);
+    -ms-grid-rows: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     position: relative;
     z-index: 1;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin-left: 1.4rem;
+}
+.theFutureContainer .grid > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid > *:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid > *:nth-child(5) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid > *:nth-child(6) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 6;
+}
+.theFutureContainer .grid > *:nth-child(7) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+}
+.theFutureContainer .grid > *:nth-child(8) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 8;
+}
+.theFutureContainer .grid > *:nth-child(9) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid > *:nth-child(10) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid > *:nth-child(11) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid > *:nth-child(12) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid > *:nth-child(13) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid > *:nth-child(14) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 6;
+}
+.theFutureContainer .grid > *:nth-child(15) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 7;
+}
+.theFutureContainer .grid > *:nth-child(16) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 8;
+}
+.theFutureContainer .grid > *:nth-child(17) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid > *:nth-child(18) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid > *:nth-child(19) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid > *:nth-child(20) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid > *:nth-child(21) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid > *:nth-child(22) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 6;
+}
+.theFutureContainer .grid > *:nth-child(23) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 7;
+}
+.theFutureContainer .grid > *:nth-child(24) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 8;
 }
 .theFutureContainer .grid--spaced {
     gap: 1rem;
 }
 .theFutureContainer .grid--wide {
+    -ms-grid-columns: (1fr)[5];
     grid-template-columns: repeat(5, 1fr);
+    -ms-grid-rows: (1fr)[4];
     grid-template-rows: repeat(4, 1fr);
+}
+.theFutureContainer .grid--wide > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid--wide > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid--wide > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid--wide > *:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid--wide > *:nth-child(5) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid--wide > *:nth-child(6) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid--wide > *:nth-child(7) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid--wide > *:nth-child(8) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid--wide > *:nth-child(9) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid--wide > *:nth-child(10) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid--wide > *:nth-child(11) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid--wide > *:nth-child(12) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid--wide > *:nth-child(13) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid--wide > *:nth-child(14) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid--wide > *:nth-child(15) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+}
+.theFutureContainer .grid--wide > *:nth-child(16) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+}
+.theFutureContainer .grid--wide > *:nth-child(17) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+}
+.theFutureContainer .grid--wide > *:nth-child(18) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+}
+.theFutureContainer .grid--wide > *:nth-child(19) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 4;
+}
+.theFutureContainer .grid--wide > *:nth-child(20) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 5;
 }
 .theFutureContainer .grid__img {
     background-size: cover;
     background-position: 50% 50%;
     pointer-events: none;
     will-change: transform;
+    -webkit-transform: translateZ(0.1px);
     transform: translateZ(0.1px);
     width: 100%;
     height: 100%;
 }
 .theFutureContainer .content__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
     grid-area: main;
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     mix-blend-mode: difference;
     z-index: 2;
@@ -969,6 +1223,7 @@ figure.theFeatureGalleryWrap:hover::before {
 .theFutureContainer .grid__img img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 .theFutureContainer .content__title-main {
@@ -1026,6 +1281,14 @@ section.projectsLink a img {
     margin-top: 37px;
     width: 2.375rem;
     height: 2.375rem;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
+    transition: all ease-in-out .35s;
+}
+section.projectsLink a:hover img {
+    -webkit-transform: translate(.75rem, -90%);
+    -ms-transform: translate(.75rem, -90%);
+    transform: translate(.75rem, -90%);
 }
 /*==========PROJECT LINK============*/
 /*==========MODAL VIDEO============*/
@@ -1093,6 +1356,9 @@ section.projectsLink a img {
     }
     /*============GENERAL CLASS===============*/
     /*=============ANCHOR LINKS===============*/
+    #aboutAnchorLinks a.active {
+        padding-right: 6px;
+    }
     section.logo-anchor-links {
         width: 100%;
         top: var(--headerHeight);
@@ -1108,12 +1374,19 @@ section.projectsLink a img {
     #aboutAnchorLinks {
         width: 100%;
         padding: 0;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        -webkit-column-gap: 0.5rem;
+        -moz-column-gap: 0.5rem;
         column-gap: 0.5rem;
     }
     .aboutAnchorLinksWrap img {
         height: 2.75rem;
+        -o-object-position: right;
         object-position: right;
     }
 
@@ -1123,6 +1396,7 @@ section.projectsLink a img {
     /*=============ANCHOR LINKS===============*/
     /*=============HERO SECTION===============*/
     section.aboutSloganContainer {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: var(--gridGap);
         margin-top: calc(var(--headerHeight) + 1rem);
@@ -1130,6 +1404,7 @@ section.projectsLink a img {
     .aboutVideoWrap {
         height: 42vh;
         padding-left: var(--spaceL);
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
     .aboutSloganInfo .content {
@@ -1143,6 +1418,7 @@ section.projectsLink a img {
         font-size: 0.875rem;
     }
     section.whyUsContainer {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: var(--gridGap)rem;
     }
@@ -1168,6 +1444,8 @@ section.projectsLink a img {
         position: relative;
         top: auto;
         left: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
         transform: none;
         line-height: 3rem;
     }
@@ -1177,6 +1455,8 @@ section.projectsLink a img {
     }
 
     .descriptionSteps {
+        -webkit-transform: none !important;
+        -ms-transform: none !important;
         transform: none !important;
     }
 
@@ -1195,6 +1475,7 @@ section.projectsLink a img {
     /*=============WHY US===============*/
     /*=============STATEMENT===============*/
     .missionVisionWrapper {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: var(--gridGap);
         margin-top: 3rem;
@@ -1209,13 +1490,16 @@ section.projectsLink a img {
         height: 45vh;
     }
     .statementWrapper {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         margin-top: 3rem;
         grid-row-gap: var(--gridGap);
     }
     .statementInfoWrapper {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
         column-count: 1;
-        padding-left: var(--spaceL););
+        padding-left: var(--spaceL);
     }
     .statementSliderWrapper {
         height: 50vh;
@@ -1223,6 +1507,7 @@ section.projectsLink a img {
     /*=============STATEMENT===============*/
     /*=============FOUNDER===============*/
     section.founderContainer {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: var(--gridGap);
     }
@@ -1241,6 +1526,8 @@ section.projectsLink a img {
     }
 
     #playFounder img:last-child {
+        -webkit-transform: translate(-50%, -50%) scale(0.7);
+        -ms-transform: translate(-50%, -50%) scale(0.7);
         transform: translate(-50%, -50%) scale(0.7);
     }
     /*=============FOUNDER===============*/
@@ -1249,6 +1536,7 @@ section.projectsLink a img {
         margin-bottom: 3rem;
     }
     .teamWrapper {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     }
     .teamWrap {
@@ -1270,17 +1558,30 @@ section.projectsLink a img {
         margin-bottom: 3rem;
     }
     .awardsWrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         row-gap: 1.25rem;
     }
 
     .awardTitleLink {
         width: 100%;
+        -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
         order: 3;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
     }
 
@@ -1289,6 +1590,8 @@ section.projectsLink a img {
     }
     .award-desc {
         width: calc(100% - 7rem);
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
         order: 2;
     }
     .awardTitleLink p {
@@ -1299,6 +1602,7 @@ section.projectsLink a img {
     .awardTitleLink img {
         width: 1.875rem;
         height: 1.875rem;
+        -o-object-fit: contain;
         object-fit: contain;
     }
     /*=============AWARDS===============*/
@@ -1308,6 +1612,7 @@ section.projectsLink a img {
         margin-top: 3rem;
         margin-bottom: 0;
         padding-left: var(--spaceL);
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
     .theFutureContainer .grid {
@@ -1326,7 +1631,12 @@ section.projectsLink a img {
         font-size: 4rem;
     }
     section.projectsLink a {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
         align-items: flex-end;
     }
     section.projectsLink a img {
@@ -1338,12 +1648,20 @@ section.projectsLink a img {
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
     .aboutAnchorLinksWrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
 
     #aboutAnchorLinks {
+        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     }
 
@@ -1355,6 +1673,7 @@ section.projectsLink a img {
         top: 0.2rem;
     }
     .teamWrapper {
+        -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     }
 
@@ -1385,9 +1704,10 @@ section.projectsLink a img {
     }
     #aboutAnchorLinks {
         width: 100%;
-        padding-right: 2rem;
+        padding-right: 3rem;
     }
     section.aboutSloganContainer {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         row-gap: 3rem;
     }
@@ -1413,7 +1733,7 @@ section.projectsLink a img {
     }
 
     #aboutAnchorLinks a {
-        font-size: .875rem;
+        font-size: .75rem;
     }
 
     .aboutTitle h2 {
@@ -1430,6 +1750,7 @@ section.projectsLink a img {
         bottom: -4rem;
     }
     .missionVisionWrapper {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: 3rem;
         margin-top: 2rem;
@@ -1441,7 +1762,9 @@ section.projectsLink a img {
 
     .missionVisionInfoWrapper {
         padding-bottom: 4rem;
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 2rem 1fr;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 2rem;
     }
@@ -1463,6 +1786,8 @@ section.projectsLink a img {
     }
 
     #playFounder img:last-child {
+        -webkit-transform: translate(-50%, -50%) scale(0.7);
+        -ms-transform: translate(-50%, -50%) scale(0.7);
         transform: translate(-50%, -50%) scale(0.7);
     }
 
@@ -1504,6 +1829,13 @@ section.projectsLink a img {
         width: 2rem;
         height: 2rem;
     }
+    .aboutAnchorLinksWrap{
+        padding-top: 1rem;
+    }
+    #aboutAnchorLinks a::before {
+        width: 20px;
+        height: 13px;
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     :root {
@@ -1515,7 +1847,7 @@ section.projectsLink a img {
         width: var(--spaceL);
     }
     #aboutAnchorLinks a {
-        font-size: .9rem;
+        font-size: .875rem;
     }
     .aboutAnchorLinksWrap {
         padding-top: 0;
@@ -1566,6 +1898,8 @@ section.projectsLink a img {
     }
 
     #playFounder img:last-child {
+        -webkit-transform: translate(-50%, -50%) scale(0.7);
+        -ms-transform: translate(-50%, -50%) scale(0.7);
         transform: translate(-50%, -50%) scale(0.7);
     }
 
@@ -1588,6 +1922,11 @@ section.projectsLink a img {
 
     .theFutureContainer .content__title-main {
         font-size: clamp(2rem, 9vw, 11.5rem);
+    }
+    #aboutAnchorLinks a::before {
+        width: 20px;
+        height: 12px;
+        right: -1px;
     }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
@@ -1623,5 +1962,14 @@ section.projectsLink a img {
     section.projectsLink a img {
         width: 2.175rem;
         height: 2.175rem;
+    }
+    .theFutureContainer .content__title-main {
+        font-size: clamp(2rem, 9vw, 11.5rem);
+    }
+    .teamWrap {
+        height: 53vh;
+    }
+    .aboutTitle::before {
+        left: -3rem;
     }
 }

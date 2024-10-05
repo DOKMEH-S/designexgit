@@ -5,9 +5,7 @@
 * Browsers: last 4 version
 */
 
-body[data-pagetype="contact"] main {
-    padding-right: var(--spaceX);
-}
+body[data-pagetype="contact"] main {}
 section.contactInfoMapFormContainer {
     position: relative;
     width: 100%;
@@ -74,12 +72,12 @@ section.contactInfoMapFormContainer {
     margin-bottom: 2.5rem;
 }
 
-#map {
+.ContactMapContainer {
     width: 100%;
     height: 38vh;
 }
 
-#map > img {
+.ContactMapContainer > img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -95,6 +93,58 @@ h1.contact_title {
     right: 0;
     top: -1rem;
     line-height: normal;
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+}
+.contactInfoWrapper {
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+}
+.contactFormSliderContainer {
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+}
+html.loadingDone h1.contact_title{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
+}
+html.loadingDone .contactInfoWrapper{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+html.loadingDone .contactFormSliderContainer{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 1.25s;
+    -o-transition-delay: 1.25s;
+    transition-delay: 1.25s;
 }
 .contactFormContainer {
     position: relative;
@@ -463,6 +513,9 @@ section.faq-contactSlider-container {
     -webkit-transition: all ease-in-out 0.4s;
     -o-transition: all ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .contactCTAWrap span {
@@ -476,62 +529,6 @@ section.faq-contactSlider-container {
 }
 .contactVideoWrapper .titleWrap {
     margin-bottom: 3rem;
-}
-#playVideo {
-    position: absolute;
-    width: 8.636rem;
-    height: 8.636rem;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transition: all ease-in-out .5s;
-    -o-transition: all ease-in-out .5s;
-    transition: all ease-in-out .5s;
-    cursor: pointer;
-    -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
-    transform-origin: center center;
-    transform-box: fill-box;
-}
-
-#playVideo img:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) scale(.75);
-    -ms-transform: translate(-50%, -50%) scale(.75);
-    transform: translate(-50%, -50%) scale(.75);
-}
-
-#playVideo img:first-child {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -webkit-animation: rotateR 10s linear infinite;
-    animation: rotateR 10s linear infinite;
-}
-
-@-webkit-keyframes rotateR{
-    to{
-        -webkit-transform:rotate(360deg);
-        transform:rotate(360deg)
-    }
-}
-
-@keyframes rotateR{
-    to{
-        -webkit-transform:rotate(360deg);
-        transform:rotate(360deg)
-    }
-}
-#playVideo:hover {
-    -webkit-transform: translate(-50%, -50%) scale(1.15);
-    -ms-transform: translate(-50%, -50%) scale(1.15);
-    transform: translate(-50%, -50%) scale(1.15);
 }
 .founderContent {
     margin-top: 2rem;
@@ -660,12 +657,14 @@ p.subtitle {
     transform-origin: left;
     height: 8px;
     border-bottom: 1px solid var(--black);
+    margin-left: 5px;
 }
 .progressWrap {
     position: relative;
     height: 100%;
-    width: 5px;
+    width: 8px;
     margin: auto;
+    overflow: hidden;
 }
 .progressBar {
     width: var(--spaceL);
@@ -701,9 +700,45 @@ progress[value]::-webkit-progress-bar {
 }
 /*==========PROGRESS BAR============*/
 @media only screen and (max-width: 768px) {
+    .contactInfoWrapper {
+        margin-bottom: 3rem;
+    }
+    form .submitForm svg {
+        left: 30%;
+    }
+    .contactSlider {
+        height: 45vh;
+    }
+
+    .contactFormContainer {
+        padding-top: 4rem;
+    }
+    .contactInfoMapContainer {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .contactInfoMapContainer::before {
+        display: none;
+    }
+    .contactInfoWrapper > div {
+        padding-left: var(--spaceL);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .ContactMapContainer {
+        padding-left: 0 !important;
+        width: calc(100% + var(--spaceX)*2);
+        margin-left: calc(var(--spaceX)*-1);
+    }
     section.contactInfoMapFormContainer {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        padding-top: 3rem;
+        padding-top: 0;
+        /* padding-left: var(--spaceL); */
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-bottom: 5.188rem;
     }
 
     h1.contact_title {
@@ -711,15 +746,36 @@ progress[value]::-webkit-progress-bar {
         top: 0;
         right: 0;
         left: 0;
-        font-size: 3rem;
+        font-size: 2.5rem;
+        padding-left: var(--spaceL);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        white-space: pre-line;
+        margin-bottom: 2rem;
     }
 
     .contactCTAWrap {
         position: relative;
+        margin-left: var(--spaceL);
+        margin-bottom: 1.5rem;
     }
-
+    h1.contact_title::before{
+        content: '';
+        background-image: url(../img/secondary-line.svg);
+        width: 7rem;
+        position: absolute;
+        height: 6.188rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: 0;
+        top: 11px;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        transform: translateX(-3.5rem);
+        background-position: top;
+    }
     .number-percentage {
-        font-size: 2rem;
+        font-size: 1.6rem;
         height: 4rem;
     }
 
@@ -729,6 +785,8 @@ progress[value]::-webkit-progress-bar {
 
     .progressBar {
         width: 18%;
+        overflow: hidden;
+        top: calc(var(--headerHeight)*.25);
     }
 
     .stepWrap {
@@ -741,7 +799,7 @@ progress[value]::-webkit-progress-bar {
     }
 
     #numbers {
-        width: calc(100vh - var(--headerHeight) - 5rem);
+        width: calc(100vh - var(--headerHeight)*2 - 2rem);
     }
 
     .stepWrap h2 {
@@ -751,9 +809,74 @@ progress[value]::-webkit-progress-bar {
     .stepWrap h2::before {
         font-size: 2rem;
     }
+    .contactVideoWrapper .titleWrap {
+        margin-bottom: 3rem;
+    }
+
 }
-@media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {
+    .contactVideoWrapper .titleWrap {
+        margin-bottom: 3rem;
+    }
+    form .submitForm {
+        width: 30%;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:1199px) {
+    h1.contact_title {
+        font-size: 5rem;
+    }
+    form .submitForm svg {
+        left: 30%;
+    }
+    section.contactInfoMapFormContainer {
+        grid-column-gap: 5rem;
+        padding-top: 9rem;
+        margin-bottom: 5.188rem;
+    }
+
+    .contactCTAWrap {
+        padding: 0.45rem 2rem;
+        position: relative;
+        right: auto;
+        width: 70%;
+        margin-left: auto;
+        margin-bottom: 1rem;
+    }
+
+    .contactInfoMapContainer::before {
+        top: 2rem;
+    }
+
+    .ContactMapContainer {
+        height: 19vh;
+    }
+
+    .contactSlider {
+        height: 48vh;
+    }
+
+    .videoWrapper {
+        height: 20vh;
+    }
+    .stepsWrapper {
+        width: calc(var(--space)* 10);
+    }
+
+    .number-percentage {
+        font-size: 6rem;
+        height: 8rem;
+    }
+
+    .stepWrap {
+        width: 100%;
+        margin-bottom: 6.188rem;
+    }
+
+    .stepWrap h2,.stepWrap h2::before {
+        font-size: 2.8rem;
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     h1.contact_title {
         font-size: 6rem;
@@ -797,107 +920,33 @@ progress[value]::-webkit-progress-bar {
     .stepWrap .content,p.subtitle {
         font-size: .9rem;
     }
+    .stepWrap {
+        margin-bottom: 4.188rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     h1.contact_title {
         font-size: 6rem;
     }
     section.contactInfoMapFormContainer {
-        grid-column-gap: 9.5rem;
-        padding-top: 10rem;
+        grid-column-gap: 8.5rem;
+        padding-top: 11rem;
+        margin-bottom: 7.188rem;
     }
-    .contactCTAWrap {
-        padding: 0.35rem 3rem;
-    }
-    #map {
-        height: 35vh;
-    }
-    .videoWrapper {
-        height: 35vh;
-    }
-    .contactInfoWrap {
-        font-size: .9rem;
-    }
-    #playVideo {
-        width: 6.636rem;
-        height: 6.636rem;
-    }
-    #playVideo img:last-child {
-        -webkit-transform: translate(-50%, -50%) scale(.5);
-        -ms-transform: translate(-50%, -50%) scale(.5);
-        transform: translate(-50%, -50%) scale(.5);
-    }
+
     .number-percentage {
-        font-size: 6.5rem;
+        font-size: 7rem;
         height: 8rem;
     }
-    #numbers {
-        width: calc(100vh - var(--headerHeight) - 10rem);
-    }
-    .stepWrap h2 {
-        font-size: 2.5rem;
-    }
-    .stepWrap h2::before {
-        font-size: 2.5rem;
-    }
-    #closeModalVideo span {
-        font-size: 1.4rem;
-    }
-    h1.contact_title {
-        font-size: 2.5rem;
-        position: relative;
-        top: auto;
-        right: auto;
-        left: auto;
-        margin-bottom: 2rem;
-    }
 
-    section.contactInfoMapFormContainer {
-        padding-top: 1rem;
-        grid-template-columns: 1fr;
-    }
-
-    .contactCTAWrap {
-        position: relative;
-        right: auto;
-        top: auto;
-        left: auto;
-    }
-
-    .contactInfoWrapper {
-        /* display: flex; */
-        /* flex-direction: column-reverse; */
-    }
-
-    .number-percentage {
-        font-size: 3rem;
-        height: 4rem;
-    }
-
-    .stepsWrapper {
-        width: calc(var(--space)*7.5);
-    }
-
-    .stepWrap h2::before {
-        font-size: 2rem;
-    }
-
-    .stepWrap h2 {font-size: 2.5rem;}
-
-    .stepWrap:nth-of-type(even) {
-        margin: 0;
+    .stepWrap h2,.stepWrap h2::before {
+        font-size: 2.8rem;
     }
 
     .stepWrap {
-        width: 100%;
-        margin-bottom: 3rem;
+        margin-bottom: 5.188rem;
     }
-
-    .stepWrap:nth-of-type(even) p.subtitle {
-        text-align: inherit;
-    }
-
-    .stepWrap:nth-of-type(even) .content {
-        text-align: inherit;
+    #numbers {
+        width: calc(100vh - var(--headerHeight) - 9rem);
     }
 }

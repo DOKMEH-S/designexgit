@@ -5,14 +5,12 @@
 * Browsers: last 4 version
 */
 
-body[data-pagetype="archiveProject"] main {
-    padding-right: var(--spaceL);
-}
 .projectHeader-container .mapView_icon.desktop {
     cursor: pointer;
     display: inline-block;
     position: absolute;
     right: 0;
+    z-index: 1;
 }
 .projectHeader-container .mapView_icon.mobile {
     display: none;
@@ -40,7 +38,7 @@ body[data-pagetype="archiveProject"] main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: calc(100vw - var(--spaceL) * 2);
+    width: calc(100vw - var(--spaceL) - var(--spaceX));
     -webkit-column-gap: .75rem;
     -moz-column-gap: .75rem;
     column-gap: .75rem;
@@ -50,8 +48,8 @@ body[data-pagetype="archiveProject"] main {
 .projectItem {
     position: relative;
     display: block;
-    width: calc((100vw - var(--spaceL) * 2) / 4 - (.75rem * 3/4));
-    height: calc((100vw - var(--spaceL) * 2) / 4 - (.75rem * 3/4));
+    width: calc((100vw - var(--spaceL) - var(--spaceX)) / 4 - (.75rem * 3/4));
+    height: calc((100vw - var(--spaceL) - var(--spaceX)) / 4 - (.75rem * 3/4));
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow: hidden;
@@ -125,12 +123,15 @@ body[data-pagetype="archiveProject"] main {
     position: fixed;
     top: var(--headerHeight);
     width: 100%;
-    height: calc(100vh - var(--headerHeight));
+    height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
     z-index: 100;
+    -webkit-transition: all ease-in-out 0.5s;
+    -o-transition: all ease-in-out 0.5s;
     transition: all ease-in-out 0.5s;
     opacity: 0;
     pointer-events: none;
 }
+
 #mapProjects {
     position: relative;
     width: 100%;
@@ -145,8 +146,14 @@ body[data-pagetype="archiveProject"] main {
     background-color: var(--primary);
     color: var(--white);
     border-radius: 3.75rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-column-gap: .5rem;
+    -moz-column-gap: .5rem;
     column-gap: .5rem;
     padding: 6px 13px;
     top: 2rem;
@@ -159,8 +166,12 @@ body[data-pagetype="archiveProject"] main {
 #closeMap img {
     width: 8px;
     height: 8px;
+    -o-object-fit: contain;
     object-fit: contain;
+    -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
@@ -174,6 +185,7 @@ body[data-pagetype="archiveProject"] main {
     width: 100%;
     height: 100%;
     z-index: 1;
+    -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     background-color: rgba(255, 255, 255, .4);
 }
@@ -183,19 +195,16 @@ body[data-pagetype="archiveProject"] main {
     text-align: center;
     padding: 5rem 0 2rem;
     text-transform: capitalize;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: auto;
 }
 @media only screen and (max-width: 768px) {
     .projectBody-container {
-        margin-top: 4rem;
+        margin-top: 0;
         margin-bottom: 4rem;
     }
-
-    body[data-pagetype="archiveProject"] main {
-        padding-right: var(--spaceX);
-    }
-
     .projectItems {
         width: calc(100vw - var(--spaceX) * 2);
     }
@@ -209,9 +218,54 @@ body[data-pagetype="archiveProject"] main {
     .projectHeader-container .mapView_icon.mobile {
         display: block;
     }
+    .projectHeader-container .mapView_icon.mobile > * {
+        position: relative;
+    }
+    .projectHeader-container .mapView_icon.mobile > *:before {
+        content: '';
+        position: absolute;
+        width: 1.25rem;
+        height: 1.25rem;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: -1.5rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(../img/location-icon.svg);
+    }
+    #closeMap {
+        right: var(--spaceX);
+    }
+    #mapProjectsContainer{
+        top: 0;
+    }
+    body.scrollingDown #mapProjectsContainer ,
+    body.scrollEnd #mapProjectsContainer{
+        height: 100vh;
+    }
+    body.noMove.scrollingDown #mapProjectsContainer{
+        height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+    }
 }
-@media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (min-width: 640px) and (max-width:768px) {
+    .projectItem {
+        width: calc((100vw - var(--spaceX)* 2) / 2 - (.75rem* 1 / 2));
+        height: calc((100vw - var(--spaceX)* 2) / 2 - (.75rem* 1 / 2));
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:1199px) {
+    .projectBody-container {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+    .projectItem {
+        width: calc((100vw - var(--spaceL) - var(--spaceX)) / 3 - (.75rem* 2 / 3));
+        height: calc((100vw - var(--spaceL) - var(--spaceX)) / 3 - (.75rem* 2 / 3));
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     .projectBody-container {
         margin-top: 6rem;

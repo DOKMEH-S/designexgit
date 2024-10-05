@@ -4,12 +4,7 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-html.loadingDone #loading {
-    z-index: 99;
-}
-#smooth-wrapper {
-    z-index: 1;
-}
+
 canvas#defaultCanvas0 {
     position: fixed;
     width: 100%;
@@ -28,10 +23,18 @@ main.homeWrapper {
     -ms-flex-align: start;
     align-items: flex-start;
     z-index: 1;
-    padding-bottom: 5rem;
-    padding-top: 0;
+    padding: 0;
+    overflow: hidden;
+    perspective: 1000px;
 }
-
+section.homeProjectsItemWrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    transform-origin: 50% 50vh;
+}
 section.homeProjectContainer {
     width: calc((100vw / 3) * 2 - var(--spaceL));
     display: -ms-grid;
@@ -48,6 +51,14 @@ section.homeProjectContainer {
     /*perspective: 1000px;*/
     will-change: transform;
     padding-top: var(--headerHeight);
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+    padding-bottom: 5rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: var(--spaceL);
+    padding-right: calc((100vw / 3)* 1 - var(--spaceX) - 4rem + var(--spaceX));
 }
 
 section.homeSideBarContainer {
@@ -71,7 +82,7 @@ section.homeSideBarContainer {
     justify-content: space-between;
     -ms-touch-action: none;
     touch-action: none;
-    z-index: 2;
+    z-index: 1;
     padding-top: var(--headerHeight);
 }
 
@@ -166,15 +177,15 @@ h1.home-title strong {
 h1.home-title::before,.homeVideoItemsWrapper::before {
     content: '';
     position: absolute;
-    background-image: url(../img/small-elem.svg);
-    width: 10px;
+    width: 3px;
     height: 20px;
+    background-color: var(--black);
+    -webkit-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
     left: 0;
     top: 0;
     z-index: 1;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
 }
 
 #mediaHomeWrap {
@@ -287,15 +298,15 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
 .homeVideoContainer::after {
     content: '';
     position: absolute;
-    background-image: url(../img/small-elem.svg);
-    width: 10px;
+    width: 3px;
     height: 20px;
+    background-color: var(--black);
+    -webkit-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
     bottom: 0;
     right: 0;
     z-index: 1;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
 }
 .homeElementCounterWrapper{
     position: fixed;
@@ -313,7 +324,6 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     -ms-transform: translateX(calc(100% -  var(--spaceX) - 0.5rem)) !important;
     transform: translateX(calc(100% -  var(--spaceX) - 0.5rem)) !important;
     left: auto !important;
-    opacity: 1 !important;
 }
 .homeElementCounterWrapper #counterBox {
     position: absolute;
@@ -332,7 +342,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     -ms-flex-pack: center;
     justify-content: center;
     row-gap: 2rem;
-    left: -2rem;
+    left: 0;
     min-width: 3rem;
 }
 .homeElementCounterWrapper #counterBox span {

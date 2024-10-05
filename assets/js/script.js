@@ -1,55 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loading = document.querySelector('#loading');
-    if (loading) {
-        loading.classList.add('animate');
-
-        setTimeout(() => {
-            const logoContainer = loading.querySelector('.loading-logoContainer');
-            if (logoContainer) {
-                const translateX = -logoContainer.getBoundingClientRect().left;
-                const translateY = -logoContainer.getBoundingClientRect().top;
-
-                // Step 2: Transform the loading logo container
-                logoContainer.style.transform = `translate(${translateX}px, ${translateY}px)`;
-
-                const header = document.querySelector('.identity');
-                if (header) {
-                    header.style.display = 'block';
-                }
-
-                // Scale the logo image and text
-                const logoImg = logoContainer.querySelector('.logo-img');
-                const logoText = logoContainer.querySelector('.logo-text');
-
-                if (logoImg) {
-                    logoImg.style.transform = 'scale(1)';
-                    logoImg.style.transition = 'transform 0.5s ease';
-                    logoImg.style.margin = '0'; // Set margin to 0
-                }
-
-                if (logoText) {
-                    logoText.style.transform = 'scale(1)';
-                    logoText.style.transition = 'all 0.5s ease';
-                }
-
-                // Delay for 1 second before adding the loadingDone class
-                setTimeout(() => {
-                    // Step 3: Add the loadingDone class to the body
-                    document.body.classList.add('loadingDone');
-
-                    // Fade out the logo text after 3 seconds
-                    // setTimeout(() => {
-                    //     if (logoText) {
-                    //         logoText.style.opacity = '0';
-                    //         logoText.style.transition = 'opacity 0.5s ease';
-                    //     }
-                    // }, 3000); // Fade out delay
-                }, 500); // 1 second delay after scaling
-            }
-        }, 2000); // Initial delay for loading animation
-    }
-});
-
 //===========GET UAE TIME ZONE
 const timeZone = document.getElementById('timeZone');
 function updateUAETime() {
@@ -78,11 +26,15 @@ updateUAETime();
 
 // =============================Menu
 const menuIcon = document.querySelector('.menu-icon');
-
+// Assuming lenis is already defined and initialized somewhere in your code
 menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
+    if (document.body.classList.contains('opMenu')) {
+        // lenis.stop(); // Stop lenis when opMenu is added
+    } else {
+        // lenis.start(); // Start lenis when opMenu is removed
+    }
 });
-
 
 
 // Append all images to mediaSection
@@ -169,3 +121,49 @@ window.addEventListener('scroll', function() {
         document.querySelector('body').classList.add('noMove');
     }
 });
+window.addEventListener('scroll', () => {
+    // Calculate the scroll position
+    const scrollTop = window.scrollY; // Current scroll position from the top
+    const windowHeight = window.innerHeight; // Height of the viewport
+    const documentHeight = document.body.offsetHeight; // Total height of the document
+    // Check if the user has scrolled to the bottom
+    if (scrollTop + windowHeight >= documentHeight) {
+        document.querySelector('body').classList.remove('scrollEnd');
+    }
+});
+// ==========================vh
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+//==================SKEW FOR TEXT
+const skewTexts = document.querySelectorAll(".skewText");
+let skewTBlock = document.querySelector('.skewText');
+if(skewTBlock){
+    skewTexts.forEach((text) => {
+        gsap.fromTo(text,
+            {
+                opacity: 0,
+                z:0,
+                x: -20,
+                y:30,
+            },
+            {
+                opacity: 1,
+                z: 0,
+                x: 0,
+                y: 0,
+                duration: .8,
+                scrollTrigger: {
+                    trigger: text,
+                    ease: "power4.out",
+                    start: "top 80%", // Trigger when the top of the element hits 80% of the viewport height
+                    toggleActions: "play none none reverse", // Play on enter, reverse on leave
+                    once: true // Animation only happens once
+                }
+            }
+        );
+    });
+}

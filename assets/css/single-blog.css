@@ -8,7 +8,19 @@
 body[data-pagetype="singleBlog"] main{
     padding-right: var(--spaceX);
 }
+.twoColumnSample {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 11rem 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 11rem;
+}
 
+.twoColumnSample img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
 section.dateTime-title , section.blog-Information{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -24,6 +36,8 @@ section.dateTime-title , section.blog-Information{
 section.dateTime-title .dateTime {
     width: 30%;
     position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 section.dateTime-title h1 {
@@ -33,6 +47,22 @@ section.dateTime-title h1 {
     font-weight: 700;
     text-align: right;
     text-transform: uppercase;
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+}
+html.loadingDone section.dateTime-title h1{
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
 }
 section.blog-wpContent {
     margin: 5rem 0 5rem;
@@ -43,8 +73,23 @@ section.dateTime-title .dateTime > * {
     margin-bottom: .5rem;
     font-size: 1rem;
     font-weight: 400;
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
-
+html.loadingDone section.dateTime-title .dateTime > *{
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
 section.dateTime-title .dateTime img {
     width: 1rem;
     height: 1rem;
@@ -64,7 +109,7 @@ section.dateTime-title .dateTime:before {
     width: var(--spaceL);
     position: absolute;
     height: 6.188rem;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     left: -1rem;
     top: -1rem;
@@ -171,8 +216,25 @@ section.blog-Information {
     -ms-flex-direction: column;
     flex-direction: column;
     row-gap: 2rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
+    transform: translate(-20px, 30px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
-
+html.loadingDone .blog-Information_text{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: 1.25s;
+    -o-transition-delay: 1.25s;
+    transition-delay: 1.25s;
+}
 .blog-Information_media {
     width: 70%;
     height: 44vh;
@@ -230,7 +292,7 @@ section.blog-Information {
     padding: .25rem;
     border-radius: 1rem;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 400;
 }
 
@@ -244,7 +306,7 @@ section.blog-Information {
 }
 aside.related {
     position: relative;
-    padding-top: 5rem;
+    padding-top: 5.75rem;
 }
 aside.related:before {
     content: '';
@@ -259,23 +321,24 @@ aside.related h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    padding-bottom: 5rem;
     position: relative;
+    padding-left: 4.5rem;
+    margin-bottom: 5.5rem;
 }
 aside.related h2:before {
     content: '';
     background-image: url(../img/diagonal.webp);
-    width: var(--spaceL);
     position: absolute;
-    height: 5rem;
-    background-size: contain;
+    width: 4.5rem;
+    height: var(--spaceY);
     background-repeat: no-repeat;
-    background-position: right;
-    left: .5rem;
-    top: -1.5rem;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
+    background-size: contain;
+    background-position: left;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-63%);
+    -ms-transform: translateY(-63%);
+    transform: translateY(-63%);
 }
 aside.related .items {
     display: -ms-grid;
@@ -416,9 +479,127 @@ aside.related .items .item .media > * {
     pointer-events: auto;
 }
 /*==========RELATED PROJECTS============*/
-@media only screen and (max-width: 768px) {}
-@media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {}
+@media only screen and (max-width: 768px) {
+    section.dateTime-title h1 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: left;
+    }
+    .twoColumnSample {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-row-gap: 3rem;
+    }
+
+    .relatedBlogWrap {
+        width: calc(100vw - var(--spaceX)* 2);
+        height: calc(100vw - var(--spaceX)* 2);
+    }
+
+    .relatedBlogWrapper {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        margin-top: 3.5rem;
+    }
+
+    aside.related h2 {
+        padding-left: 4rem;
+        margin-bottom: 4.5rem;
+        font-size: 1.3rem;
+    }
+    section.dateTime-title, section.blog-Information {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        row-gap: 1rem;
+    }
+
+    section.dateTime-title .dateTime > *.date {font-size: 1.2rem;margin-bottom: .25rem;}
+
+    section.dateTime-title .dateTime {
+        width: 100%;
+        padding-left: var(--spaceLL);
+    }
+
+    section.dateTime-title .dateTime > * {
+        font-size: .875rem;
+    }
+
+    section.dateTime-title .dateTime:before {
+        left: calc(var(--spaceLL));
+        width: calc(var(--spaceLL) + var(--space));
+        height: 4rem;
+    }
+
+    .blog-Information_text {
+        padding-left: var(--spaceLL);
+        width: 100%;
+        row-gap: 1rem;
+    }
+
+    .blog-Information_text .tags {
+        -webkit-column-gap: .5rem;
+        -moz-column-gap: .5rem;
+        column-gap: .5rem;
+        row-gap: .5rem;
+    }
+
+    .blog-Information_text .tags > * {
+        font-size: .75rem;
+        padding: .2rem;
+    }
+
+    .blog-Information_media {
+        width: 100%;
+    }
+
+    section.blog-wpContent {
+        margin: 3rem 0 3rem;
+    }
+}
+@media only screen and (min-width: 640px) and (max-width:768px) {
+    .blog-Information_text .tags {
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .relatedBlogWrapper {
+        -ms-grid-columns: 1fr 1rem 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .relatedBlogWrap {
+        width: calc((100vw - var(--spaceX)* 2) / 2 - (1rem* 1 / 2));
+        height: calc((100vw - var(--spaceX)* 2) / 2 - (1rem* 1 / 2));
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:1199px) {
+    section.dateTime-title h1 {
+        font-size: 2rem;
+    }
+
+    section.dateTime-title .dateTime > *.date {
+        font-size: 1.35rem;
+    }
+    .blog-Information_media {
+        height: 22vh;
+    }
+    .relatedBlogWrap {
+        height: 18vh;
+    }
+
+    aside.related h2 {
+        padding-left: 4.5rem;
+        margin-bottom: 5rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 6rem;
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     section.dateTime-title h1 {
         font-size: 2rem;
@@ -426,13 +607,25 @@ aside.related .items .item .media > * {
     section.dateTime-title .dateTime > *.date {
         font-size: 1.2rem;
     }
+    aside.related h2 {
+        padding-left: 4rem;
+        margin-bottom: 5rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 9rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     section.dateTime-title h1 {
         font-size: 2rem;
     }
-
+    aside.related h2 {
+        padding-left: 4.5rem;
+    }
     section.dateTime-title .dateTime > *.date {
         font-size: 1.2rem;
+    }
+    .twoColumnSample {
+        grid-column-gap: 10rem;
     }
 }
