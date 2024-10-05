@@ -1,12 +1,12 @@
 const loadingContainer = document.querySelector('.loading-container');
 
-setTimeout(() => {
-    loadingContainer.classList.add('getScale');
-}, 2000);
+// setTimeout(() => {
+//     loadingContainer.classList.add('getScale');
+// }, 0);
 
 setTimeout(() => {
     loadingContainer.classList.add('getRotate');
-}, 2500);
+}, 100);
 
 setTimeout(() => {
     loadingContainer.classList.add('getNumber');
@@ -14,9 +14,9 @@ setTimeout(() => {
     // Add loseNumber class after 1 second
     setTimeout(() => {
         loadingContainer.classList.add('loseNumber');
-    }, 1200); // 1000 milliseconds = 1 second
+    }, 1000); // 1000 milliseconds = 1 second
 
-}, 3500);
+}, 100);
 
 setTimeout(() => {
     const counter = document.querySelectorAll('.percentCounter');
@@ -34,9 +34,9 @@ setTimeout(() => {
 
         const stop = setInterval(counterUp, speed);
     });
-}, 3600);
+}, 500);
 
 setTimeout(() => {
     // Add any final class to indicate loading is done
     document.querySelector('html').classList.add('loadingDone');
-}, 5500);
+}, 1500);

@@ -96,7 +96,7 @@ section.singleProjectHeroSectionContainer {
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
-    margin: 5rem auto 0;
+    margin: 1rem auto 0;
     display: block;
 }
 
@@ -105,34 +105,58 @@ section.singleProjectHeroSectionContainer {
     margin-top: 0;
     margin-bottom: 5px;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 .description {
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 
 .singleProjectAwardsWrapper {
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 html.loadingDone .projectNameDescriptionWrapper h1,html.loadingDone .description{
     opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
 }
 html.loadingDone .projectsFeatureWrapper{
     opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    transition-delay: 0.75s;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
 }
 html.loadingDone .singleProjectAwardsWrapper{
     opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    transition-delay: 1s;
+    -webkit-transition-delay: 1.25s;
+    -o-transition-delay: 1.25s;
+    transition-delay: 1.25s;
 }
 .projectNameDescriptionWrapper .description p {
     margin: 0;
@@ -144,8 +168,12 @@ html.loadingDone .singleProjectAwardsWrapper{
     width: 100%;
     display: block;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 
 .featureWrap {
@@ -572,6 +600,7 @@ section.relatedProjectsContainer::before {
         margin-bottom: 4rem;
     }
     .columnTwo {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-row-gap: 2rem;
     }
@@ -671,7 +700,10 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 3rem;
     }
-
+    .projectNameDescriptionWrapper .projectLogo img {
+        padding-right: 4rem;
+        width: 2.6rem;
+    }
     .projectsFeatureWrapper {
         margin-top: 2.25rem;
     }
@@ -720,7 +752,10 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 3rem;
     }
-
+    .projectNameDescriptionWrapper .projectLogo img {
+        padding-right: 4rem;
+        width: 2.6rem;
+    }
     .projectsFeatureWrapper {
         margin-top: 2.25rem;
     }

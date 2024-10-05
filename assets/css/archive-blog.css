@@ -195,7 +195,6 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
         padding-right: var(--spaceX);
     }
 
-    .blogItem {}
 
     .blogItem-info_more .tags {
         width: 100%;
@@ -228,7 +227,7 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
     }
 
     .blogItem .date {
-        left: -1.5rem;
+        left: calc(45% - .5rem);
         padding-left: 0;
         font-size: .625rem;
     }

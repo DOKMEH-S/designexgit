@@ -94,33 +94,57 @@ h1.contact_title {
     top: -1rem;
     line-height: normal;
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 .contactInfoWrapper {
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 .contactFormSliderContainer {
     opacity: 0;
+    -webkit-transform: translate(-20px, 30px);
+    -ms-transform: translate(-20px, 30px);
     transform: translate(-20px, 30px);
-    transition: all ease-in-out .5s;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 html.loadingDone h1.contact_title{
     opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
     transform: translate(0,0);
-    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.75s;
+    -o-transition-delay: 0.75s;
+    transition-delay: 0.75s;
 }
 html.loadingDone .contactInfoWrapper{
     opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
     transform: translate(0,0);
-    transition-delay: 0.75s;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
 }
 html.loadingDone .contactFormSliderContainer{
     opacity: 1;
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
     transform: translate(0,0);
-    transition-delay: 1s;
+    -webkit-transition-delay: 1.25s;
+    -o-transition-delay: 1.25s;
+    transition-delay: 1.25s;
 }
 .contactFormContainer {
     position: relative;
@@ -922,7 +946,6 @@ progress[value]::-webkit-progress-bar {
     .stepWrap {
         margin-bottom: 5.188rem;
     }
-
     #numbers {
         width: calc(100vh - var(--headerHeight) - 9rem);
     }
