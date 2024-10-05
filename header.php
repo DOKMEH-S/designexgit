@@ -91,10 +91,12 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-            <div class="icon">
-                <span class="menu">MENU</span>
-                <span class="close">CloSe</span>
-            </div>
+            <?php if (have_rows('menu_items')): ?>
+                <div class="icon">
+                    <span class="menu">MENU</span>
+                    <span class="close">CloSe</span>
+                </div>
+            <?php endif; ?>
         </div>
     </header>
     <?php if (have_rows('menu_items')): ?>
