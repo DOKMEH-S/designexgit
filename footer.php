@@ -136,7 +136,7 @@
     document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main').style.opacity = '1';
-        // document.getElementById('menuContainer').style.display = 'flex';
+        document.getElementById('menuContainer').style.display = 'flex';
         if (document.getElementById('videoModal')) {
             document.getElementById('videoModal').style.display = 'block';
         }

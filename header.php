@@ -97,7 +97,7 @@ endif; ?>">
             </div>
         </div>
     </header>
-    <!-- <div id="menuContainer" data-lenis-prevent>
+    <div id="menuContainer" data-lenis-prevent>
         <div class="infoSection paddingX">
             <div class="nav">
                 <div class="navItems">
@@ -202,4 +202,4 @@ endif; ?>">
             </div>
         </div>
         <div class="mediaSection"><img src="./assets/img/sample/menu-item-01.webp" alt="" class="selected"></div>
-    </div> -->
+    </div>
