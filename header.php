@@ -27,7 +27,7 @@
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
-    <link href="<?php ThemeAssets('css/loading.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php ThemeAssets('css/loading.css'); ?>" rel="stylesheet" type="text/css">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
     <?php endif; ?>
@@ -97,109 +97,46 @@ endif; ?>">
             </div>
         </div>
     </header>
-    <div id="menuContainer" data-lenis-prevent>
-        <div class="infoSection paddingX">
-            <div class="nav">
-                <div class="navItems">
-                    <div class="navItem selected">
-                        <a href="./about.html" class="title">About us</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#">Vision</a></li>
-                                <li><a href="/#">Why us</a></li>
-                                <li><a href="/#">statement</a></li>
-                                <li><a href="/#">mission/vision</a></li>
-                                <li><a href="/#">founders</a></li>
-                                <li><a href="/#">team</a></li>
-                                <li><a href="/#">awards</a></li>
-                                <li><a href="/#">the future</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-item-01.webp" alt=""></div>
-                    </div>
-                    <div class="navItem">
-                        <a href="<?php ?>" class="title">Projects</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#">Architecture Design</a></li>
-                                <li><a href="/#">Landscape Design</a></li>
-                                <li><a href="/#">Interior Design</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-1.webp" alt=""></div>
-                    </div>
-                    <div class="navItem">
-                        <a href="./services.html" class="title">Services</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#">Architectural design</a></li>
-                                <li><a href="/#">Construction Management</a></li>
-                                <li><a href="/#">Interior Design</a></li>
-                                <li><a href="/#">Sustainability solution</a></li>
-                                <li><a href="/#">Urban Planning & environmental Studies</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-2.webp" alt=""></div>
-                    </div>
-                    <div class="navItem">
-                        <a href="./archive-blog.html" class="title">Blog/media</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#"> Architectural design</a></li>
-                                <li><a href="/#">the Blog title 01</a></li>
-                                <li><a href="/#">the Blog title 02</a></li>
-                                <li><a href="/#">the Blog title 03</a></li>
-                                <li><a href="/#">the Blog title 04</a></li>
-                                <li><a href="/#">the Blog title 05</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-3.webp" alt=""></div>
-                    </div>
-                    <div class="navItem">
-                        <a href="./archive-jobs.html" class="title">Careers</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#">Project Manager</a></li>
-                                <li><a href="/#">Design Architect</a></li>
-                                <li><a href="/#">technical Architect</a></li>
-                                <li><a href="/#">Interior Designer</a></li>
-                                <li><a href="/#">Sustainability Consultant</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-4.webp" alt=""></div>
-                    </div>
-                    <div class="navItem">
-                        <a href="./contact.html" class="title">Contact us</a>
-                        <div class="subMenu">
-                            <ul>
-                                <li><a href="/#">Do You have a project</a></li>
-                            </ul>
-                        </div>
-                        <div class="media"><img src="./assets/img/sample/menu-5.webp" alt=""></div>
+    <?php if (have_rows('menu_items')): ?>
+        <div id="menuContainer" data-lenis-prevent>
+            <div class="infoSection paddingX">
+                <div class="nav">
+                    <div class="navItems">
+                        <?php while (have_rows('menu_items')):
+                            the_row();
+                            $menu_link = get_sub_field('link');
+                            $menu_image = get_sub_field('image');
+                            ?>
+                            <div class="navItem">
+                                <a href="<?php echo esc_url($menu_link); ?>"
+                                    class="title"><?php echo get_the_title($menu_link); ?></a>
+                                <?php if (have_rows('sub_menu')): ?>
+                                    <div class="subMenu">
+                                        <ul>
+                                            <?php while (have_rows('sub_menu')):
+                                                the_row();
+                                                $section_title = get_sub_field('title');
+                                                $section_link = get_sub_field('sub_link');
+                                                ?>
+                                                <li><a
+                                                        href="<?php echo esc_url($section_link); ?>"><?php echo esc_html($section_title); ?></a>
+                                                </li>
+                                            <?php endwhile; ?>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="media">
+                                    <img src="<?php echo esc_url($menu_image['url']); ?>"
+                                        alt="<?php echo esc_attr($menu_image['alt']); ?>">
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
-            <div class="extraLinks">
-                <div class="extraLinks-contact">
-                    <div class="extraLink-item">
-                        <span>Monthly Newsletter</span>
-                        <a href="">
-                            Subscribe here
-                        </a>
-                    </div>
-                    <div class="extraLink-item">
-                        <span>Do You Have a Project?</span>
-                        <a href="">
-                            WhatsApp
-                        </a>
-                    </div>
-                </div>
-                <div class="extraLink-item coordination">
-                    <div><span id="timeZone"></span> [UAE]</div>
-                    <span>N 25° 11' 31.726''</span>
-                    <span>N 25° 11' 31.726''</span>
-                </div>
+            <div class="mediaSection">
+                <img src="<?php echo esc_url($menu_image['url']); ?>" alt="<?php echo esc_attr($menu_image['alt']); ?>"
+                    class="selected">
             </div>
         </div>
-        <div class="mediaSection"><img src="./assets/img/sample/menu-item-01.webp" alt="" class="selected"></div>
-    </div>
+    <?php endif; ?>
