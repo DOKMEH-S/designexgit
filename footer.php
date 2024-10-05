@@ -45,7 +45,7 @@
 <!--                        </div>-->
 <!--                    </form>-->
                 </div>
-                <input type="submit">
+<!--                <input type="submit">-->
             </div>
             <?php
             $contact = get_page_by_path('contact-us');
