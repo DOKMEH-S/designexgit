@@ -167,3 +167,82 @@ if(skewTBlock){
         );
     });
 }
+//==================mouseStopped
+let timeout;
+let mouseStopFunction = function(){
+    clearTimeout(timeout);
+    timeout = setTimeout(function(){
+        $('html').addClass('mouseStopped')
+    }, 15000);
+    $('html').removeClass('mouseStopped')
+}
+document.onmousemove = mouseStopFunction;
+window.onscroll = mouseStopFunction;
+window.onkeydown = mouseStopFunction;
+window.onkeypress = mouseStopFunction;
+window.onchange = mouseStopFunction;
+// works only on touch devices
+//
+// based on https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+document.addEventListener("touchstart", handleTouchStart, { passive: false });
+document.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return (
+        evt.touches || evt.originalEvent.touches // browser API
+    ); // jQuery
+}
+function handleTouchStart(evt) {
+    // evt.preventDefault();
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    // evt.preventDefault();
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    document.querySelector("html").classList.remove("initial");
+    active = document.querySelector(".active");
+    if (active) {
+        active.classList.remove("active");
+    }
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        /*most significant*/
+        if (xDiff > 0) {
+            // document.querySelector("#swipeleft").classList.add("active");
+            $('html').addClass('swipeLeft');
+            $('html').removeClass('mouseStopped')
+        } else {
+            // document.querySelector("#swiperight").classList.add("active");
+            $('html').addClass('swipeRight');
+            $('html').removeClass('mouseStopped')
+        }
+    } else {
+        if (yDiff > 0) {
+            // document.querySelector("#swipeup").classList.add("active");
+            $('html').addClass('swipeUp');
+            $('html').removeClass('mouseStopped')
+        } else {
+            // document.querySelector("#swipedown").classList.add("active");
+            $('html').addClass('swipeDown');
+            $('html').removeClass('mouseStopped')
+        }
+    }
+
+    /* reset values */
+    xDown = null;
+    yDown = null;
+}
