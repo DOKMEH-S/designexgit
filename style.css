@@ -312,6 +312,9 @@ header .identity img.logo-text {
     -o-transition: all ease-in-out .4s;
     transition: all ease-in-out .4s;
 }
+body.scrollingDown header .identity img.logo-text {
+    opacity: 0;
+}
 header .identity img  {
     height: 100%;
     -o-object-fit: contain;
@@ -364,9 +367,9 @@ header .menu-icon{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     -webkit-column-gap: 10rem;
     -moz-column-gap: 10rem;
     column-gap: 10rem;
@@ -899,6 +902,15 @@ body.opMenu #menuContainer {
         top: auto;
         bottom: 0;
         background-color: rgba(255, 255, 255, .5);
+    }
+    header .identity img.logo-text {
+        width: 8rem;
+    }
+
+    header .identity {
+        -webkit-column-gap: .5rem;
+        -moz-column-gap: .5rem;
+        column-gap: .5rem;
     }
     header .startProject {
         display: none;
