@@ -883,6 +883,62 @@ body.opMenu #menuContainer {
     transform: translate(-50%, -50%) scale(1.15);
 }
 /*=============new menuContainer===============*/
+/*=============screenSaver===============*/
+#screenSaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-size: initial;
+    background-repeat: repeat;
+    -webkit-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+     mix-blend-mode: difference;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spaceX);
+    box-sizing: border-box;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    opacity: 0;
+}
+html.mouseStopped #screenSaver {
+    opacity: 1;
+    -webkit-transition-duration: 5s;
+    -o-transition-duration: 5s;
+    transition-duration: 5s;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+}
+#screenSaver .ss-container {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    height: 5rem;
+}
+
+#screenSaver img.logo-img {
+    width: 5rem;
+    height: 100%;
+}
+
+#screenSaver img {
+    height: 100%;
+    object-fit: contain;
+}
+
+#screenSaver img.logo-text {
+    width: 30rem;
+    height: 100%;
+}
+/*=============screenSaver===============*/
 @media only screen and (max-width: 768px) {
     :root {
         --headerHeight: 4rem;
