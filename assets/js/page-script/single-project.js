@@ -14,7 +14,6 @@ if(projectVideo){
     let ceoVideoSrc = document.getElementById('modalVideoSrc');
     let modalVideo = document.getElementById('videoModal');
     let closeModal = document.getElementById('closeModalVideo');
-    console.log(videoURL);
     document.addEventListener('DOMContentLoaded', function() {
         ceoVideo.setAttribute('poster',videoPoster);
         ceoVideoSrc.setAttribute('src',videoURL);

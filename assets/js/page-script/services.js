@@ -74,27 +74,47 @@ if(projectVideo){
         }
     });
     //========MODAL VIDEO
-    let videoCTA = document.getElementById('playVideo');
-    let videoURL = projectVideo.getAttribute('data-url');
-    let videoPoster = projectVideo.getAttribute('poster');
-    let ceoVideo = document.getElementById('modalVideo');
-    let ceoVideoSrc = document.getElementById('modalVideoSrc');
-    let modalVideo = document.getElementById('videoModal');
-    let closeModal = document.getElementById('closeModalVideo');
-    console.log(videoURL);
     document.addEventListener('DOMContentLoaded', function() {
-        ceoVideo.setAttribute('poster',videoPoster);
-        ceoVideoSrc.setAttribute('src',videoURL);
-        ceoVideo.load();
-        videoCTA.addEventListener('click',function () {
+        let ceoVideo = document.getElementById('modalVideo');
+        let ceoVideoSrc = document.getElementById('modalVideoSrc');
+        let modalVideo = document.getElementById('videoModal');
+        let closeModal = document.getElementById('closeModalVideo');
+
+        // Function to handle video click
+        function handleVideoClick(video) {
+            let videoURL = video.getAttribute('data-url');
+            let videoPoster = video.getAttribute('poster');
+
+            ceoVideo.setAttribute('poster', videoPoster);
+            ceoVideoSrc.setAttribute('src', videoURL);
+            ceoVideo.load();
+
             modalVideo.classList.add('show');
-            if(ceoVideo.paused){
-                ceoVideo.play()
+            if (ceoVideo.paused) {
+                ceoVideo.play();
             }
-        })
-        closeModal.addEventListener('click',function () {
+        }
+
+        // Attach event listeners to videos with the class .needModal
+        let needModalVideos = document.querySelectorAll('.needModal');
+        needModalVideos.forEach(video => {
+            video.addEventListener('click', function() {
+                handleVideoClick(video);
+            });
+        });
+
+        // Attach event listener to the play button in the singleProjectVideoContainer
+        let videoCTA = document.getElementById('playVideo');
+        let servicesVideo = document.getElementById('servicesVideo');
+
+        videoCTA.addEventListener('click', function() {
+            handleVideoClick(servicesVideo);
+        });
+
+        // Close modal functionality
+        closeModal.addEventListener('click', function() {
             modalVideo.classList.remove('show');
-            ceoVideo.pause()
-        })
+            ceoVideo.pause();
+        });
     });
 }
