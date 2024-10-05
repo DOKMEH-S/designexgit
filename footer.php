@@ -144,6 +144,7 @@
         <?php if (is_archive('projects')): ?>
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
+        document.getElementById('screenSaver').style.display = 'flex';
 
     });
 </script>

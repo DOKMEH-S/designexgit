@@ -11,12 +11,18 @@
             opacity: 0;
         }
 
-        #videoModal,
-        #menuContainer {
+        #menuContainer,
+        #screenSaver {
             display: none;
         }
 
-        <?php if (is_archive('projects')): ?>
+        <?php if (is_singular('projects') or is_page_template('tpls/contact.php') or is_page_template('tpls/services.php')): ?>
+            #videoModal {
+                display: none;
+            }
+
+        <?php endif;
+        if (is_archive('projects')): ?>
             #mapProjectsContainer {
                 display: none;
             }
