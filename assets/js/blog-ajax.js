@@ -18,6 +18,7 @@ jQuery(document).ready(function ($) {
                 offset: parseInt(offset)
             },
             beforeSend: function () {
+                $('.see-more').addClass('infinite-load');
                 $('.see-more').css('display', 'flex');
             },
             success: function (response) {
@@ -31,6 +32,7 @@ jQuery(document).ready(function ($) {
                         targetOffset = ($("#infinity-loading").offset().top) - 200;
                     }
                     $('.see-more').css('display', 'none');
+                    $('.see-more').removeClass('infinite-load');
                 }
             },//this function handle json response data
             error: function (response) {
