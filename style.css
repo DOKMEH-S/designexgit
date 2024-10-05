@@ -937,17 +937,17 @@ html.mouseStopped #screenSaver {
     height: 5rem;
 }
 
-#screenSaver img.logo-img {
+.ss-container img.logo-img {
     width: 5rem;
     height: 100%;
 }
 
-#screenSaver img {
+.ss-container img {
     height: 100%;
     object-fit: contain;
 }
 
-#screenSaver img.logo-text {
+.ss-container img.logo-text {
     width: 30rem;
     height: 100%;
 }
@@ -975,6 +975,61 @@ html.mouseStopped #screenSaver {
     width: -moz-fit-content;
     width: fit-content;
     margin: auto;
+}
+/*==================secondLoading*/
+#loading .media-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    mix-blend-mode: lighten;
+    z-index: 2;
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
+    transition: all ease-in-out .5s;
+    overflow: hidden;
+}
+
+#loading .media-overlay:before {
+    background-image: url(../img/ink-photo-frame.png);
+    background-size: 100% 100%;
+    content: "";
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1.25%);
+    width: 4000%;
+    pointer-events: none;
+    -webkit-animation: ink-transition 1.5s steps(39) 0s forwards;
+    animation: ink-transition 1.5s steps(39) 0s forwards;
+}
+@-webkit-keyframes ink-transition {
+    0% {
+        transform: translateX(-1.25%);
+    }
+    99% {
+        transform: translateX(-98.75%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-98.75%);
+        opacity: 0;
+    }
+}
+@keyframes ink-transition {
+    0% {
+        transform: translateX(-1.25%);
+    }
+    99% {
+        transform: translateX(-98.75%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-98.75%);
+        opacity: 0;
+    }
 }
 @media only screen and (max-width: 768px) {
     :root {
@@ -1095,11 +1150,11 @@ html.mouseStopped #screenSaver {
     body.noMove.scrollingDown #menuContainer{
         height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
     }
-    #screenSaver img.logo-img {
+    .ss-container img.logo-img {
         width: 2rem;
     }
 
-    #screenSaver img.logo-text {
+    .ss-container img.logo-text {
         width: 15rem;
     }
 
@@ -1112,11 +1167,11 @@ html.mouseStopped #screenSaver {
     header .menu-icon .icon {
         width: 10vw;
     }
-    #screenSaver img.logo-img {
+    .ss-container img.logo-img {
         width: 3rem;
     }
 
-    #screenSaver img.logo-text {
+    .ss-container img.logo-text {
         width: 20rem;
     }
 }
