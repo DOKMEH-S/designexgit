@@ -59,7 +59,7 @@
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
-    <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div>
+    <!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
     <header>
         <?php $logo = get_field('logo', 'option'); ?>
         <a href="<?php echo site_url('/'); ?>" class="identity">
@@ -71,8 +71,8 @@ endif; ?>">
             'meta_value' => 'contact.php'
         ));
         $contactID = $pages[0]->ID; ?>
-        <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
-                aria-label="Start a Project?">Start a Project?</a></div>
+        <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
+                aria-label="Start a Project?">Start a Project?</a></div> -->
         <div class="menu-icon">
             <div class="quickMenu">
                 <nav>

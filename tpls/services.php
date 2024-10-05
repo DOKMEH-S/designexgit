@@ -92,7 +92,7 @@ get_header(); ?>
                                 <?php if ($link): ?>
                                     <a href="<?php echo esc_url(get_permalink($link)); ?>" aria-label="Related Success Projects"
                                         class="link">
-                                        Related Success Projects
+                                        Related Projects
                                     </a>
                                 <?php endif; ?>
 
@@ -150,7 +150,7 @@ get_header(); ?>
         <a href="<?php echo home_url('/projects'); ?>" aria-label="Projects">Projects</a>
     </section>
 </main>
-<?php if ($a_video): ?>
+<?php if ($a_video or in_array($file_extension, ['mp4', 'webm'])): ?>
     <div id="videoModal">
         <div class="videoContainer">
             <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
