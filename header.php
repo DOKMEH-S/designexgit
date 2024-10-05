@@ -117,11 +117,11 @@ endif; ?>">
                                         <ul>
                                             <?php while (have_rows('sub_menu')):
                                                 the_row();
-                                                $section_title = get_sub_field('title');
+                                                // $section_title = get_sub_field('title');
                                                 $section_link = get_sub_field('sub_link');
                                                 ?>
                                                 <li><a
-                                                        href="<?php echo esc_url($section_link); ?>"><?php echo esc_html($section_title); ?></a>
+                                                        href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
                                                 </li>
                                             <?php endwhile; ?>
                                         </ul>
