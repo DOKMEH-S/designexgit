@@ -142,3 +142,6 @@ endif; ?>">
             </div>
         </div>
     <?php endif; ?>
+    <div id="screenSaver"><img src="https://hidokmeh.com/media/2024/09/logo-dark.svg" alt="logo"
+            data-no-lazy="1">
+    </div>
