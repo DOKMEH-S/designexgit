@@ -11,14 +11,12 @@
             opacity: 0;
         }
 
-        <?php if (is_singular('projects') or is_page_template('tpls/contact.php') or is_page_template('tpls/services.php')): ?>
-            #videoModal,
-            #menuContainer {
-                display: none;
-            }
+        #videoModal,
+        #menuContainer {
+            display: none;
+        }
 
-        <?php endif;
-        if (is_archive('projects')): ?>
+        <?php if (is_archive('projects')): ?>
             #mapProjectsContainer {
                 display: none;
             }
@@ -55,6 +53,7 @@
         </div>
     </div>
 </div>
+
 <body data-pagetype="<?php if (is_front_page()): echo 'home'; elseif (is_archive('projects')): echo 'archiveProject'; elseif (is_singular('projects')): echo 'singleProject'; elseif (is_archive('jobs')): echo 'jobs'; elseif (is_singular('jobs')): echo 'jobs'; elseif (is_page_template('tpls/about.php')): echo 'about'; elseif (is_page_template('tpls/contact.php')): echo 'contact'; elseif (is_home()): echo 'archiveBlog'; elseif (is_singular('post')):
     echo 'singleBlog';
 elseif (is_page_template('tpls/services.php')):
@@ -93,61 +92,61 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-<!--            --><?php //if (have_rows('menu_items')): ?>
-                <div class="icon">
-                    <span class="menu">MENU</span>
-                    <span class="close">CloSe</span>
-                </div>
-<!--            --><?php //endif; ?>
+            <!--            --><?php //if (have_rows('menu_items')): ?>
+            <div class="icon">
+                <span class="menu">MENU</span>
+                <span class="close">CloSe</span>
+            </div>
+            <!--            --><?php //endif; ?>
         </div>
     </header>
-<!--    --><?php //if (have_rows('menu_items')): ?>
-        <div id="menuContainer" data-lenis-prevent>
-            <div class="infoSection paddingX">
-                <div class="nav">
-                    <div class="navItems">
-                        <?php while (have_rows('menu_items')):
-                            the_row();
-                            $menu_link = get_sub_field('link');
-                            $menu_image = get_sub_field('image');
-                            ?>
-                            <div class="navItem">
-                                <a href="<?php echo esc_url($menu_link); ?>"
-                                    class="title"><?php echo get_the_title($menu_link); ?></a>
-                                <?php if (have_rows('sub_menu')): ?>
-                                    <div class="subMenu">
-                                        <ul>
-                                            <?php while (have_rows('sub_menu')):
-                                                the_row();
-                                                // $section_title = get_sub_field('title');
-                                                $section_link = get_sub_field('sub_link');
-                                                ?>
-                                                <li><a
-                                                        href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
-                                                </li>
-                                            <?php endwhile; ?>
-                                        </ul>
-                                    </div>
-                                <?php endif; ?>
-                                <div class="media">
-                                    <img src="<?php echo esc_url($menu_image['url']); ?>"
-                                        alt="<?php echo esc_attr($menu_image['alt']); ?>">
+    <!--    --><?php //if (have_rows('menu_items')): ?>
+    <div id="menuContainer" data-lenis-prevent>
+        <div class="infoSection paddingX">
+            <div class="nav">
+                <div class="navItems">
+                    <?php while (have_rows('menu_items')):
+                        the_row();
+                        $menu_link = get_sub_field('link');
+                        $menu_image = get_sub_field('image');
+                        ?>
+                        <div class="navItem">
+                            <a href="<?php echo esc_url($menu_link); ?>"
+                                class="title"><?php echo get_the_title($menu_link); ?></a>
+                            <?php if (have_rows('sub_menu')): ?>
+                                <div class="subMenu">
+                                    <ul>
+                                        <?php while (have_rows('sub_menu')):
+                                            the_row();
+                                            // $section_title = get_sub_field('title');
+                                            $section_link = get_sub_field('sub_link');
+                                            ?>
+                                            <li><a
+                                                    href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    </ul>
                                 </div>
+                            <?php endif; ?>
+                            <div class="media">
+                                <img src="<?php echo esc_url($menu_image['url']); ?>"
+                                    alt="<?php echo esc_attr($menu_image['alt']); ?>">
                             </div>
-                        <?php endwhile; ?>
-                    </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
-            <div class="mediaSection">
-                <img src="<?php echo esc_url($menu_image['url']); ?>" alt="<?php echo esc_attr($menu_image['alt']); ?>"
-                    class="selected">
-            </div>
         </div>
-<!--    --><?php //endif; ?>
+        <div class="mediaSection">
+            <img src="<?php echo esc_url($menu_image['url']); ?>" alt="<?php echo esc_attr($menu_image['alt']); ?>"
+                class="selected">
+        </div>
+    </div>
+    <!--    --><?php //endif; ?>
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                 alt="site logo" class="logo-img">
+                alt="site logo" class="logo-img">
             <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </div>
     </div>
