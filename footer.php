@@ -111,6 +111,8 @@
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php if(is_front_page()):?>
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+<?php else:?>
+    <script>  $(document).ready(function() {  setTimeout(function() {  $('html').addClass('loadingDone');  }, 2000); // 2000 milliseconds = 2 seconds  });  </script>
 <?php endif;
 if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>

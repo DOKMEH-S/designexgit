@@ -61,7 +61,7 @@
             </div>
         </div>
     <?php else : ?>
-        <div class="second-loading-container">
+        <div class="second-loading-container ss-container">
             <div class="media-overlay"></div>
             <div class="loadingImage">
                 <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
