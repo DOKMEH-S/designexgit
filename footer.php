@@ -137,9 +137,9 @@
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        if (document.getElementById('videoModal')) {
+       <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
             document.getElementById('videoModal').style.display = 'block';
-        }
+      <?php   } ?>
         <?php if (is_archive('projects')): ?>
             document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
