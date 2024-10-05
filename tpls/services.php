@@ -39,7 +39,7 @@ get_header(); ?>
 
                                     if (in_array($file_extension, ['mp4', 'webm'])): ?>
                                         <div class="expandMedia" style="max-width: 27.375rem">
-                                            <video autoplay muted loop playsinline preload="auto" poster="">
+                                            <video class="needModal" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="" data-url="<?php echo esc_url($media['url']); ?>">
                                                 <source src="<?php echo esc_url($media['url']); ?>" type="video/mp4">
                                             </video>
                                         </div>
