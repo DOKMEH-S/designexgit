@@ -127,6 +127,9 @@ section.servicesContainer {
     -o-object-fit: cover;
     object-fit: cover;
 }
+.serviceItem .title .expandMedia > video{
+    cursor: pointer;
+}
 .serviceItem .media {
     display: -webkit-box;
     display: -ms-flexbox;
