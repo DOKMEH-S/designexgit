@@ -109,8 +109,10 @@
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
+<?php if(is_front_page()):?>
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
-<?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
+<?php endif;
+if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
