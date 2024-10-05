@@ -144,6 +144,10 @@ endif; ?>">
             </div>
         </div>
 <!--    --><?php //endif; ?>
-    <div id="screenSaver"><img src="https://hidokmeh.com/media/2024/09/logo-dark.svg" alt="logo"
-            data-no-lazy="1">
+    <div id="screenSaver">
+        <div class="ss-container">
+            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                 alt="site logo" class="logo-img">
+            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+        </div>
     </div>
