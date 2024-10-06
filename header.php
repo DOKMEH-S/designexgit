@@ -62,7 +62,7 @@
         </div>
     </div>
 <?php else : ?>
-    <div id="loading" class="secone-loading">
+    <div id="loading" class="second-loading">
         <div class="second-loading-container ss-container">
             <div class="media-overlay"></div>
             <div class="loadingImage">
