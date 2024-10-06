@@ -29,7 +29,7 @@ get_header(); ?>
                     $link = get_sub_field('right_link'); 
                     $count = 1;?>
 
-                    <div class="serviceItem" id="serction<?php $count++;?>">
+                    <div class="serviceItem" id="serction<?php echo $count++;?>">
                         <div class="title">
                             <h2>
                                 <?php echo $title1; ?> <br>
