@@ -59,32 +59,32 @@ html.loadingDone #loading .loadingCovers .loadingCover:nth-child(2) {
     -ms-transform: translateY(100%);
     transform: translateY(100%);
 }
-html.loadingDone body[data-pagetype]:not([data-pagetype="home"]) #loading {
-    -webkit-animation: opacity .5s forwards;
-    animation: opacity .5s forwards;
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s;
-}
-html.loadingDone body[data-pagetype="home"] #loading {
-    /*-webkit-animation-delay: 1s;*/
-    /*animation-delay: 1s;*/
-}
-@-webkit-keyframes opacity {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@keyframes opacity {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
+/*html.loadingDone body[data-pagetype]:not([data-pagetype="home"]) #loading {*/
+/*    -webkit-animation: opacity .5s forwards;*/
+/*    animation: opacity .5s forwards;*/
+/*    -webkit-animation-delay: .5s;*/
+/*    animation-delay: .5s;*/
+/*}*/
+/*html.loadingDone body[data-pagetype="home"] #loading {*/
+/*    !*-webkit-animation-delay: 1s;*!*/
+/*    !*animation-delay: 1s;*!*/
+/*}*/
+/*@-webkit-keyframes opacity {*/
+/*    from {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    to {*/
+/*        opacity: 0;*/
+/*    }*/
+/*}*/
+/*@keyframes opacity {*/
+/*    from {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    to {*/
+/*        opacity: 0;*/
+/*    }*/
+/*}*/
 .loading-container {
     position: absolute;
     /*left: calc(10rem - 10rem + 50%);*/
@@ -395,6 +395,10 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     margin-left: -1.5rem;
 }
 
+
+#loading.second-loading {
+    background-color: var(--white);
+}
 
 @media only screen and (max-width: 768px){
     .loading-container:before {
