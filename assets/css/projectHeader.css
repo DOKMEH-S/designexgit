@@ -256,7 +256,7 @@ span.projectHeader-container_row-title {
         background-position: center;
         height: 100%;
         background-position: right;
-        z-index: 1;
+        z-index: 0;
     }
 
     .projectHeader-container {
