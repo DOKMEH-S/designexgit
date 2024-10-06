@@ -103,11 +103,21 @@ closeMapIcon.addEventListener('click', function () {
 const mobileIcon = document.querySelector('.projectHeader-container .mobileIcon');
 const proHeadContainer = document.querySelector('.projectHeader-container');
 
-mobileIcon.addEventListener('click', function () {
+mobileIcon.addEventListener('click', function (event) {
+    // Toggle the opFilter class and control lenis
     if (proHeadContainer.classList.toggle('opFilter')) {
         lenis.stop();
     } else {
         lenis.start();
+    }
+});
+
+// Add a click event listener to the document
+document.addEventListener('click', function (event) {
+    // Check if the clicked target is outside the projectHeader-container
+    if (!proHeadContainer.contains(event.target) && proHeadContainer.classList.contains('opFilter')) {
+        proHeadContainer.classList.remove('opFilter'); // Remove the class
+        lenis.start(); // Restart lenis
     }
 });
 /*============Open Filter=============*/
