@@ -882,7 +882,7 @@ html.mouseStopped #screenSaver {
         --space:100vw/16;
     }
     main {
-        padding-top: var(--headerHeight);
+        padding-top: calc(var(--headerHeight) / 2);
         padding-left: var(--spaceX);
         padding-bottom: 5rem;
     }
