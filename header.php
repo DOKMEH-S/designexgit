@@ -62,6 +62,7 @@
         </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php else: ?>
     <div id="loading" class="second-loading">
         <div class="second-loading-container ss-container">
@@ -90,6 +91,8 @@ elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
 =======
+=======
+>>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
 <?php else : ?>
 <div id="loading" class="second-loading">
     <div class="second-loading-container ss-container">
@@ -114,16 +117,14 @@ endif; ?>">
     elseif (is_page_template('tpls/services.php')):
         echo 'services';
     endif; ?>">
->>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
+
     <!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
     <header>
         <a href="<?php echo site_url('/'); ?>" class="identity">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-<<<<<<< HEAD
+
                 alt="site logo" class="logo-img">
-=======
-                 alt="site logo" class="logo-img">
->>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
+
             <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </a>
         <?php $pages = get_pages(array(
@@ -138,11 +139,10 @@ endif; ?>">
                 <nav>
                     <ul>
                         <li><a href="<?php echo get_post_type_archive_link('projects'); ?>"
-<<<<<<< HEAD
+
                                 aria-label="Projects">Projects</a></li>
-=======
-                               aria-label="Projects">Projects</a></li>
->>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
+
+
                         <?php $pages = get_pages(array(
                             'meta_key' => '_wp_page_template',
                             'meta_value' => 'tpls/services.php'
@@ -150,16 +150,14 @@ endif; ?>">
                         $serviceID = $pages[0]->ID;
                         if ($serviceID) { ?>
                             <li><a href="<?php echo get_the_permalink($serviceID); ?>"
-<<<<<<< HEAD
+
                                     aria-label="Services"><?php echo get_the_title($serviceID); ?></a></li>
-=======
-                                   aria-label="Services"><?php echo get_the_title($serviceID); ?></a></li>
->>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
+
                         <?php } ?>
                     </ul>
                 </nav>
             </div>
-<<<<<<< HEAD
+
             <?php if (have_rows('menu_items')): ?>
                 <div class="icon">
                     <span class="menu">MENU</span>
@@ -168,72 +166,15 @@ endif; ?>">
             <?php endif; ?>
         </div>
     </header>
-    <?php if (have_rows('menu_items')): ?>
-        <div id="menuContainer" data-lenis-prevent>
-            <div class="menu-list">
-
-                <?php $counter = 1; ?>
-                <?php while (have_rows('menu_items')):
-                    the_row();
-                    $menu_link = get_sub_field('link');
-                    // $menu_title = get_sub_field('menu_item_title');
-                    $menu_image = get_sub_field('image');
-                    ?>
-                    <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
-                        <small class="text-h5"><?php echo $counter++; ?></small>
-                        <span class="item-title"><?php echo esc_url($menu_link['title']); ?></span>
-                        <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
-                            alt="<?php echo esc_attr($menu_image['alt']); ?>">
-                    </a>
-                <?php endwhile; ?>
-
-            </div>
-
-            <div class="subMenuContainer">
-                <?php while (have_rows('menu_items')):
-                    the_row(); ?>
-                    <?php if (have_rows('sub_menu')): ?>
-                        <div class="subMenu">
-                            <ul>
-                                <?php while (have_rows('sub_menu')):
-                                    the_row();
-                                    // $section_title = get_sub_field('title');
-                                    $section_link = get_sub_field('sub_link');
-                                    ?>
-                                    <li><a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
-                <?php endwhile; ?>
-
-            </div>
-
-            <div class="extraLinks">
-                <div class="extraLinks-contact">
-                    <div class="extraLink-item">
-                        <span>Monthly Newsletter</span>
-                        <a href="">Subscribe here</a>
-                    </div>
-                    <div class="extraLink-item">
-                        <span>Do You Have a Project?</span>
-                        <a href="">WhatsApp</a>
-                    </div>
-                </div>
-                <div class="extraLink-item coordination">
-                    <div><span id="timeZone"></span> [UAE]</div>
-                    <span>N 25° 11' 31.726''</span>
-                    <span>N 25° 11' 31.726''</span>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+    
 
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                 alt="site logo" class="logo-img">
 =======
+=======
+>>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
             <!--            --><?php //if (have_rows('menu_items')): ?>
             <div class="icon">
                 <span class="menu">MENU</span>
@@ -292,6 +233,9 @@ endif; ?>">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                  alt="site logo" class="logo-img">
+<<<<<<< HEAD
+>>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
+=======
 >>>>>>> 55f970e3d37adb4a8285620a2be727a8ea1fda44
             <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </div>
