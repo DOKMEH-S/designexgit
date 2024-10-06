@@ -26,9 +26,10 @@ get_header(); ?>
                     $left_side_text = get_sub_field('left_side_text');
                     $right_side_text = get_sub_field('right_side_text');
                     $left_media = get_sub_field('left_media');
-                    $link = get_sub_field('right_link'); ?>
+                    $link = get_sub_field('right_link'); 
+                    $count = 1;?>
 
-                    <div class="serviceItem">
+                    <div class="serviceItem" id="serction<?php $count++;?>">
                         <div class="title">
                             <h2>
                                 <?php echo $title1; ?> <br>
