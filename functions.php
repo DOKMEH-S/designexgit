@@ -45,6 +45,7 @@ function Dokmeh_scripts()
 {
 // Enqueue header and footer styles along with the default stylesheet
     wp_enqueue_style('designex-style', get_stylesheet_uri(), array(), _S_VERSION);
+    wp_enqueue_style('header-style', get_template_directory_uri() . '/assets/css/header.css', array(), _S_VERSION);
     wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), _S_VERSION);
     // Check if it's the front page
 
@@ -119,7 +120,7 @@ include get_template_directory() . '/inc/custom-taxonomy-projects-types.php';
 // Defer loading of stylesheets
 function dokmeh_style_filter($html, $handle)
 {
-    if (strcmp($handle, 'designex-style') == 0 or strcmp($handle, 'base-style') == 0 or strcmp($handle, 'page-style') == 0 or strcmp($handle, 'page2-style') == 0) {
+    if (strcmp($handle, 'designex-style') == 0 or strcmp($handle, 'header-style') == 0 or strcmp($handle, 'footer-style') == 0 or strcmp($handle, 'page-style') == 0 or strcmp($handle, 'page2-style') == 0) {
         $html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" ", $html);
     }
     return $html;

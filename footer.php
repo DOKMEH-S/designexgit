@@ -111,6 +111,7 @@
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php if(is_front_page()):?>
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+<script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
 <?php else:?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {  setTimeout(function() {  document.documentElement.classList.add('loadingDone');  }, 2000);
@@ -120,13 +121,15 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
+<?php if(is_front_page()):?>
+    <script defer src="<?php ThemeAssets('js/page-script/home-final.js'); ?>"></script>
+<?php endif; ?>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
 <?php elseif (is_singular('jobs')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-job.js'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
-
 <?php elseif (is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
