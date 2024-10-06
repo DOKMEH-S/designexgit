@@ -45,7 +45,7 @@
 <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
 <!--                        </div>-->
 <!--                    </form>-->
-                    <div class="newsletter-message"> {message}</div>
+                    <div class="newsletter-message"> <?php echo apply_filters('newsletter_view_message');?></div>
                 </div>
 <!--                <input type="submit">-->
             </div>
