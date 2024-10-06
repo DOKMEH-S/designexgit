@@ -68,6 +68,7 @@
              alt="site logo" class="logo-img">
         <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
     </div>
+</div>
     <?php endif; ?>
 
 

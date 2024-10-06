@@ -115,9 +115,7 @@
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
 <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
 <?php else:?>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {  setTimeout(function() {  document.documentElement.classList.add('loadingDone');  }, 2000);
-        }); </script>
+    <script defer src="<?php ThemeAssets('js/second-loading.js') ?>"></script>
 <?php endif;
 if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
