@@ -120,7 +120,7 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-            <?php if (have_rows('menu_items')): ?>
+            <?php if (have_rows('menu_items','option')): ?>
                 <div class="icon">
                     <span class="menu">MENU</span>
                     <span class="close">CloSe</span>
