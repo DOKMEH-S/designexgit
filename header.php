@@ -171,13 +171,20 @@ endif; ?>">
                         <span>Monthly Newsletter</span>
                         <a href="">Subscribe here</a>
                     </div>
-                    <?php 
-                        $whatsapp = get_field('whatsapp', $contactID);
-                        if($whatsapp):?>
-                    <div class="extraLink-item">
-                        <span>Do You Have a Project?</span>
-                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>"><?php echo get_field('whatsapp_text', $contactID);?></a>
-                    </div>
+                    <?php $pages = get_pages(array(
+                        'meta_key' => '_wp_page_template',
+                        'meta_value' => 'tpls/contact.php'
+                    ));
+                    $contactID = $pages[0]->ID; ?>
+                    <?php
+                    $whatsapp = get_field('whatsapp', $contactID);
+                    if ($whatsapp): ?>
+                        <div class="extraLink-item">
+                            <span>Do You Have a Project?</span>
+                            <a aria-label="Designex Whatsapp"
+                                href="<?php echo $whatsapp; ?>"><?php echo get_field('whatsapp_text', $contactID); ?></a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="extraLink-item coordination">
                     <div><span id="timeZone"></span> [UAE]</div>

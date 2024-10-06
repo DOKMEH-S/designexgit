@@ -234,6 +234,7 @@ span.projectHeader-container_row-title {
 
     span.projectHeader-container_row-title {
         margin-bottom: .75rem;
+        white-space: pre;
     }
 
     .projectHeader-container_row-items {
@@ -256,7 +257,7 @@ span.projectHeader-container_row-title {
         background-position: center;
         height: 100%;
         background-position: right;
-        z-index: 0;
+        z-index: 1;
     }
 
     .projectHeader-container {
