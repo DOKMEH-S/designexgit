@@ -854,6 +854,26 @@ html.mouseStopped #screenSaver {
 .second-loading-container.ss-container {
     width: 37rem;
     position: relative;
+    animation: loadingTransform .5s steps(39) 1.5s forwards;
+}
+@keyframes loadingTransform {
+    from{
+        transform: translate(0 ,0);
+    }
+    to{
+        transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
+    }
+}
+#loading.second-loading{
+    animation: loadingOpacity .5s steps(39) 2.5s forwards;
+}
+@keyframes loadingOpacity {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 @media only screen and (max-width: 768px) {
     :root {
