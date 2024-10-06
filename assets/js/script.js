@@ -230,9 +230,9 @@ let timeout;
 let mouseStopFunction = function(){
     clearTimeout(timeout);
     timeout = setTimeout(function(){
-        $('html').addClass('mouseStopped')
+        document.querySelector('html').classList.add('mouseStopped')
     }, 15000);
-    $('html').removeClass('mouseStopped')
+    document.querySelector('html').classList.remove('mouseStopped')
 }
 document.onmousemove = mouseStopFunction;
 window.onscroll = mouseStopFunction;
@@ -275,22 +275,22 @@ function handleTouchMove(evt) {
         /*most significant*/
         if (xDiff > 0) {
             // document.querySelector("#swipeleft").classList.add("active");
-            $('html').addClass('swipeLeft');
-            $('html').removeClass('mouseStopped')
+            document.querySelector('html').classList.add('swipeLeft');
+             document.querySelector('html').classList.remove('mouseStopped')
         } else {
             // document.querySelector("#swiperight").classList.add("active");
-            $('html').addClass('swipeRight');
-            $('html').removeClass('mouseStopped')
+            document.querySelector('html').classList.add('swipeRight');
+             document.querySelector('html').classList.remove('mouseStopped')
         }
     } else {
         if (yDiff > 0) {
             // document.querySelector("#swipeup").classList.add("active");
-            $('html').addClass('swipeUp');
-            $('html').removeClass('mouseStopped')
+            document.querySelector('html').classList.add('swipeUp');
+             document.querySelector('html').classList.remove('mouseStopped')
         } else {
             // document.querySelector("#swipedown").classList.add("active");
-            $('html').addClass('swipeDown');
-            $('html').removeClass('mouseStopped')
+            document.querySelector('html').classList.add('swipeDown');
+             document.querySelector('html').classList.remove('mouseStopped')
         }
     }
     /* reset values */
