@@ -128,12 +128,12 @@ endif; ?>">
             <?php endif; ?>
         </div>
     </header>
-    <?php if (have_rows('menu_items')): ?>
+    <?php if (have_rows('menu_items', 'option')): ?>
         <div id="menuContainer" data-lenis-prevent>
             <div class="menu-list">
 
                 <?php $counter = 1; ?>
-                <?php while (have_rows('menu_items')):
+                <?php while (have_rows('menu_items', 'option')):
                     the_row();
                     $menu_link = get_sub_field('link');
                     // $menu_title = get_sub_field('menu_item_title');
@@ -150,7 +150,7 @@ endif; ?>">
             </div>
 
             <div class="subMenuContainer">
-                <?php while (have_rows('menu_items')):
+                <?php while (have_rows('menu_items', 'option')):
                     the_row(); ?>
                     <?php if (have_rows('sub_menu')): ?>
                         <div class="subMenu">
@@ -160,9 +160,7 @@ endif; ?>">
                                     // $section_title = get_sub_field('title');
                                     $section_link = get_sub_field('sub_link');
                                     ?>
-                                    <li><a
-                                            href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a>
-                                    </li>
+                                    <li><a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a></li>
                                 <?php endwhile; ?>
                             </ul>
                         </div>
