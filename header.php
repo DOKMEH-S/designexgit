@@ -171,9 +171,12 @@ endif; ?>">
                         <span>Monthly Newsletter</span>
                         <a href="">Subscribe here</a>
                     </div>
+                    <?php 
+                        $whatsapp = get_field('whatsapp', $contactID);
+                        if($whatsapp):?>
                     <div class="extraLink-item">
                         <span>Do You Have a Project?</span>
-                        <a href="">WhatsApp</a>
+                        <a aria-label="Designex Whatsapp" href="<?php echo $whatsapp;?>"><?php echo get_field('whatsapp_text', $contactID);?></a>
                     </div>
                 </div>
                 <div class="extraLink-item coordination">
