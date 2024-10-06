@@ -854,6 +854,27 @@ html.mouseStopped #screenSaver {
 .second-loading-container.ss-container {
     width: 37rem;
     position: relative;
+    /* animation: loadingTransform .5s steps(39) 1.5s forwards; */
+    justify-content: center;
+}
+@keyframes loadingTransform {
+    from{
+        transform: translate(0 ,0);
+    }
+    to{
+        transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
+    }
+}
+#loading.second-loading{
+    /* animation: loadingOpacity .5s steps(39) 2.5s forwards; */
+}
+@keyframes loadingOpacity {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 @media only screen and (max-width: 768px) {
     :root {
@@ -952,7 +973,17 @@ html.mouseStopped #screenSaver {
     .ss-container {
         column-gap: 1rem;
     }
-
+    .second-loading-container.ss-container {
+        width: 18rem;
+    }
+    @keyframes loadingTransform {
+        from{
+            transform: translate(0 ,0);
+        }
+        to{
+            transform: translate(calc(5rem* cos(20deg)), calc(5rem* sin(20deg)* -1));
+        }
+    }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
     .ss-container img.logo-img {
@@ -961,6 +992,9 @@ html.mouseStopped #screenSaver {
 
     .ss-container img.logo-text {
         width: 20rem;
+    }
+    .second-loading-container.ss-container {
+        width: 24rem;
     }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
