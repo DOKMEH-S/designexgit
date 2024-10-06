@@ -17,20 +17,20 @@
         }
 
         <?php if (is_singular('projects') or is_page_template('tpls/contact.php') or is_page_template('tpls/services.php')): ?>
-            #videoModal {
-                display: none;
-            }
+        #videoModal {
+            display: none;
+        }
 
         <?php endif;
         if (is_archive('projects')): ?>
-            #mapProjectsContainer {
-                display: none;
-            }
+        #mapProjectsContainer {
+            display: none;
+        }
 
         <?php endif; ?>
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+          onload="this.onload=null;this.rel='stylesheet'">
     <link href="<?php ThemeAssets('css/loading.css'); ?>" rel="stylesheet" type="text/css">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -64,12 +64,9 @@
 <?php else: ?>
     <div id="loading" class="second-loading">
         <div class="second-loading-container ss-container">
-            <div class="media-overlay"></div>
-            <div class="loadingImage">
-                <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                    alt="site logo" class="logo-img">
-                <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
-            </div>
+            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                 alt="site logo" class="logo-img">
+            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </div>
     </div>
 <?php endif; ?>
@@ -88,110 +85,112 @@ elseif (is_singular('post')):
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
-    <!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
-    <header>
-        <a href="<?php echo site_url('/'); ?>" class="identity">
-            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                alt="site logo" class="logo-img">
-            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
-        </a>
-        <?php $pages = get_pages(array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'contact.php'
-        ));
-        $contactID = $pages[0]->ID; ?>
-        <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
+<!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
+<header>
+    <a href="<?php echo site_url('/'); ?>" class="identity">
+        <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+             alt="site logo" class="logo-img">
+        <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+    </a>
+    <?php $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'contact.php'
+    ));
+    $contactID = $pages[0]->ID; ?>
+    <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
                 aria-label="Start a Project?">Start a Project?</a></div> -->
-        <div class="menu-icon">
-            <div class="quickMenu">
-                <nav>
-                    <ul>
-                        <li><a href="<?php echo get_post_type_archive_link('projects'); ?>"
-                                aria-label="Projects">Projects</a></li>
-                        <?php $pages = get_pages(array(
-                            'meta_key' => '_wp_page_template',
-                            'meta_value' => 'tpls/services.php'
-                        ));
-                        $serviceID = $pages[0]->ID;
-                        if ($serviceID) { ?>
-                            <li><a href="<?php echo get_the_permalink($serviceID); ?>"
-                                    aria-label="Services"><?php echo get_the_title($serviceID); ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </nav>
+    <div class="menu-icon">
+        <div class="quickMenu">
+            <nav>
+                <ul>
+                    <li><a href="<?php echo get_post_type_archive_link('projects'); ?>"
+                           aria-label="Projects">Projects</a></li>
+                    <?php $pages = get_pages(array(
+                        'meta_key' => '_wp_page_template',
+                        'meta_value' => 'tpls/services.php'
+                    ));
+                    $serviceID = $pages[0]->ID;
+                    if ($serviceID) { ?>
+                        <li><a href="<?php echo get_the_permalink($serviceID); ?>"
+                               aria-label="Services"><?php echo get_the_title($serviceID); ?></a></li>
+                    <?php } ?>
+                </ul>
+            </nav>
+        </div>
+        <?php if (have_rows('menu_items', 'option')): ?>
+            <div class="icon">
+                <span class="menu">MENU</span>
+                <span class="close">CloSe</span>
             </div>
-            <?php if (have_rows('menu_items','option')): ?>
-                <div class="icon">
-                    <span class="menu">MENU</span>
-                    <span class="close">CloSe</span>
+        <?php endif; ?>
+    </div>
+</header>
+<?php if (have_rows('menu_items', 'option')): ?>
+    <div id="menuContainer" data-lenis-prevent>
+        <div class="menu-list">
+
+            <?php $counter = 1; ?>
+            <?php while (have_rows('menu_items', 'option')):
+                the_row();
+                $menu_link = get_sub_field('link');
+                // $menu_title = get_sub_field('menu_item_title');
+                $menu_image = get_sub_field('image');
+                ?>
+                <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
+                    <small class="text-h5"><?php echo $counter++; ?></small>
+                    <span class="item-title"><?php echo esc_url($menu_link['title']); ?></span>
+                    <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
+                         alt="<?php echo esc_attr($menu_image['alt']); ?>">
+                </a>
+            <?php endwhile; ?>
+
+        </div>
+
+        <div class="subMenuContainer">
+            <?php while (have_rows('menu_items', 'option')):
+                the_row(); ?>
+                <?php if (have_rows('sub_menu')): ?>
+                <div class="subMenu">
+                    <ul>
+                        <?php while (have_rows('sub_menu')):
+                            the_row();
+                            // $section_title = get_sub_field('title');
+                            $section_link = get_sub_field('sub_link');
+                            ?>
+                            <li>
+                                <a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
                 </div>
             <?php endif; ?>
+            <?php endwhile; ?>
+
         </div>
-    </header>
-    <?php if (have_rows('menu_items', 'option')): ?>
-        <div id="menuContainer" data-lenis-prevent>
-            <div class="menu-list">
 
-                <?php $counter = 1; ?>
-                <?php while (have_rows('menu_items', 'option')):
-                    the_row();
-                    $menu_link = get_sub_field('link');
-                    // $menu_title = get_sub_field('menu_item_title');
-                    $menu_image = get_sub_field('image');
-                    ?>
-                    <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
-                        <small class="text-h5"><?php echo $counter++; ?></small>
-                        <span class="item-title"><?php echo esc_url($menu_link['title']); ?></span>
-                        <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
-                            alt="<?php echo esc_attr($menu_image['alt']); ?>">
-                    </a>
-                <?php endwhile; ?>
-
-            </div>
-
-            <div class="subMenuContainer">
-                <?php while (have_rows('menu_items', 'option')):
-                    the_row(); ?>
-                    <?php if (have_rows('sub_menu')): ?>
-                        <div class="subMenu">
-                            <ul>
-                                <?php while (have_rows('sub_menu')):
-                                    the_row();
-                                    // $section_title = get_sub_field('title');
-                                    $section_link = get_sub_field('sub_link');
-                                    ?>
-                                    <li><a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
-                <?php endwhile; ?>
-
-            </div>
-
-            <div class="extraLinks">
-                <div class="extraLinks-contact">
-                    <div class="extraLink-item">
-                        <span>Monthly Newsletter</span>
-                        <a href="">Subscribe here</a>
-                    </div>
-                    <div class="extraLink-item">
-                        <span>Do You Have a Project?</span>
-                        <a href="">WhatsApp</a>
-                    </div>
+        <div class="extraLinks">
+            <div class="extraLinks-contact">
+                <div class="extraLink-item">
+                    <span>Monthly Newsletter</span>
+                    <a href="">Subscribe here</a>
                 </div>
-                <div class="extraLink-item coordination">
-                    <div><span id="timeZone"></span> [UAE]</div>
-                    <span>N 25° 11' 31.726''</span>
-                    <span>N 25° 11' 31.726''</span>
+                <div class="extraLink-item">
+                    <span>Do You Have a Project?</span>
+                    <a href="">WhatsApp</a>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
-    <div id="screenSaver">
-        <div class="ss-container">
-            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                alt="site logo" class="logo-img">
-            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+            <div class="extraLink-item coordination">
+                <div><span id="timeZone"></span> [UAE]</div>
+                <span>N 25° 11' 31.726''</span>
+                <span>N 25° 11' 31.726''</span>
+            </div>
         </div>
     </div>
+<?php endif; ?>
+<div id="screenSaver">
+    <div class="ss-container">
+        <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+             alt="site logo" class="logo-img">
+        <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+    </div>
+</div>
