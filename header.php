@@ -120,7 +120,7 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-            <?php if (have_rows('menu_items','option')): ?>
+            <?php if (have_rows('menu_items', 'option')): ?>
                 <div class="icon">
                     <span class="menu">MENU</span>
                     <span class="close">CloSe</span>
@@ -136,12 +136,11 @@ endif; ?>">
                 <?php while (have_rows('menu_items', 'option')):
                     the_row();
                     $menu_link = get_sub_field('link');
-                    // $menu_title = get_sub_field('menu_item_title');
                     $menu_image = get_sub_field('image');
                     ?>
                     <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
                         <small class="text-h5"><?php echo $counter++; ?></small>
-                        <span class="item-title"><?php echo esc_url($menu_link['title']); ?></span>
+                        <span class="item-title"><?php echo esc_html($menu_link['title']); ?></span>
                         <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
                             alt="<?php echo esc_attr($menu_image['alt']); ?>">
                     </a>
@@ -157,16 +156,16 @@ endif; ?>">
                             <ul>
                                 <?php while (have_rows('sub_menu')):
                                     the_row();
-                                    // $section_title = get_sub_field('title');
                                     $section_link = get_sub_field('sub_link');
                                     ?>
-                                    <li><a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a></li>
+                                    <li><a
+                                            href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                    </li>
                                 <?php endwhile; ?>
                             </ul>
                         </div>
                     <?php endif; ?>
                 <?php endwhile; ?>
-
             </div>
 
             <div class="extraLinks">
@@ -188,6 +187,7 @@ endif; ?>">
             </div>
         </div>
     <?php endif; ?>
+
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
