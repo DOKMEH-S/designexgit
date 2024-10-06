@@ -154,16 +154,22 @@ html.loadingDone .contactFormSliderContainer{
 }
 form .textTypeInput {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
 }
-form .textTypeInput .wpcf7-form-control-wrap {
-    position: relative;
-    display: block;
+
+form .textTypeInput input {
+    width: 100%;
+    height: 2rem;
+    padding-left: 2rem;
+    margin-bottom: .875rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
-form .textTypeInput .wpcf7-form-control-wrap::before {
+
+form .textTypeInput::before {
     content: '';
     position: absolute;
-    top: 2rem;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 1rem;
@@ -171,26 +177,13 @@ form .textTypeInput .wpcf7-form-control-wrap::before {
     background-size: cover;
     background-repeat: no-repeat;
 }
-form .textTypeInput .wpcf7-form-control-wrap[data-name="message"]:before {
-    top: 10rem;
-}
-form .textTypeInput input {
-    width: 100%;
-    height: 2rem;
-    padding-left: 2rem;
-    margin-bottom: 1.2rem;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 form .textTypeInput textarea {
     padding-left: 2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: .875rem;
     width: 100%;
     resize: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    height: 10rem;
 }
 form .textTypeInput input::-webkit-input-placeholder,form .textTypeInput textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--gray);
@@ -203,10 +196,6 @@ form .textTypeInput input:-ms-input-placeholder,form .textTypeInput textarea:-ms
 }
 form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-placeholder { /* Firefox 18- */
     color: var(--gray);
-}
-form .wpcf7-spinner {
-    position: absolute;
-    left: 100%;
 }
 .checkBoxWrapper {
     position: relative;
@@ -428,7 +417,7 @@ section.faq-contactSlider-container {
     width: 100%;
     height: calc(100vh - var(--headerHeight));
 }
-.mySlides {display: none;}
+.mySlides {/* display: none; */}
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -459,6 +448,10 @@ section.faq-contactSlider-container {
 .mySlides {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
 .mySlides img {
