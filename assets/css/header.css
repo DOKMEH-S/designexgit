@@ -80,16 +80,15 @@ header nav ul li a:hover::before {
     -ms-transform: translate(-0.8rem, -0.3rem);
     transform: translate(-0.8rem, -0.3rem);
 }
-header .menu-icon{
+header .menu-icon {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: flex-end;
+    column-gap: 15rem;
 }
 header .menu-icon .quickMenu nav ul {
     padding: 0;
