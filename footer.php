@@ -34,7 +34,8 @@
             <div class="footer-subscribe">
                 <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                 <div class="footer-subscribe-form">
-                    <?php echo do_shortcode('[newsletter_form confirmation_url="#"]');?>
+                    <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]');
+                       ?>
 <!--                    <form action="">-->
 <!--                        <div class="textTypeInput">-->
 <!--                            <input type="text" placeholder="Email">-->
@@ -44,7 +45,7 @@
 <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
 <!--                        </div>-->
 <!--                    </form>-->
-                    <div class="newsletter-message">{message}</div>
+                    <div class="newsletter-message"> {message}</div>
                 </div>
 <!--                <input type="submit">-->
             </div>
@@ -114,9 +115,7 @@
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
 <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
 <?php else:?>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {  setTimeout(function() {  document.documentElement.classList.add('loadingDone');  }, 2000);
-        }); </script>
+    <script defer src="<?php ThemeAssets('js/second-loading.js') ?>"></script>
 <?php endif;
 if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>

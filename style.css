@@ -810,7 +810,7 @@ html.mouseStopped #screenSaver {
     overflow: hidden;
 }
 
-#loading .media-overlay:before {
+#loading .second-loading-container.ss-container:before {
     background-image: url(./assets/img/ink-photo-frame.png);
     background-size: 100% 100%;
     content: "";
@@ -823,6 +823,7 @@ html.mouseStopped #screenSaver {
     pointer-events: none;
     -webkit-animation: ink-transition 1.5s steps(39) 0s forwards;
     animation: ink-transition 1.5s steps(39) 0s forwards;
+    mix-blend-mode: lighten;
 }
 @-webkit-keyframes ink-transition {
     0% {
@@ -849,6 +850,10 @@ html.mouseStopped #screenSaver {
         transform: translateX(-98.75%);
         opacity: 0;
     }
+}
+.second-loading-container.ss-container {
+    width: 37rem;
+    position: relative;
 }
 @media only screen and (max-width: 768px) {
     :root {
