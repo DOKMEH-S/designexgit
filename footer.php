@@ -34,7 +34,7 @@
             <div class="footer-subscribe">
                 <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                 <div class="footer-subscribe-form">
-                    <?php echo do_shortcode('[newsletter]');?>
+                    <?php echo do_shortcode('[newsletter_form]');?>
 <!--                    <form action="">-->
 <!--                        <div class="textTypeInput">-->
 <!--                            <input type="text" placeholder="Email">-->
