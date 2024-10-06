@@ -37,9 +37,9 @@
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
-<div id="loading">
-    <?php $logo = get_field('logo', 'option'); ?>
-    <?php if (is_home()) : ?>
+<?php $logo = get_field('logo', 'option'); ?>
+<?php if (is_home()) : ?>
+    <div id="loading">
         <div class="loadingCovers">
             <div class="loadingCover"></div>
             <div class="loadingCover"></div>
@@ -60,7 +60,9 @@
                 </div>
             </div>
         </div>
-    <?php else : ?>
+    </div>
+<?php else : ?>
+    <div id="loading" class="secone-loading">
         <div class="second-loading-container ss-container">
             <div class="media-overlay"></div>
             <div class="loadingImage">
@@ -69,8 +71,9 @@
                 <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
             </div>
         </div>
-    <?php endif; ?>
-</div>
+    </div>
+<?php endif; ?>
+
 
 <body data-pagetype="<?php if (is_front_page()): echo 'home';
 elseif (is_archive('projects')): echo 'archiveProject';
@@ -131,35 +134,37 @@ endif; ?>">
     <div class="infoSection paddingX">
         <div class="nav">
             <div class="navItems">
-<!--                --><?php //while (have_rows('menu_items')):
-//                    the_row();
-//                    $menu_link = get_sub_field('link');
-//                    $menu_image = get_sub_field('image');
-//                    ?>
-<!--                    <div class="navItem">-->
-<!--                        <a href="--><?php //echo esc_url($menu_link); ?><!--"-->
-<!--                           class="title">--><?php //echo get_the_title($menu_link); ?><!--</a>-->
-<!--                        --><?php //if (have_rows('sub_menu')): ?>
-<!--                            <div class="subMenu">-->
-<!--                                <ul>-->
-<!--                                    --><?php //while (have_rows('sub_menu')):
-//                                        the_row();
-//                                        // $section_title = get_sub_field('title');
-//                                        $section_link = get_sub_field('sub_link');
-//                                        ?>
-<!--                                        <li><a-->
-<!--                                                    href="--><?php //echo esc_url($section_link['link']); ?><!--">--><?php //echo esc_html($section_link['title']); ?><!--</a>-->
-<!--                                        </li>-->
-<!--                                    --><?php //endwhile; ?>
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        --><?php //endif; ?>
-<!--                        <div class="media">-->
-<!--                            <img src="--><?php //echo esc_url($menu_image['url']); ?><!--"-->
-<!--                                 alt="--><?php //echo esc_attr($menu_image['alt']); ?><!--">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                --><?php //endwhile; ?>
+                <!--                --><?php //while (have_rows('menu_items')):
+                //                    the_row();
+                //                    $menu_link = get_sub_field('link');
+                //                    $menu_image = get_sub_field('image');
+                //                    ?>
+                <!--                    <div class="navItem">-->
+                <!--                        <a href="--><?php //echo esc_url($menu_link); ?><!--"-->
+                <!--                           class="title">--><?php //echo get_the_title($menu_link); ?><!--</a>-->
+                <!--                        --><?php //if (have_rows('sub_menu')): ?>
+                <!--                            <div class="subMenu">-->
+                <!--                                <ul>-->
+                <!--                                    --><?php //while (have_rows('sub_menu')):
+                //                                        the_row();
+                //                                        // $section_title = get_sub_field('title');
+                //                                        $section_link = get_sub_field('sub_link');
+                //                                        ?>
+                <!--                                        <li><a-->
+                <!--                                                    href="-->
+                <?php //echo esc_url($section_link['link']); ?><!--">-->
+                <?php //echo esc_html($section_link['title']); ?><!--</a>-->
+                <!--                                        </li>-->
+                <!--                                    --><?php //endwhile; ?>
+                <!--                                </ul>-->
+                <!--                            </div>-->
+                <!--                        --><?php //endif; ?>
+                <!--                        <div class="media">-->
+                <!--                            <img src="--><?php //echo esc_url($menu_image['url']); ?><!--"-->
+                <!--                                 alt="--><?php //echo esc_attr($menu_image['alt']); ?><!--">-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                --><?php //endwhile; ?>
             </div>
         </div>
     </div>
