@@ -1,19 +1,3 @@
-//========MODAL VIDEO
-let ceoVideoCTA = document.getElementById('playVideo');
-let ceoVideo = document.getElementById('modalVideo');
-let modalVideo = document.getElementById('videoModal');
-let closeModal = document.getElementById('closeModalVideo');
-ceoVideoCTA.addEventListener('click',function () {
-    modalVideo.classList.add('show');
-    if(ceoVideo.paused){
-        ceoVideo.play()
-    }
-})
-closeModal.addEventListener('click',function () {
-    modalVideo.classList.remove('show');
-    ceoVideo.pause()
-})
-
 // ==============expandContainer
 document.addEventListener("DOMContentLoaded", function() {
     const serviceItems = document.querySelectorAll('.serviceItem');
@@ -22,47 +6,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     serviceItems.forEach(item => {
         const expandMedia = item.querySelector('.expandMedia');
-        const descriptions = item.querySelectorAll('.des');
 
         // Set initial state for expandMedia
         expandMedia.style.width = '0px';
         expandMedia.style.height = '0px';
 
-        const setDimensionsAndSkew = () => {
+        const setDimens = () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
             const expandPosition = expandMedia.getBoundingClientRect().top + scrollPosition;
 
             // Calculate distance from top
             const distanceFromTop = expandPosition - scrollPosition;
-            const progress = Math.min(1, Math.max(0, (headerHeight - distanceFromTop + windowHeight) / windowHeight));
+            const halfwayPoint = windowHeight / 3*2; // 3/2 of viewport height
+            const threshold = halfwayPoint - headerHeight; // Adjust for header
+
+            // Adjust progress based on threshold
+            const progress = Math.min(1, Math.max(0, (threshold - distanceFromTop + windowHeight) / windowHeight));
 
             // Set width and height based on progress
             const maxWidth = 160; // Max width in pixels
             const maxHeight = 57.6; // Max height in pixels
             expandMedia.style.width = `${progress * maxWidth}px`;
             expandMedia.style.height = `${progress * maxHeight}px`;
-
-            // Skew and translate calculation for descriptions
-            descriptions.forEach(des => {
-                const desPosition = des.getBoundingClientRect().top + scrollPosition;
-                const desDistanceFromTop = desPosition - scrollPosition;
-
-                // Calculate skew from 0deg to -2deg
-                const skew = Math.min(0, Math.max(-2, (headerHeight - desDistanceFromTop + windowHeight) / windowHeight * -2));
-
-                // Set transform to skew
-                gsap.set(des, {
-                    transform: `skew(${skew}deg, 0deg)`
-                });
-            });
         };
 
         // Initial dimensions and skew check
-        setDimensionsAndSkew();
+        setDimens();
 
         const onScroll = () => {
-            setDimensionsAndSkew();
+            setDimens();
         };
 
         // Throttle scroll event
@@ -77,35 +50,62 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 //=======PLAY VIDEO
-let projectVideo = document.getElementById('servicesVideo');
-if(projectVideo){
-    projectVideo.addEventListener('timeupdate', function() {
-        if (projectVideo.currentTime >= 5) {
-            projectVideo.currentTime = 0; // Reset to the start
+// Function to set up the time update event for a video element
+function setupVideoReset(videoElement) {
+    videoElement.addEventListener('timeupdate', function () {
+        if (videoElement.currentTime >= 5) {
+            videoElement.currentTime = 0; // Reset to the start
         }
     });
-    //========MODAL VIDEO
-    let videoCTA = document.getElementById('playVideo');
-    let videoURL = projectVideo.getAttribute('data-url');
-    let videoPoster = projectVideo.getAttribute('poster');
+
+// Get the main tag
+    let mainTag = document.querySelector('main');
+
+// Get all video elements within the main tag
+    let videos = mainTag.querySelectorAll('video');
+    videos.forEach(video => setupVideoReset(video));
+}
+//========MODAL VIDEO
+document.addEventListener('DOMContentLoaded', function() {
     let ceoVideo = document.getElementById('modalVideo');
     let ceoVideoSrc = document.getElementById('modalVideoSrc');
     let modalVideo = document.getElementById('videoModal');
     let closeModal = document.getElementById('closeModalVideo');
-    console.log(videoURL);
-    document.addEventListener('DOMContentLoaded', function() {
-        ceoVideo.setAttribute('poster',videoPoster);
-        ceoVideoSrc.setAttribute('src',videoURL);
+
+    // Function to handle video click
+    function handleVideoClick(video) {
+        let videoURL = video.getAttribute('data-url');
+        let videoPoster = video.getAttribute('poster');
+
+        ceoVideo.setAttribute('poster', videoPoster);
+        ceoVideoSrc.setAttribute('src', videoURL);
         ceoVideo.load();
-        videoCTA.addEventListener('click',function () {
-            modalVideo.classList.add('show');
-            if(ceoVideo.paused){
-                ceoVideo.play()
-            }
-        })
-        closeModal.addEventListener('click',function () {
-            modalVideo.classList.remove('show');
-            ceoVideo.pause()
-        })
+
+        modalVideo.classList.add('show');
+        if (ceoVideo.paused) {
+            ceoVideo.play();
+        }
+    }
+
+    // Attach event listeners to videos with the class .needModal
+    let needModalVideos = document.querySelectorAll('.needModal');
+    needModalVideos.forEach(video => {
+        video.addEventListener('click', function() {
+            handleVideoClick(video);
+        });
     });
-}
+
+    // Attach event listener to the play button in the singleProjectVideoContainer
+    let videoCTA = document.getElementById('playVideo');
+    let servicesVideo = document.getElementById('servicesVideo');
+
+    videoCTA.addEventListener('click', function() {
+        handleVideoClick(servicesVideo);
+    });
+
+    // Close modal functionality
+    closeModal.addEventListener('click', function() {
+        modalVideo.classList.remove('show');
+        ceoVideo.pause();
+    });
+});

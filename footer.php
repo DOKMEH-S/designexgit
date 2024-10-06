@@ -3,21 +3,28 @@
         <div class="footerSide">
             <?php $logo = get_field('logo', 'option'); ?>
             <div class="footer-logo"><img
-                        src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                        alt="footer logo"></div>
-            <div class="footer-text">
-                <p>WHERE QUALITY MEETS LUXURY AND INNOVATION DRIVES SUSTAINABILITY</p>
-            </div>
+                    src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                    alt="footer logo"></div>
+            <?php $f_dess = get_field('f_des', 'option');
+            if ($f_dess): ?>
+                <div class="footer-text">
+                    <p><?php echo $f_dess; ?></p>
+                </div>
+            <?php endif; ?>
             <div class="footer-mailSocial">
-                <a href="/#" class="footer-mailSocial_mail" aria-label="mail">info@designex.ae</a>
+                <?php $f_email = get_field('f_email', 'option');
+                if ($f_dess): ?>
+                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail"
+                        aria-label="mail"><?php echo antispambot($f_email); ?></a>
+                <?php endif; ?>
                 <?php if (have_rows('social_media', 'option')): ?>
                     <div class="footer-mailSocial_social">
                         <?php while (have_rows('social_media', 'option')):
                             the_row();
                             $link = get_sub_field('link'); ?>
                             <a href="<?php echo $link ?>"
-                               aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
-                                        class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
+                                aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                                    class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
                         <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
@@ -27,45 +34,68 @@
             <div class="footer-subscribe">
                 <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                 <div class="footer-subscribe-form">
-                    <form action="">
-                        <div class="textTypeInput">
-                            <input type="text" placeholder="Email">
-                        </div>
-                        <div class="checkboxTypeInput">
-                            <input type="checkbox" name="email" id="confirmEmail">
-                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>
-                        </div>
-                    </form>
+                    <?php echo do_shortcode('[newsletter]');?>
+<!--                    <form action="">-->
+<!--                        <div class="textTypeInput">-->
+<!--                            <input type="text" placeholder="Email">-->
+<!--                        </div>-->
+<!--                        <div class="checkboxTypeInput">-->
+<!--                            <input type="checkbox" name="email" id="confirmEmail">-->
+<!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
+<!--                        </div>-->
+<!--                    </form>-->
                 </div>
+<!--                <input type="submit">-->
             </div>
-            <div class="footer-contact-items">
-                <div class="item">
-                    <span class="title">Phone Number</span>
-                    <a href="/#" aria-label="Phone Number">+971 54 480 6995</a>
+            <?php
+            $contact = get_page_by_path('contact-us');
+            if ($contact):
+                $contact_id = $contact->ID;
+                ?>
+                <div class="footer-contact-items">
+                    <?php if (have_rows('phones', $contact_id)):
+                        while (have_rows('phones', $contact_id)):
+                            the_row();
+                            $phone = get_sub_field('phone') ?>
+                            <div class="item">
+                                <span class="title"><?php echo get_sub_field('title'); ?></span>
+                                <a href="tel:<?php echo str_replace(' ', '', $phone) ?>"
+                                    aria-label="Phone Number"><?php echo $phone; ?></a>
+                            </div>
+                        <?php endwhile;
+                    endif;
+                    $email = get_field('email', $contact_id);
+                    if ($email): ?>
+                        <div class="item">
+                            <span class="title"><?php echo get_field('email_title', $contact_id); ?></span>
+                            <a href="mailto:<?php echo antispambot($email); ?>"
+                                aria-label="Email"><?php echo antispambot($email); ?></a>
+                        </div>
+                    <?php endif;
+                    $address = get_field('address', $contact_id);
+                    if ($address):
+                        $location = get_field('location', $contact_id); ?>
+                        <div class="item">
+                            <a
+                                href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>"><?php echo $address; ?></a>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <div class="item">
-                    <span class="title">Phone Number</span>
-                    <a href="/#" aria-label="Phone Number">+971 (4) 374 1159</a>
-                </div>
-                <div class="item">
-                    <span class="title">Email</span>
-                    <a href="/#" aria-label="Email">info@designex.ae</a>
-                </div>
-                <div class="item">
-                    <span class="title">P.O.Box</span>
-                    <a href="/#" aria-label="P.O.Box">118319 Office 605
-                        Zone B Aspect Tower, Business Bay,
-                        DUBAI - UAE</a>
-                </div>
-            </div>
+            <?php endif; ?>
+
         </div>
     </div>
     <div class="footerPolicyDokmeh">
-        <div class="footer-policy-items">
-            <a href="/#" class="item" aria-label="2024. All Right Reserved"> 2024. All Right Reserved</a>
-            <a href="/#" class="item" aria-label="Cookie Policy"> Cookie Policy</a>
-            <a href="/#" class="item" aria-label="Privecy Policy"> Privecy Policy</a>
-        </div>
+        <?php if (have_rows('footer_policy', 'option')): ?>
+            <div class="footer-policy-items">
+                <?php while (have_rows('footer_policy', 'option')):
+                    the_row();
+                    $text = get_sub_field('text');
+                    $link = get_sub_field('link'); ?>
+                    <a href="<?php echo $link;?>" class="item" aria-label="2024. All Right Reserved"> <?php echo $text;?></a>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
         <div class="dokmeh">
             <span>Made with Love by </span>
             <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
@@ -73,47 +103,62 @@
     </div>
 </footer>
 <?php if (is_archive('projects')): ?>
-    <script defer src="<?php ThemeAssets('js/jQuery.min.js'); ?>"></script>
+    <script defer src='<?php ThemeAssets('js/jQuery.min.js'); ?>'></script>
 <?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
-<?php if(is_singular('projects') OR is_page_template('tpls/about.php')) :?>
-<script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
-<?php endif;?>
+<?php if(is_front_page()):?>
+<script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+<?php else:?>
+    <script>  $(document).ready(function() {  setTimeout(function() {  $('html').addClass('loadingDone');  }, 2000);   });  </script>
+<?php endif;
+if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
+    <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
+<?php endif; ?>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
+<?php elseif (is_singular('jobs')): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/single-job.js'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+
+<?php elseif (is_home()): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
+<?php elseif (is_page_template('tpls/services.php')): ?>
+    <script defer src="<?php ThemeAssets('js/page-script/services.js'); ?>"></script>
+
 <?php elseif (is_page_template('tpls/about.php')): ?>
+    <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>
+    <script defer type="module" src="<?php ThemeAssets('js/index.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
-<?php elseif(is_page_template('tpls/contact.php')):?>
+<?php elseif (is_page_template('tpls/contact.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('header').style.opacity = '1';
-        document.querySelector('main.wrapper').style.opacity = '1';
+        document.querySelector('main').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-        <?php if (is_singular('projects') or is_page_template(array('tpls/about.php','tpls/contact.php'))): ?>
-        if (document.getElementById('videoModal')) {
+       <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
             document.getElementById('videoModal').style.display = 'block';
-        }
-        <?php endif;
-        if(is_archive('projects')):?>
-        document.getElementById('mapProjectsContainer').style.display = 'flex';
-        <?php endif;?>
-        document.querySelector('html').classList.add('loadingDone');
+      <?php   } ?>
+        <?php if (is_archive('projects')): ?>
+            document.getElementById('mapProjectsContainer').style.display = 'flex';
+        <?php endif; ?>
+        document.getElementById('screenSaver').style.display = 'flex';
+        document.getElementById('menuContainer').style.display = 'flex';
+
     });
 </script>
 <?php if (is_page_template('tpls/contact.php') or is_singular('projects')):
     $location = get_field('location');
     if ($location): ?>
         <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
         <script type="text/javascript">
             // When the window has finished loading create our google map below
             window.addEventListener('load', init);
@@ -554,10 +599,10 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-<?php if(is_archive('projects')):
-//if(sizeof($locationArray)>0) {?>
+<?php if (is_archive('projects')):
+    //if(sizeof($locationArray)>0) { ?>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
     <script type="text/javascript">
         // When the window has finished loading create our google map below
         window.addEventListener('load', init);
@@ -569,15 +614,15 @@
         var mapElement;
         var project_location = [
             <?php foreach ($locationsArray as $Data): ?>
-            ['<h3 class="info-window-header"><?php echo $Data[0];?></h3>','<a href ="<?php echo $Data[3];?>" ><span><?php _e('view project','dokmeh');?></span></a>', <?php echo $Data[1]['lat'];?>, <?php echo $Data[1]['lng'];?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng'];?>" target="_blank"><?php _e('Get Direction...', 'dokmeh')?></a>'],
+                ['<h3 class="info-window-header"><?php echo $Data[0]; ?></h3>', '<a href ="<?php echo $Data[3]; ?>" ><span><?php _e('view project', 'dokmeh'); ?></span></a>', <?php echo $Data[1]['lat']; ?>, <?php echo $Data[1]['lng']; ?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng']; ?>" target="_blank"><?php _e('Get Direction...', 'dokmeh') ?></a>'],
             <?php endforeach; ?>
         ];
         function init() {
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
-             mapOptions = {
+            mapOptions = {
                 zoom: 12,
-                center: new google.maps.LatLng(35.6892,51.3890), // Tehran 35.6892° N, 51.3890° E
+                center: new google.maps.LatLng(35.6892, 51.3890), // Tehran 35.6892° N, 51.3890° E
                 zoomControl: true,
                 mapTypeControl: false,
                 scaleControl: false,
@@ -950,7 +995,7 @@
                     }
                 ]
             };
-             mapElement = document.getElementById('mapProjects');
+            mapElement = document.getElementById('mapProjects');
             // Create the Google Map using our element and options defined above
             map = new google.maps.Map(mapElement, mapOptions);
             // Let's also add a marker while we're at it
@@ -963,7 +1008,7 @@
                 });
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(project_location[i][4] + project_location[i][0] + project_location[i][1] +project_location[i][5]);
+                        infowindow.setContent(project_location[i][4] + project_location[i][0] + project_location[i][1] + project_location[i][5]);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
@@ -972,7 +1017,7 @@
         }
     </script>
 <?php //}
-endif;?>
+endif; ?>
 </body>
 
 </html>

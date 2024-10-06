@@ -1,88 +1,103 @@
 <?php get_header();
-$page_id = get_queried_object_id();  // دریافت شناسه صفحه فعلی?>
-<main class="wrapper newsWrapper">
-    <section class="pageIntro projectIntro paddingX">
-        <img class="background" src="<?php ThemeAssets('img/intro-logo.png'); ?>" alt="">
-        <div class="info">
-            <h1 class="title">/ <?php echo get_the_title($page_id);?></h1>
-            <?php
-                // Get the original text from the textarea field
-                $original_text = get_field('news_title',$page_id);
-                // Get the repeater field
-                $repeater_field = get_field('color_text',$page_id);
-                // If the original text and the repeater field exist
-                if ($original_text && $repeater_field) {
-                    // Loop through each item in the repeater field
-                    foreach ($repeater_field as $item) {
-                        // Get the word from the repeater field
-                        $word = $item['color_word'];
-                        // Replace the word in the original text with the colorful version
-                        $original_text = str_replace($word, '<span class="colorful">' . $word . '</span>', $original_text);
-                    }
-                    // Output the modified text
-                    echo '<p class="description">' . $original_text . '</p>';
-                }?>
-            <div id="root">
-                <img src="<?php ThemeAssets('img/root.svg');?>" alt="">
-            </div>
+$page_id = get_queried_object_id(); ?>
+    <main class="wrapper">
+        <div id="newsletterLink-container">
+            <span>Monthly Newsletter</span>
+            <a href="">
+                <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
+                Subscribe here
+            </a>
         </div>
-    </section>
-    <section class="newsContainer paddingX">
-        <div class="search-filter-wrapper">
-            <div class="search-wrap">
-                <form action="">
-                    <input type="image" id="searchBlogImage" name="searchBlogImage" src="<?php ThemeAssets('img/search.svg'); ?>" class="hover-target">
-                    <label>
-                        <input type="text" placeholder="<?php _e('Search','dokmeh');?>" id="searchNews" name="searchNews"/>
-                    </label>
-                </form>
+        <div class="projectHeader-container">
+        <div class="mobileIcon">
+                <span class="open">open filter</span>
+                <span class="close">close filter</span>
             </div>
-            <div class="sort-select-box">
-                <span class="title-item"><?php _e('sort by','dokmeh');?></span>
-                <div class="sort-list-wrapper">
-                    <div class="header hover-target"><span><?php _e('newest','dokmeh');?></span></div>
-                    <div class="body" style="display: block;">
-                        <div class="body-list">
-                            <p class="order-blog selected hover-target" data-id="0"><?php _e('newest','dokmeh');?></p>
-                            <p class="order-blog hover-target" data-id="1"><?php _e('popular','dokmeh');?></p>
-                            <p class="order-blog hover-target" data-id="2"><?php _e('oldest','dokmeh');?></p>
+            <div class="projectHeader-wrapper">
+                <?php $terms = get_terms([
+                    'taxonomy' => 'category',
+                    'hide_empty' => false,
+                ]);
+                if ($terms):?>
+                    <div class="projectHeader-container_row-above">
+                        <div class="projectHeader-container_row-container">
+                            <div class="projectHeader-container_row">
+                                <span class="projectHeader-container_row-title">Main Tag</span>
+                                <div class="projectHeader-container_row-items">
+                                    <?php foreach ($terms as $term): ?>
+                                        <span class="blog-cat"
+                                              data-id="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
+                <?php $tags = get_tags(array(
+                    'hide_empty' => true
+                ));
+                if ($tags):?>
+                    <div class="projectHeader-container_row-under">
+                        <div class="projectHeader-container_row-container">
+                            <div class="projectHeader-container_row">
+                                <span class="projectHeader-container_row-title">Filter</span>
+                                <div class="projectHeader-container_row-items">
+                                    <?php foreach ($tags as $tag) : ?>
+                                        <span class="blog-tag"
+                                              data-id="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
-        <?php
-        // Query to retrieve the latest 15 posts
-        $per_page = 6;
-        $args = array(
+        <?php $Args = array(
             'post_type' => 'post',
-            'posts_per_page' => $per_page,
+            'posts_per_page' => 4,
+            'paged' => 1,
         );
-        $latest_posts_query = new WP_Query($args);
-        // Check if there are any posts
-        if ($latest_posts_query->have_posts()) :$count = $query->found_posts;
-//                $i =1;
-            ($count> $per_page) ? $i = 1 : $i= 1000;?>
-            <div class="newItemsWrapper">
-                <?php while ($latest_posts_query->have_posts()) : $latest_posts_query->the_post();
-                     $lastID = get_the_ID(); ?>
-                    <a href="<?php the_permalink(); ?>" class="newsWrap" <?php if($i==$per_page)  echo ' id ="last-more-news" count="'.$per_page.'"'; ?>>
-                        <div class="news-media">
-                            <img data-src="<?php the_post_thumbnail_url($lastID, 'large'); ?>" alt="" class="lazyload blur-up">
+        $Blogs = new WP_Query($Args);
+        if ($Blogs->have_posts()):$count = $Blogs->found_posts;
+            $i= ($count > 4) ?  0 : 5;?>
+            <div class="blogBody">
+                <div class="blogItems">
+                    <?php while ($Blogs->have_posts()):$Blogs->the_post();
+                        $blogID = get_the_ID();
+                        $i++;
+                        $title = get_the_title();?>
+                        <div class="blogItem" <?php if ($i==2){?> id ="infinity-loading" <?php }?>>
+                            <div class="blogItem-info">
+                                <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>">
+                                    <h2 class="title"><?php echo $title;?></h2>
+                                </a>
+                                <div class="blogItem-info_more">
+                                        <p class="des"><?php echo has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30 , ' ...'); ?></p>
+                                    <?php $tags = get_the_tags();
+                                    if ($tags) :?>
+                                        <div class="tags">
+                                            <?php foreach ($tags as $tag) { ?>
+                                                <a aria-label="<?php echo $tag->name ?>"><?php echo $tag->name ?></a>
+                                            <?php } ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <a href="<?php the_permalink(); ?>" aria-label="Read More" class="link">Read
+                                        More</a>
+                                </div>
+                            </div>
+                            <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="blogItem-media">
+                                <img src="<?php the_post_thumbnail_url($blogID, 'large'); ?>" alt="<?php echo $title;?>">
+                                
+                            </a>
+                            <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>
                         </div>
-                        <div class="news-info">
-                            <span class="date"><?php echo get_the_date(); ?></span>
-                            <p class="news-name"><?php the_title(); ?></p>
-                        </div>
-                    </a>
-                <?php $i++;
-                endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
+                <div class="see-more" id="see-more" offset =4 style="display: none;">
+                    <span> <?php _e('loading','dokmeh');?></span>
+                </div>
             </div>
-            <?php            // Restore original post data
-            wp_reset_postdata();
-        else : ?>
-            <p><?php esc_html_e('No posts found'); ?></p>
         <?php endif; ?>
-    </section>
-</main>
+    </main>
 <?php get_footer();

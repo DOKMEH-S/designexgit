@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3378b75a-5b8e-4cc5-a896-a7239eed0627" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/archive-jobs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/about.min.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/archive-project.min.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/footer.min.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home-final-2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home-final-2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home-final.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home.min.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/loading.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/sample.min.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/link-primary.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/location-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/mobile-filter-project.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/mobile-filter-project.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/small-elem-green.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/small-elem.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/ScrollSmoother.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/blog-ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/page-script/archive-blog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/video/home.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inc/custom-post-type-jobs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/single-jobs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tpls/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive-projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive-projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/about.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-blog.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-project.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-project.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/contact.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/contact.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/fonts.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/fonts.min.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/footer.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/footer.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/home-final.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home-final.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/jobs.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/jobs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/jobs.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/jobs.min.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/loading.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/loading.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/projectHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/projectHeader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/projectHeader.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/projectHeader.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/sample.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/services.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/services.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/services.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/services.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-blog.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-job.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-job.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-job.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-job.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-project.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-project.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/frontend-ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/frontend-ajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/page-script/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/page-script/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/page-script/archive-project.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/page-script/archive-project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/page-script/home-final.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/page-script/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/page-script/services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/page-script/single-project.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/page-script/single-project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/custom-post-type-projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/custom-post-type-projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/single-projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/single-projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpls/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/tpls/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpls/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/tpls/contact.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2n1LyUNb9qyz4MhVeBhRcfJLU3Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3378b75a-5b8e-4cc5-a896-a7239eed0627" name="Changes" comment="" />
+      <created>1728135889437</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728135889437</updated>
+      <workItem from="1728135890433" duration="2343000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

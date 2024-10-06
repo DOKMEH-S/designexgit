@@ -1,10 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 body[data-pagetype="services"] main {
-    padding-right: var(--spaceX);
 }
 .pageTitle {
     position: relative;
     top: 10rem;
     width: calc(50% - 8rem);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .pageTitle:before {
@@ -15,8 +23,10 @@ body[data-pagetype="services"] main {
     height: 6.188rem;
     background-size: contain;
     background-repeat: no-repeat;
-    left: -1rem;
+    left: 0;
     top: -1rem;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
     transform: translateX(-100%);
 }
 .pageTitle span {
@@ -35,39 +45,60 @@ section.servicesContainer {
     margin-bottom: 8rem;
 }
 .serviceItems {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     row-gap: 5rem;
 }
 
-.serviceItem .sides {
+.serviceItem .sides{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-column-gap: 8rem;
+    -moz-column-gap: 8rem;
     column-gap: 8rem;
 }
 .serviceItem .side {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
-.serviceItem .side ul {
-    padding-left: 1rem;
-}
-.se
 .serviceItem .title{
     /*max-width: calc(50% + 12rem);*/
     margin: 0 0 4rem auto;
     text-align: right;
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
     width:fit-content;
 }
 .serviceItem:nth-child(even) .title {
     margin: 0 auto 4rem 0;
     text-align: left;
 }
+.serviceItem .title {
+    max-width: calc(50% + 12rem);
+    margin: 0 0 4rem auto;
+    text-align: right;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
 .serviceItem .title h2 > *{
     display: inline-block;
 }
-.serviceItem .title h2{
-}
+
 .serviceItem .title h2 {
     display: inline;
     font-size: clamp(2rem,4.75vw,5rem);
@@ -82,6 +113,8 @@ section.servicesContainer {
     max-height: 5.563rem;
     min-width: 0;
     min-height: 0;
+    -webkit-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
     transition: all 0.35s ease;
     border-radius: 10rem;
     overflow: hidden;
@@ -91,13 +124,22 @@ section.servicesContainer {
     display: block;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
+.serviceItem .title .expandMedia > video{
+    cursor: pointer;
+}
 .serviceItem .media {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-column-gap: 2rem;
+    -moz-column-gap: 2rem;
     column-gap: 2rem;
-    margin: 1rem 0;
 }
 
 .serviceItem .media .mediaItem {
@@ -108,6 +150,7 @@ section.servicesContainer {
 .serviceItem .media .mediaItem > * {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 .serviceItem h3 , section.approachContainer .descriptionTitle h3 {
@@ -135,11 +178,13 @@ section.servicesContainer {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     display: block;
     width: 1.625rem;
     height: 1.625rem;
     cursor: pointer;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
     background-image: url(../img/link.svg);
     background-size: contain;
@@ -147,7 +192,10 @@ section.servicesContainer {
     background-repeat: no-repeat;
 }
 .serviceItem .link:hover:before{
+    -webkit-transform: translate(.5rem, -1rem);
+    -ms-transform: translate(.5rem, -1rem);
     transform: translate(.5rem, -1rem);
+    -webkit-filter:blur(3px);
     filter:blur(3px);
 }
 .serviceItem ul , section.approachContainer .descriptionTitle ul {
@@ -188,15 +236,18 @@ section.approachContainer .descriptionTitle {
     width: 100%;
     padding-top: 8rem;
     padding-bottom: 10rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 section.approachContainer .descriptionTitle .description {
     width: calc(50% - 8rem * .5);
-}
-section.approachContainer .descriptionTitle .description ul {
-    padding-left: 1rem;
 }
 section.approachContainer .descriptionTitle h2 {
     width: 50%;
@@ -223,75 +274,47 @@ section.approachContainer .approachVideo .singleProjectVideoContainer{
 section.approachContainer .approachVideo video {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
-section.approachContainer .approachVideo #playVideo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 7.636rem;
-    height: 7.636rem;
-    transition: all ease-in-out .5s;
-    cursor: pointer;
-    transform-origin: center center;
-    transform-box: fill-box;
-}
-section.approachContainer .approachVideo #playVideo img:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(.75);
-}
-#playVideo img:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(.75);
-}
 
-#playVideo img:first-child {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: rotateR 10s linear infinite;
-}
-
-@keyframes rotateR{
-    to{
-        transform:rotate(360deg)
-    }
-}
-section.approachContainer .approachVideo #playVideo:hover {
-    transform: translate(-50%, -50%) scale(1.15);
-}
 /*------approachContainer------*/
 /*------outLink------*/
 section.outLink {
 }
 
 section.outLink a {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 5rem;
     font-weight: 700;
     text-transform: uppercase;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     text-align: right;
     width: 100%;
     cursor: pointer;
     position: relative;
-    padding-top: 2rem;
+    padding-right: 1rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 section.outLink a:before {
     content: '';
     position: absolute;
     top: 0;
-    right: 0;
+    right: -.5rem;
     display: block;
     width: 1.625rem;
     height: 1.625rem;
     cursor: pointer;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
     background-image: url(../img/link.svg);
     background-size: contain;
@@ -299,9 +322,10 @@ section.outLink a:before {
     background-repeat: no-repeat;
 }
 section.outLink a:hover:before {
-    transform: translate(.5rem, -1rem);
-    filter:blur(3px);
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
 }
+
 /*------outLink------*/
 /*==========MODAL VIDEO============*/
 #videoModal {
@@ -312,6 +336,8 @@ section.outLink a:hover:before {
     height: 100vh;
     left: 0;
     pointer-events: none;
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
     opacity: 0;
 }
@@ -336,6 +362,7 @@ section.outLink a:hover:before {
 #videoModal .videoContainer video#modalVideo {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -350,6 +377,24 @@ section.outLink a:hover:before {
 }
 /*==========MODAL VIDEO============*/
 @media only screen and (max-width: 768px) {
+    .pageTitle {
+        top: auto;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding-left: calc(var(--spaceL)*1);
+    }
+
+    .serviceItem .title {
+        margin: 0 0 2rem auto;
+    }
+    .pageTitle span {
+        margin: 0;
+    }
+    .pageTitle:before {
+        left: var(--spaceL);
+        width: calc(var(--spaceLL) + var(--space));
+        height: 4rem;
+    }
     .serviceItem .sides {
         display: block;
     }
@@ -358,6 +403,8 @@ section.outLink a:hover:before {
     }
 
     .serviceItem .media {
+        -webkit-column-gap: 1rem;
+        -moz-column-gap: 1rem;
         column-gap: 1rem;
     }
 
@@ -371,6 +418,9 @@ section.outLink a:hover:before {
     }
     section.approachContainer .descriptionTitle {
         padding-top: 3rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
     }
 
@@ -394,18 +444,12 @@ section.outLink a:hover:before {
         height: 30vh;
     }
 
-    section.approachContainer .approachVideo #playVideo {
-        width: 5.636rem;
-        height: 5.636rem;
-    }
-
-    section.approachContainer .approachVideo #playVideo img:last-child {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
     section.outLink a {
-        font-size: 4rem;
+        font-size: 3rem;
+    }
+    section.outLink a:before{
+        width: 1.3rem;
+        height: 1.3rem;
     }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {}

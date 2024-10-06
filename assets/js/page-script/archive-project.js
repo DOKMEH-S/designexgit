@@ -83,15 +83,31 @@ $('.hover-box').hover(function(event) {
 });
 /*============HOVER BOX=============*/
 /*============MAP VIEW=============*/
-const mapViewIcon = document.querySelector('.mapView_icon');
+const mapViewIcons = document.querySelectorAll('.mapView_icon');
 const mapContainer = document.getElementById('mapProjectsContainer');
 const closeMapIcon = document.getElementById('closeMap');
-mapViewIcon.addEventListener('click',function () {
-    mapContainer.classList.add('show');
-    lenis.stop();
-})
-closeMapIcon.addEventListener('click',function () {
+
+mapViewIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+        mapContainer.classList.add('show');
+        lenis.stop();
+    });
+});
+
+closeMapIcon.addEventListener('click', function () {
     mapContainer.classList.remove('show');
     lenis.start();
-})
+});
 /*============MAP VIEW=============*/
+/*============Open Filter=============*/
+const mobileIcon = document.querySelector('.projectHeader-container .mobileIcon');
+const proHeadContainer = document.querySelector('.projectHeader-container');
+
+mobileIcon.addEventListener('click', function () {
+    if (proHeadContainer.classList.toggle('opFilter')) {
+        lenis.stop();
+    } else {
+        lenis.start();
+    }
+});
+/*============Open Filter=============*/
