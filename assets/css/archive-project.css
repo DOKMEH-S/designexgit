@@ -15,7 +15,7 @@
 .projectHeader-container .mapView_icon.mobile {
     display: none;
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     text-align: right;
 }
 .projectHeader-container .mapView_icon > * {
@@ -175,7 +175,7 @@
 
 #closeMap span {
     margin-bottom: 2px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 @media only screen and (max-width: 768px) {
     .projectBody-container {
@@ -194,6 +194,9 @@
     }
     .projectHeader-container .mapView_icon.mobile {
         display: block;
+        right: 5rem;
+        position: absolute;
+        top: calc(5.188rem* .55);
     }
     .projectHeader-container .mapView_icon.mobile > * {
         position: relative;
