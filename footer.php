@@ -114,12 +114,11 @@
 <?php if(is_front_page()):?>
 <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
 <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
-<?php else:?>
-    <script defer src="<?php ThemeAssets('js/second-loading.js') ?>"></script>
 <?php endif;
 if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
+<script defer src="<?php ThemeAssets('js/nodelay.js'); ?>"></script>
 <script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
 <?php if(is_front_page()):?>
     <script defer src="<?php ThemeAssets('js/page-script/home-final.js'); ?>"></script>
