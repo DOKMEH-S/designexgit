@@ -749,7 +749,7 @@ html.mouseStopped #screenSaver {
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
 }
-#screenSaver .ss-container {
+.ss-container {
     display: flex;
     align-items: center;
     column-gap: 2rem;
@@ -944,7 +944,7 @@ html.mouseStopped #screenSaver {
         width: 15rem;
     }
 
-    #screenSaver .ss-container {
+    .ss-container {
         column-gap: 1rem;
     }
 
