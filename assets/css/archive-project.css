@@ -4,7 +4,15 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
+.gm-style .gm-style-iw-d {padding-left: 4px;}
 
+.gm-style .gm-style-iw-d a {
+    display: block;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: var(--primary);
+}
 .projectHeader-container .mapView_icon.desktop {
     cursor: pointer;
     display: inline-block;
