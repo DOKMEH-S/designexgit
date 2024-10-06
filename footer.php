@@ -15,7 +15,7 @@
                 <?php $f_email = get_field('f_email', 'option');
                 if ($f_dess): ?>
                     <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail"
-                        aria-label="mail"><?php echo antispambot($f_email); ?></a>
+                       aria-label="mail"><?php echo antispambot($f_email); ?></a>
                 <?php endif; ?>
                 <?php if (have_rows('social_media', 'option')): ?>
                     <div class="footer-mailSocial_social">
@@ -23,7 +23,7 @@
                             the_row();
                             $link = get_sub_field('link'); ?>
                             <a href="<?php echo $link ?>"
-                                aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                               aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
                                     class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
                         <?php endwhile; ?>
                     </div>
@@ -35,19 +35,19 @@
                 <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                 <div class="footer-subscribe-form">
                     <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]');
-                       ?>
-<!--                    <form action="">-->
-<!--                        <div class="textTypeInput">-->
-<!--                            <input type="text" placeholder="Email">-->
-<!--                        </div>-->
-<!--                        <div class="checkboxTypeInput">-->
-<!--                            <input type="checkbox" name="email" id="confirmEmail">-->
-<!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
-<!--                        </div>-->
-<!--                    </form>-->
+                    ?>
+                    <!--                    <form action="">-->
+                    <!--                        <div class="textTypeInput">-->
+                    <!--                            <input type="text" placeholder="Email">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="checkboxTypeInput">-->
+                    <!--                            <input type="checkbox" name="email" id="confirmEmail">-->
+                    <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
+                    <!--                        </div>-->
+                    <!--                    </form>-->
                     <div class="newsletter-message"> <?php // echo apply_filters('newsletter_view_message'); ?></div>
                 </div>
-<!--                <input type="submit">-->
+                <!--                <input type="submit">-->
             </div>
             <?php
             $contact = get_page_by_path('contact-us');
@@ -62,7 +62,7 @@
                             <div class="item">
                                 <span class="title"><?php echo get_sub_field('title'); ?></span>
                                 <a href="tel:<?php echo str_replace(' ', '', $phone) ?>"
-                                    aria-label="Phone Number"><?php echo $phone; ?></a>
+                                   aria-label="Phone Number"><?php echo $phone; ?></a>
                             </div>
                         <?php endwhile;
                     endif;
@@ -71,7 +71,7 @@
                         <div class="item">
                             <span class="title"><?php echo get_field('email_title', $contact_id); ?></span>
                             <a href="mailto:<?php echo antispambot($email); ?>"
-                                aria-label="Email"><?php echo antispambot($email); ?></a>
+                               aria-label="Email"><?php echo antispambot($email); ?></a>
                         </div>
                     <?php endif;
                     $address = get_field('address', $contact_id);
@@ -112,8 +112,8 @@
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php if(is_front_page()):?>
-<script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
-<script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
+    <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+    <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
 <?php endif;
 if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
@@ -147,11 +147,13 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         document.querySelector('header').style.opacity = '1';
         document.querySelector('main').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
-       <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
+        <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
+        if(document.getElementById('videoModal')){
             document.getElementById('videoModal').style.display = 'block';
-      <?php   } ?>
+        }
+        <?php   } ?>
         <?php if (is_archive('projects')): ?>
-            document.getElementById('mapProjectsContainer').style.display = 'flex';
+        document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
         document.getElementById('screenSaver').style.display = 'flex';
         document.getElementById('menuContainer').style.display = 'flex';
@@ -162,7 +164,7 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     $location = get_field('location');
     if ($location): ?>
         <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
         <script type="text/javascript">
             // When the window has finished loading create our google map below
             window.addEventListener('load', init);
@@ -606,7 +608,7 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
 <?php if (is_archive('projects')):
     //if(sizeof($locationArray)>0) { ?>
     <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSjuazfR5jJ4HLuqJ2DmyGkZR766ayRI&loading=async"></script>
     <script type="text/javascript">
         // When the window has finished loading create our google map below
         window.addEventListener('load', init);
@@ -618,7 +620,7 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         var mapElement;
         var project_location = [
             <?php foreach ($locationsArray as $Data): ?>
-                ['<h3 class="info-window-header"><?php echo $Data[0]; ?></h3>', '<a href ="<?php echo $Data[3]; ?>" ><span><?php _e('view project', 'dokmeh'); ?></span></a>', <?php echo $Data[1]['lat']; ?>, <?php echo $Data[1]['lng']; ?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng']; ?>" target="_blank"><?php _e('Get Direction...', 'dokmeh') ?></a>'],
+            ['<h3 class="info-window-header"><?php echo $Data[0]; ?></h3>', '<a href ="<?php echo $Data[3]; ?>" ><span><?php _e('view project', 'dokmeh'); ?></span></a>', <?php echo $Data[1]['lat']; ?>, <?php echo $Data[1]['lng']; ?>, '<img src="<?php echo $Data[2]; ?>">', '<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $Data[1]['lat'] . "," . $Data[1]['lng']; ?>" target="_blank"><?php _e('Get Direction...', 'dokmeh') ?></a>'],
             <?php endforeach; ?>
         ];
         function init() {
