@@ -65,7 +65,7 @@ get_header(); ?>
                     <div class="contactVideoWrapper">
                         <?php $video_title = get_field('video_title');
                         if ($video_title): ?>
-                        <div class="titleWrap">
+                        <div class="titleWrap" id="Wrap">
                             <h2 class="title-roboto"><?php echo $video_title; ?></h2>
                         </div>
                         <?php endif; ?>
