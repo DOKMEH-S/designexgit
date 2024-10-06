@@ -17,20 +17,20 @@
         }
 
         <?php if (is_singular('projects') or is_page_template('tpls/contact.php') or is_page_template('tpls/services.php')): ?>
-        #videoModal {
-            display: none;
-        }
+            #videoModal {
+                display: none;
+            }
 
         <?php endif;
         if (is_archive('projects')): ?>
-        #mapProjectsContainer {
-            display: none;
-        }
+            #mapProjectsContainer {
+                display: none;
+            }
 
         <?php endif; ?>
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
+        onload="this.onload=null;this.rel='stylesheet'">
     <link href="<?php ThemeAssets('css/loading.css'); ?>" rel="stylesheet" type="text/css">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -65,7 +65,7 @@
     <div id="loading" class="second-loading">
         <div class="second-loading-container ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                 alt="site logo" class="logo-img">
+                alt="site logo" class="logo-img">
             <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
         </div>
     </div>
@@ -85,19 +85,19 @@ elseif (is_singular('post')):
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
 endif; ?>">
-<!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
-<header>
-    <a href="<?php echo site_url('/'); ?>" class="identity">
-        <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-             alt="site logo" class="logo-img">
-        <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
-    </a>
-    <?php $pages = get_pages(array(
-        'meta_key' => '_wp_page_template',
-        'meta_value' => 'contact.php'
-    ));
-    $contactID = $pages[0]->ID; ?>
-    <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
+    <!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
+    <header>
+        <a href="<?php echo site_url('/'); ?>" class="identity">
+            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                alt="site logo" class="logo-img">
+            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+        </a>
+        <?php $pages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'contact.php'
+        ));
+        $contactID = $pages[0]->ID; ?>
+        <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
                 aria-label="Start a Project?">Start a Project?</a></div> -->
         <div class="menu-icon">
             <div class="quickMenu">
@@ -117,7 +117,7 @@ endif; ?>">
                     </ul>
                 </nav>
             </div>
-            <?php if (have_rows('menu_items','option')): ?>
+            <?php if (have_rows('menu_items', 'option')): ?>
                 <div class="icon">
                     <span class="menu">MENU</span>
                     <span class="close">CloSe</span>
@@ -133,18 +133,17 @@ endif; ?>">
                 <?php while (have_rows('menu_items', 'option')):
                     the_row();
                     $menu_link = get_sub_field('link');
-                    // $menu_title = get_sub_field('menu_item_title');
                     $menu_image = get_sub_field('image');
                     ?>
                     <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
                         <small class="text-h5"><?php echo $counter++; ?></small>
-                        <span class="item-title"><?php echo esc_url($menu_link['title']); ?></span>
+                        <span class="item-title"><?php echo esc_html($menu_link['title']); ?></span>
                         <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
                             alt="<?php echo esc_attr($menu_image['alt']); ?>">
                     </a>
                 <?php endwhile; ?>
 
-        </div>
+            </div>
 
             <div class="subMenuContainer">
                 <?php while (have_rows('menu_items', 'option')):
@@ -154,16 +153,16 @@ endif; ?>">
                             <ul>
                                 <?php while (have_rows('sub_menu')):
                                     the_row();
-                                    // $section_title = get_sub_field('title');
                                     $section_link = get_sub_field('sub_link');
                                     ?>
-                                    <li><a href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_url($section_link['title']); ?></a></li>
+                                    <li><a
+                                            href="<?php echo esc_url($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                    </li>
                                 <?php endwhile; ?>
                             </ul>
                         </div>
                     <?php endif; ?>
                 <?php endwhile; ?>
-
             </div>
 
             <div class="extraLinks">
@@ -185,6 +184,7 @@ endif; ?>">
             </div>
         </div>
     <?php endif; ?>
+
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
