@@ -34,7 +34,8 @@
             <div class="footer-subscribe">
                 <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                 <div class="footer-subscribe-form">
-                    <?php echo do_shortcode('[newsletter_form confirmation_url="#"]');?>
+                    <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]');
+                       ?>
 <!--                    <form action="">-->
 <!--                        <div class="textTypeInput">-->
 <!--                            <input type="text" placeholder="Email">-->
@@ -44,7 +45,7 @@
 <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
 <!--                        </div>-->
 <!--                    </form>-->
-                    <div class="newsletter-message">{message}</div>
+                    <div class="newsletter-message"> {message}</div>
                 </div>
 <!--                <input type="submit">-->
             </div>
