@@ -44,6 +44,7 @@
 <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
 <!--                        </div>-->
 <!--                    </form>-->
+                    <div class="newsletter-message">{message}</div>
                 </div>
 <!--                <input type="submit">-->
             </div>
