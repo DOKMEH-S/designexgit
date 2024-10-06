@@ -59,11 +59,11 @@ html.loadingDone #loading .loadingCovers .loadingCover:nth-child(2) {
     -ms-transform: translateY(100%);
     transform: translateY(100%);
 }
-html.loadingDone #loading {
-    /*-webkit-animation: opacity .5s forwards;*/
-    /*animation: opacity .5s forwards;*/
-    /*-webkit-animation-delay: .5s;*/
-    /*animation-delay: .5s;*/
+html.loadingDone body[data-pagetype]:not([data-pagetype="home"]) #loading {
+    -webkit-animation: opacity .5s forwards;
+    animation: opacity .5s forwards;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
 }
 html.loadingDone body[data-pagetype="home"] #loading {
     /*-webkit-animation-delay: 1s;*/
