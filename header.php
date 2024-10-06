@@ -135,7 +135,7 @@ endif; ?>">
                     $menu_link = get_sub_field('link');
                     $menu_image = get_sub_field('image');
                     ?>
-                    <a href="<?php echo esc_url($menu_link['link']); ?>" class="menu-link">
+                    <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link">
                         <small class="text-h5"><?php echo $counter++; ?></small>
                         <span class="item-title"><?php echo esc_html($menu_link['title']); ?></span>
                         <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
@@ -156,7 +156,7 @@ endif; ?>">
                                     $section_link = get_sub_field('sub_link');
                                     ?>
                                     <li><a
-                                            href="<?php echo esc_attr($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                            href="<?php echo $section_link['url']; ?>"><?php echo esc_html($section_link['title']); ?></a>
                                     </li>
                                 <?php endwhile; ?>
                             </ul>
