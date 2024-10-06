@@ -14,7 +14,7 @@ get_header(); ?>
             <!--                <h1>Designex</h1>-->
             <!--            </div>-->
             <div class="aboutAnchorLinksWrap">
-                <img src="<?php ThemeAssets('img/elm.svg'); ?>" alt="">
+                <img src="<?php ThemeAssets('img/elm-primary.webp'); ?>" alt="">
                 <div id="aboutAnchorLinks">
                     <?php
                     if (have_rows('reason')): ?>

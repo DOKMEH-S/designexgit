@@ -1363,6 +1363,7 @@ section.projectsLink a:hover img {
         width: 100%;
         top: var(--headerHeight);
         position: sticky;
+        mix-blend-mode: normal;
     }
     .aboutAnchorLinksWrap {
         width: 100%;
