@@ -854,7 +854,7 @@ html.mouseStopped #screenSaver {
 .second-loading-container.ss-container {
     width: 37rem;
     position: relative;
-    /* animation: loadingTransform .5s steps(39) 1.5s forwards; */
+     animation: loadingTransform .5s steps(39) 1.5s forwards;
     justify-content: center;
 }
 @keyframes loadingTransform {
@@ -866,7 +866,7 @@ html.mouseStopped #screenSaver {
     }
 }
 #loading.second-loading{
-    /* animation: loadingOpacity .5s steps(39) 2.5s forwards; */
+     animation: loadingOpacity .5s steps(39) 2.5s forwards;
 }
 @keyframes loadingOpacity {
     from{
