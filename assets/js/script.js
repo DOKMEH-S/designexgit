@@ -1,85 +1,143 @@
-//===========GET UAE TIME ZONE
-// const timeZone = document.getElementById('timeZone');
-// function updateUAETime() {
-//     // Get the current date and time
-//     const now = new Date();
-//
-//     // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
-//     const options = {
-//         timeZone: 'Asia/Dubai',
-//         hour: '2-digit',
-//         minute: '2-digit',
-//         second: '2-digit',
-//         hour12: false // استفاده از فرمت 24 ساعته
-//     };
-//     const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
-//
-//     // console.log(`Current time in UAE: ${uaeTime}`);
-//     timeZone.innerHTML = uaeTime;
-//
-//     // Call the function again after 1000 ms (1 second)
-//     setTimeout(updateUAETime, 1000);
-// }
-//
-// // Start the time update
-// updateUAETime();
+/===========GET UAE TIME ZONE
+const timeZone = document.getElementById('timeZone');
+function updateUAETime() {
+    // Get the current date and time
+    const now = new Date();
+
+    // تنظیمات برای فرمت ساعت در منطقه زمانی امارات
+    const options = {
+        timeZone: 'Asia/Dubai',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // استفاده از فرمت 24 ساعته
+    };
+    const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
+
+    // console.log(`Current time in UAE: ${uaeTime}`);
+    timeZone.innerHTML = uaeTime;
+
+    // Call the function again after 1000 ms (1 second)
+    setTimeout(updateUAETime, 1000);
+}
+
+// Start the time update
+updateUAETime();
 
 // =============================Menu
 const menuIcon = document.querySelector('.menu-icon .icon');
 // Assuming lenis is already defined and initialized somewhere in your code
 menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
-    if (document.body.classList.contains('opMenu')) {
-        // lenis.stop(); // Stop lenis when opMenu is added
-    } else {
-        // lenis.start(); // Start lenis when opMenu is removed
+    if(document.querySelector('html').classList.contains('lenis')){
+        if (document.body.classList.contains('opMenu')) {
+            console.log('hey')
+            lenis.stop(); // Stop lenis when opMenu is added
+        } else {
+            lenis.start(); // Start lenis when opMenu is removed
+        }
     }
 });
-
-
 // Append all images to mediaSection
-const mediaSection = document.querySelector('#menuContainer .mediaSection');
-const navItems = document.querySelectorAll('#menuContainer .infoSection .navItem');
-
-navItems.forEach(item => {
-    const img = item.querySelector('.media img').cloneNode();
-    img.classList.add('notSelected'); // Set notSelected class initially
-    mediaSection.appendChild(img);
-});
+// const mediaSection = document.querySelector('#menuContainer .mediaSection');
+// const navItems = document.querySelectorAll('#menuContainer .infoSection .navItem');
+// navItems.forEach(item => {
+//     const img = item.querySelector('.media img').cloneNode();
+//     img.classList.add('notSelected'); // Set notSelected class initially
+//     mediaSection.appendChild(img);
+// });
 
 // Event listeners for hover effect
-document.querySelectorAll('#menuContainer .infoSection .navItem .title').forEach(title => {
-    title.addEventListener('mouseenter', () => {
+// document.querySelectorAll('#menuContainer .infoSection .navItem .title').forEach(title => {
+//     title.addEventListener('mouseenter', () => {
+//
+//         // Remove 'selected' class from all navItems
+//         document.querySelectorAll('#menuContainer .infoSection .navItem').forEach(item => {
+//             item.classList.remove('selected');
+//         });
+//
+//         // Add 'selected' class to the current navItem
+//         const navItem = title.parentElement;
+//         navItem.classList.add('selected');
+//
+//
+//         const selectedImgSrc = title.parentElement.querySelector('.media img').src;
+//         // Remove 'selected' class from all images and add 'notSelected'
+//         document.querySelectorAll('#menuContainer .mediaSection img').forEach(img => {
+//             img.classList.remove('selected');
+//             img.classList.add('notSelected');
+//         });
+//
+//         // Add 'selected' class to the current image
+//         const currentImg = Array.from(mediaSection.children).find(img => img.src === selectedImgSrc);
+//         if (currentImg) {
+//             currentImg.classList.add('selected');
+//             currentImg.classList.remove('notSelected');
+//         }
+//     });
+// });
 
-        // Remove 'selected' class from all navItems
-        document.querySelectorAll('#menuContainer .infoSection .navItem').forEach(item => {
-            item.classList.remove('selected');
+let menuLink = document.querySelectorAll('.menu-link');
+let subMenu = document.querySelectorAll('.subMenu');
+
+menuLink.forEach((menu,index) => {
+    menu.addEventListener('mouseenter', (e) => {
+        console.log(index);
+        subMenu.forEach((sub) => {
+            sub.classList.remove('show');
         });
-
-        // Add 'selected' class to the current navItem
-        const navItem = title.parentElement;
-        navItem.classList.add('selected');
-
-
-        const selectedImgSrc = title.parentElement.querySelector('.media img').src;
-        // Remove 'selected' class from all images and add 'notSelected'
-        document.querySelectorAll('#menuContainer .mediaSection img').forEach(img => {
-            img.classList.remove('selected');
-            img.classList.add('notSelected');
+        subMenu[index].classList.add('show');
+        const image = menu.querySelector('.image_rev');
+        const imageW = image.offsetWidth / 2;
+        const imageH = image.offsetHeight / 2;
+        menu.classList.add('show');
+        gsap.to(image, {
+            duration: 0.5,
+            x: e.offsetX - imageW,
+            y: e.offsetY - imageH,
+            autoAlpha: 1
         });
-
-        // Add 'selected' class to the current image
-        const currentImg = Array.from(mediaSection.children).find(img => img.src === selectedImgSrc);
-        if (currentImg) {
-            currentImg.classList.add('selected');
-            currentImg.classList.remove('notSelected');
+    });
+    menu.addEventListener('mouseleave', () => {
+        const image = menu.querySelector('.image_rev');
+        menu.classList.remove('show');
+        gsap.to(image, {
+            autoAlpha: 0,
+            rotation: 0 // Reset rotation
+        });
+    });
+    let timer,
+        oldX = 0;
+    menu.addEventListener('mousemove', (e) => {
+        const image = menu.querySelector('.image_rev');
+        const imageW = image.offsetWidth / 2;
+        const imageH = image.offsetHeight / 2;
+        let rotation;
+        if (e.pageX < oldX) {
+            //direction = "left";
+            rotation = (-1) * 7;
+        } else if (e.pageX > oldX) {
+            //direction = "right";
+            rotation =  7;
         }
+        oldX = e.pageX;
+        // Calculate rotation
+
+        gsap.to(image, {
+            duration: 0.5,
+            x: e.offsetX - imageW,
+            y: e.offsetY - imageH,
+            rotation: rotation // Apply rotation
+        });
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            gsap.to(image, {
+                rotation: 0 // Reset rotation
+            });
+        },110);
     });
 });
 /*=============Scroll Direction*/
-
-
-
 let lastScrollTop = 0;
 
 window.addEventListener("scroll", function() {
@@ -166,76 +224,4 @@ if(skewTBlock){
             }
         );
     });
-}
-//==================mouseStopped
-let timeout;
-let mouseStopFunction = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() {
-        document.documentElement.classList.add('mouseStopped');
-    }, 15000);
-    document.documentElement.classList.remove('mouseStopped');
-};
-
-document.onmousemove = mouseStopFunction;
-window.onscroll = mouseStopFunction;
-window.onkeydown = mouseStopFunction;
-window.onkeypress = mouseStopFunction;
-window.onchange = mouseStopFunction;
-
-// Swipe detection
-document.addEventListener("touchstart", handleTouchStart, { passive: false });
-document.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-let xDown = null;
-let yDown = null;
-
-function getTouches(evt) {
-    return evt.touches || evt.originalEvent.touches; // Handle both standard and jQuery events
-}
-
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];
-    xDown = firstTouch.clientX;
-    yDown = firstTouch.clientY;
-}
-
-function handleTouchMove(evt) {
-    if (!xDown || !yDown) {
-        return;
-    }
-
-    const xUp = evt.touches[0].clientX;
-    const yUp = evt.touches[0].clientY;
-
-    const xDiff = xDown - xUp;
-    const yDiff = yDown - yUp;
-
-    document.documentElement.classList.remove("initial");
-
-    // Remove previous active class if it exists
-    const active = document.querySelector(".active");
-    if (active) {
-        active.classList.remove("active");
-    }
-
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        /* Most significant movement is horizontal */
-        if (xDiff > 0) {
-            document.documentElement.classList.add('swipeLeft');
-        } else {
-            document.documentElement.classList.add('swipeRight');
-        }
-    } else {
-        /* Most significant movement is vertical */
-        if (yDiff > 0) {
-            document.documentElement.classList.add('swipeUp');
-        } else {
-            document.documentElement.classList.add('swipeDown');
-        }
-    }
-
-    // Reset values
-    xDown = null;
-    yDown = null;
 }

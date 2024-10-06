@@ -81,9 +81,11 @@ function setup () {
     createCanvas(windowWidth, windowHeight);
     strokeCap(SQUARE);
     document.querySelector('canvas').addEventListener('click', windowResized);
-    if (window['goToStep' + 6]) {
-        window['goToStep' + 6]();
-    }
+    setTimeout(() => {
+        if (window['goToStep' + 6]) {
+            window['goToStep' + 6]();
+        }
+    },4200)
 }
 
 function windowResized () {
