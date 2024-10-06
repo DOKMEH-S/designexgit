@@ -146,7 +146,8 @@ endif; ?>">
             </div>
 
             <div class="subMenuContainer">
-                
+                <?php while (have_rows('menu_items', 'option')):
+                    the_row(); ?>
                     <?php if (have_rows('sub_menu')): ?>
                         <div class="subMenu">
                             <ul>
@@ -161,7 +162,7 @@ endif; ?>">
                             </ul>
                         </div>
                     <?php endif; ?>
-                
+                <?php endwhile; ?>
             </div>
 
             <div class="extraLinks">
