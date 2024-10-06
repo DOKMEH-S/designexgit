@@ -173,7 +173,7 @@ endif; ?>">
                     </div>
                     <?php $pages = get_pages(array(
             'meta_key' => '_wp_page_template',
-            'meta_value' => 'contact.php'
+            'meta_value' => 'tpls/contact.php'
         ));
         $contactID = $pages[0]->ID; ?>
                     <?php 
