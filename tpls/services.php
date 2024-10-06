@@ -12,7 +12,8 @@ get_header(); ?>
         <span>What We Offer</span>
         <h1>our services</h1>
     </div>
-    <?php if (have_rows('services')): ?>
+    <?php if (have_rows('services')): 
+        $count = 1;?>
         <section class="servicesContainer">
             <div class="serviceItems">
                 <?php while (have_rows('services')):
@@ -27,7 +28,7 @@ get_header(); ?>
                     $right_side_text = get_sub_field('right_side_text');
                     $left_media = get_sub_field('left_media');
                     $link = get_sub_field('right_link'); 
-                    $count = 1;?>
+                    ?>
 
                     <div class="serviceItem" id="serction<?php echo $count++;?>">
                         <div class="title">
