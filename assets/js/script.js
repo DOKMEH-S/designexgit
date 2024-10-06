@@ -1,4 +1,4 @@
-/===========GET UAE TIME ZONE
+//===========GET UAE TIME ZONE
 const timeZone = document.getElementById('timeZone');
 function updateUAETime() {
     // Get the current date and time
