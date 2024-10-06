@@ -156,7 +156,7 @@ endif; ?>">
                                     $section_link = get_sub_field('sub_link');
                                     ?>
                                     <li><a
-                                            href="<?php echo esc_url_raw($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                            href="<?php echo esc_attr($section_link['link']); ?>"><?php echo esc_html($section_link['title']); ?></a>
                                     </li>
                                 <?php endwhile; ?>
                             </ul>
