@@ -23,7 +23,7 @@
                             the_row();
                             $link = get_sub_field('link'); ?>
                             <a href="<?php echo $link ?>"
-                               aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>"><span
+                               aria-label="<?php echo get_bloginfo('name') . ' ' . get_sub_field('icon'); ?>" target="_blank"><span
                                     class="<?php echo get_sub_field('icon'); ?>" aria-hidden="true"></span></a>
                         <?php endwhile; ?>
                     </div>
