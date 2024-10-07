@@ -106,10 +106,11 @@ function FluidField() {
             }
 
             setBoundary(b, x);
-        } else {
+        }
+        else {
             var invC = 1 / c;
-            for (var k = 0; k < iterations; k++) {
-                for (var j = 1; j <= height; j++) {
+            for (var k = 0 ; k < iterations; k++) {
+                for (var j = 1 ; j <= height; j++) {
                     var lastRow = (j - 1) * rowSize;
                     var currentRow = j * rowSize;
                     var nextRow = (j + 1) * rowSize;
@@ -141,10 +142,11 @@ function FluidField() {
 
             setBoundary(1, x);
             setBoundary(2, y);
-        } else {
+        }
+        else {
             var invC = 1 / c;
-            for (var k = 0; k < iterations; k++) {
-                for (var j = 1; j <= height; j++) {
+            for (var k = 0 ; k < iterations; k++) {
+                for (var j = 1 ; j <= height; j++) {
                     var lastRow = (j - 1) * rowSize;
                     var currentRow = j * rowSize;
                     var nextRow = (j + 1) * rowSize;
@@ -334,7 +336,7 @@ var get = document.querySelector.bind(document),
     fluid;
 
 function initBuffer() {
-    // This function can be used to initialize any additional buffers if needed
+    // Not needed in this implementation
 }
 
 function updateFrame(field) {
@@ -373,35 +375,24 @@ function updateFluid() {
     fluid.update();
 }
 
-function getNormHeight() {
-    return innerHeight / fieldHeight / fieldSize;
-}
-
-function getNormWidth() {
-    return innerWidth / fieldWidth / fieldSize;
-}
-
 function setSize() {
-    displayWidth = Math.round(innerWidth);
-    displayHeight = Math.round(innerHeight);
+    displayWidth = Math.round(window.innerWidth);
+    displayHeight = Math.round(window.innerHeight);
 
-    // Set the canvas width and height to match the document size
-    canvas.width = displayWidth;
-    canvas.height = displayHeight;
-
-    // Calculate field width and height based on new canvas dimensions
-    fieldWidth = Math.round(displayWidth / fieldSize);
-    fieldHeight = Math.round(displayHeight / fieldSize);
-
-    // Initialize the fluid simulation with the new dimensions
-    fluid.setResolution(fieldWidth, fieldHeight);
-
-    // Center the initial mouse position
     omx = displayWidth / 2;
     omy = displayHeight / 2;
 
     mx = omx + (Math.random() - 0.5) * 4;
     my = omy + (Math.random() - 0.5) * 4;
+
+    fieldWidth = Math.round(displayWidth / fieldSize);
+    fieldHeight = Math.round(displayHeight / fieldSize);
+
+    canvas.width = fieldWidth;
+    canvas.height = fieldHeight;
+
+    // Initialize fluid after canvas dimensions are set
+    fluid.setResolution(fieldWidth, fieldHeight);
 }
 
 function init() {
@@ -454,11 +445,17 @@ function init() {
         my = event.clientY / getNormHeight();
     };
 
+    // Initialize fluid instance
     fluid = new FluidField();
-    fluid.setResolution(canvas.width, canvas.height);
-
-    drawing = true;
     updateFluid();
+}
+
+function getNormHeight() {
+    return innerHeight / fieldHeight / fieldSize;
+}
+
+function getNormWidth() {
+    return innerWidth / fieldWidth / fieldSize;
 }
 
 on('DOMContentLoaded', init);
