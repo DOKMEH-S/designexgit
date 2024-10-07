@@ -20,13 +20,6 @@ get_header(); ?>
             <a href="" id="currentProjectName">
                 <p></p>
             </a>
-            <div class="loading-container getScale getRotate getNumber loseNumber">
-                <div class="loading_line">
-                    <div class="loading-point_canvas one"></div>
-                    <div class="loading-point"></div>
-                    <div class="loading-point_canvas two"></div>
-                </div>
-            </div>
         </div>
         <div class="homeVideoItemsWrapper">
             <div class="homeVideoContainer">
