@@ -51,7 +51,7 @@ function Dokmeh_scripts()
     // Check if it's the front page
 
     if (is_front_page()) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/home.min.css', array(), _S_VERSION);
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/home.css', array(), _S_VERSION);
     } 
     elseif (is_page_template('tpls/about.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/about.css', array(), _S_VERSION);
@@ -80,7 +80,7 @@ function Dokmeh_scripts()
     } elseif (is_singular('post')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-blog.css', array(), _S_VERSION);
     } elseif (is_404()) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.min.css', array(), _S_VERSION);
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.css', array(), _S_VERSION);
     }
 
     if (is_post_type_archive('projects')) :

@@ -3,9 +3,8 @@
         <div class="footerSide">
             <?php $logo = get_field('footer_logo', 'option'); ?>
             <div class="footer-logo">
-                <a href="" aria-label="designex">
-                    <img
-                        src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                <a href="<?php echo site_url('/');?>" aria-label="designex">
+                    <img src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                         alt="footer logo">
                 </a>
             </div>
@@ -136,13 +135,14 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/services.js'); ?>"></script>
-
 <?php elseif (is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>
     <script defer type="module" src="<?php ThemeAssets('js/index.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/contact.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
+<?php elseif(is_404()):?>
+    <script defer src="<?php ThemeAssets('js/page-script/notFound.js'); ?>"></script>
 <?php endif; ?>
 <?php wp_footer(); ?>
 <script>
