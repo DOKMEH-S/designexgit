@@ -1234,6 +1234,21 @@ form .upload .warning {
     form .submitForm svg {
         left: 30%;
     }
+    .ss-container {
+        height: 4rem;
+    }
+
+    #screenSaver p.slogan-text {
+        font-size: 1.2rem;
+        width: calc(100% - var(--spaceX)*2);
+        bottom: 7rem;
+        right: var(--spaceX);
+        text-align: center;
+    }
+
+    #screenSaver {
+        height: 100vh;
+    }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
     .ss-container img.logo-img {
@@ -1297,6 +1312,13 @@ form .upload .warning {
     form .submitForm svg {
         left: 30%;
     }
+    .ss-container {
+        height: 4.5rem;
+    }
+    #screenSaver p.slogan-text {
+        font-size: 1.2rem;
+        width: 55%;
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     :root{
@@ -1322,6 +1344,12 @@ form .upload .warning {
         font-size: 1.2rem;
     }
     /*==============MENU===============*/
+    .ss-container {
+        height: 4rem;
+    }
+    #screenSaver p.slogan-text {
+        font-size: 1.2rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     #playVideo {
@@ -1342,4 +1370,11 @@ form .upload .warning {
         font-size: 1.25rem;
     }
     /*==============MENU================*/
+    .ss-container {
+        height: 4.2rem;
+    }
+
+    #screenSaver p.slogan-text {
+        font-size: 1.25rem;
+    }
 }
