@@ -37,7 +37,8 @@
             <?php $p_link = get_field('p_link');
             $p_name = get_field('p_title');
             $p_image = get_field('p_image');
-            $p_des = get_field('p_des'); ?>
+            $p_des = get_field('p_des'); 
+            if (($p_link and $p_name) or ($p_link and $p_image) or ($p_link and $p_des)): ?>
             <div class="singleProjectAwardsWrapper">
                 <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
                     <div class="awardsTitle">
