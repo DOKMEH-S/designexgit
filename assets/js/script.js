@@ -295,3 +295,50 @@ function handleTouchMove(evt) {
     xDown = null;
     yDown = null;
 }
+// --------------------------------------------------------shuffleText
+document.addEventListener('DOMContentLoaded', function() {
+    // Set effect velocity in ms
+    var velocity = 20;
+    var shuffleElements = document.querySelectorAll('.shuffle');
+
+    shuffleElements.forEach(function(item) {
+        item.setAttribute('data-text', item.textContent);
+    });
+
+    function shuffle(o) {
+        for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+
+    function shuffleText(element, originalText) {
+        var elementTextArray = [];
+        var randomText = [];
+        for (var i = 0; i < originalText.length; i++) {
+            elementTextArray.push(originalText.charAt(i));
+        }
+
+        function repeatShuffle(times, index) {
+            if (index === times) {
+                element.textContent = originalText;
+                return;
+            }
+            setTimeout(function() {
+                randomText = shuffle([...elementTextArray]); // Create a copy for shuffling
+                for (var i = 0; i < index; i++) {
+                    randomText[i] = originalText[i];
+                }
+                element.textContent = randomText.join('');
+                index++;
+                repeatShuffle(times, index);
+            }, velocity);
+        }
+        repeatShuffle(element.textContent.length, 0);
+    }
+
+    shuffleElements.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+            shuffleText(item, item.getAttribute('data-text'));
+        });
+    });
+});
+// --------------------------------------------------------shuffleText

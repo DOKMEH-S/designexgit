@@ -25,7 +25,7 @@ get_header(); ?>
                                 $phone = get_sub_field('phone') ?>
                                 <div class="contactInfoWrap">
                                     <span class="title"><?php echo get_sub_field('title'); ?></span>
-                                    <a href="tel:<?php echo str_replace(' ', '', $phone) ?>"><?php echo $phone; ?></a>
+                                    <a href="tel:<?php echo str_replace(' ', '', $phone) ?>" class="shuffle" data-text="<?php echo $phone; ?>"><?php echo $phone; ?></a>
                                 </div>
                             <?php endwhile;
                         endif;
@@ -33,14 +33,14 @@ get_header(); ?>
                         if ($email):?>
                             <div class="contactInfoWrap">
                                 <span class="title"><?php echo get_field('email_title'); ?></span>
-                                <a href="mailto:<?php echo antispambot($email); ?>"><?php echo antispambot($email); ?></a>
+                                <a href="mailto:<?php echo antispambot($email); ?>" class="shuffle" data-text="<?php echo antispambot($email); ?>"><?php echo antispambot($email); ?></a>
                             </div>
                         <?php endif;
                         $address = get_field('address');
                         if ($address):
                             $location = get_field('location'); ?>
                             <div class="contactInfoWrap address">
-                                <a href="mailto:https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>"><?php echo $address; ?></a>
+                                <a href="mailto:https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>" class="shuffle" data-text="<?php echo $address; ?>"><?php echo $address; ?></a>
                             </div>
                         <?php endif; ?>
                         <?php if (have_rows('social_media', 'option')): ?>
