@@ -388,8 +388,8 @@ function setSize() {
     fieldWidth = Math.round(displayWidth / fieldSize);
     fieldHeight = Math.round(displayHeight / fieldSize);
 
-    canvas.width = fieldWidth;
-    canvas.height = fieldHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     // Initialize fluid after canvas dimensions are set
     if (fluid) {
