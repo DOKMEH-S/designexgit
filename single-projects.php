@@ -11,7 +11,12 @@
         <div class="singleProjectNameInfoAwardsWrapper">
             <div class="singleProjectNameInfoWrapper">
                 <div class="projectNameDescriptionWrapper">
-                    
+                    <?php $logo = get_field('project_logo');
+                    if ($logo): ?>
+                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail']; ?>"
+                                alt="<?php echo $logo['alt']; ?>">
+                        </div>
+                    <?php endif; ?>
                     <h1><?php the_title(); ?></h1>
                     <?php if (has_excerpt()): ?>
                         <div class="description">
