@@ -64,9 +64,9 @@
 
             if ($video): ?>
                 <div class="singleProjectVideoContainer">
-                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster; ?>" id="projectVideo"
-                        data-url="<?php echo $video; ?>">
-                        <source src="<?php echo $video; ?>" type="video/mp4">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>" id="projectVideo"
+                        data-url="<?php echo $video['url']; ?>">
+                        <source src="<?php echo $video['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
                         <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
@@ -76,7 +76,7 @@
                 <?php
             elseif ($image): ?>
                 <div class="singleProjectVideoContainer">
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
                 </div>
                 <?php
             elseif ($vr): ?>
