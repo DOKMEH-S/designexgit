@@ -6,19 +6,15 @@
 */
 
 /*============SINGLE PROJECT HERO SECTION=============*/
-.singleProjectVideoContainer > * {
-    width: 100%;
-    height: 100%;
-}
-
-.singleProjectVideoContainer > img {
+.singleProjectVideoContainer > img,.singleProjectVideoContainer > video {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
-body[data-pagetype="singleProject"] main {
-
+.singleProjectVideoContainer iframe{
+    width: 100%;
+    height: 100%;
 }
 section.singleProjectHeroSectionContainer {
     position: relative;
