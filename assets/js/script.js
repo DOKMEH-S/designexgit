@@ -23,116 +23,79 @@ if (document.getElementById('menuContainer')) {
 }
 
 // =============================Menu
-const menuIcon = document.querySelector('.menu-icon .icon');
-// Assuming lenis is already defined and initialized somewhere in your code
-menuIcon.addEventListener('click', function() {
-    document.body.classList.toggle('opMenu');
-    if(document.querySelector('html').classList.contains('lenis')){
-        if (document.body.classList.contains('opMenu')) {
-            lenis.stop(); // Stop lenis when opMenu is added
-        } else {
-            lenis.start(); // Start lenis when opMenu is removed
+// Check if #menuContainer exists on the page
+if (document.querySelector('#menuContainer')) {
+    const menuIcon = document.querySelector('.menu-icon .icon');
+    // Assuming lenis is already defined and initialized somewhere in your code
+    menuIcon.addEventListener('click', function() {
+        document.body.classList.toggle('opMenu');
+        if (document.querySelector('html').classList.contains('lenis')) {
+            if (document.body.classList.contains('opMenu')) {
+                lenis.stop(); // Stop lenis when opMenu is added
+            } else {
+                lenis.start(); // Start lenis when opMenu is removed
+            }
         }
-    }
-});
-// Append all images to mediaSection
-// const mediaSection = document.querySelector('#menuContainer .mediaSection');
-// const navItems = document.querySelectorAll('#menuContainer .infoSection .navItem');
-// navItems.forEach(item => {
-//     const img = item.querySelector('.media img').cloneNode();
-//     img.classList.add('notSelected'); // Set notSelected class initially
-//     mediaSection.appendChild(img);
-// });
-
-// Event listeners for hover effect
-// document.querySelectorAll('#menuContainer .infoSection .navItem .title').forEach(title => {
-//     title.addEventListener('mouseenter', () => {
-//
-//         // Remove 'selected' class from all navItems
-//         document.querySelectorAll('#menuContainer .infoSection .navItem').forEach(item => {
-//             item.classList.remove('selected');
-//         });
-//
-//         // Add 'selected' class to the current navItem
-//         const navItem = title.parentElement;
-//         navItem.classList.add('selected');
-//
-//
-//         const selectedImgSrc = title.parentElement.querySelector('.media img').src;
-//         // Remove 'selected' class from all images and add 'notSelected'
-//         document.querySelectorAll('#menuContainer .mediaSection img').forEach(img => {
-//             img.classList.remove('selected');
-//             img.classList.add('notSelected');
-//         });
-//
-//         // Add 'selected' class to the current image
-//         const currentImg = Array.from(mediaSection.children).find(img => img.src === selectedImgSrc);
-//         if (currentImg) {
-//             currentImg.classList.add('selected');
-//             currentImg.classList.remove('notSelected');
-//         }
-//     });
-// });
-
-let menuLink = document.querySelectorAll('.menu-link');
-let subMenu = document.querySelectorAll('.subMenu');
-
-menuLink.forEach((menu,index) => {
-    menu.addEventListener('mouseenter', (e) => {
-        subMenu.forEach((sub) => {
-            sub.classList.remove('show');
-        });
-        subMenu[index].classList.add('show');
-        const image = menu.querySelector('.image_rev');
-        const imageW = image.offsetWidth / 2;
-        const imageH = image.offsetHeight / 2;
-        menu.classList.add('show');
-        gsap.to(image, {
-            duration: 0.5,
-            x: e.offsetX - imageW,
-            y: e.offsetY - imageH,
-            autoAlpha: 1
-        });
     });
-    menu.addEventListener('mouseleave', () => {
-        const image = menu.querySelector('.image_rev');
-        menu.classList.remove('show');
-        gsap.to(image, {
-            autoAlpha: 0,
-            rotation: 0 // Reset rotation
-        });
-    });
-    let timer,
-        oldX = 0;
-    menu.addEventListener('mousemove', (e) => {
-        const image = menu.querySelector('.image_rev');
-        const imageW = image.offsetWidth / 2;
-        const imageH = image.offsetHeight / 2;
-        let rotation;
-        if (e.pageX < oldX) {
-            //direction = "left";
-            rotation = (-1) * 7;
-        } else if (e.pageX > oldX) {
-            //direction = "right";
-            rotation =  7;
-        }
-        oldX = e.pageX;
-        // Calculate rotation
 
-        gsap.to(image, {
-            duration: 0.5,
-            x: e.offsetX - imageW,
-            y: e.offsetY - imageH,
-            rotation: rotation // Apply rotation
-        });
-        clearTimeout(timer);
-        timer = setTimeout(function () {
+    let menuLink = document.querySelectorAll('.menu-link');
+    let subMenu = document.querySelectorAll('.subMenu');
+
+    menuLink.forEach((menu, index) => {
+        menu.addEventListener('mouseenter', (e) => {
+            subMenu.forEach((sub) => {
+                sub.classList.remove('show');
+            });
+            subMenu[index].classList.add('show');
+            const image = menu.querySelector('.image_rev');
+            const imageW = image.offsetWidth / 2;
+            const imageH = image.offsetHeight / 2;
+            menu.classList.add('show');
             gsap.to(image, {
+                duration: 0.5,
+                x: e.offsetX - imageW,
+                y: e.offsetY - imageH,
+                autoAlpha: 1
+            });
+        });
+        menu.addEventListener('mouseleave', () => {
+            const image = menu.querySelector('.image_rev');
+            menu.classList.remove('show');
+            gsap.to(image, {
+                autoAlpha: 0,
                 rotation: 0 // Reset rotation
             });
-        },110);
+        });
+
+        let timer,
+            oldX = 0;
+        menu.addEventListener('mousemove', (e) => {
+            const image = menu.querySelector('.image_rev');
+            const imageW = image.offsetWidth / 2;
+            const imageH = image.offsetHeight / 2;
+            let rotation;
+            if (e.pageX < oldX) {
+                rotation = (-1) * 7;
+            } else if (e.pageX > oldX) {
+                rotation = 7;
+            }
+            oldX = e.pageX;
+
+            gsap.to(image, {
+                duration: 0.5,
+                x: e.offsetX - imageW,
+                y: e.offsetY - imageH,
+                rotation: rotation // Apply rotation
+            });
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                gsap.to(image, {
+                    rotation: 0 // Reset rotation
+                });
+            }, 110);
+        });
     });
-});
+}
 /*=============Scroll Direction*/
 let lastScrollTop = 0;
 

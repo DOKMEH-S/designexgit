@@ -47,10 +47,10 @@ function FluidField() {
         if (b === 1) {
             for (var i = 1; i <= width; i++) {
                 x[i] = x[i + rowSize];
-                x[i + (height+1) *rowSize] = x[i + height * rowSize];
+                x[i + (height + 1) * rowSize] = x[i + height * rowSize];
             }
 
-            for (var j = 1; i <= height; i++) {
+            for (var j = 1; j <= height; j++) {
                 x[j * rowSize] = -x[1 + j * rowSize];
                 x[(width + 1) + j * rowSize] = -x[width + j * rowSize];
             }
@@ -106,11 +106,10 @@ function FluidField() {
             }
 
             setBoundary(b, x);
-        }
-        else {
+        } else {
             var invC = 1 / c;
-            for (var k = 0 ; k < iterations; k++) {
-                for (var j = 1 ; j <= height; j++) {
+            for (var k = 0; k < iterations; k++) {
+                for (var j = 1; j <= height; j++) {
                     var lastRow = (j - 1) * rowSize;
                     var currentRow = j * rowSize;
                     var nextRow = (j + 1) * rowSize;
@@ -142,11 +141,10 @@ function FluidField() {
 
             setBoundary(1, x);
             setBoundary(2, y);
-        }
-        else {
+        } else {
             var invC = 1 / c;
-            for (var k = 0 ; k < iterations; k++) {
-                for (var j = 1 ; j <= height; j++) {
+            for (var k = 0; k < iterations; k++) {
+                for (var j = 1; j <= height; j++) {
                     var lastRow = (j - 1) * rowSize;
                     var currentRow = j * rowSize;
                     var nextRow = (j + 1) * rowSize;
@@ -172,7 +170,7 @@ function FluidField() {
             wp5 = width + 0.5,
             hp5 = height + 0.5;
 
-        for (var j = 1; j<= height; j++) {
+        for (var j = 1; j <= height; j++) {
             var pos = j * rowSize;
             for (var i = 1; i <= width; i++) {
                 var x = i - wdt0 * u[++pos],
@@ -205,7 +203,7 @@ function FluidField() {
 
     function project(u, v, p, div) {
         var h = -0.5 / Math.sqrt(width * height);
-        for (var j = 1 ; j <= height; j++) {
+        for (var j = 1; j <= height; j++) {
             var row = j * rowSize,
                 prevRow = (j - 1) * rowSize,
                 prevValue = row - 1,
@@ -226,7 +224,7 @@ function FluidField() {
         var wScale = 0.5 * width,
             hScale = 0.5 * height;
 
-        for (var j = 1; j<= height; j++) {
+        for (var j = 1; j <= height; j++) {
             var prevPos = j * rowSize - 1,
                 currentPos = j * rowSize,
                 nextPos = j * rowSize + 1,
@@ -234,7 +232,7 @@ function FluidField() {
                 currentRow = j * rowSize,
                 nextRow = (j + 1) * rowSize;
 
-            for (var i = 1; i<= width; i++) {
+            for (var i = 1; i <= width; i++) {
                 u[++currentPos] -= wScale * (p[++nextPos] - p[++prevPos]);
                 v[currentPos] -= hScale * (p[++nextRow] - p[++prevRow]);
             }
@@ -336,7 +334,7 @@ var get = document.querySelector.bind(document),
     fluid;
 
 function initBuffer() {
-
+    // This function can be used to initialize any additional buffers if needed
 }
 
 function updateFrame(field) {
@@ -387,17 +385,23 @@ function setSize() {
     displayWidth = Math.round(innerWidth);
     displayHeight = Math.round(innerHeight);
 
+    // Set the canvas width and height to match the document size
+    canvas.width = displayWidth;
+    canvas.height = displayHeight;
+
+    // Calculate field width and height based on new canvas dimensions
+    fieldWidth = Math.round(displayWidth / fieldSize);
+    fieldHeight = Math.round(displayHeight / fieldSize);
+
+    // Initialize the fluid simulation with the new dimensions
+    fluid.setResolution(fieldWidth, fieldHeight);
+
+    // Center the initial mouse position
     omx = displayWidth / 2;
     omy = displayHeight / 2;
 
     mx = omx + (Math.random() - 0.5) * 4;
     my = omy + (Math.random() - 0.5) * 4;
-
-    fieldWidth = Math.round(displayWidth / fieldSize);
-    fieldHeight = Math.round(displayHeight / fieldSize);
-
-    canvas.width = fieldWidth;
-    canvas.height = fieldHeight;
 }
 
 function init() {
