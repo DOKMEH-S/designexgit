@@ -896,7 +896,8 @@ form .textTypeInput .wpcf7-form-control-wrap::before {
     background-size: cover;
     background-repeat: no-repeat;
 }
-form .textTypeInput .wpcf7-form-control-wrap[data-name="message"]:before {
+form .textTypeInput .wpcf7-form-control-wrap[data-name="message"]:before,
+form .textTypeInput .wpcf7-form-control-wrap[data-name="your-message"]:before {
     top: 10rem;
 }
 form .textTypeInput input {
@@ -990,6 +991,13 @@ form .submitForm:hover input[type="submit"] {color: var(--primary);}
 
 form .submitForm:hover {
     background-color: var(--white);
+}
+.wpcf7 form.invalid .wpcf7-response-output {
+    border-color: #dc3232;
+    background-color: #dc3232;
+    color: var(--white);
+    margin-right: 0;
+    margin-left: 0;
 }
 /*========Upload========*/
 form .textTypeInput.upload {
