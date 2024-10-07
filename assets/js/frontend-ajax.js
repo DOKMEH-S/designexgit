@@ -139,4 +139,26 @@ jQuery(document).ready(function ($) {
             AjaxFunc(offset);
         }
     });
+
+
+
+    jQuery(document).ready(function($) {
+        $('#subscribe-form').on('submit', function(e) {
+            e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
+            var formData = $(this).serialize(); // سریالیزه کردن داده‌های فرم
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'), // آدرس ارسال فرم
+                data: formData,
+                success: function(response) {
+                    // نمایش پیام موفقیت یا خطا
+                    $('.mes').html(response);
+                },
+                error: function() {
+                    $('.mes').html('خطا در ارسال فرم.');
+                }
+            });
+        });
+    });
+
 });
