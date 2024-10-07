@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-IR">
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta charset="utf-8">
@@ -11,12 +10,10 @@
         footer {
             opacity: 0;
         }
-
         #menuContainer,
         #screenSaver {
             display: none;
         }
-
         <?php if (is_singular('projects') or is_page_template('tpls/contact.php') or is_page_template('tpls/services.php')): ?>
             #videoModal {
                 display: none;
@@ -27,9 +24,7 @@
             #mapProjectsContainer {
                 display: none;
             }
-
         <?php endif; ?>
-
         <?php if (is_front_page()): ?>
             #lottie {
                 background-color: #ffffff;
@@ -41,16 +36,12 @@
                 text-align: center;
                 opacity: 1;
             }
-
         <?php endif; ?>
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php') or is_front_page()): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
-    <?php endif; ?>
-    <?php if (is_front_page()): ?>
-        <link href="<?php ThemeAssets('css/loading.css');?>" rel="stylesheet" type="text/css">
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
@@ -90,8 +81,6 @@
         </div>
     </div>
 <?php endif; ?>
-
-
 <body data-pagetype="<?php if (is_front_page()): echo 'home';
 elseif (is_archive('projects')): echo 'archiveProject';
 elseif (is_singular('projects')): echo 'singleProject';
@@ -108,17 +97,20 @@ elseif (is_404()):
     echo 'notFound';
 endif; ?>">
     <?php if (!is_404()): ?>
+        <?php $pages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'tpls/contact.php'
+        ));
+        $contactID = $pages[0]->ID;
+        if($contactID):?>
+        <div class="startProject mobile"><a href="<?php the_permalink($contactID);?>" aria-label="Start a Project?">Start a Project?</a></div>
+        <?php endif;?>
         <header>
             <a href="<?php echo site_url('/'); ?>" class="identity">
                 <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                     alt="site logo" class="logo-img">
                 <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
             </a>
-            <?php $pages = get_pages(array(
-                'meta_key' => '_wp_page_template',
-                'meta_value' => 'contact.php'
-            ));
-            $contactID = $pages[0]->ID; ?>
             <div class="menu-icon">
                 <div class="quickMenu">
                     <nav>
@@ -216,5 +208,8 @@ endif; ?>">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
         </div>
-        <p class="slogan-text">where quality meets luxury, and innovation drives sustainability.</p>
+        <?php $screen_saver_text = get_field('screen_saver_text','option');
+        if($screen_saver_text):?>
+        <p class="slogan-text"><?php echo $screen_saver_text;?></p>
+        <?php endif;?>
     </div>

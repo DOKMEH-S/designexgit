@@ -1,4 +1,4 @@
-<?php if (!is_404()): ?>
+<?php if (!is_front_page() and !is_404()): ?>
     <footer class="paddingX">
         <div class="footerSides">
             <div class="footerSide">
@@ -40,18 +40,7 @@
                 <div class="footer-subscribe">
                     <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                     <div class="footer-subscribe-form">
-                        <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]');
-                        ?>
-                        <!--                    <form action="">-->
-                        <!--                        <div class="textTypeInput">-->
-                        <!--                            <input type="text" placeholder="Email">-->
-                        <!--                        </div>-->
-                        <!--                        <div class="checkboxTypeInput">-->
-                        <!--                            <input type="checkbox" name="email" id="confirmEmail">-->
-                        <!--                            <label for="confirmEmail"> I have read and accept the Privacy Policy </label>-->
-                        <!--                        </div>-->
-                        <!--                    </form>-->
-                        <div class="newsletter-message"> <?php // echo apply_filters('newsletter_view_message'); ?></div>
+                        <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]'); ?>
                     </div>
                     <!--                <input type="submit">-->
                 </div>
@@ -125,10 +114,12 @@
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
 <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php if (is_front_page()): ?>
-    <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+    <script defer src="<?php ThemeAssets('js/ScrollSmoother.min.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
+    <script defer src="<?php ThemeAssets('js/home-loading.js') ?>"></script>
+    <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
 <?php endif;
-if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
+if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src="<?php ThemeAssets('js/nodelay.js'); ?>"></script>
@@ -160,10 +151,13 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     document.addEventListener("DOMContentLoaded", function (event) {
         <?php if (!is_404()): ?>
             document.querySelector('header').style.opacity = '1';
+        <?php if (!is_front_page() and !is_404()): ?>
             document.querySelector('footer').style.opacity = '1';
-            document.getElementById('menuContainer').style.display = 'flex';
+            <?php endif;?>
+        document.querySelector('.startProject.mobile').style.opacity = '1';
+        document.getElementById('menuContainer').style.display = 'flex';
         <?php endif; ?>
-        document.querySelector('main').style.opacity = '1';
+        document.querySelector('main.wrapper').style.opacity = '1';
         <?php if (is_singular('projects') or is_page_template(array('tpls/services.php', 'tpls/about.php', 'tpls/contact.php'))) {
             if ($videoModal): ?>
                 if (document.getElementById('videoModal')) {
@@ -179,50 +173,50 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
     });
 </script>
 <?php if (is_front_page()): ?>
-    <script>
-        const loadingContainer = document.querySelector('.loading-container');
-
-        // setTimeout(() => {
-        //     loadingContainer.classList.add('getScale');
-        // }, 0);
-
-        setTimeout(() => {
-            loadingContainer.classList.add('getRotate');
-        }, 100);
-
-        setTimeout(() => {
-            loadingContainer.classList.add('getNumber');
-
-            // Add loseNumber class after 1 second
-            setTimeout(() => {
-                loadingContainer.classList.add('loseNumber');
-            }, 2000);
-
-        }, 500);
-
-        setTimeout(() => {
-            const counter = document.querySelectorAll('.percentCounter');
-            counter.forEach(item => {
-                let counterInnerText = parseInt(item.textContent, 10);
-                let count = 1;
-                let speed = item.dataset.speed / counterInnerText;
-
-                function counterUp() {
-                    item.textContent = count++ + '%'; // Add % here
-                    if (count > counterInnerText) {
-                        clearInterval(stop);
-                    }
-                }
-
-                const stop = setInterval(counterUp, speed);
-            });
-        }, 500);
-
-        setTimeout(() => {
-            // Add any final class to indicate loading is done
-            document.querySelector('html').classList.add('loadingDone');
-        }, 2500);
-    </script>
+<!--    <script>-->
+<!--        const loadingContainer = document.querySelector('.loading-container');-->
+<!---->
+<!--        // setTimeout(() => {-->
+<!--        //     loadingContainer.classList.add('getScale');-->
+<!--        // }, 0);-->
+<!---->
+<!--        setTimeout(() => {-->
+<!--            loadingContainer.classList.add('getRotate');-->
+<!--        }, 100);-->
+<!---->
+<!--        setTimeout(() => {-->
+<!--            loadingContainer.classList.add('getNumber');-->
+<!---->
+<!--            // Add loseNumber class after 1 second-->
+<!--            setTimeout(() => {-->
+<!--                loadingContainer.classList.add('loseNumber');-->
+<!--            }, 2000);-->
+<!---->
+<!--        }, 500);-->
+<!---->
+<!--        setTimeout(() => {-->
+<!--            const counter = document.querySelectorAll('.percentCounter');-->
+<!--            counter.forEach(item => {-->
+<!--                let counterInnerText = parseInt(item.textContent, 10);-->
+<!--                let count = 1;-->
+<!--                let speed = item.dataset.speed / counterInnerText;-->
+<!---->
+<!--                function counterUp() {-->
+<!--                    item.textContent = count++ + '%'; // Add % here-->
+<!--                    if (count > counterInnerText) {-->
+<!--                        clearInterval(stop);-->
+<!--                    }-->
+<!--                }-->
+<!---->
+<!--                const stop = setInterval(counterUp, speed);-->
+<!--            });-->
+<!--        }, 500);-->
+<!---->
+<!--        setTimeout(() => {-->
+<!--            // Add any final class to indicate loading is done-->
+<!--            document.querySelector('html').classList.add('loadingDone');-->
+<!--        }, 2500);-->
+<!--    </script>-->
 <?php endif; ?>
 <?php if (is_page_template('tpls/contact.php') or is_singular('projects')):
     $location = get_field('location');
