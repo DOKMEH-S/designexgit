@@ -59,17 +59,17 @@
         </div>
         <div class="singleProjectVideoMapContainer">
             <?php
-            $video = get_field('video');
+            $videoModal = get_field('video');
             $image = get_field('image');
             $vr = get_field('vr_url');
 
-            if ($video):
+            if ($videoModal):
                 $poster = get_field('poster');
                 ?>
                 <div class="singleProjectVideoContainer">
                     <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>"
-                        id="projectVideo" data-url="<?php echo $video['url']; ?>">
-                        <source src="<?php echo $video['url']; ?>" type="video/mp4">
+                        id="projectVideo" data-url="<?php echo $videoModal['url']; ?>">
+                        <source src="<?php echo $videoModal['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
                         <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
@@ -182,7 +182,7 @@
     ?>
 
 </main>
-<?php if ($video): ?>
+<?php if ($videoModal): ?>
     <div id="videoModal">
         <div class="videoContainer">
             <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>" controls>
@@ -193,5 +193,5 @@
             <span>close</span>
         </div>
     </div>
-<?php endif; ?>
-<?php get_footer();
+<?php endif;
+include get_template_directory() . '/footer.php';

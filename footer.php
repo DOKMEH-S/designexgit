@@ -155,11 +155,12 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         document.getElementById('menuContainer').style.display = 'flex';
         <?php endif; ?>
         document.querySelector('main').style.opacity = '1';
-        <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
+        <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) {
+            if($videoModal):?>
         if(document.getElementById('videoModal')){
             document.getElementById('videoModal').style.display = 'block';
         }
-        <?php   } ?>
+        <?php endif;  } ?>
         <?php if (is_archive('projects')): ?>
         document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>

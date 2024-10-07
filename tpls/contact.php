@@ -59,22 +59,22 @@ get_header(); ?>
                             <img src="<?php ThemeAssets('img/map.jpg'); ?>" alt="">
                         </div>
                     </div>
-                    <?php $video = get_field('video');
-                    if ($video):
+                    <?php $videoModal = get_field('video');
+                    if ($videoModal):
                     $poster = get_field('poster'); ?>
                     <div class="contactVideoWrapper">
-                        <?php $video_title = get_field('video_title');
-                        if ($video_title): ?>
+                        <?php $videoModal_title = get_field('video_title');
+                        if ($videoModal_title): ?>
                         <div class="titleWrap" id="Wrap">
-                            <h2 class="title-roboto"><?php echo $video_title; ?></h2>
+                            <h2 class="title-roboto"><?php echo $videoModal_title; ?></h2>
                         </div>
                         <?php endif; ?>
                         <div class="videoWrapper">
                             <video autoplay muted loop playsinline
                                    preload="auto" <?php if ($poster) { ?> poster="<?php echo $poster['sizes']['medium']; ?>" <?php } ?>
                                    id="projectVideo"
-                                   data-url="<?php echo $video; ?>">
-                                <source src="<?php echo $video; ?>" type="video/mp4">
+                                   data-url="<?php echo $videoModal; ?>">
+                                <source src="<?php echo $videoModal; ?>" type="video/mp4">
                             </video>
                             <div id="playVideo">
                                 <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
@@ -130,7 +130,7 @@ get_header(); ?>
             <?php endif; ?>
         <?php endwhile; ?>
     </main>
-<?php if ($video) : ?>
+<?php if ($videoModal) : ?>
     <div id="videoModal">
         <div class="videoContainer">
             <video id="modalVideo" loop playsinline preload="auto" poster="" controls>

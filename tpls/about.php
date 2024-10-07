@@ -4,7 +4,7 @@ get_header(); ?>
     <div id="newsletterLink-container">
         <span>Monthly Newsletter</span>
         <a href="">
-            <img src="./assets/img/link.svg" alt="link">
+            <img src="<?php ThemeAssets('img/link.svg');?>" alt="link">
             Subscribe here
         </a>
     </div>
@@ -171,9 +171,9 @@ get_header(); ?>
         $f_name = get_field('f_name');
         $position = get_field('position');
         $f_text = get_field('f_text');
-        $f_video = get_field('f_video');
+        $videoModal = get_field('f_video');
         $poster = get_field('video_poster');
-        if (($f_name and $f_video) or ($f_text and $f_video) or ($f_name and $f_text)): ?>
+        if (($f_name and $videoModal) or ($f_text and $videoModal) or ($f_name and $f_text)): ?>
 
             <section class="founderContainer paddingAboutL" id="founder">
                 <div class="founderInfoWrapper">
@@ -186,11 +186,11 @@ get_header(); ?>
                     </div>
                 </div>
                 <?php
-                if ($f_video): ?>
+                if ($videoModal): ?>
                     <div class="founderVideoWrapper">
                         <video id="founderVideo" autoplay muted loop playsinline preload="auto"
-                            poster="<?php echo $poster['sizes']['large']; ?>" data-url="<?php echo $f_video['url']; ?>">
-                            <source src="<?php echo $f_video['url']; ?>" type="video/mp4">
+                            poster="<?php echo $poster['sizes']['large']; ?>" data-url="<?php echo $videoModal['url']; ?>">
+                            <source src="<?php echo $videoModal['url']; ?>" type="video/mp4">
                         </video>
                         <div id="playFounder">
                             <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
@@ -310,7 +310,7 @@ get_header(); ?>
                 src="<?php ThemeAssets('img/link.svg'); ?>" alt="link"></a>
     </section>
 </main>
-<?php if ($f_video): ?>
+<?php if ($videoModal): ?>
     <div id="videoModal">
         <div class="videoContainer">
             <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
@@ -321,5 +321,5 @@ get_header(); ?>
             <span>close</span>
         </div>
     </div>
-<?php endif; ?>
-<?php get_footer();
+<?php endif;
+include get_template_directory() . '/footer.php';

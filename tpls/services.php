@@ -110,9 +110,9 @@ get_header(); ?>
     $sec1 = get_field('sec_title');
     $a_des = get_field('text');
     $a_title = get_field('a_title');
-    $a_video = get_field('a_video');
+    $videoModal = get_field('a_video');
     $a_poster = get_field('a_poster');
-    if ($a_des or $a_title or $a_video): ?>
+    if ($a_des or $a_title or $videoModal): ?>
         <section class="approachContainer">
             <div class="descriptionTitle">
                 <div class="description">
@@ -136,8 +136,8 @@ get_header(); ?>
 
                 <div class="singleProjectVideoContainer">
                     <video id="servicesVideo" autoplay="" muted="" loop="" playsinline="" preload="auto"
-                        poster="<?php echo $a_poster['sizes']['medium']; ?>" data-url="<?php echo $a_video['url']; ?>">
-                        <source src="<?php echo $a_video['url']; ?>" type="video/mp4">
+                        poster="<?php echo $a_poster['sizes']['medium']; ?>" data-url="<?php echo $videoModal['url']; ?>">
+                        <source src="<?php echo $videoModal['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
                         <img src="<?php ThemeAssets('img/outer-circle.svg'); ?>" alt="circle text">
@@ -152,7 +152,7 @@ get_header(); ?>
         <a href="<?php echo home_url('/projects'); ?>" aria-label="Projects">Projects</a>
     </section>
 </main>
-<?php if ($a_video or in_array($file_extension, ['mp4', 'webm'])): ?>
+<?php if ($videoModal or in_array($file_extension, ['mp4', 'webm'])): ?>
     <div id="videoModal">
         <div class="videoContainer">
             <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $a_poster['sizes']['medium']; ?>" controls>
@@ -163,5 +163,5 @@ get_header(); ?>
             <span>close</span>
         </div>
     </div>
-<?php endif; ?>
-<?php get_footer();
+<?php endif;
+include get_template_directory() . '/footer.php';
