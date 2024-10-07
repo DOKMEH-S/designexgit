@@ -160,10 +160,10 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
     background-position: center;
     background-repeat: no-repeat;
 }
-.blogItem.blur > *:not(.blogItem-info) ,
-.blogItem.blur .blogItem-info > * > :not(a)
-.blogItem.blur .blogItem-info > *:not(.blogItem-info_more) ,
-.blogItem.blur .blogItem-info > .blogItem-info_more > *:not(.link){
+.blogItem > *:not(.blogItem-info) ,
+.blogItem .blogItem-info > * > :not(a)
+.blogItem .blogItem-info > *:not(.blogItem-info_more) ,
+.blogItem .blogItem-info > .blogItem-info_more > *:not(.link){
     transition: all ease-in-out .4s;
 }
 .blogItem.blur > *:not(.blogItem-info) ,
