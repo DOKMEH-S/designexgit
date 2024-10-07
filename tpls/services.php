@@ -4,7 +4,7 @@ get_header(); ?>
     <div id="newsletterLink-container">
         <span>Monthly Newsletter</span>
         <a href="">
-            <img src="./assets/img/link.svg" alt="link">
+            <img src="<?php ThemeAssets('img/link.svg');?>" alt="link">
             Subscribe here
         </a>
     </div>
@@ -30,7 +30,7 @@ get_header(); ?>
                     $link = get_sub_field('right_link'); 
                     ?>
 
-                    <div class="serviceItem" id="serction<?php echo $count++;?>">
+                    <div class="serviceItem" id="section<?php echo $count++;?>">
                         <div class="title">
                             <h2>
                                 <?php echo $title1; ?> <br>
