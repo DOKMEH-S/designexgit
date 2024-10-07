@@ -11,9 +11,7 @@
             <div class="singleProjectNameInfoAwardsWrapper">
                 <div class="singleProjectNameInfoWrapper">
                     <div class="projectNameDescriptionWrapper">
-                        <div class="projectLogo"><img src="<?php ThemeAssets('img/sample/project-logo-1.png'); ?>"
-                                                      alt="">
-                        </div>
+                        <div class="projectLogo"><img src="<?php ThemeAssets('img/sample/project-logo-1.png'); ?>" alt=""></div>
                         <h1><?php the_title(); ?></h1>
                         <?php if (has_excerpt()) : ?>
                             <div class="description">
@@ -73,10 +71,14 @@
                     </div>
                 <?php
                 elseif ($image): ?>
+                <div class="singleProjectVideoContainer">
                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                </div>
                 <?php
                 elseif ($vr): ?>
+                <div class="singleProjectVideoContainer">
                     <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
+                </div>
                 <?php endif; ?>
                 <?php
                 $location = get_field('location');
