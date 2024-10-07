@@ -226,9 +226,6 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
-.lenis.lenis-smooth iframe {
-    pointer-events: none;
-}
 
 .angle {
     /*Move down and left at a 20-degree angle*/
