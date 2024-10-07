@@ -72,15 +72,13 @@ get_header(); ?>
                 <?php
                 $projects = get_field('project');
                 if ($projects): ?>
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper homeProjectContainer">
+                    <section class="homeProjectContainer">
                         <?php
                         foreach ($projects as $post):
                             setup_postdata($post);
                             $project_logo = get_field('project_logo');
                             $sketch_image = get_field('sketch_image');
                             $year = wp_get_object_terms($post->ID, 'project_type', array('parent' => 5)); ?>
-                        <div class="swiper-slide">
                             <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
                                data-url="<?php echo esc_url($sketch_image['sizes']['medium']); ?>">
                                 <div class="projectMedia">
@@ -99,11 +97,9 @@ get_header(); ?>
                                     </div>
                                 </div>
                             </a>
-                        </div>
                         <?php endforeach;
                         wp_reset_postdata(); ?>
-                    </div>
-                </div>
+                    </section>
                 <?php endif; ?>
             </main>
         </div>
