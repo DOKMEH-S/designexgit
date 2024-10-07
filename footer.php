@@ -63,7 +63,7 @@
                             $phone = get_sub_field('phone') ?>
                             <div class="item">
                                 <span class="title"><?php echo get_sub_field('title'); ?></span>
-                                <a href="tel:<?php echo str_replace(' ', '', $phone) ?>"
+                                <a class="shuffle" data-text="<?php echo $phone; ?>" href="tel:<?php echo str_replace(' ', '', $phone) ?>"
                                    aria-label="Phone Number"><?php echo $phone; ?></a>
                             </div>
                         <?php endwhile;
@@ -72,15 +72,15 @@
                     if ($email): ?>
                         <div class="item">
                             <span class="title"><?php echo get_field('email_title', $contact_id); ?></span>
-                            <a href="mailto:<?php echo antispambot($email); ?>"
+                            <a class="shuffle" data-text="<?php echo antispambot($email); ?>" href="mailto:<?php echo antispambot($email); ?>"
                                aria-label="Email"><?php echo antispambot($email); ?></a>
                         </div>
                     <?php endif;
                     $address = get_field('address', $contact_id);
                     if ($address):
                         $location = get_field('location', $contact_id); ?>
-                        <div class="item">
-                            <a
+                        <div class="item address">
+                            <a class="shuffle" data-text="<?php echo $address; ?>"
                                 href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] . ',' . $location['lng']; ?>"><?php echo $address; ?></a>
                         </div>
                     <?php endif; ?>
