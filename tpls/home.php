@@ -50,10 +50,19 @@ get_header(); ?>
                     <h3>Monthly Newsletter</h3>
                     <a href="" class="">Subscribe here</a>
                 </div>
-                <div class="homeItemsWrap">
-                    <h3>do you have a project?</h3>
-                    <a href="" class="">whatsapp</a>
-                </div>
+                <?php $pages = get_pages(array(
+                    'meta_key' => '_wp_page_template',
+                    'meta_value' => 'tpls/contact.php'
+                ));
+                $contactID = $pages[0]->ID; ?>
+                <?php
+                $whatsapp = get_field('whatsapp', $contactID);
+                if ($whatsapp): ?>
+                    <div class="homeItemsWrap">
+                        <h3>do you have a project?</h3>
+                        <a href="<?php echo $whatsapp; ?>"><?php echo get_field('whatsapp_text', $contactID); ?></a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -70,17 +79,17 @@ get_header(); ?>
                 <?php
                 $projects = get_field('project');
                 if ($projects): ?>
-                    <section class="homeProjectContainer">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper homeProjectContainer">
                         <?php
                         foreach ($projects as $post):
                             setup_postdata($post);
                             $project_logo = get_field('project_logo');
                             $sketch_image = get_field('sketch_image');
-                            $year = wp_get_object_terms($post->ID, 'project_type', array('parent' => 5));
-//                            var_dump($year);
-                            ?>
+                            $year = wp_get_object_terms($post->ID, 'project_type', array('parent' => 5)); ?>
+                        <div class="swiper-slide">
                             <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
-                               data-url="<?php echo esc_url($sketch_image['sizes']['large']); ?>">
+                               data-url="<?php echo esc_url($sketch_image['sizes']['medium']); ?>">
                                 <div class="projectMedia">
                                     <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
                                 </div>
@@ -91,17 +100,17 @@ get_header(); ?>
                                     <?php endif; ?>
                                     <div class="title-year">
                                         <h2 class="project_name">/<?php the_title(); ?></h2>
-                                        <?php if($year):?>
-                                        <span class="project_year"><?php  echo $year[0]->name; ?>/</span>
-                        <?php endif;?>
+                                        <?php if ($year): ?>
+                                            <span class="project_year"><?php echo $year[0]->name; ?>/</span>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </a>
-                        <?php
-                        endforeach;
-                        wp_reset_postdata();
-                        ?>
-                    </section>
+                        </div>
+                        <?php endforeach;
+                        wp_reset_postdata(); ?>
+                    </div>
+                </div>
                 <?php endif; ?>
             </main>
         </div>
