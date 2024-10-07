@@ -71,6 +71,9 @@ footer:before{
     row-gap: 3rem;
     width: 40%;
 }
+.footer-logo a {
+    display: inline-block;
+}
 .footer-logo img {
     width: 9.375rem;
     height: 8.5rem;
