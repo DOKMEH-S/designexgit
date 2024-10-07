@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        main.wrapper,
-        header {
+        main,header,footer {
             opacity: 0;
         }
 
@@ -26,8 +25,9 @@
             #mapProjectsContainer {
                 display: none;
             }
-
         <?php endif; ?>
+
+        <?php if (is_front_page()): ?>
         #lottie{
             background-color:#ffffff;
             width:100%;
@@ -38,6 +38,7 @@
             text-align: center;
             opacity: 1;
         }
+        <?php endif; ?>
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">

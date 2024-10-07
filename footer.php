@@ -149,9 +149,12 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
 <?php wp_footer(); ?>
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
+        <?php if(!is_404()):?>
         document.querySelector('header').style.opacity = '1';
-        document.querySelector('main').style.opacity = '1';
+        document.querySelector('footer').style.opacity = '1';
         document.getElementById('menuContainer').style.display = 'flex';
+        <?php endif; ?>
+        document.querySelector('main').style.opacity = '1';
         <?php  if (is_singular('projects') or is_page_template(array('tpls/services.php','tpls/about.php','tpls/contact.php')) ) { ?>
         if(document.getElementById('videoModal')){
             document.getElementById('videoModal').style.display = 'block';
@@ -161,7 +164,6 @@ if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         document.getElementById('mapProjectsContainer').style.display = 'flex';
         <?php endif; ?>
         document.getElementById('screenSaver').style.display = 'flex';
-        document.getElementById('menuContainer').style.display = 'flex';
 
     });
 </script>
