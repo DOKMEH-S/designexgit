@@ -9,8 +9,8 @@ get_header(); ?>
         </a>
     </div>
     <div class="pageTitle">
-        <span>What We Offer</span>
-        <h1>our services</h1>
+        <span><?php echo get_field('title');?></span>
+        <h1><?php echo get_the_title();?></h1>
     </div>
     <?php if (have_rows('services')): 
         $count = 1;?>
