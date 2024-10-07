@@ -47,10 +47,10 @@ function FluidField() {
         if (b === 1) {
             for (var i = 1; i <= width; i++) {
                 x[i] = x[i + rowSize];
-                x[i + (height + 1) * rowSize] = x[i + height * rowSize];
+                x[i + (height+1) *rowSize] = x[i + height * rowSize];
             }
 
-            for (var j = 1; j <= height; j++) {
+            for (var j = 1; i <= height; i++) {
                 x[j * rowSize] = -x[1 + j * rowSize];
                 x[(width + 1) + j * rowSize] = -x[width + j * rowSize];
             }
@@ -172,7 +172,7 @@ function FluidField() {
             wp5 = width + 0.5,
             hp5 = height + 0.5;
 
-        for (var j = 1; j <= height; j++) {
+        for (var j = 1; j<= height; j++) {
             var pos = j * rowSize;
             for (var i = 1; i <= width; i++) {
                 var x = i - wdt0 * u[++pos],
@@ -205,7 +205,7 @@ function FluidField() {
 
     function project(u, v, p, div) {
         var h = -0.5 / Math.sqrt(width * height);
-        for (var j = 1; j <= height; j++) {
+        for (var j = 1 ; j <= height; j++) {
             var row = j * rowSize,
                 prevRow = (j - 1) * rowSize,
                 prevValue = row - 1,
@@ -226,7 +226,7 @@ function FluidField() {
         var wScale = 0.5 * width,
             hScale = 0.5 * height;
 
-        for (var j = 1; j <= height; j++) {
+        for (var j = 1; j<= height; j++) {
             var prevPos = j * rowSize - 1,
                 currentPos = j * rowSize,
                 nextPos = j * rowSize + 1,
@@ -234,7 +234,7 @@ function FluidField() {
                 currentRow = j * rowSize,
                 nextRow = (j + 1) * rowSize;
 
-            for (var i = 1; i <= width; i++) {
+            for (var i = 1; i<= width; i++) {
                 u[++currentPos] -= wScale * (p[++nextPos] - p[++prevPos]);
                 v[currentPos] -= hScale * (p[++nextRow] - p[++prevRow]);
             }
@@ -336,7 +336,7 @@ var get = document.querySelector.bind(document),
     fluid;
 
 function initBuffer() {
-    // Not needed in this implementation
+
 }
 
 function updateFrame(field) {
@@ -371,13 +371,21 @@ function drawFrame(field) {
 }
 
 function updateFluid() {
-    requestAnimationFrame(updateFluid);
+    updateID = requestAnimationFrame(updateFluid);
     fluid.update();
 }
 
+function getNormHeight() {
+    return innerHeight / fieldHeight / fieldSize;
+}
+
+function getNormWidth() {
+    return innerWidth / fieldWidth / fieldSize;
+}
+
 function setSize() {
-    displayWidth = Math.round(window.innerWidth);
-    displayHeight = Math.round(window.innerHeight);
+    displayWidth = Math.round(innerWidth);
+    displayHeight = Math.round(innerHeight);
 
     omx = displayWidth / 2;
     omy = displayHeight / 2;
@@ -388,13 +396,8 @@ function setSize() {
     fieldWidth = Math.round(displayWidth / fieldSize);
     fieldHeight = Math.round(displayHeight / fieldSize);
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Initialize fluid after canvas dimensions are set
-    if (fluid) {
-        fluid.setResolution(fieldWidth, fieldHeight);
-    }
+    canvas.width = fieldWidth;
+    canvas.height = fieldHeight;
 }
 
 function init() {
@@ -447,19 +450,11 @@ function init() {
         my = event.clientY / getNormHeight();
     };
 
-    // Initialize fluid instance here
     fluid = new FluidField();
-    fluid.setResolution(fieldWidth, fieldHeight); // Set resolution after initialization
+    fluid.setResolution(canvas.width, canvas.height);
 
+    drawing = true;
     updateFluid();
-}
-
-function getNormHeight() {
-    return innerHeight / fieldHeight / fieldSize;
-}
-
-function getNormWidth() {
-    return innerWidth / fieldWidth / fieldSize;
 }
 
 on('DOMContentLoaded', init);
