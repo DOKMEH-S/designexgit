@@ -193,8 +193,7 @@ endif; ?>">
 <?php endif; ?>
     <div id="screenSaver">
         <div class="ss-container">
-            <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                alt="site logo" class="logo-img">
-            <img src="<?php ThemeAssets('img/logo-text.webp'); ?>" alt="logo" class="logo-text">
+            <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
         </div>
+        <p class="slogan-text">where quality meets luxury, and innovation drives sustainability.</p>
     </div>
