@@ -1,3 +1,4 @@
+<?php if(!is_404()):?>
 <footer class="paddingX">
     <div class="footerSides">
         <div class="footerSide">
@@ -109,6 +110,7 @@
         </div>
     </div>
 </footer>
+<?php endif;?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
