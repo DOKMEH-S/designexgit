@@ -27,7 +27,7 @@ section.singleProjectHeroSectionContainer {
 }
 .projectLogo {
     position: absolute;
-    bottom: 0.5rem;
+    top: 4rem;
     left: calc(var(--spaceL)* -1);
     width: var(--spaceL);
     height: 3.125rem;
@@ -643,7 +643,7 @@ section.relatedProjectsContainer::before {
     }
     .projectLogo {
         bottom: auto;
-        top: -.5rem;
+        top: -0.5rem;
         width: calc(var(--spaceL));
         left: calc(var(--spaceL)*-1);
     }
