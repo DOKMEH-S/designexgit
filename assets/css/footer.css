@@ -317,6 +317,7 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     footer {
         padding-top: 4.5rem;
         padding-bottom: calc(var(--headerHeight) + 3rem);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, var(--primary) 30%, var(--primary) 100%);
     }
 
     .footer-logo img {
