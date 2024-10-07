@@ -11,12 +11,10 @@
         <div class="singleProjectNameInfoAwardsWrapper">
             <div class="singleProjectNameInfoWrapper">
                 <div class="projectNameDescriptionWrapper">
-                    <?php
-                    $logo = get_field('project_logo');
-                    if ($logo && is_array($logo) && isset($logo['sizes']['thumbnail'], $logo['alt'])): ?>
-                        <div class="projectLogo">
-                            <img src="<?php echo esc_url($logo['sizes']['thumbnail']); ?>"
-                                alt="<?php echo esc_attr($logo['alt']); ?>">
+                    <?php $logo = get_field('project_logo');
+                    if ($logo): ?>
+                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['medium']; ?>"
+                                alt="<?php echo $logo['alt']; ?>">
                         </div>
                     <?php endif; ?>
                     <h1><?php the_title(); ?></h1>
