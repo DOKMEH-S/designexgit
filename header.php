@@ -83,8 +83,10 @@ elseif (is_singular('post')):
     echo 'singleBlog';
 elseif (is_page_template('tpls/services.php')):
     echo 'services';
+elseif (is_404()):
+    echo 'notFound';
 endif; ?>">
-    <!-- <div class="startProject mobile"><a href="./contact.html" aria-label="Start a Project?">Start a Project?</a></div> -->
+<?php if (!is_404()):?>
     <header>
         <a href="<?php echo site_url('/'); ?>" class="identity">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
@@ -96,8 +98,6 @@ endif; ?>">
             'meta_value' => 'contact.php'
         ));
         $contactID = $pages[0]->ID; ?>
-        <!-- <div class="startProject"><a href="<?php echo get_the_permalink($contactID); ?>"
-                aria-label="Start a Project?">Start a Project?</a></div> -->
         <div class="menu-icon">
             <div class="quickMenu">
                 <nav>
@@ -127,9 +127,8 @@ endif; ?>">
     <?php if (have_rows('menu_items', 'option')): ?>
         <div id="menuContainer" data-lenis-prevent>
             <div class="menu-list">
-
-                <?php $counter = 1; ?>
-                <?php while (have_rows('menu_items', 'option')):
+                <?php $counter = 1;
+                while (have_rows('menu_items', 'option')):
                     the_row();
                     $menu_link = get_sub_field('link');
                     $menu_image = get_sub_field('image');
@@ -141,9 +140,7 @@ endif; ?>">
                             alt="<?php echo esc_attr($menu_image['alt']); ?>">
                     </a>
                 <?php endwhile; ?>
-
             </div>
-
             <div class="subMenuContainer">
                 <?php while (have_rows('menu_items', 'option')):
                     the_row(); ?>
@@ -193,7 +190,7 @@ endif; ?>">
             </div>
         </div>
     <?php endif; ?>
-
+<?php endif; ?>
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php echo $logo ? $logo['sizes']['thumbnail'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
