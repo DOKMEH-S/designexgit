@@ -31,7 +31,6 @@ menuIcon.addEventListener('click', function() {
     document.body.classList.toggle('opMenu');
     if(document.querySelector('html').classList.contains('lenis')){
         if (document.body.classList.contains('opMenu')) {
-            console.log('hey')
             lenis.stop(); // Stop lenis when opMenu is added
         } else {
             lenis.start(); // Start lenis when opMenu is removed
@@ -82,7 +81,6 @@ let subMenu = document.querySelectorAll('.subMenu');
 
 menuLink.forEach((menu,index) => {
     menu.addEventListener('mouseenter', (e) => {
-        console.log(index);
         subMenu.forEach((sub) => {
             sub.classList.remove('show');
         });
