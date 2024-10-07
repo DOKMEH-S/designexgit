@@ -236,6 +236,13 @@ footer:before{
     display: block;
     font-size: 1rem;
 }
+.footer-contact-items .item a {
+    display: block;
+    height: 2rem;
+}
+.footer-contact-items .item.address a {
+    height: 4rem;
+}
 .footerPolicyDokmeh {
     display: -webkit-box;
     display: -ms-flexbox;
