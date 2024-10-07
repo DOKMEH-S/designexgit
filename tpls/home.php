@@ -99,7 +99,7 @@ get_header(); ?>
                                     <div class="title-year">
                                         <h2 class="project_name">/<?php the_title(); ?></h2>
                                         <?php if ($year): ?>
-                                            <span class="project_year">2022/</span>
+                                            <span class="project_year"><?php echo $year[0]->name; ?>/</span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
