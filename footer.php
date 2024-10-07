@@ -2,9 +2,13 @@
     <div class="footerSides">
         <div class="footerSide">
             <?php $logo = get_field('footer_logo', 'option'); ?>
-            <div class="footer-logo"><img
-                    src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
-                    alt="footer logo"></div>
+            <div class="footer-logo">
+                <a href="" aria-label="designex">
+                    <img
+                        src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
+                        alt="footer logo">
+                </a>
+            </div>
             <?php $f_dess = get_field('f_des', 'option');
             if ($f_dess): ?>
                 <div class="footer-text">
@@ -14,7 +18,7 @@
             <div class="footer-mailSocial">
                 <?php $f_email = get_field('f_email', 'option');
                 if ($f_dess): ?>
-                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail"
+                    <a href="mailto:<?php echo antispambot($f_email); ?>" class="footer-mailSocial_mail shuffle" data-text="<?php echo antispambot($f_email); ?>"
                        aria-label="mail"><?php echo antispambot($f_email); ?></a>
                 <?php endif; ?>
                 <?php if (have_rows('social_media', 'option')): ?>
@@ -96,7 +100,7 @@
                     the_row();
                     $text = get_sub_field('text');
                     $link = get_sub_field('link'); ?>
-                    <a href="<?php echo $link;?>" class="item" aria-label="2024. All Right Reserved"> <?php echo $text;?></a>
+                    <a class="shuffle" data-text="<?php echo $text;?>" href="<?php echo $link;?>" class="item" aria-label="2024. All Right Reserved"> <?php echo $text;?></a>
                 <?php endwhile; ?>
             </div>
         <?php endif; ?>
@@ -106,9 +110,6 @@
         </div>
     </div>
 </footer>
-<?php if (is_archive('projects')): ?>
-    <script defer src='<?php ThemeAssets('js/jQuery.min.js'); ?>'></script>
-<?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
