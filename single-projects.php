@@ -13,7 +13,8 @@
                 <div class="projectNameDescriptionWrapper">
                     <?php $logo = get_field('project_logo');
                     if ($logo): ?>
-                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail'] ?>" alt="<?php echo $logo['alt'];?>">
+                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail']; ?>"
+                                alt="<?php echo $logo['alt']; ?>">
                         </div>
                     <?php endif; ?>
                     <h1><?php the_title(); ?></h1>
@@ -37,8 +38,8 @@
             <?php $p_link = get_field('p_link');
             $p_name = get_field('p_title');
             $p_image = get_field('p_image');
-            $p_des = get_field('p_des'); 
-            // if ($p_link or $p_name or $p_image or $p_des):  ?>
+            $p_des = get_field('p_des');
+            ?>
             <div class="singleProjectAwardsWrapper">
                 <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
                     <div class="awardsTitle">
@@ -53,7 +54,7 @@
                     <p><?php echo $p_des; ?></p>
                 </div>
             </div>
-            
+
         </div>
         <div class="singleProjectVideoMapContainer">
             <?php
@@ -64,8 +65,8 @@
 
             if ($video): ?>
                 <div class="singleProjectVideoContainer">
-                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>" id="projectVideo"
-                        data-url="<?php echo $video['url']; ?>">
+                    <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>"
+                        id="projectVideo" data-url="<?php echo $video['url']; ?>">
                         <source src="<?php echo $video['url']; ?>" type="video/mp4">
                     </video>
                     <div id="playVideo">
