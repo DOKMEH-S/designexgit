@@ -767,6 +767,18 @@ html.mouseStopped #screenSaver {
     width: 30rem;
     height: 100%;
 }
+#screenSaver p.slogan-text {
+    position: absolute;
+    bottom: calc(var(--spaceX)*.5);
+    right: calc(var(--spaceX)*.5);
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-transform: uppercase;
+    width: 36%;
+    margin-left: auto;
+    text-align: right;
+}
 /*=============screenSaver===============*/
 #see-more {
     position: absolute;
