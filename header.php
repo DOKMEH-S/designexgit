@@ -31,14 +31,13 @@
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
-    <link href="<?php ThemeAssets('css/loading.css'); ?>" rel="stylesheet" type="text/css">
     <?php if (is_singular('projects') or is_page_template('tpls/about.php')): ?>
         <link href="<?php ThemeAssets('css/swiper-bundle.min.css'); ?>" rel="stylesheet" type="text/css">
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
 <?php $logo = get_field('logo', 'option'); ?>
-<?php if (is_home()): ?>
+<?php if (is_front_page()): ?>
     <div id="loading">
         <div class="loadingCovers">
             <div class="loadingCover"></div>
