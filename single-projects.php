@@ -38,7 +38,7 @@
             $p_name = get_field('p_title');
             $p_image = get_field('p_image');
             $p_des = get_field('p_des'); 
-            if ($p_link or $p_name or $p_image or $p_des):  ?>
+            // if ($p_link or $p_name or $p_image or $p_des):  ?>
             <div class="singleProjectAwardsWrapper">
                 <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
                     <div class="awardsTitle">
@@ -53,7 +53,7 @@
                     <p><?php echo $p_des; ?></p>
                 </div>
             </div>
-            <?php endif;?>
+            
         </div>
         <div class="singleProjectVideoMapContainer">
             <?php
