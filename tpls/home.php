@@ -61,6 +61,7 @@ get_header(); ?>
                         $project_logo = get_field('project_logo');
                         $sketch_image = get_field('sketch_image');
                         $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
+                        var_dump($year);
                         ?>
                         <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
                             data-url="<?php echo esc_url($sketch_image['sizes']['large']); ?>">
