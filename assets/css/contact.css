@@ -49,7 +49,14 @@ section.contactInfoMapFormContainer {
     display: block;
     margin-bottom: 1rem;
 }
+.contactInfoWrap a.shuffle {
+    display: block;
+    height: 2rem;
+}
 
+.contactInfoWrap.address a.shuffle {
+    height: 6rem;
+}
 .contactInfoWrap span.title {
     display: block;
     text-transform: capitalize;
@@ -622,6 +629,9 @@ progress[value]::-webkit-progress-bar {
     .contactInfoMapContainer {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+    }
+    .contactInfoWrap.address {
+        width: 100%;
     }
     .contactInfoMapContainer::before {
         display: none;
