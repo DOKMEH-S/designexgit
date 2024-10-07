@@ -60,16 +60,7 @@ get_header(); ?>
                         setup_postdata($post);
                         $project_logo = get_field('project_logo');
                         $sketch_image = get_field('sketch_image');
-                        $categories = get_the_terms($post->ID, 'category');
-                        $project_year = '';
-                        if ($categories) {
-                            foreach ($categories as $category) {
-                                if ($category->term_id == 5) {
-                                    $project_year = $category->name;
-                                    break;
-                                }
-                            }
-                        }
+                        $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
                         ?>
                         <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
                             data-url="<?php echo esc_url($sketch_image['sizes']['large']); ?>">
@@ -80,7 +71,7 @@ get_header(); ?>
                                 <img src="<?php echo esc_url($project_logo['sizes']['thumbnail']); ?>" alt="<?php echo $project_logo['alt'];?>" class="logo">
                                 <div class="title-year">
                                     <h2 class="project_name">/<?php the_title(); ?></h2>
-                                    <span class="project_year"><?php echo esc_html($project_year); ?>/</span>
+                                    <span class="project_year"><?php echo ($year ? $year[0]->name : '');?>/</span>
                                 </div>
                             </div>
                         </a>
