@@ -120,7 +120,13 @@ footer:before{
 .footer-mailSocial_social span {
     font-size: 1.2rem;
 }
+.footer-mailSocial_social a [class^=icon-] {
+    transition: all ease-in-out .35s;
+}
 
+.footer-mailSocial_social a [class^=icon-]:hover {
+    color: var(--primary);
+}
 .footer-subscribe .title {
     display: block;
     font-size: 1rem;

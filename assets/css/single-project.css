@@ -183,6 +183,10 @@ html.loadingDone .singleProjectAwardsWrapper{
     margin-right: .5rem;
 }
 
+.singleProjectVideoMapContainer > * {
+    width: 100%;
+    height: 40vh;
+}
 
 #singleProjectMap {
     width: 100%;
@@ -673,7 +677,9 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 5rem;
     }
-
+    .singleProjectVideoMapContainer > * {
+        height: 33vh;
+    }
     #singleProjectMap {
         height: 33vh;
     }
