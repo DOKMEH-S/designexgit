@@ -3,7 +3,7 @@
     <div id="newsletterLink-container">
         <span>Monthly Newsletter</span>
         <a href="">
-            <img src="./assets/img/link.svg" alt="link">
+            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
             Subscribe here
         </a>
     </div>
@@ -13,7 +13,7 @@
                 <div class="projectNameDescriptionWrapper">
                     <?php $logo = get_field('project_logo');
                     if ($logo): ?>
-                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['medium']; ?>"
+                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail']; ?>"
                                 alt="<?php echo $logo['alt']; ?>">
                         </div>
                     <?php endif; ?>
@@ -37,33 +37,35 @@
             </div>
             <?php $p_link = get_field('p_link');
             $p_name = get_field('p_title');
-            $p_image = get_field('p_image');
-            $p_des = get_field('p_des');
-            ?>
-            <div class="singleProjectAwardsWrapper">
-                <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
-                    <div class="awardsTitle">
-                        <h2><?php echo $p_name; ?></h2>
-                        <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="">
-                    </div>
-                    <div class="awardsLogo">
-                        <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
-                    </div>
-                </a>
-                <div class="awardsDescription">
-                    <p><?php echo $p_des; ?></p>
-                </div>
-            </div>
 
+            if ($p_link and $p_name):
+                $p_image = get_field('p_image');
+                $p_des = get_field('p_des'); ?>
+                <div class="singleProjectAwardsWrapper">
+                    <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
+                        <div class="awardsTitle">
+                            <h2><?php echo $p_name; ?></h2>
+                            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="award link">
+                        </div>
+                        <div class="awardsLogo">
+                            <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
+                        </div>
+                    </a>
+                    <div class="awardsDescription">
+                        <p><?php echo $p_des; ?></p>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="singleProjectVideoMapContainer">
             <?php
             $video = get_field('video');
-            $poster = get_field('poster');
             $image = get_field('image');
             $vr = get_field('vr_url');
 
-            if ($video): ?>
+            if ($video):
+                $poster = get_field('poster');
+                ?>
                 <div class="singleProjectVideoContainer">
                     <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>"
                         id="projectVideo" data-url="<?php echo $video['url']; ?>">
@@ -100,9 +102,7 @@
     $gallery = get_field('gallery');
     if ($gallery): ?>
         <section class="singleProjectGalleryContainer">
-
             <div class="swiper mySwiper">
-
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
@@ -110,28 +110,19 @@
                                 alt="<?php echo isset($image_url['alt']) ? esc_attr($image_url['alt']) : ''; ?>">
                         </div>
                     <?php endforeach; ?>
-
                 </div>
-
             </div>
 
             <div class="slider-arrows-pagination">
-
                 <div class="swiper-button-next"></div>
-
                 <div class="swiper-pagination"></div>
-
                 <div class="swiper-button-prev"></div>
-
             </div>
-
         </section>
     <?php endif; ?>
 
     <section class="singleProjectContent">
-
         <?php the_content(); ?>
-
     </section>
     <?php
     $project_types = wp_get_post_terms(get_the_ID(), 'project_type');
@@ -194,7 +185,7 @@
 <?php if ($video): ?>
     <div id="videoModal">
         <div class="videoContainer">
-            <video id="modalVideo" loop playsinline preload="auto" poster="" controls>
+            <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $poster['sizes']['large']; ?>" controls>
                 <source id="modalVideoSrc" src="" type="video/mp4">
             </video>
         </div>
