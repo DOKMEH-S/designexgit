@@ -533,10 +533,32 @@ body.opMenu #menuContainer {
         justify-content: flex-end;
     }
     header .menu-icon .icon {width: 16vw;}
+    .subMenuContainer {
+        display: none;
+    }
+
+    .menu-list {
+        padding-right: var(--spaceX);
+        padding-bottom: 0;
+    }
+
+    .item-title {
+        font-size: 2.5rem;
+    }
+
+    .menu-list .menu-link {
+        padding: 0.5rem 0 0.5rem var(--spaceX);
+    }
+    .menu-list .menu-link .image_rev{
+        display: none;
+    }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
     header .menu-icon .icon {
         width: 10vw;
+    }
+    .menu-list .menu-link {
+        padding: 0.75rem 0 0.75rem var(--spaceX);
     }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
@@ -549,14 +571,55 @@ body.opMenu #menuContainer {
         -ms-flex-direction: column;
         flex-direction: column;
     }
+    .menu-list .menu-link .image_rev {
+        display: none;
+    }
+
+    #menuContainer .extraLinks {
+        width: calc(50vw - var(--spaceX));
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     /*==============MENU===============*/
+    .item-title {
+        font-size: 2.15rem;
+    }
 
+    .menu-list .menu-link {
+        padding: 0.65rem 0 0.65rem var(--spaceX);
+    }
+
+    .subMenuContainer .subMenu ul li a {
+        font-size: 1.1rem;
+    }
+
+    #menuContainer .extraLinks {
+        width: 26vw;
+    }
+
+    .menu-list .menu-link .image_rev {
+        width: 170px;
+        height: 210px;
+    }
     /*==============MENU===============*/
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     /*==============MENU================*/
+    .item-title {
+        font-size: 2.5rem;
+    }
 
+    .menu-list .menu-link {
+        padding: 0.65rem 0 0.65rem var(--spaceX);
+    }
+
+    .subMenuContainer .subMenu ul li a {
+        font-size: 1.15rem;
+    }
+
+    .menu-list .menu-link .image_rev {
+        width: 190px;
+        height: 250px;
+    }
     /*==============MENU================*/
 }
