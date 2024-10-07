@@ -13,8 +13,7 @@
                 <div class="projectNameDescriptionWrapper">
                     <?php $logo = get_field('project_logo');
                     if ($logo): ?>
-                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail'] ?>"
-                                alt="<?php echo $logo['alt']; ?>">
+                        <div class="projectLogo"><img src="<?php echo $logo['sizes']['thumbnail'] ?>" alt="<?php echo $logo['alt'];?>">
                         </div>
                     <?php endif; ?>
                     <h1><?php the_title(); ?></h1>
@@ -38,23 +37,23 @@
             <?php $p_link = get_field('p_link');
             $p_name = get_field('p_title');
             $p_image = get_field('p_image');
-            $p_des = get_field('p_des');
-            if (($p_link and $p_name) or ($p_link and $p_image) or ($p_link and $p_des)): ?>
-                <div class="singleProjectAwardsWrapper">
-                    <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
-                        <div class="awardsTitle">
-                            <h2><?php echo $p_name; ?></h2>
-                            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="">
-                        </div>
-                        <div class="awardsLogo">
-                            <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
-                        </div>
-                    </a>
-                    <div class="awardsDescription">
-                        <p><?php echo $p_des; ?></p>
+            $p_des = get_field('p_des'); 
+            if ($p_link or $p_name or $p_image or $p_des):  ?>
+            <div class="singleProjectAwardsWrapper">
+                <a href="<?php echo $p_link; ?>" target="_blank" class="awardsTitleLogoWrapper">
+                    <div class="awardsTitle">
+                        <h2><?php echo $p_name; ?></h2>
+                        <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="">
                     </div>
+                    <div class="awardsLogo">
+                        <img src="<?php echo $p_image['sizes']['thumbnail']; ?>" alt="<?php echo $p_image['alt']; ?>">
+                    </div>
+                </a>
+                <div class="awardsDescription">
+                    <p><?php echo $p_des; ?></p>
                 </div>
-            <?php endif; ?>
+            </div>
+            <?php endif;?>
         </div>
         <div class="singleProjectVideoMapContainer">
             <?php
