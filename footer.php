@@ -111,13 +111,14 @@
 <?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
-<script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
-<script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php if (is_front_page()): ?>
     <script defer src="<?php ThemeAssets('js/ScrollSmoother.min.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
-    <script defer src="<?php ThemeAssets('js/home-loading.js') ?>"></script>
-    <script defer src="<?php ThemeAssets('js/loading.js') ?>"></script>
+<!--    <script defer src="--><?php //ThemeAssets('js/home-loading.js') ?><!--"></script>-->
+<!--    <script defer src="--><?php //ThemeAssets('js/loading.js') ?><!--"></script>-->
+<?php else:?>
+    <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
+    <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php endif;
 if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
@@ -173,6 +174,50 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     });
 </script>
 <?php if (is_front_page()): ?>
+    <script>
+        const loadingContainer = document.querySelector('.loading-container');
+
+        // setTimeout(() => {
+        //     loadingContainer.classList.add('getScale');
+        // }, 0);
+
+        setTimeout(() => {
+            loadingContainer.classList.add('getRotate');
+        }, 100);
+
+        setTimeout(() => {
+            loadingContainer.classList.add('getNumber');
+
+            // Add loseNumber class after 1 second
+            setTimeout(() => {
+                loadingContainer.classList.add('loseNumber');
+            }, 2000);
+
+        }, 500);
+
+        setTimeout(() => {
+            const counter = document.querySelectorAll('.percentCounter');
+            counter.forEach(item => {
+                let counterInnerText = parseInt(item.textContent, 10);
+                let count = 1;
+                let speed = item.dataset.speed / counterInnerText;
+
+                function counterUp() {
+                    item.textContent = count++ + '%'; // Add % here
+                    if (count > counterInnerText) {
+                        clearInterval(stop);
+                    }
+                }
+
+                const stop = setInterval(counterUp, speed);
+            });
+        }, 500);
+
+        setTimeout(() => {
+            // Add any final class to indicate loading is done
+            document.querySelector('html').classList.add('loadingDone');
+        }, 2500);
+    </script>
 <!--    <script>-->
 <!--        const loadingContainer = document.querySelector('.loading-container');-->
 <!---->
