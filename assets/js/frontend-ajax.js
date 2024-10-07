@@ -155,7 +155,7 @@ jQuery(document).ready(function ($) {
                     $('.mes').html(response);
                 },
                 error: function() {
-                    $('.mes').html('خطا در ارسال فرم.');
+                    $('.mes').html('please try later!');
                 }
             });
         });
