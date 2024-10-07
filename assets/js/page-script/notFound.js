@@ -371,7 +371,7 @@ function drawFrame(field) {
 }
 
 function updateFluid() {
-    updateID = requestAnimationFrame(updateFluid);
+    requestAnimationFrame(updateFluid);
     fluid.update();
 }
 
@@ -392,7 +392,9 @@ function setSize() {
     canvas.height = fieldHeight;
 
     // Initialize fluid after canvas dimensions are set
-    fluid.setResolution(fieldWidth, fieldHeight);
+    if (fluid) {
+        fluid.setResolution(fieldWidth, fieldHeight);
+    }
 }
 
 function init() {
@@ -445,8 +447,10 @@ function init() {
         my = event.clientY / getNormHeight();
     };
 
-    // Initialize fluid instance
+    // Initialize fluid instance here
     fluid = new FluidField();
+    fluid.setResolution(fieldWidth, fieldHeight); // Set resolution after initialization
+
     updateFluid();
 }
 
