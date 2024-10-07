@@ -1,7 +1,7 @@
 <footer class="paddingX">
     <div class="footerSides">
         <div class="footerSide">
-            <?php $logo = get_field('logo', 'option'); ?>
+            <?php $logo = get_field('footer_logo', 'option'); ?>
             <div class="footer-logo"><img
                     src="<?php echo $logo ? $logo['sizes']['medium'] : get_template_directory_uri() . '/assets/img/logo-footer.webp'; ?>"
                     alt="footer logo"></div>
@@ -50,10 +50,12 @@
                 <!--                <input type="submit">-->
             </div>
             <?php
-            $contact = get_page_by_path('contact-us');
-            if ($contact):
-                $contact_id = $contact->ID;
-                ?>
+            $pages = get_pages(array(
+                'meta_key' => '_wp_page_template',
+                'meta_value' => 'tpls/contact.php'
+            ));
+            if ($pages[0]):
+                $contact_id = $pages[0]->ID;?>
                 <div class="footer-contact-items">
                     <?php if (have_rows('phones', $contact_id)):
                         while (have_rows('phones', $contact_id)):
