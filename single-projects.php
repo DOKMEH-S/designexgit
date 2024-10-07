@@ -10,8 +10,8 @@
         <section class="singleProjectHeroSectionContainer">
             <div class="singleProjectNameInfoAwardsWrapper">
                 <div class="singleProjectNameInfoWrapper">
+                    <div class="projectLogo"><img src="<?php ThemeAssets('img/sample/project-logo-1.png'); ?>" alt=""></div>
                     <div class="projectNameDescriptionWrapper">
-                        <div class="projectLogo"><img src="<?php ThemeAssets('img/sample/project-logo-1.png'); ?>" alt=""></div>
                         <h1><?php the_title(); ?></h1>
                         <?php if (has_excerpt()) : ?>
                             <div class="description">
