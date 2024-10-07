@@ -107,9 +107,10 @@
                     <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
                             <img src="<?php echo esc_url($image_url['sizes']['large']); ?>"
-                                alt="<?php echo esc_attr($image['alt']); ?>">
+                                alt="<?php echo isset($image_url['alt']) ? esc_attr($image_url['alt']) : ''; ?>">
                         </div>
                     <?php endforeach; ?>
+
                 </div>
 
             </div>
