@@ -89,30 +89,29 @@
             <?php endif; ?>
             <?php
             $location = get_field('location');
-            if ($location): ?>
+            if ($location && is_array($location)): ?>
                 <div id="singleProjectMap">
                     <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>"
-                        data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
-                    <!-- <img src="./assets/img/sample/map.jpg" alt=""> -->
+                         data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
                 </div>
             <?php endif; ?>
+            
         </div>
     </section>
     <?php
     $gallery = get_field('gallery');
-    if ($gallery): ?>
+    if ($gallery && is_array($gallery)): ?>
         <section class="singleProjectGalleryContainer">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($gallery as $image_url): ?>
                         <div class="swiper-slide">
                             <img src="<?php echo esc_url($image_url['sizes']['large']); ?>"
-                                alt="<?php echo isset($image_url['alt']) ? esc_attr($image_url['alt']) : ''; ?>">
+                                 alt="<?php echo isset($image_url['alt']) ? esc_attr($image_url['alt']) : ''; ?>">
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
-
             <div class="slider-arrows-pagination">
                 <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
@@ -120,6 +119,7 @@
             </div>
         </section>
     <?php endif; ?>
+    
 
     <section class="singleProjectContent">
         <?php the_content(); ?>
