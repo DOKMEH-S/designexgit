@@ -185,7 +185,7 @@
 <?php if ($video): ?>
     <div id="videoModal">
         <div class="videoContainer">
-            <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $poster['sizes']['large']; ?>" controls>
+            <video id="modalVideo" loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>" controls>
                 <source id="modalVideoSrc" src="" type="video/mp4">
             </video>
         </div>
