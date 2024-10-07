@@ -4,6 +4,7 @@
         <canvas></canvas>
         <div class="notFound-text">
             <h1>404</h1>
+            <p>Page Not Found !</p>
             <div class="button-group">
                 <a href="<?php echo home_url('/');?>" class="btn">home page</a>
             </div>
