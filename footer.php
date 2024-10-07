@@ -109,7 +109,7 @@
                             aria-label="footer policy"> <?php echo $text; ?></a>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                <p class="item" aria-label="Copy Righit"><?php echo get_field('copy');?></p>
+                <p class="item" aria-label="Copy Righit"><?php echo get_field('copy', 'option');?></p>
             </div>
 
             <div class="dokmeh">
