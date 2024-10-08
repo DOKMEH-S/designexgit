@@ -142,53 +142,24 @@ jQuery(document).ready(function ($) {
 
 
 
-        jQuery('.subscribe-form').on('submit', function(e) {
-            e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
-            var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
-            var thisForm = jQuery(this);
-            jQuery.ajax({
-                type: 'POST',
-                url: jQuery(this).attr('action'), // آدرس ارسال فرم
-                data: formData,
-                beforeSend: function(){
-                    thisForm.find('.subscribe-message').html('wait please...');
-                },
-                success: function(response) {
-                    thisForm.find('.subscribe-message').html(response);
-                },
-                error: function() {
-                    thisForm.find('.subscribe-message').html('please try later!');
-                }
-            });
-        });
+        // jQuery('.subscribe-form').on('submit', function(e) {
+        //     e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
+        //     var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
+        //     var thisForm = jQuery(this);
+        //     jQuery.ajax({
+        //         type: 'POST',
+        //         url: jQuery(this).attr('action'), // آدرس ارسال فرم
+        //         data: formData,
+        //         beforeSend: function(){
+        //             thisForm.find('.subscribe-message').html('wait please...');
+        //         },
+        //         success: function(response) {
+        //             thisForm.find('.subscribe-message').html(response);
+        //         },
+        //         error: function() {
+        //             thisForm.find('.subscribe-message').html('please try later!');
+        //         }
+        //     });
+        // });
 
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const subscribeForm = document.getElementById('subscribe-form');
-    //     const subscribeMessage = document.querySelector('.subscribe-message');
-    //
-    //     if (subscribeForm) {
-    //         subscribeForm.addEventListener('submit', function(e) {
-    //             e.preventDefault(); // Prevent default form submission
-    //
-    //             const formData = new URLSearchParams(new FormData(this)).toString();
-    //
-    //             subscribeMessage.innerHTML = 'wait please...';
-    //
-    //             fetch(this.action, {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/x-www-form-urlencoded',
-    //                 },
-    //                 body: formData
-    //             })
-    //                 .then(response => response.text())
-    //                 .then(data => {
-    //                     subscribeMessage.innerHTML = data;
-    //                 })
-    //                 .catch(error => {
-    //                     subscribeMessage.innerHTML = 'please try later!';
-    //                 });
-    //         });
-    //     }
-    // });
 });
