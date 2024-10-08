@@ -116,13 +116,16 @@ endif; ?>">
         <?php if (have_rows('menu_items', 'option')): ?>
             <div id="menuContainer" data-lenis-prevent>
                 <div class="menu-list">
-                    <?php $counter = 1;
+                    <?php
+                    $counter = 1;
+                    $current_url = home_url(add_query_arg(array(), $wp->request)); // گرفتن URL فعلی
                     while (have_rows('menu_items', 'option')):
                         the_row();
                         $menu_link = get_sub_field('link');
                         $menu_image = get_sub_field('image');
+                        $is_active = ($menu_link['url'] == $current_url) ? 'active' : ''; // بررسی تطابق URL
                         ?>
-                        <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link">
+                        <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link <?php echo $is_active; ?>">
                             <small class="text-h5"><?php echo $counter++; ?></small>
                             <span class="item-title"><?php echo esc_html($menu_link['title']); ?></span>
                             <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
@@ -131,20 +134,22 @@ endif; ?>">
                     <?php endwhile; ?>
                 </div>
                 <div class="subMenuContainer">
-                    <?php $counter = 1;
-                    $current_url = home_url(add_query_arg(array(), $wp->request)); 
-                    while (have_rows('menu_items', 'option')):
-                        the_row();
-                        $menu_link = get_sub_field('link');
-                        $menu_image = get_sub_field('image');
-                        $is_active = ($menu_link['url'] == $current_url) ? 'active' : ''; 
-                        ?>
-                        <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link <?php echo $is_active; ?>">
-                            <small class="text-h5"><?php echo $counter++; ?></small>
-                            <span class="item-title"><?php echo esc_html($menu_link['title']); ?></span>
-                            <img class="image_rev" src="<?php echo esc_url($menu_image['sizes']['medium']); ?>"
-                                alt="<?php echo esc_attr($menu_image['alt']); ?>">
-                        </a>
+                    <?php while (have_rows('menu_items', 'option')):
+                        the_row(); ?>
+                        <?php if (have_rows('sub_menu')): ?>
+                            <div class="subMenu">
+                                <ul>
+                                    <?php while (have_rows('sub_menu')):
+                                        the_row();
+                                        $section_link = get_sub_field('sub_link');
+                                        ?>
+                                        <li><a
+                                                href="<?php echo esc_url($section_link['url']); ?>"><?php echo esc_html($section_link['title']); ?></a>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
                     <?php endwhile; ?>
                 </div>
 
@@ -165,7 +170,7 @@ endif; ?>">
                             <div class="extraLink-item">
                                 <span>Do You Have a Project?</span>
                                 <a aria-label="Designex Whatsapp"
-                                    href="<?php echo $whatsapp; ?>"><?php echo get_field('whatsapp_text', $contactID); ?></a>
+                                    href="<?php echo esc_url($whatsapp); ?>"><?php echo esc_html(get_field('whatsapp_text', $contactID)); ?></a>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -177,8 +182,9 @@ endif; ?>">
                 </div>
             </div>
         <?php endif; ?>
+
     <?php endif; ?>
-    <div id="screenSaver" style="display:none;">
+    <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
         </div>
