@@ -150,12 +150,14 @@ jQuery(document).ready(function ($) {
                 type: 'POST',
                 url: $(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
+                beforeSend: function(){
+                    $('.subscribe-message').html('wait please...');
+                },
                 success: function(response) {
-                    // نمایش پیام موفقیت یا خطا
-                    $('.mes').html(response);
+                    $('.subscribe-message').html(response);
                 },
                 error: function() {
-                    $('.mes').html('please try later!');
+                    $('.subscribe-message').html('please try later!');
                 }
             });
         });
