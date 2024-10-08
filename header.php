@@ -118,12 +118,14 @@ endif; ?>">
                 <div class="menu-list">
                     <?php
                     $counter = 1;
-                    $current_url = home_url(add_query_arg(array(), $wp->request)); // گرفتن URL فعلی
+                    global $wp;
+                    $current_url = untrailingslashit(home_url(add_query_arg(array(), $wp->request))); // گرفتن URL فعلی و حذف اسلش انتهایی
                     while (have_rows('menu_items', 'option')):
                         the_row();
                         $menu_link = get_sub_field('link');
                         $menu_image = get_sub_field('image');
-                        $is_active = ($menu_link['url'] == $current_url) ? 'active' : ''; // بررسی تطابق URL
+                        // بررسی تطابق URL و اضافه کردن کلاس active
+                        $is_active = (untrailingslashit($menu_link['url']) == $current_url) ? 'active' : '';
                         ?>
                         <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link <?php echo $is_active; ?>">
                             <small class="text-h5"><?php echo $counter++; ?></small>
@@ -182,6 +184,7 @@ endif; ?>">
                 </div>
             </div>
         <?php endif; ?>
+
 
     <?php endif; ?>
     <div id="screenSaver">
