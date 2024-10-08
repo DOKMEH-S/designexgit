@@ -145,19 +145,19 @@ jQuery(document).ready(function ($) {
     jQuery(document).ready(function($) {
         $('#subscribe-form').on('submit', function(e) {
             e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
-            var formData = $(this).serialize(); // سریالیزه کردن داده‌های فرم
+            var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
             $.ajax({
                 type: 'POST',
-                url: $(this).attr('action'), // آدرس ارسال فرم
+                url: jQuery(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
                 beforeSend: function(){
-                    $(this).children('subscribe-message').html('wait please...');
+                    jQuery(this).children('.subscribe-message').html('wait please...');
                 },
                 success: function(response) {
-                   $(this).children('subscribe-message').html(response);
+                    jQuery(this).children('.subscribe-message').html(response);
                 },
                 error: function() {
-                    $(this).children('subscribe-message').html('please try later!');
+                    jQuery(this).children('.subscribe-message').html('please try later!');
                 }
             });
         });
