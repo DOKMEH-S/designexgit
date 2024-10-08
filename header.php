@@ -174,7 +174,7 @@ endif; ?>">
             </div>
         <?php endif; ?>
     <?php endif; ?>
-    <div id="screenSaver">
+    <div id="screenSaver" style="display:none;">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
         </div>
