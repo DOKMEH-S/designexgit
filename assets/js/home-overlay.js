@@ -81,13 +81,11 @@ function setup () {
     createCanvas(windowWidth, windowHeight);
     strokeCap(SQUARE);
     document.querySelector('canvas').addEventListener('click', windowResized);
-    document.getElementById('acceptCookie').addEventListener('click',function () {
-        setTimeout(() => {
-            if (window['goToStep' + 6]) {
-                window['goToStep' + 6]();
-            }
-        },2000)
-    })
+    setTimeout(() => {
+        if (window['goToStep' + 6]) {
+            window['goToStep' + 6]();
+        }
+    },3000)
 }
 
 function windowResized () {
