@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="58edeafa-715f-424e-b882-0b0c1e184875" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/assets/css/loading.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/loading.css" afterDir="false" />
+>>>>>>> 230e8055a652241989a10a0f4286f36a1d70111e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

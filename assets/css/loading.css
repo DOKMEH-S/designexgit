@@ -32,6 +32,8 @@
     transform: translateX(0);
     width: 500px;
     z-index: 2;
+    display: flex;
+    align-items: center;
     transition: transform ease-in-out .75s , opacity ease-in-out .5s;
 }
 #loading.transform #lottie {
