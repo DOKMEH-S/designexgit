@@ -150,6 +150,9 @@ jQuery(document).ready(function ($) {
                 type: 'POST',
                 url: $(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
+                beforeSend: function(){
+                    $('.subscribe-message').html('wait please...');
+                },
                 success: function(response) {
                     $('.subscribe-message').html(response);
                 },
