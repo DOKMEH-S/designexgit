@@ -184,9 +184,12 @@ endif; ?>">
                 </div>
             </div>
         <?php endif; ?>
-
-
     <?php endif; ?>
+    <div class="footer-subscribe">
+        <div class="footer-subscribe-form">
+            <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
+        </div>
+    </div>
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">

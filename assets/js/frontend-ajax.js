@@ -142,7 +142,7 @@ jQuery(document).ready(function ($) {
 
 
 
-        jQuery('#subscribe-form').on('submit', function(e) {
+        jQuery('.subscribe-form').on('submit', function(e) {
             e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
             var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
             var thisForm = jQuery(this);
