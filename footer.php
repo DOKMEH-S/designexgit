@@ -1098,6 +1098,25 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     </script>
 <?php //}
 endif; ?>
+<script>
+    document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+        const formData = new URLSearchParams(new FormData(this)).toString(); // Serialize form data
+        const thisForm = this;
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.text())
+            .then(data => {
+                thisForm.querySelector('.subscribe-message').innerHTML = data; // Update success message
+            })
+            .catch(() => {
+                thisForm.querySelector('.subscribe-message').innerHTML = 'please try later!'; // Update error message
+            });
+        // Show loading message before sending
+        thisForm.querySelector('.subscribe-message').innerHTML = 'wait please...';
+    });
+</script>
 </body>
-
 </html>
