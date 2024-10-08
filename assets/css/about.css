@@ -305,7 +305,7 @@ section.whyUsContainer {
 section.missionVisionContainer {
     padding-top: var(--gridGapTop);
 }
-.mySlides {display: none;}
+
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -341,6 +341,10 @@ section.missionVisionContainer {
 .mySlides {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
 .mySlides img {
@@ -1361,8 +1365,9 @@ section.projectsLink a:hover img {
     }
     section.logo-anchor-links {
         width: 100%;
-        top: var(--headerHeight);
+        top: calc(var(--headerHeight)*.5);
         position: sticky;
+        mix-blend-mode: normal;
     }
     .aboutAnchorLinksWrap {
         width: 100%;
