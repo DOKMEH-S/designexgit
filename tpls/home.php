@@ -1,5 +1,18 @@
 <?php //Template Name: Home tpl
 get_header(); ?>
+<div id="cookieOverlay"></div>
+<div id="cookieContainer">
+  <div class="cookieWrapper">
+    <p class="title">Privacy Preference</p>
+    <div class="cookieContent">
+      <p>We need your consent before you can continue on our website.</p>
+      <p>If you are under 16 and wish to give consent to optional services, you must ask your legal guardians for permission.</p>
+      <p>We use cookies and other technologies on our website. Some of them are essential, while others help us to improve this website and your experience. Personal data may be processed (e.g. IP addresses), for example for personalized ads and content or ad and content measurement. You can find more information about the use of your data in our privacy policy.</p>
+    </div>
+    <p class="content"></p>
+  </div>
+  <button id="acceptCookie">I accept</button>
+</div>
 <section class="homeSideBarContainer">
     <?php $intro_title = get_field('intro_title');
     if ($intro_title):
