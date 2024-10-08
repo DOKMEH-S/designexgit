@@ -9,7 +9,6 @@ document.querySelectorAll('.hover-box').forEach(function(tar) {
 
         if (deg < 0) deg += 360;
         var dir = Math.floor(deg / 90);
-
         var dir_move;
         switch (dir) {
             case 0:
