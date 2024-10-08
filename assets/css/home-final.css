@@ -765,6 +765,26 @@ body.loadingDone .swiper {
         -moz-column-gap: 1.5rem;
         column-gap: 1.5rem;
     }
+    .homeElementCounterWrapper #counterBox {
+        left: 2rem;
+    }
+
+    #currentProjectName {
+        left: 5rem;
+        padding-bottom: 6px;
+    }
+
+    .counterValueBox, .totalProjectBox {
+        width: 2.5rem;
+    }
+
+    .homeElementCounterWrapper #counterBox span {
+        font-size: .875rem;
+    }
+
+    body.loadingDone #currentProjectName p {
+        font-size: .875rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px){
     .homeProjectContainer {
@@ -780,5 +800,25 @@ body.loadingDone .swiper {
     }
     h1.home-title {
         font-size: 1.4rem;
+    }
+    .homeElementCounterWrapper #counterBox {
+        left: 2rem;
+    }
+
+    #currentProjectName {
+        left: 5rem;
+        padding-bottom: 6px;
+    }
+
+    .counterValueBox, .totalProjectBox {
+        width: 2.5rem;
+    }
+
+    .homeElementCounterWrapper #counterBox span {
+        font-size: .875rem;
+    }
+
+    body.loadingDone #currentProjectName p {
+        font-size: .875rem;
     }
 }
