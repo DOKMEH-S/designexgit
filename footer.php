@@ -7827,29 +7827,24 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 endif; ?>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            alert('fff')
-            const formData = new FormData(this); // Create FormData object
-            const thisForm = this;
-            // Show loading message before sending
-            thisForm.querySelector('.subscribe-message').innerHTML = 'wait please...';
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    thisForm.querySelector('.subscribe-message').innerHTML = data; // Update success message
-                })
-                .catch(() => {
-                    thisForm.querySelector('.subscribe-message').innerHTML = 'please try later!'; // Update error message
-                });
+        jQuery('.subscribe-form').on('submit', function(e) {
+            e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
+            var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
+            var thisForm = jQuery(this);
+            jQuery.ajax({
+                type: 'POST',
+                url: jQuery(this).attr('action'), // آدرس ارسال فرم
+                data: formData,
+                beforeSend: function(){
+                    thisForm.find('.subscribe-message').html('wait please...');
+                },
+                success: function(response) {
+                    thisForm.find('.subscribe-message').html(response);
+                },
+                error: function() {
+                    thisForm.find('.subscribe-message').html('please try later!');
+                }
+            });
         });
     });
 </script>
