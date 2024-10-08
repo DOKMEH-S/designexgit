@@ -151,13 +151,13 @@ jQuery(document).ready(function ($) {
                 url: $(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
                 beforeSend: function(){
-                    $(this).children('.subscribe-message').html('wait please...');
+                    $(this).children('subscribe-message').html('wait please...');
                 },
                 success: function(response) {
-                   $(this).children('.subscribe-message').html(response);
+                   $(this).children('subscribe-message').html(response);
                 },
                 error: function() {
-                    $(this).children('.subscribe-message').html('please try later!');
+                    $(this).children('subscribe-message').html('please try later!');
                 }
             });
         });
