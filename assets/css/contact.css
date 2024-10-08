@@ -49,7 +49,14 @@ section.contactInfoMapFormContainer {
     display: block;
     margin-bottom: 1rem;
 }
+.contactInfoWrap a.shuffle {
+    display: block;
+    height: 2rem;
+}
 
+.contactInfoWrap.address a.shuffle {
+    height: 6rem;
+}
 .contactInfoWrap span.title {
     display: block;
     text-transform: capitalize;
@@ -71,7 +78,13 @@ section.contactInfoMapFormContainer {
     column-gap: .875rem;
     margin-bottom: 2.5rem;
 }
+.contactSocialMedia a [class^=icon-] {
+    transition: all ease-in-out .35s;
+}
 
+.contactSocialMedia a [class^=icon-]:hover {
+    color: var(--primary);
+}
 .ContactMapContainer {
     width: 100%;
     height: 38vh;
@@ -152,51 +165,7 @@ html.loadingDone .contactFormSliderContainer{
     padding-top: 8rem;
     padding-bottom: 2.625rem;
 }
-form .textTypeInput {
-    position: relative;
-    margin-bottom: .5rem;
-}
 
-form .textTypeInput input {
-    width: 100%;
-    height: 2rem;
-    padding-left: 2rem;
-    margin-bottom: .875rem;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-form .textTypeInput::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1rem;
-    background-image: url(../img/Union.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-form .textTypeInput textarea {
-    padding-left: 2rem;
-    margin-bottom: .875rem;
-    width: 100%;
-    resize: none;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-form .textTypeInput input::-webkit-input-placeholder,form .textTypeInput textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: var(--gray);
-}
-form .textTypeInput input::-moz-placeholder,form .textTypeInput textarea::-moz-placeholder { /* Firefox 19+ */
-    color: var(--gray);
-}
-form .textTypeInput input:-ms-input-placeholder,form .textTypeInput textarea:-ms-input-placeholder { /* IE 10+ */
-    color: var(--gray);
-}
-form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-placeholder { /* Firefox 18- */
-    color: var(--gray);
-}
 .checkBoxWrapper {
     position: relative;
     margin-bottom: 1.313rem;
@@ -285,64 +254,7 @@ form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-pla
     background-size: cover;
     background-repeat: no-repeat;
 }
-form .submitForm {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    background-color: var(--primary);
-    width: 50%;
-    border-radius: 3.75rem;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-column-gap: 0.5rem;
-    -moz-column-gap: 0.5rem;
-    column-gap: 0.5rem;
-    height: 1.6rem;
-    -webkit-transition: all ease-in-out .3s;
-    -o-transition: all ease-in-out .3s;
-    transition: all ease-in-out .3s;
-    border: 2px solid var(--primary);
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
-form .submitForm input[type="submit"] {
-    color: var(--white);
-    text-transform: capitalize;
-    font-size: 0.75rem;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    cursor: pointer;
-    -webkit-transition: all ease-in-out .3s;
-    -o-transition: all ease-in-out .3s;
-    transition: all ease-in-out .3s;
-}
-
-form .submitForm svg {
-    position: absolute;
-    left: 37%;
-}
-
-form .submitForm:hover svg path {fill: var(--primary);}
-
-form .submitForm svg path {
-    -webkit-transition: all ease-in-out .3s;
-    -o-transition: all ease-in-out .3s;
-    transition: all ease-in-out .3s;
-}
-
-form .submitForm:hover input[type="submit"] {color: var(--primary);}
-
-form .submitForm:hover {
-    background-color: var(--white);
-}
 .toggle-container {
     -webkit-transition: height 0.35s ease-in-out;
     -o-transition: height 0.35s ease-in-out;
@@ -417,7 +329,6 @@ section.faq-contactSlider-container {
     width: 100%;
     height: calc(100vh - var(--headerHeight));
 }
-.mySlides {display: none;}
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -448,6 +359,10 @@ section.faq-contactSlider-container {
 .mySlides {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
 .mySlides img {
@@ -703,9 +618,7 @@ progress[value]::-webkit-progress-bar {
     .contactInfoWrapper {
         margin-bottom: 3rem;
     }
-    form .submitForm svg {
-        left: 30%;
-    }
+
     .contactSlider {
         height: 45vh;
     }
@@ -716,6 +629,9 @@ progress[value]::-webkit-progress-bar {
     .contactInfoMapContainer {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+    }
+    .contactInfoWrap.address {
+        width: 100%;
     }
     .contactInfoMapContainer::before {
         display: none;
@@ -818,17 +734,13 @@ progress[value]::-webkit-progress-bar {
     .contactVideoWrapper .titleWrap {
         margin-bottom: 3rem;
     }
-    form .submitForm {
-        width: 30%;
-    }
+
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
     h1.contact_title {
         font-size: 5rem;
     }
-    form .submitForm svg {
-        left: 30%;
-    }
+
     section.contactInfoMapFormContainer {
         grid-column-gap: 5rem;
         padding-top: 9rem;

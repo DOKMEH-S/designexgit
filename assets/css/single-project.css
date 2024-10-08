@@ -6,19 +6,15 @@
 */
 
 /*============SINGLE PROJECT HERO SECTION=============*/
-.singleProjectVideoContainer > * {
-    width: 100%;
-    height: 100%;
-}
-
-.singleProjectVideoContainer > img {
+.singleProjectVideoContainer > img,.singleProjectVideoContainer > video {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
-body[data-pagetype="singleProject"] main {
-
+.singleProjectVideoContainer iframe{
+    width: 100%;
+    height: 100%;
 }
 section.singleProjectHeroSectionContainer {
     position: relative;
@@ -29,9 +25,9 @@ section.singleProjectHeroSectionContainer {
     grid-template-columns: .7fr 1fr;
     grid-gap: 2.625rem;
 }
-.projectNameDescriptionWrapper .projectLogo {
+.projectLogo {
     position: absolute;
-    bottom: 0;
+    top: 4rem;
     left: calc(var(--spaceL)* -1);
     width: var(--spaceL);
     height: 3.125rem;
@@ -91,12 +87,12 @@ section.singleProjectHeroSectionContainer {
     -ms-transform: translate(-100%, 10px);
     transform: translate(-100%, 10px);
 }
-.projectNameDescriptionWrapper .projectLogo img {
+.projectLogo img {
     width: 3.125rem;
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
-    margin: 1rem auto 0;
+    margin: 0rem auto 0;
     display: block;
 }
 
@@ -182,8 +178,6 @@ html.loadingDone .singleProjectAwardsWrapper{
 .featureWrap > *:first-child {
     margin-right: .5rem;
 }
-
-
 #singleProjectMap {
     width: 100%;
     height: 40vh;
@@ -549,14 +543,14 @@ section.relatedProjectsContainer::before {
         row-gap: 1rem;
     }
 
-    .projectNameDescriptionWrapper .projectLogo {
+    .projectLogo {
         bottom: auto;
         top: -.5rem;
         width: calc(var(--spaceLL) + var(--space));
         left: calc((var(--spaceLL) + var(--space))*-1);
     }
 
-    .projectNameDescriptionWrapper .projectLogo img {
+    .projectLogo img {
         margin: 0 auto;
     }
 
@@ -647,17 +641,17 @@ section.relatedProjectsContainer::before {
     .projectNameDescriptionWrapper::before {
         height: 4.188rem;
     }
-    .projectNameDescriptionWrapper .projectLogo {
+    .projectLogo {
         bottom: auto;
-        top: -.5rem;
+        top: -0.5rem;
         width: calc(var(--spaceL));
         left: calc(var(--spaceL)*-1);
     }
-    .projectNameDescriptionWrapper .projectLogo img {
+    .projectLogo img {
         width: 2.5rem;
     }
 
-    .projectNameDescriptionWrapper .projectLogo img {
+    .projectLogo img {
         margin: 0 auto;
     }
     .awardsTitleLogoWrapper {
@@ -673,7 +667,9 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 5rem;
     }
-
+    .singleProjectVideoMapContainer > * {
+        height: 33vh;
+    }
     #singleProjectMap {
         height: 33vh;
     }
@@ -700,7 +696,7 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 3rem;
     }
-    .projectNameDescriptionWrapper .projectLogo img {
+    .projectLogo img {
         padding-right: 4rem;
         width: 2.6rem;
     }
@@ -752,7 +748,7 @@ section.relatedProjectsContainer::before {
     .singleProjectNameInfoAwardsWrapper {
         padding-top: 3rem;
     }
-    .projectNameDescriptionWrapper .projectLogo img {
+    .projectLogo img {
         padding-right: 4rem;
         width: 2.6rem;
     }
@@ -795,7 +791,6 @@ section.relatedProjectsContainer::before {
     .relatedProjectsWrapper {
         margin-top: 5rem;
     }
-
     .relatedProjectsWrap {
         height: 35vh;
     }
