@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    smoother.paused(true);
     let projectName ;
     let projectUrl ;
     let currentProjectName = document.getElementById('currentProjectName');
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let cookieBtn = document.getElementById('acceptCookie');
     cookieBtn.addEventListener('click',function () {
         document.querySelector('body').classList.add('hideC');
-        smoother.paused(false);
         audioSlider.muted = true;
         audioSlider.play();
     })
