@@ -22,25 +22,26 @@
     width: 100%;
     height: 100%;
     z-index: 101;
-    /*background-color: var(--white);*/
     pointer-events: none;
     overflow: hidden;
 }
-html.loadingDone body[data-pagetype="home"] #loading{
-    animation: loadingOpacity .5s 1s forwards;
+#loading.loadingDone {
+    z-index: 2;
 }
-@keyframes loadingOpacity {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
+#loading #lottie {
+    transform: translateX(0);
+    width: 500px;
+    z-index: 2;
+    transition: transform ease-in-out .75s , opacity ease-in-out .5s;
+}
+#loading.transform #lottie {
+    transform: translateX(calc(50vw - 250px - var(--spaceX) + 60px));
+}
 
-    }
-}
 #loading .loadingCovers {
     width: 100%;
     height: 100%;
+    position: absolute;
 }
 
 #loading .loadingCovers .loadingCover {
@@ -49,24 +50,16 @@ html.loadingDone body[data-pagetype="home"] #loading{
     -webkit-transition: all ease-in-out .55s;
     -o-transition: all ease-in-out .55s;
     transition: all ease-in-out .55s;
-    -webkit-transition-delay: .5s;
-    -o-transition-delay: .5s;
-    transition-delay: .5s;
     background-color: var(--white);
 }
 
-body[data-pagetype="home"] #loading .loadingCovers .loadingCover{
-    -webkit-transition-delay: 1s;
-    -o-transition-delay: 1s;
-    transition-delay: 1s;
-}
-html.loadingDone #loading .loadingCovers .loadingCover:nth-child(1) {
+#loading.loadingDone .loadingCovers .loadingCover:nth-child(1) {
     -webkit-transform: translateY(-100%);
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
 }
 
-html.loadingDone #loading .loadingCovers .loadingCover:nth-child(2) {
+#loading.loadingDone .loadingCovers .loadingCover:nth-child(2) {
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
@@ -413,6 +406,10 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
 }
 
 @media only screen and (max-width: 768px){
+    #loading.transform #lottie {
+        transform: translateX(calc(100vw - var(--spaceX) + 60px));
+        opacity: 0;
+    }
     .loading-container:before {
         width: calc((100vw / 2) * 1 - var(--spaceX) - 1rem);
     }
