@@ -151,16 +151,45 @@ jQuery(document).ready(function ($) {
                 url: $(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
                 beforeSend: function(){
-                    $('.subscribe-message').html('wait please...');
+                    $(this).children('.subscribe-message').html('wait please...');
                 },
                 success: function(response) {
-                    $('.subscribe-message').html(response);
+                   $(this).children('.subscribe-message').html(response);
                 },
                 error: function() {
-                    $('.subscribe-message').html('please try later!');
+                    $(this).children('.subscribe-message').html('please try later!');
                 }
             });
         });
     });
 
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const subscribeForm = document.getElementById('subscribe-form');
+    //     const subscribeMessage = document.querySelector('.subscribe-message');
+    //
+    //     if (subscribeForm) {
+    //         subscribeForm.addEventListener('submit', function(e) {
+    //             e.preventDefault(); // Prevent default form submission
+    //
+    //             const formData = new URLSearchParams(new FormData(this)).toString();
+    //
+    //             subscribeMessage.innerHTML = 'wait please...';
+    //
+    //             fetch(this.action, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/x-www-form-urlencoded',
+    //                 },
+    //                 body: formData
+    //             })
+    //                 .then(response => response.text())
+    //                 .then(data => {
+    //                     subscribeMessage.innerHTML = data;
+    //                 })
+    //                 .catch(error => {
+    //                     subscribeMessage.innerHTML = 'please try later!';
+    //                 });
+    //         });
+    //     }
+    // });
 });
