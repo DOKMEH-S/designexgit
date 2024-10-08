@@ -199,7 +199,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
         var params = {
             container: document.getElementById('lottie'),
             renderer: 'svg',
-            loop: true,
+            loop: false,
             autoplay: true,
             animationData: animationData
         };
@@ -213,7 +213,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
                 setTimeout(() => {
                     document.querySelector('#loading').classList.add('loadingDone');
                 },1000);
-            }, 700);
+            }, 1000);
         });
 
     </script>
