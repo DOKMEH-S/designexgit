@@ -337,5 +337,5 @@ add_action('wp_ajax_nopriv_blog_filter', 'blog_filter_handler');
 add_action( 'wp_enqueue_scripts', function() {
     wp_dequeue_style('newsletter-css');
     wp_deregister_style('newsletter-css');
-}, 10);
+}, 1);
 
