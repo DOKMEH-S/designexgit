@@ -30,10 +30,7 @@
             }
 
         <?php endif; ?>
-<<<<<<< HEAD
-        <?php if (is_front_page(>
-=======
->>>>>>> 867149d29785af3e06885d29429d9f43884935d2
+
     </style>
     <link href="<?php ThemeAssets('css/fonts.css'); ?>" rel="stylesheet" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
