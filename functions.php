@@ -104,7 +104,7 @@ function Dokmeh_scripts()
 //         wp_enqueue_style('contact-form-7');
 //     }else{
 //         wp_dequeue_script( 'contact-form-7' );
-//         wp_dequeue_style( 'contact-form-7' );
+         wp_dequeue_style( 'newsletter-css' );
 //     }
 //     //-------------------------------------------------------------------
 
