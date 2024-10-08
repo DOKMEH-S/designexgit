@@ -1008,6 +1008,21 @@ form .submitForm:hover {
     margin-right: 0;
     margin-left: 0;
 }
+footer form#subscribe-form {
+    position: relative;
+}
+footer form input[type="submit" ] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(./assets/img/link.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+    z-index: 2;
+}
 /*========Upload========*/
 form .textTypeInput.upload {
     cursor: pointer;
