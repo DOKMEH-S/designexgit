@@ -863,7 +863,7 @@ html.mouseStopped #screenSaver {
 .second-loading-container.ss-container {
     width: 37rem;
     position: relative;
-     animation: loadingTransform .5s  1.5s forwards;
+    animation: loadingTransform .5s  1.5s forwards;
     justify-content: center;
 }
 @keyframes loadingTransform {
@@ -875,7 +875,7 @@ html.mouseStopped #screenSaver {
     }
 }
 #loading.second-loading{
-     animation: loadingOpacity .5s  2.5s forwards;
+    animation: loadingOpacity .5s  2.5s forwards;
 }
 @keyframes loadingOpacity {
     from{
@@ -1008,7 +1008,7 @@ form .submitForm:hover {
     margin-right: 0;
     margin-left: 0;
 }
-footer form#subscribe-form {
+footer form {
     position: relative;
 }
 footer form input[type="submit" ] {
@@ -1017,11 +1017,18 @@ footer form input[type="submit" ] {
     right: 0;
     width: 2rem;
     height: 2rem;
+    padding: .4rem;
     background-image: url(./assets/img/link.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-origin: content-box;
     z-index: 2;
+    filter: invert(1);
+    transition: all ease-in-out .35s;
+}
+footer form input[type="submit" ]:hover {
+    transform: translate(10px, -10px);
+    filter: invert(1)blur(2px);
 }
 /*========Upload========*/
 form .textTypeInput.upload {
