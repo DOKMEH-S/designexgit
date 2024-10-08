@@ -4,15 +4,7 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-.gm-style .gm-style-iw-d {padding-left: 4px;}
 
-.gm-style .gm-style-iw-d a {
-    display: block;
-    margin-bottom: 5px;
-    text-transform: capitalize;
-    font-weight: 400;
-    color: var(--primary);
-}
 .projectHeader-container .mapView_icon.desktop {
     cursor: pointer;
     display: inline-block;
@@ -23,7 +15,7 @@
 .projectHeader-container .mapView_icon.mobile {
     display: none;
     cursor: pointer;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     text-align: right;
 }
 .projectHeader-container .mapView_icon > * {
@@ -78,9 +70,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -151,8 +143,8 @@
 }
 #closeMap {
     position: absolute;
-    background-color: var(--white);
-    color: var(--primary) ;
+    background-color: var(--primary);
+    color: var(--white);
     border-radius: 3.75rem;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -176,6 +168,8 @@
     height: 8px;
     -o-object-fit: contain;
     object-fit: contain;
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -183,7 +177,28 @@
 
 #closeMap span {
     margin-bottom: 2px;
+    text-transform: uppercase;
+}
+#see-more {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, .4);
+}
+
+#see-more > * {
+    display: block;
+    text-align: center;
+    padding: 5rem 0 2rem;
     text-transform: capitalize;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
 }
 @media only screen and (max-width: 768px) {
     .projectBody-container {
@@ -202,11 +217,6 @@
     }
     .projectHeader-container .mapView_icon.mobile {
         display: block;
-        left: 0;
-        position: absolute;
-        top: 0;
-        z-index: 2;
-        padding: .5rem .5rem .5rem 1.5rem;
     }
     .projectHeader-container .mapView_icon.mobile > * {
         position: relative;

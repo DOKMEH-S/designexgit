@@ -71,9 +71,6 @@ footer:before{
     row-gap: 3rem;
     width: 40%;
 }
-.footer-logo a {
-    display: inline-block;
-}
 .footer-logo img {
     width: 9.375rem;
     height: 8.5rem;
@@ -82,11 +79,11 @@ footer:before{
 }
 
 .footer-text > * {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 500;
     margin: 0;
     letter-spacing: 0rem;
-    line-height: 1.5;
+    line-height: 1;
 }
 
 .footer-mailSocial {
@@ -106,7 +103,6 @@ footer:before{
 .footer-mailSocial_mail {
     font-size: 1rem;
     display: block;
-    min-width: 13rem;
 }
 
 .footer-mailSocial_social {
@@ -124,13 +120,7 @@ footer:before{
 .footer-mailSocial_social span {
     font-size: 1.2rem;
 }
-.footer-mailSocial_social a [class^=icon-] {
-    transition: all ease-in-out .35s;
-}
 
-.footer-mailSocial_social a [class^=icon-]:hover {
-    color: var(--primary);
-}
 .footer-subscribe .title {
     display: block;
     font-size: 1rem;
@@ -240,13 +230,6 @@ footer:before{
     display: block;
     font-size: 1rem;
 }
-.footer-contact-items .item a {
-    display: block;
-    height: 2rem;
-}
-.footer-contact-items .item.address a {
-    height: 4rem;
-}
 .footerPolicyDokmeh {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -317,7 +300,6 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     footer {
         padding-top: 4.5rem;
         padding-bottom: calc(var(--headerHeight) + 3rem);
-        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, var(--primary) 30%, var(--primary) 100%);
     }
 
     .footer-logo img {
@@ -335,7 +317,7 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
     }
 
     .footer-text > * {
-        font-size: 1.15rem;
+        font-size: 2rem;
     }
 
     .footer-mailSocial {-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;-webkit-box-align: start;-ms-flex-align: start;align-items: flex-start;row-gap: 1rem;margin-bottom: 1.5rem;}
@@ -399,7 +381,8 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
 @media only screen and (min-width: 640px) and (max-width:768px) {}
 @media only screen and (min-width: 769px) and (max-width:1199px) {
     .footer-text > * {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        line-height: normal;
     }
     .footerSides {
         -webkit-column-gap: 5rem;
@@ -418,12 +401,21 @@ footer form .textTypeInput input:-moz-placeholder { /* Firefox 18- */
         height: 6rem;
     }
     .footer-text > * {
-        font-size: 1.8rem;
+        font-size: 2.8rem;
+        line-height: 1.15;
     }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     .footer-logo img {
         width: 9rem;
         height: 7rem;
+    }
+    .footer-text > * {
+        font-size: 2.8rem;
+        line-height: 1.15;
+    }
+    .footer-text > * {
+        font-size: 3rem;
+        line-height: 1.2;
     }
 }

@@ -110,7 +110,6 @@ body[data-pagetype="archiveBlog"] header ,
 
 .projectHeader-wrapper {
     width: 100%;
-    box-sizing: border-box;
 }
 .projectHeader-container_row {
     display: -webkit-box;
@@ -217,7 +216,7 @@ span.projectHeader-container_row-title {
         pointer-events: none;
         opacity: 0;
         visibility: hidden;
-        padding: 1rem calc(var(--spaceX)* .5);
+        padding: 1rem 0;
     }
     .projectHeader-container.opFilter .projectHeader-wrapper{
         opacity: 1;
@@ -234,7 +233,6 @@ span.projectHeader-container_row-title {
 
     span.projectHeader-container_row-title {
         margin-bottom: .75rem;
-        white-space: pre;
     }
 
     .projectHeader-container_row-items {
@@ -262,7 +260,6 @@ span.projectHeader-container_row-title {
 
     .projectHeader-container {
         position: fixed;
-        top: 0;
         right: var(--spaceX);
         padding: 0;
         height: 5.188rem;

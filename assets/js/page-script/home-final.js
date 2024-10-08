@@ -1,3 +1,4 @@
+(function () {var f={};var g=/iPhone/i,i=/iPod/i,j=/iPad/i,k=/\biOS-universal(?:.+)Mac\b/i,h=/\bAndroid(?:.+)Mobile\b/i,m=/Android/i,c=/(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i,d=/Silk/i,b=/Windows Phone/i,n=/\bWindows(?:.+)ARM\b/i,p=/BlackBerry/i,q=/BB10/i,s=/Opera Mini/i,t=/\b(CriOS|Chrome)(?:.+)Mobile/i,u=/Mobile(?:.+)Firefox\b/i,v=function(l){return void 0!==l&&"MacIntel"===l.platform&&"number"==typeof l.maxTouchPoints&&l.maxTouchPoints>1&&"undefined"==typeof MSStream};function w(l){return function($){return $.test(l)}}function x(l){var $={userAgent:"",platform:"",maxTouchPoints:0};l||"undefined"==typeof navigator?"string"==typeof l?$.userAgent=l:l&&l.userAgent&&($={userAgent:l.userAgent,platform:l.platform,maxTouchPoints:l.maxTouchPoints||0}):$={userAgent:navigator.userAgent,platform:navigator.platform,maxTouchPoints:navigator.maxTouchPoints||0};var a=$.userAgent,e=a.split("[FBAN");void 0!==e[1]&&(a=e[0]),void 0!==(e=a.split("Twitter"))[1]&&(a=e[0]);var r=w(a),o={apple:{phone:r(g)&&!r(b),ipod:r(i),tablet:!r(g)&&(r(j)||v($))&&!r(b),universal:r(k),device:(r(g)||r(i)||r(j)||r(k)||v($))&&!r(b)},amazon:{phone:r(c),tablet:!r(c)&&r(d),device:r(c)||r(d)},android:{phone:!r(b)&&r(c)||!r(b)&&r(h),tablet:!r(b)&&!r(c)&&!r(h)&&(r(d)||r(m)),device:!r(b)&&(r(c)||r(d)||r(h)||r(m))||r(/\bokhttp\b/i)},windows:{phone:r(b),tablet:r(n),device:r(b)||r(n)},other:{blackberry:r(p),blackberry10:r(q),opera:r(s),firefox:r(u),chrome:r(t),device:r(p)||r(q)||r(s)||r(u)||r(t)},any:!1,phone:!1,tablet:!1};return o.any=o.apple.device||o.android.device||o.windows.device||o.other.device,o.phone=o.apple.phone||o.android.phone||o.windows.phone,o.tablet=o.apple.tablet||o.android.tablet||o.windows.tablet,o}f=x();if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f}else if(typeof define==="function"&&define.amd){define(function(){return f})}else{this["isMobile"]=f}})();
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 document.addEventListener('DOMContentLoaded', function() {
     const projects = document.querySelectorAll('.homeProjectWrap');
@@ -6,10 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     totalProjectsValue.innerHTML = String(totalProjects).padStart(2, '0');
     const counterValue = document.getElementById('counterValue');
     let last_scroll_top = 0;
-    let currentIndex = 0;
     let scaleXSetter = gsap.quickTo(".homeProjectWrap", "scaleX",{duration: 1, ease: "power4.out"}),
-        scaleYSetter = gsap.quickTo(".homeProjectWrap", "scaleY",{duration: 1, ease: "power4.out"}),
-        clamp = gsap.utils.clamp(1.14, .9); // don't let the scale go beyond 1.14 and 0.9.
+        scaleYSetter = gsap.quickTo(".homeProjectWrap", "scaleY",{duration: 1, ease: "power4.out"});
     setTimeout(() => {
         scaleXSetter(1);
         scaleYSetter(1);
@@ -21,82 +20,87 @@ document.addEventListener('DOMContentLoaded', function() {
             filter:"blur(0)",
             overwrite:true,
         });
-    },400)
+    },300)
     let smoother = ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
         content:'#smooth-content',
         smooth: .5,               // how long (in seconds) it takes to "catch up" to the native scroll position
         effects: true,           // looks for data-speed and data-lag attributes on elements
-        smoothTouch: 0.1,        // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+        smoothTouch: 0.5,        // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
         onUpdate: self => {
-            if(self.getVelocity() > 0){
-                gsap.to('.homeProjectWrap', {
-                    ease: "power4.out",
-                    duration: 1,
-                    scale: 1.14,
-                });
-                gsap.to('canvas#defaultCanvas0', {
-                    ease: "power4.out",
-                    duration: 1,
-                    webkitFilter: "blur(3px)",
-                    filter: "blur(3px)",
-                    scale: 0.9,
-                });
-            } else {
-                gsap.to('.homeProjectWrap', {
-                    ease: "power4.out",
-                    duration: 1,
-                    scale: 0.9,
-                });
-                gsap.to('canvas#defaultCanvas0', {
-                    ease: "power4.out",
-                    duration: 1,
-                    webkitFilter: "blur(3px)",
-                    filter: "blur(3px)",
-                    scale: 1.3,
-                });
+            if(!isMobile.any){
+                if(self.getVelocity() > 0){
+                    gsap.to('.homeProjectWrap', {
+                        ease: "power4.out",
+                        duration: 1,
+                        scale: 1.14,
+                    });
+                    gsap.to('canvas#defaultCanvas0', {
+                        ease: "power4.out",
+                        duration: 1,
+                        webkitFilter: "blur(3px)",
+                        filter: "blur(3px)",
+                        scale: 0.9,
+                    });
+                } else {
+                    gsap.to('.homeProjectWrap', {
+                        ease: "power4.out",
+                        duration: 1,
+                        scale: 0.9,
+                    });
+                    gsap.to('canvas#defaultCanvas0', {
+                        ease: "power4.out",
+                        duration: 1,
+                        webkitFilter: "blur(3px)",
+                        filter: "blur(3px)",
+                        scale: 1.3,
+                    });
+                }
             }
         },
         onStop: () => {
-            gsap.to('.homeProjectWrap', {
-                ease: "none",
-                duration: .5,
-                scale: 1,
-                overwrite:true,
-            });
-            gsap.to('canvas#defaultCanvas0',{
-                ease: "none",
-                duration:.5,
-                webkitFilter:"blur(0)",
-                scale:1,
-                filter:"blur(0)",
-                overwrite:true,
-            });
+            if(!isMobile.any){
+                gsap.to('.homeProjectWrap', {
+                    ease: "none",
+                    duration: .5,
+                    scale: 1,
+                    overwrite:true,
+                });
+                gsap.to('canvas#defaultCanvas0',{
+                    ease: "none",
+                    duration:.5,
+                    webkitFilter:"blur(0)",
+                    scale:1,
+                    filter:"blur(0)",
+                    overwrite:true,
+                });
+            }
         }
     });
     let projectName ;
     let projectUrl ;
     let currentProjectName = document.getElementById('currentProjectName');
-
+    let spacing = 0.1, // spacing of the cards (stagger)
+        snapTime = gsap.utils.snap(spacing), // we'll use this to snapTime the playhead on the seamlessLoop
+        cards = gsap.utils.toArray('.homeProjectWrap');
     projects.forEach((project, index) => {
         ScrollTrigger.create({
             trigger: project,
             start: "10% center",
             end:"90% center",
             onEnter: () => {
-                console.log(index);
                 counterValue.textContent = String(index + 1).padStart(2, '0');
-                projectUrl = project.getAttribute('href')
-                currentProjectName.setAttribute('href',projectUrl)
-                projectName = project.children[1].children[1].textContent.substring(1);
-                currentProjectName.children[0].textContent = projectName
+                projectUrl = project.getAttribute('href');
+                currentProjectName.setAttribute('href',projectUrl);
+                projectName = project.children[1].children[1].children[0].textContent.substring(1);
+                currentProjectName.children[0].textContent = projectName;
             },
             onEnterBack: () => {
                 counterValue.textContent = String(counterValue.textContent - 1).padStart(2, '0');
-                projectUrl = project.getAttribute('href')
-                currentProjectName.setAttribute('href',projectUrl)
-                projectName = project.children[1].children[1].textContent.substring(1);
-                currentProjectName.children[0].textContent = projectName
+                projectUrl = project.getAttribute('href');
+                currentProjectName.setAttribute('href',projectUrl);
+                projectName = project.children[1].children[1].children[0].textContent.substring(1);
+                currentProjectName.children[0].textContent = projectName;
             },
         });
     });
@@ -157,4 +161,76 @@ document.addEventListener('DOMContentLoaded', function() {
                 }});
         });
     });
+    let homeSideBarContainer =  document.querySelector('.homeSideBarContainer');
+    const projectWraps = gsap.utils.toArray('.homeProjectWrapp');
+    //===================MOBILE
+    if(isMobile.any){
+        document.querySelector('body').classList.add('mobile');
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 2,
+            spaceBetween: 18,
+            mousewheel: true,
+            loop:true,
+            breakpoints: {
+                769: {
+                    slidesPerView: 4,
+                    spaceBetween: 18,
+                },
+            },
+            on: {
+                init: function () {
+                    let heightSwiper = document.querySelector('.swiper-slide').clientHeight,
+                        heightInfo = document.querySelector('.projectInfo').clientHeight,
+                        projectMediaHeight = heightSwiper - heightInfo;
+                    document.querySelectorAll('.projectMedia').forEach((projectMedia) => {
+                        projectMedia.style.height = projectMediaHeight+'px';
+                    })
+                    console.log(heightSwiper,heightInfo);
+                },
+            },
+        });
+        swiper.on('init',function () {
+
+        })
+        swiper.on('beforeSlideChangeStart',function () {
+            homeSideBarContainer.classList.add('hide');
+        })
+        swiper.on('slideChange', function (e) {
+            let currentSkisImage = e.el.children[0].children[swiper.activeIndex].children[0].getAttribute('data-url');
+            gsap.to(mediaBox, { opacity: 0, duration: 0.25, onComplete: () => {
+                    mediaBox.setAttribute('src', currentSkisImage);
+                    gsap.to(mediaBox, { opacity: 1, duration: 0.25 });
+                }});
+            setTimeout(() => {
+                homeSideBarContainer.classList.remove('hide');
+            },2000)
+        });
+        //swipe right
+        function handleSwipeRight(event) {
+            homeSideBarContainer.classList.add('hide');
+        }
+// Add event listener to all <p> elements for touch events
+        homeSideBarContainer.addEventListener("touchstart", handleTouchStart, false);
+        homeSideBarContainer.addEventListener("touchend", handleTouchEnd, false);
+        let xStart = null;
+        function handleTouchStart(event) {
+            xStart = event.touches[0].clientX; // Store the starting point
+        }
+
+        function handleTouchEnd(event) {
+            if (xStart !== null) {
+                const xEnd = event.changedTouches[0].clientX; // Get the end point
+                const xDiff = xEnd - xStart;
+
+                // Check if the swipe is right
+                if (xDiff > 50) { // You can adjust the threshold
+                    handleSwipeRight();
+                }
+                xStart = null; // Reset start point
+            }
+        }
+    } else {
+        document.querySelector('body').classList.add('desktop')
+    }
 });

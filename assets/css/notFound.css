@@ -1,26 +1,13 @@
 body[data-pagetype="notFound"] main.wrapper {
     position: relative;
     height: 100vh;
-    padding: 0;
 }
 canvas {
-    display: none;
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    -ms-interpolation-mode: nearest-neighbor;   /* IE8+           */
-    image-rendering: optimizeSpeed;             /* Legal fallback */
-    image-rendering: -moz-crisp-edges;          /* Firefox        */
-    image-rendering: -o-crisp-edges;            /* Opera          */
-    image-rendering: -webkit-optimize-contrast; /* Safari         */
-    image-rendering: optimize-contrast;         /* CSS3 Proposed  */
-    image-rendering: crisp-edges;               /* CSS4 Proposed  */
-    image-rendering: pixelated;                 /* CSS4 Proposed  */
-    filter: grayscale(1);
 }
 
 .notFound-text {
@@ -34,7 +21,7 @@ canvas {
     margin: auto;
     text-align: center;
     /* color: #000; */
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
 }
 
 .notFound-text h1 {
@@ -52,40 +39,24 @@ canvas {
 }
 
 .notFound-text .button-group a {
-    border: 1px solid var(--white);
-    color: var(--white);
+    border: 1px solid #000;
+    color: var(--black);
     padding: .25rem 1.25rem;
     border-radius: 2rem;
     transition: all ease-in-out .4s;
-    line-height: 1.6;
-    text-transform: capitalize;
 }
 .notFound-text > * {
-    color: var(--white);
+    mix-blend-mode: difference;
+    color: #000;
 }
 
 .notFound-text .button-group a:hover {
-    border: 1px solid var(--white);
-    color: var(--white);
-    background-color: var(--black);
+    border: 1px solid #fff;
+    color: #ffff;
+    background-color: #000;
 }
 @media only screen and (max-width: 768px){
     .notFound-text h1 {
         font-size: 8rem;
-    }
-}
-@media only screen and (min-width: 640px) and (max-width:768px) {
-    .notFound-text h1 {
-        font-size: 12rem;
-    }
-}
-@media only screen and (min-width: 769px) and (max-width:1399px) {
-    .notFound-text h1 {
-        font-size: 15rem;
-    }
-}
-@media only screen and (min-width: 1400px) and (max-width:1600px) {
-    .notFound-text h1 {
-        font-size: 17rem;
     }
 }

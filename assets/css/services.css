@@ -127,9 +127,6 @@ section.servicesContainer {
     -o-object-fit: cover;
     object-fit: cover;
 }
-.serviceItem .title .expandMedia > video{
-    cursor: pointer;
-}
 .serviceItem .media {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -451,20 +448,9 @@ section.outLink a:hover:before {
         width: 1.3rem;
         height: 1.3rem;
     }
-    .serviceItem .side {
-        margin-bottom: 1rem;
-    }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {}
-@media only screen and (min-width: 769px) and (max-width:1199px) {
-    .serviceItem .media .mediaItem {
-        height: 18vh;
-    }
-    section.approachContainer .approachVideo {
-        height: 25vh;
-        bottom: 10vh;
-    }
-}
+@media only screen and (min-width: 769px) and (max-width:1199px) {}
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     .serviceItem .title h2 {
         font-size: clamp(2rem, 4.75vw, 4rem);

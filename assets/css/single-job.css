@@ -110,7 +110,225 @@ section.singleJobContentFormContainer {
 .singleJobDescription p {
     margin-top: 0;
 }
+/*=========FORM========*/
+form .textTypeInput {
+    position: relative;
+    margin-bottom: .5rem;
+}
 
+form .textTypeInput input {
+    width: 100%;
+    height: 2rem;
+    padding-left: 2rem;
+    margin-bottom: .875rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form .textTypeInput::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    background-image: url(../img/Union.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+form .textTypeInput textarea {
+    padding-left: 2rem;
+    margin-bottom: .875rem;
+    width: 100%;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+form .textTypeInput input::-webkit-input-placeholder,form .textTypeInput textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--gray);
+}
+form .textTypeInput input::-moz-placeholder,form .textTypeInput textarea::-moz-placeholder { /* Firefox 19+ */
+    color: var(--gray);
+}
+form .textTypeInput input:-ms-input-placeholder,form .textTypeInput textarea:-ms-input-placeholder { /* IE 10+ */
+    color: var(--gray);
+}
+form .textTypeInput input:-moz-placeholder,form .textTypeInput textarea:-moz-placeholder { /* Firefox 18- */
+    color: var(--gray);
+}
+form .submitForm {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: var(--primary);
+    width: 50%;
+    border-radius: 3.75rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.5rem;
+    height: 1.6rem;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+    border: 2px solid var(--primary);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form .submitForm input[type="submit"] {
+    color: var(--white);
+    text-transform: capitalize;
+    font-size: 0.75rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    cursor: pointer;
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+}
+
+form .submitForm svg {
+    position: absolute;
+    left: 37%;
+}
+
+form .submitForm:hover svg path {fill: var(--primary);}
+
+form .submitForm svg path {
+    -webkit-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+}
+
+form .submitForm:hover input[type="submit"] {color: var(--primary);}
+
+form .submitForm:hover {
+    background-color: var(--white);
+}
+/*=========FORM========*/
+/*========Upload========*/
+form .textTypeInput.upload {
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    height: 12rem;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-column-gap: .5rem;
+    -moz-column-gap: .5rem;
+    column-gap: .5rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 2rem;
+}
+form .upload .wpcf7-form-control-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+}
+form .upload input[type=file] {
+    width: 50%;
+    position: absolute;
+    height: 3rem;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    transform: translate(-50% , -50%);
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+form .upload label * {
+    vertical-align: middle;
+    cursor: pointer
+}
+
+form .upload label span {
+    display: inline-block
+}
+
+form .upload i.remove {
+    display: none;
+    width: .9rem;
+    height: .9rem;
+    background-image: url("../img/close-pixelated.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    z-index: 3;
+}
+
+form .upload label span,span.mfcf7-zl-multifile-name {
+    word-break: break-all
+}
+form .upload label {
+    font-size: .85rem;
+    border: 1px dashed var(--black);
+    padding: .75rem;
+    width: 100%;
+    height: 3rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+}
+form .upload label span i {
+    font-style: normal;
+    vertical-align: baseline;
+    color: var(--primary);
+}
+form .warning {
+    display: block;
+    font-size: 0.625rem;
+    padding-top: .5rem;
+    color: #9C9C9C;
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+form .warning.right {
+    left: auto;
+    right: 0;
+}
+form .upload .warning {
+    top: calc(50% + 2rem);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+/*========Upload========*/
 section.singleJobCultureContainer h2 {
     font-size: 3.25rem;
     margin-top: 0;
