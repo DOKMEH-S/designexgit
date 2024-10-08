@@ -145,18 +145,19 @@ jQuery(document).ready(function ($) {
         jQuery('#subscribe-form').on('submit', function(e) {
             e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
             var formData = jQuery(this).serialize(); // سریالیزه کردن داده‌های فرم
+            var thisForm = jQuery(this);
             jQuery.ajax({
                 type: 'POST',
                 url: jQuery(this).attr('action'), // آدرس ارسال فرم
                 data: formData,
                 beforeSend: function(){
-                    jQuery(this).find('.subscribe-message').html('wait please...');
+                    thisForm.find('.subscribe-message').html('wait please...');
                 },
                 success: function(response) {
-                    jQuery(this).find('.subscribe-message').html(response);
+                    thisForm.find('.subscribe-message').html(response);
                 },
                 error: function() {
-                    jQuery(this).find('.subscribe-message').html('please try later!');
+                    thisForm.find('.subscribe-message').html('please try later!');
                 }
             });
         });
