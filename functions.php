@@ -99,8 +99,8 @@ function Dokmeh_scripts()
         );
     endif;
 
-    wp_dequeue_style('newsletter-css');
-    wp_deregister_style('newsletter-css');
+    wp_dequeue_style('newsletter');
+    wp_deregister_style('newsletter');
 // // --- remove contact form 7 files from pages doesn't have form ----------
 //     if( is_front_page() OR is_page_template('tpls/contact.php') ) {
 //         wp_enqueue_script('contact-form-7');
