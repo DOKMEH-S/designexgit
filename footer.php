@@ -212,8 +212,9 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
                 document.querySelector('#loading').classList.add('transform');
                 setTimeout(() => {
                     document.querySelector('#loading').classList.add('loadingDone');
+                    document.querySelector('body').classList.add('loadingDone');
                 },1000);
-            }, 1000);
+            }, 1500);
         });
 
     </script>
@@ -226,6 +227,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
                     document.querySelector('#loading').classList.add('transform');
                     setTimeout(() => {
                         document.querySelector('#loading').classList.add('loadingDone');
+                        document.querySelector('body').classList.add('loadingDone');
                     },500);
                 },750);
             }, 700);
