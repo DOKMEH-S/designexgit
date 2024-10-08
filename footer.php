@@ -40,9 +40,8 @@
                 <div class="footer-subscribe">
                     <a href="/#" class="title" aria-label="Subscribe to the newsletter">Subscribe to the newsletter</a>
                     <div class="footer-subscribe-form">
-                        <?php echo do_shortcode('[newsletter_form form="1" confirmation_url="#"]'); ?>
+                        <?php echo do_shortcode('[newsletter_form confirmation_url="'.site_url('/').'?na=ajaxsub"]'); ?>
                     </div>
-                    <!--                <input type="submit">-->
                 </div>
                 <?php
                 $pages = get_pages(array(
