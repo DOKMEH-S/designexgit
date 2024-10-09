@@ -234,6 +234,7 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     text-transform: capitalize;
     font-weight: 400;
     line-height: 0.688rem;
+    display: block;
 }
 h1.home-title {
     position: relative;
@@ -440,7 +441,7 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
     -ms-flex-pack: center;
     justify-content: center;
     row-gap: 0.7rem;
-    left: 3em;
+    left: 1rem;
     min-width: 3rem;
     min-height: 6rem;
     top: 50%;
@@ -453,7 +454,7 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
 #currentProjectName {
     position: absolute;
     z-index: 2;
-    left: 7rem;
+    left: 4rem;
     top: 50%;
     -webkit-transform: translateY(calc(-50% - 2rem));
     -ms-transform: translateY(calc(-50% - 2rem));
@@ -492,12 +493,12 @@ body.mobile section.homeSideBarContainer.hide {
 }
 .counterValueBox,.totalProjectBox {
     position: relative;
-    width: 3rem;
+    width: 2rem;
     height: 3rem;
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .totalProjectBox span {
