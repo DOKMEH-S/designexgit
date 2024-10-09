@@ -159,7 +159,7 @@ endif; ?>">
                     <div class="extraLinks-contact">
                         <div class="extraLink-item">
                             <span>Monthly Newsletter</span>
-                            <a href="">Subscribe here</a>
+                            <div class="cta">Subscribe here</a>
                         </div>
                         <?php $pages = get_pages(array(
                             'meta_key' => '_wp_page_template',
