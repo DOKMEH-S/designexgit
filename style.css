@@ -354,6 +354,7 @@ body.opMenu > main , body.opMenu > footer {
     width: -moz-fit-content;
     width: fit-content;
     font-size: .75rem;
+    cursor: pointer;
 }
 #newsletterLink-container > .subscribeBtn img {
     width: .75rem;
@@ -599,14 +600,15 @@ body.opMenu #menuContainer {
     text-transform: capitalize;
 }
 
-#menuContainer .extraLink-item > a {
+#menuContainer .extraLink-item > .cta {
     color: var(--primary);
     padding-left: 1.625rem;
     margin: .5rem 0 0 0;
     position: relative;
+    cursor: pointer;
 }
 
-#menuContainer .extraLink-item > a:before{
+#menuContainer .extraLink-item > .cta:before{
     content: '';
     position: absolute;
     width: 1rem;
@@ -618,7 +620,7 @@ body.opMenu #menuContainer {
     transform: translateY(-50%);
     background-color: var(--primary);
 }
-#menuContainer .extraLink-item > a:after{
+#menuContainer .extraLink-item > .cta:after{
     content: '';
     position: absolute;
     width: 0.5rem;
@@ -641,7 +643,7 @@ body.opMenu #menuContainer {
     color: var(--primary);
 }
 
-#menuContainer .extraLink-item > a:hover:after {
+#menuContainer .extraLink-item > .cta:hover:after {
     -webkit-transform: translate(15% ,-65%);
     -ms-transform: translate(15% ,-65%);
     transform: translate(15% ,-65%);
@@ -931,7 +933,8 @@ form .submitForm:hover {
 footer form {
     position: relative;
 }
-footer form input[type="submit" ] {
+footer form input[type="submit" ],
+body > .footer-subscribe .footer-subscribe-form input[type="submit" ] {
     position: absolute;
     top: 0;
     right: 0;
@@ -943,8 +946,9 @@ footer form input[type="submit" ] {
     background-size: contain;
     background-origin: content-box;
     z-index: 2;
-    filter: invert(1);
+    filter: invert(0);
     transition: all ease-in-out .35s;
+    cursor: pointer;
 }
 footer form input[type="submit" ]:hover {
     transform: translate(10px, -10px);
@@ -1065,19 +1069,11 @@ form .upload .warning {
 }
 /*========Upload========*/
 /*========body > .footer-subscribe========*/
-.footer-subscribe {
+body > .footer-subscribe {
     position: relative;
 }
-
-body > .footer-subscribe {
-    transition: all ease-in-out .4s;
-    opacity: 0;
-    visibility: hidden;
-}
-
-body.opSubscribe > .footer-subscribe {
-    opacity: 1;
-    visibility: visible;
+body.opSubscribe > .footer-subscribe{
+    position: relative;
 }
 body > .footer-subscribe .footer-subscribe-form {
     position: fixed;
@@ -1086,15 +1082,26 @@ body > .footer-subscribe .footer-subscribe-form {
     transform: translate(-50% , -50%);
     z-index: 99;
     background-color: var(--white);
-    padding: 2rem;
+    padding: 5rem;
     width: 50vw;
     height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 6px 6px 6px rgba(32, 110, 75, 0.5);
+    box-sizing: border-box;
 }
-
+body > .footer-subscribe .footer-subscribe-form ,
+body > .footer-subscribe:before{
+    transition: all ease-in-out .4s;
+    opacity: 0;
+    pointer-events: none;
+}
+body.opSubscribe > .footer-subscribe .footer-subscribe-form ,
+body.opSubscribe > .footer-subscribe:before{
+    opacity: 1;
+    pointer-events: auto;
+}
 body > .footer-subscribe:before {
     content: '';
     position: fixed;
@@ -1105,6 +1112,17 @@ body > .footer-subscribe:before {
     background-color: rgba(255, 255, 255, .5)!important;
     transform: none;
     z-index: 99;
+}
+body > .footer-subscribe .footer-subscribe-form .tnp.tnp-subscription {
+    width: 100%;
+}
+body > .footer-subscribe .footer-subscribe-form form#subscribe-form {
+    position: relative;
+}
+body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 /*========body > .footer-subscribe========*/
 /*==================input================*/
