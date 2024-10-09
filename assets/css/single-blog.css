@@ -491,6 +491,7 @@ aside.related .items .item .media > * {
         font-size: 2rem;
         width: 100%;
         text-align: left;
+        padding-left: var(--spaceLL);
     }
     .twoColumnSample {
         -ms-grid-columns: 1fr;
