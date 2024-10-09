@@ -223,6 +223,8 @@ span.projectHeader-container_row-title {
         opacity: 0;
         visibility: hidden;
         padding: 1rem calc(var(--spaceX)* .5);
+        height: 55vh;
+        overflow-y: auto;
     }
     .projectHeader-container.opFilter .projectHeader-wrapper{
         opacity: 1;

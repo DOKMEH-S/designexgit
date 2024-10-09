@@ -424,6 +424,10 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     width: 37rem;
     position: relative;
     justify-content: center;
+    opacity: 0;
+}
+#loading.second-loading.ink .second-loading-container{
+    opacity: 1;
 }
 #loading.second-loading .second-loading-container:before {
     background-image: url(../img/ink-photo-frame.png);
@@ -496,5 +500,14 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
 
     .loading_text_canvas.two > * {
         font-size: 2rem;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:1199px){
+    #loading #lottie {
+        width: calc(50vw - var(--spaceX) - 5rem);
+    }
+
+    #loading.transform #lottie {
+        transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX)));
     }
 }
