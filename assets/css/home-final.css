@@ -540,6 +540,9 @@ body.loadingDone .swiper {
 }
 /*===========HOME PROJECTS==============*/
 @media only screen and (max-width: 768px){
+    canvas#defaultCanvas0{
+        opacity: 0.2;
+    }
     #cookieContainer {
         grid-row-gap: 1rem;
         left: var(--spaceX););
@@ -557,14 +560,14 @@ body.loadingDone .swiper {
     }
     section.homeSideBarContainer {
         height: auto;
-        width: 70vw;
+        width: 42vw;
         top: auto;
         bottom: var(--headerHeight);
         -webkit-transform: translate(0,0);
         -ms-transform: translate(0,0);
         transform: translate(0,0);
         background-color: var(--white);
-        padding: calc(var(--spaceX)*.75);
+        padding: calc(var(--spaceX)*.5);
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
@@ -598,7 +601,7 @@ body.loadingDone .swiper {
         opacity:0
     }
     .projectMedia {
-        height: 32vh;
+        height: 16vh;
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
