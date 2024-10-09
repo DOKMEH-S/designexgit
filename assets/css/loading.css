@@ -30,14 +30,14 @@
 }
 #loading #lottie {
     transform: translateX(0);
-    width: 500px;
+    width: calc((100vw / 3)* 1 - var(--spaceX) - 4rem);
     z-index: 2;
     display: flex;
     align-items: center;
     transition: transform ease-in-out .75s , opacity ease-in-out .5s;
 }
 #loading.transform #lottie {
-    transform: translateX(calc(50vw - 250px - var(--spaceX) + 60px));
+    transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX)));
 }
 
 #loading .loadingCovers {
@@ -478,8 +478,11 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
 }
 
 @media only screen and (max-width: 768px){
+    #loading #lottie {
+        width: 12rem;
+    }
     #loading.transform #lottie {
-        transform: translateX(calc(100vw - var(--spaceX) + 60px));
+        transform: translateX(calc(100vw - var(--spaceX) ));
         opacity: 0;
     }
     .loading-container:before {
