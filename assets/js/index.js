@@ -9,7 +9,7 @@ const animateFifthGrid = () => {
         },
         scrollTrigger: {
             trigger: grid,
-            start: '-150px top',
+            start: 'center center',
             end: '+=250% bottom',
             pin: grid.parentNode,
             scrub: 0.3,
