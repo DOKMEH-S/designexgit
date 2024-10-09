@@ -92,11 +92,11 @@ const proHeadContainer = document.querySelector('.projectHeader-container');
 
 mobileIcon.addEventListener('click', function (event) {
     // Toggle the opFilter class and control lenis
-    // if (proHeadContainer.classList.toggle('opFilter')) {
-    //     lenis.stop();
-    // } else {
-    //     lenis.start();
-    // }
+    if (proHeadContainer.classList.toggle('opFilter')) {
+        // lenis.stop();
+    } else {
+        // lenis.start();
+    }
 });
 
 // Add a click event listener to the document
