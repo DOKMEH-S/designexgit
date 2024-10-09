@@ -39,6 +39,10 @@ body[data-pagetype="about"] main{
     background-color: transparent !important;
     color: inherit !important;
 }
+.awardsWrap::-moz-selection, .awardsWrap *::-moz-selection {
+    background-color: transparent !important;
+    color: inherit !important;
+}
 .awardsWrap::selection,.awardsWrap *::selection {
     background-color: transparent !important;
     color: inherit !important;
@@ -352,6 +356,8 @@ section.missionVisionContainer {
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
@@ -1301,6 +1307,7 @@ section.projectsLink a:hover img {
     -webkit-transform: translate(20px, -20px);
     -ms-transform: translate(20px, -20px);
     transform: translate(20px, -20px);
+    -webkit-filter: blur(5px);
     filter: blur(5px);
 }
 /*==========PROJECT LINK============*/

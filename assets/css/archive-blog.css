@@ -47,10 +47,16 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
+    -webkit-transition: all ease-in-out .4s;
+    -o-transition: all ease-in-out .4s;
     transition: all ease-in-out .4s;
 }
 .blogItem-media:hover img {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
 }
 .blogItem-info {
@@ -164,12 +170,15 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
 .blogItem .blogItem-info > * > :not(a)
 .blogItem .blogItem-info > *:not(.blogItem-info_more) ,
 .blogItem .blogItem-info > .blogItem-info_more > *:not(.link){
+    -webkit-transition: all ease-in-out .4s;
+    -o-transition: all ease-in-out .4s;
     transition: all ease-in-out .4s;
 }
 .blogItem.blur > *:not(.blogItem-info) ,
 .blogItem.blur .blogItem-info > * > :not(a)
 .blogItem.blur .blogItem-info > *:not(.blogItem-info_more) ,
 .blogItem.blur .blogItem-info > .blogItem-info_more > *:not(.link){
+    -webkit-filter: blur(5px);
     filter: blur(5px);
 }
 
@@ -347,7 +356,3 @@ body[data-pagetype="archiveBlog"] .projectHeader-container_row-above:before{
         line-clamp: 5;
     }
 }
-
-
-
-
