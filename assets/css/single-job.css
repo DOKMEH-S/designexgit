@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 main.singleJobWrapper {
     position: relative;
     padding: calc(var(--headerHeight) + 3.875rem) 0 10rem;
