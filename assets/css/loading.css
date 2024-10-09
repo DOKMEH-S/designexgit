@@ -29,14 +29,26 @@
     z-index: 2;
 }
 #loading #lottie {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
     transform: translateX(0);
     width: calc((100vw / 3)* 1 - var(--spaceX) - 4rem);
     z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-transition: opacity ease-in-out .5s , -webkit-transform ease-in-out .75s;
+    transition: opacity ease-in-out .5s , -webkit-transform ease-in-out .75s;
+    -o-transition: transform ease-in-out .75s , opacity ease-in-out .5s;
     transition: transform ease-in-out .75s , opacity ease-in-out .5s;
+    transition: transform ease-in-out .75s , opacity ease-in-out .5s , -webkit-transform ease-in-out .75s;
 }
 #loading.transform #lottie {
+    -webkit-transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX) - .25rem));
+    -ms-transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX) - .25rem));
     transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX) - .25rem));
 }
 
@@ -423,6 +435,8 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
 #loading.second-loading .second-loading-container {
     width: 37rem;
     position: relative;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     opacity: 0;
 }
@@ -437,39 +451,84 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     left: 50%;
     position: absolute;
     top: 0;
+    -webkit-transform: translateX(-1.25%);
+    -ms-transform: translateX(-1.25%);
     transform: translateX(-1.25%);
     width: 4000%;
     pointer-events: none;
 }
 #loading.second-loading.ink .second-loading-container:before{
+    -webkit-animation: ink-transition 1.2s steps(39) forwards;
     animation: ink-transition 1.2s steps(39) forwards;
 }
-@keyframes ink-transition {
+@-webkit-keyframes ink-transition {
     0% {
+        -webkit-transform: translateX(-1.25%);
         transform: translateX(-1.25%);
     }
     99% {
+        -webkit-transform: translateX(-98.75%);
         transform: translateX(-98.75%);
         opacity: 1;
     }
     100% {
+        -webkit-transform: translateX(-98.75%);
+        transform: translateX(-98.75%);
+        opacity: 0;
+    }
+}
+@keyframes ink-transition {
+    0% {
+        -webkit-transform: translateX(-1.25%);
+        transform: translateX(-1.25%);
+    }
+    99% {
+        -webkit-transform: translateX(-98.75%);
+        transform: translateX(-98.75%);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateX(-98.75%);
         transform: translateX(-98.75%);
         opacity: 0;
     }
 }
 #loading.second-loading.transform .second-loading-container{
+    -webkit-animation: loadingTransform .75s forwards;
     animation: loadingTransform .75s forwards;
 }
-@keyframes loadingTransform {
+@-webkit-keyframes loadingTransform {
     from{
+        -webkit-transform: translate(0 ,0);
         transform: translate(0 ,0);
     }
     to{
+        -webkit-transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
+        transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
+    }
+}
+@keyframes loadingTransform {
+    from{
+        -webkit-transform: translate(0 ,0);
+        transform: translate(0 ,0);
+    }
+    to{
+        -webkit-transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
         transform: translate(calc(20rem* cos(20deg)), calc(20rem* sin(20deg)* -1));
     }
 }
 #loading.second-loading.loadingDone{
+    -webkit-animation: loadingOpacity .5s forwards;
     animation: loadingOpacity .5s forwards;
+}
+
+@-webkit-keyframes loadingOpacity {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 
 @keyframes loadingOpacity {
@@ -486,6 +545,8 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
         width: 12rem;
     }
     #loading.transform #lottie {
+        -webkit-transform: translateX(calc(100vw - var(--spaceX) ));
+        -ms-transform: translateX(calc(100vw - var(--spaceX) ));
         transform: translateX(calc(100vw - var(--spaceX) ));
         opacity: 0;
     }
@@ -508,6 +569,8 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     }
 
     #loading.transform #lottie {
+        -webkit-transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX) - .25rem));
+        -ms-transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX) - .25rem));
         transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX) - .25rem));
     }
 }

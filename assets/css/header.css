@@ -23,6 +23,8 @@ header {
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     background-color: rgba(255,255,255,.1);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
 }
 body.opMenu header {
@@ -31,8 +33,14 @@ body.opMenu header {
 header .identity {
     display: block;
     height: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
 }
 header .identity img.logo-img {
@@ -46,7 +54,10 @@ header .identity img  {
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
+    -o-object-position: left;
     object-position: left;
+    -webkit-transition: all ease-in-out .4s;
+    -o-transition: all ease-in-out .4s;
     transition: all ease-in-out .4s;
 }
 body.scrollingDown header .identity img.logo-text {
@@ -98,7 +109,11 @@ header .menu-icon {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
+    -webkit-column-gap: 15rem;
+    -moz-column-gap: 15rem;
     column-gap: 15rem;
 }
 header .menu-icon .quickMenu nav ul {
@@ -157,6 +172,10 @@ header .menu-icon .icon > *::-moz-selection,header .menu-icon .icon > * *::-moz-
     background-color: transparent !important;
     color: inherit !important;
 }
+header .menu-icon .icon > *::-moz-selection, header .menu-icon .icon > * *::-moz-selection {
+    background-color: transparent !important;
+    color: inherit !important;
+}
 header .menu-icon .icon > *::selection,header .menu-icon .icon > * *::selection {
     background-color: transparent !important;
     color: inherit !important;
@@ -172,6 +191,8 @@ body.opMenu header .menu-icon .icon > *.close {
     transform: translateY(0);
 }
 body > main , body > footer {
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
     transition: all ease-in-out .5s;
 }
 body.opMenu > main , body.opMenu > footer {
@@ -248,18 +269,25 @@ body.opMenu header .menu-icon .icon > *.menu {
     -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -webkit-transform: translateY(calc(-100% - var(
+    --headerHeight)));
+    -ms-transform: translateY(calc(-100% - var(
+    --headerHeight)));
     transform: translateY(calc(-100% - var(
     --headerHeight)));
     overflow: hidden;
     /* overflow-y: auto; */
     background-color: var(--white);
     /* padding: 5rem 0; */
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* top: 0; */
 }
 
 body.opMenu #menuContainer {
     pointer-events: auto;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
 }
 #menuContainer:before{
@@ -364,14 +392,22 @@ body.opMenu #menuContainer {
     z-index: 1;
     position: relative;
     width: 100%;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
     padding-bottom: var(--headerHeight);
     overflow: hidden;
     /* overflow-y: auto; */
     padding-right: 50vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 .subMenuContainer {
@@ -379,6 +415,8 @@ body.opMenu #menuContainer {
     left: 50vw;
     top: 50%;
     height: 70vh;
+    -webkit-transform: translateY(calc(-50% - var(--headerHeight)*.5));
+    -ms-transform: translateY(calc(-50% - var(--headerHeight)*.5));
     transform: translateY(calc(-50% - var(--headerHeight)*.5));
     width: 50vw;
     z-index: 2;
@@ -386,14 +424,22 @@ body.opMenu #menuContainer {
 .subMenuContainer .subMenu {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .4s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .4s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .4s;
     background-color: var(--white);
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 .subMenuContainer .subMenu.active {
@@ -425,6 +471,7 @@ body.opMenu #menuContainer {
     position: absolute;
     width: 220px;
     height: 280px;
+    -o-object-fit: cover;
     object-fit: cover;
     /* transform: translateX(-50%) translateY(-50%); */
     top: 0;
@@ -445,6 +492,8 @@ body.opMenu #menuContainer {
     pointer-events: auto;
     text-transform: capitalize;
     font-weight: 500;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 .item-title.show {
@@ -461,7 +510,12 @@ body.opMenu #menuContainer {
     padding: 0.75rem 0 0.75rem var(--spaceX);
     font-weight: 400;
     position: relative;
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: -webkit-transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -o-transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
     transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* mix-blend-mode: difference; */
 }
@@ -475,35 +529,53 @@ body.opMenu #menuContainer {
     position: absolute;
     left: 0;
     top: 50%;
+    -webkit-transform: translate(-100%,-50%);
+    -ms-transform: translate(-100%,-50%);
     transform: translate(-100%,-50%);
     font-size: 0.75rem;
     padding-left: 12px;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    -o-transition: transform .3s;
     transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
     color: var(--primary);
 }
 .menu-list .menu-link:hover small {
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
 .menu-list .menu-link::before {
     content: '';
     position: absolute;
     opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, -webkit-transform 0.3s;
+    -o-transition: transform 0.3s, opacity 0.3s;
     transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
     width: 5px;
     height: 100%;
     background-color: var(--primary);
     top: 50%;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
     left: 0;
 }
 
 .menu-list .menu-link:hover::before {
     opacity: 1;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
 .subMenuContainer .subMenu ul li a {
     font-size: 1.3rem;
     text-transform: capitalize;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
     transition: all .3s;
 }
 .subMenuContainer .subMenu ul li a:hover {
@@ -541,6 +613,8 @@ body.opMenu #menuContainer {
         background-color: rgba(255, 255, 255, .5);
     }
     header .identity {
+        -webkit-column-gap: .5rem;
+        -moz-column-gap: .5rem;
         column-gap: .5rem;
     }
     header .identity img.logo-text {
@@ -604,9 +678,13 @@ body.opMenu #menuContainer {
         width: calc(50vw - var(--spaceX));
     }
     header .menu-icon {
+        -webkit-column-gap: 10rem;
+        -moz-column-gap: 10rem;
         column-gap: 10rem;
     }
     header .menu-icon .quickMenu nav ul {
+        -webkit-column-gap: 3rem;
+        -moz-column-gap: 3rem;
         column-gap: 3rem;
     }
 }

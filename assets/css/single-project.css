@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*============SINGLE PROJECT HERO SECTION=============*/
 .singleProjectVideoContainer > img,.singleProjectVideoContainer > video {
     width: 100%;
@@ -209,6 +216,8 @@ html.loadingDone .singleProjectAwardsWrapper{
     height: 1.2rem;
     -o-object-fit: contain;
     object-fit: contain;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
 }
 .awardsTitleLogoWrapper:hover .awardsTitle img {

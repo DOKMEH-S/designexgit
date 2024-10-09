@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b69ba3e7-d4b0-4844-90c5-475ff0c74937" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-job.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-job.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/single-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/single-project.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

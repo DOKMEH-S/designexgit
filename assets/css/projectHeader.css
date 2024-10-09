@@ -4,6 +4,13 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
 body[data-pagetype="archiveProject"] header,
 body[data-pagetype="archiveBlog"] header ,
 .projectHeader-container {
@@ -113,6 +120,7 @@ body.opMenu body[data-pagetype="archiveProject"] header,body.opMenu body[data-pa
 
 .projectHeader-wrapper {
     width: 100%;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 .projectHeader-container_row {
@@ -186,7 +194,14 @@ span.projectHeader-container_row-title {
     text-transform: capitalize;
 }
 .projectHeader-container_row-items > *.selected {
+    -webkit-animation: selectedMotion 1s forwards;
     animation: selectedMotion 1s forwards;
+}
+@-webkit-keyframes selectedMotion {
+    to{
+        color: var(--primary);
+        font-weight: 700;
+    }
 }
 @keyframes selectedMotion {
     to{
