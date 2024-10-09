@@ -35,6 +35,14 @@ body[data-pagetype="about"] main{
     left: -3.5rem;
 }
 .aboutTitle h2 {margin-top: 0;margin-bottom: 0;}
+.awardsWrap::-moz-selection,.awardsWrap * ::-moz-selection {
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+.awardsWrap::selection,.awardsWrap * ::selection {
+    background-color: transparent !important;
+    color: transparent !important;
+}
 /*=============ANCHOR LINKS================*/
 .logo-items img {
     width: 27vw;
@@ -733,7 +741,7 @@ section.awardsContainer .aboutTitle {
 .awardsWrap > span {
     position: absolute;
     width: 103%;
-    height: 50%;
+    height: 52%;
     right: 0;
     background-color: var(--primary);
     -webkit-transition: all ease-in-out 0.4s;
@@ -1290,9 +1298,10 @@ section.projectsLink a img {
     transition: all ease-in-out .35s;
 }
 section.projectsLink a:hover img {
-    -webkit-transform: translate(.75rem, -90%);
-    -ms-transform: translate(.75rem, -90%);
-    transform: translate(.75rem, -90%);
+    -webkit-transform: translate(20px, -20px);
+    -ms-transform: translate(20px, -20px);
+    transform: translate(20px, -20px);
+    filter: blur(5px);
 }
 /*==========PROJECT LINK============*/
 /*==========MODAL VIDEO============*/
