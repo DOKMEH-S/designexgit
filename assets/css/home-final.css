@@ -766,11 +766,8 @@ body.loadingDone .swiper {
         opacity: 0.5;
         transition: all ease-in-out 0.4s;
     }
-    .homeElementCounterWrapper #counterBox {
-        left: 3rem;
-    }
     #currentProjectName {
-        left: 6rem;
+        left: 4rem;
     }
     .projectInfo h2.project_name {
         display: block;
@@ -802,12 +799,8 @@ body.loadingDone .swiper {
         -moz-column-gap: .75rem;
         column-gap: .75rem;
     }
-    .homeElementCounterWrapper #counterBox {
-        left: 2rem;
-    }
-
     #currentProjectName {
-        left: 5rem;
+        left: 3.5rem;
         padding-bottom: 6px;
     }
 
@@ -854,12 +847,10 @@ body.loadingDone .swiper {
     h1.home-title {
         font-size: 1.4rem;
     }
-    .homeElementCounterWrapper #counterBox {
-        left: 2rem;
-    }
+
 
     #currentProjectName {
-        left: 5rem;
+        left: 3.5rem;
         padding-bottom: 6px;
     }
 
