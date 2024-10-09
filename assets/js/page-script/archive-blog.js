@@ -37,3 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 /*============Hover Effect=============*/
+/*============ScrollUp=============*/
+document.querySelectorAll('.projectHeader-container_row-items > *').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        setTimeout(function () {
+            e.preventDefault();
+            lenis.scrollTo('#scrollDestination')
+        },500)
+    });
+})
+/*============ScrollUp=============*/

@@ -153,6 +153,14 @@ header .menu-icon .icon > * {
     transition: transform 0.45s;
     transition: transform 0.45s, -webkit-transform 0.45s;
 }
+header .menu-icon .icon > *::-moz-selection,header .menu-icon .icon > * *::-moz-selection {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+header .menu-icon .icon > *::selection,header .menu-icon .icon > * *::selection {
+    background-color: transparent !important;
+    color: inherit !important;
+}
 header .menu-icon .icon > *.close {
     -webkit-transform: translateY(-100%);
     -ms-transform: translateY(-100%);

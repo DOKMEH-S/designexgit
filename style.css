@@ -996,11 +996,14 @@ form .wpcf7-spinner {
 span.wpcf7-spinner:before {
     content: none;
 }
-body[ data-pagetype="contact"] form .submitForm {
+body[ data-pagetype="contact"] form .submitForm ,
+body[ data-pagetype="jobs"] form .submitForm
+{
     width: 100%;
     height: 2rem;
 }
-body[ data-pagetype="contact"] form .submitForm svg {
+body[ data-pagetype="contact"] form .submitForm svg ,
+body[ data-pagetype="jobs"] form .submitForm svg{
     position: absolute;
     left: 42%;
 }
@@ -1317,7 +1320,8 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     form .submitForm svg {
         left: 30%;
     }
-    body[ data-pagetype="contact"] form .submitForm svg {
+    body[ data-pagetype="contact"] form .submitForm svg ,
+    body[ data-pagetype="jobs"] form .submitForm svg{
         left: 38%;
     }
     .ss-container {
@@ -1364,7 +1368,8 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     form .submitForm {
         width: 30%;
     }
-    body[ data-pagetype="contact"] form .submitForm svg {
+    body[ data-pagetype="contact"] form .submitForm svg ,
+    body[ data-pagetype="jobs"] form .submitForm svg{
         left: 44%;
     }
     body > .footer-subscribe .footer-subscribe-form {
@@ -1421,7 +1426,8 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     form .submitForm svg {
         left: 30%;
     }
-    body[ data-pagetype="contact"] form .submitForm svg {
+    body[ data-pagetype="contact"] form .submitForm svg ,
+    body[ data-pagetype="jobs"] form .submitForm svg{
         left: 44%;
     }
     .ss-container {
