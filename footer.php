@@ -101,10 +101,10 @@
 
             </div>
 
-            <div class="dokmeh">
+            <a target="_blank" href="https://hidokmeh.com" class="dokmeh" aria-label="Dokmeh creative agancy">
                 <span>Made with Love by </span>
                 <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
-            </div>
+            </a>
         </div>
     </footer>
 <?php endif; ?>
