@@ -151,7 +151,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
         document.querySelector('header').style.opacity = '1';
 
 
-        const subscribeButton = document.querySelector('#newsletterLink-container .extraLink-item.subscribe');
+        const subscribeButton = document.querySelector('#menuContainer .extraLink-item.subscribe');
         const footerForm = document.querySelector('.footer-subscribe .footer-subscribe-form');
 
         // Handle click on subscribe button

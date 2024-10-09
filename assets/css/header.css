@@ -593,6 +593,12 @@ body.opMenu #menuContainer {
     #menuContainer .extraLinks {
         width: calc(50vw - var(--spaceX));
     }
+    header .menu-icon {
+        column-gap: 10rem;
+    }
+    header .menu-icon .quickMenu nav ul {
+        column-gap: 3rem;
+    }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     /*==============MENU===============*/
