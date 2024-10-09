@@ -11,36 +11,35 @@ get_header(); ?>
                 <div id="aboutAnchorLinks">
                     <?php
                     if (have_rows('reason')): ?>
-                        <a href="#whyUs"> Why Us? </a>
+                        <a href="#whyUs" class="shuffle" data-text="Why Us?"> Why Us? </a>
                     <?php endif; ?>
 
                     <?php if (get_field('title1') || get_field('title2')): ?>
                         <a
-                            href="#missionVision"><?php echo get_field('section_2') ? get_field('section_2') : 'Mission & Vision'; ?></a>
+                            href="#missionVision" class="shuffle" data-text="Mission & Vision"><?php echo get_field('section_2') ? get_field('section_2') : 'Mission & Vision'; ?></a>
                     <?php endif; ?>
 
                     <?php if (get_field('s_des')): ?>
                         <a
-                            href="#statement"><?php echo get_field('section_3') ? get_field('section_3') : 'Statement'; ?></a>
+                            href="#statement" class="shuffle" data-text="Statement"><?php echo get_field('section_3') ? get_field('section_3') : 'Statement'; ?></a>
                     <?php endif; ?>
 
                     <?php if (get_field('f_name') || get_field('f_text')): ?>
-                        <a href="#founder"><?php echo get_field('f_name') ? get_field('f_name') : 'Founder'; ?></a>
+                        <a href="#founder" class="shuffle" data-text="Founder"><?php echo get_field('f_name') ? get_field('f_name') : 'Founder'; ?></a>
                     <?php endif; ?>
 
                     <?php if (have_rows('team')): ?>
-                        <a href="#team"><?php echo get_field('section_4') ? get_field('section_4') : 'Team'; ?></a>
+                        <a href="#team" class="shuffle" data-text="Team"><?php echo get_field('section_4') ? get_field('section_4') : 'Team'; ?></a>
                     <?php endif; ?>
 
                     <?php
                     $awards_query = new WP_Query(array('post_type' => 'projects'));
                     if ($awards_query->have_posts()): ?>
-                        <a href="#awards"><?php echo get_field('section_5') ? get_field('section_5') : 'Awards'; ?></a>
+                        <a href="#awards" class="shuffle" data-text="Awards"><?php echo get_field('section_5') ? get_field('section_5') : 'Awards'; ?></a>
                     <?php endif; ?>
 
                     <?php if (get_field('u_title') || get_field('u_des')): ?>
-                        <a
-                            href="#theFuture"><?php echo get_field('section_6') ? get_field('section_6') : 'The Future'; ?></a>
+                        <a href="#theFuture" class="shuffle" data-text="The Future"><?php echo get_field('section_6') ? get_field('section_6') : 'The Future'; ?></a>
                     <?php endif; ?>
                 </div>
             </div>
