@@ -552,6 +552,17 @@ body.loadingDone .swiper {
         top: calc((var(--vh, 1vh)* 100) - var(--headerHeight) - 4rem);
         grid-column-gap: 0;
     }
+    .homeVideoItemsWrapper h2 {
+        font-size: .6rem;
+    }
+
+    .homeVideoContainer::after {
+        right: -7px;
+    }
+
+    h1.home-title::before, .homeVideoItemsWrapper::before {
+        left: -5px;
+    }
     button#acceptCookie {margin: 0 auto;}
     h1.home-title {
         display: none;
