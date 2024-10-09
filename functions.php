@@ -221,7 +221,7 @@ function project_filter_handler()
             $year =  get_field('year');
             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
             if ($year or $loc):
-                $outputHTML .= '<span class="dateLoc">' . ($year ? ($year.'-') : '') . ($loc ? $loc[0]->name : '') . '</span>';
+                $outputHTML .= '<span class="dateLoc">' . ($year ? ($year.' - ') : '') . ($loc ? $loc[0]->name : '') . '</span>';
             endif;
             $outputHTML .= '</a></div>';
         endwhile;

@@ -102,7 +102,7 @@
                             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
                             if ($year or $loc): ?>
                                 <span
-                                    class="dateLoc"><?php echo ($year ? ($year.'-') : '') . ($loc ? ($loc[0]->name) : ''); ?></span>
+                                    class="dateLoc"><?php echo ($year ? ($year.' - ') : '') . ($loc ? ($loc[0]->name) : ''); ?></span>
                             <?php endif; ?>
                         </a>
                     </div>
