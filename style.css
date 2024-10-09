@@ -262,7 +262,7 @@ main{
 /*========GENERAL CLASS==========*/
 body[data-pagetype="archiveProject" ] main.wrapper ,
 body[data-pagetype="archiveBlog" ] main.wrapper {
-    min-height: 100vh;
+    min-height:  calc(var(--vh, 1vh) * 100);;
 }
 body > main , body > footer {
     transition: all ease-in-out .5s;
@@ -926,12 +926,27 @@ form .submitForm:hover input[type="submit"] {color: var(--primary);}
 form .submitForm:hover {
     background-color: var(--white);
 }
-.wpcf7 form.invalid .wpcf7-response-output {
-    border-color: #dc3232;
+
+body[ data-pagetype="contact"] .wpcf7 form .wpcf7-response-output {
+    text-align: center;
+    border-color: var(--primary) !important;
+    border-radius: 3.75rem;
+}
+body[ data-pagetype="contact"] .wpcf7 form.invalid .wpcf7-response-output {
+    border-color: #dc3232 !important;
     background-color: #dc3232;
+    text-align: inherit;
     color: var(--white);
     margin-right: 0;
     margin-left: 0;
+}
+body[ data-pagetype="contact"] form .submitForm {
+    width: 100%;
+    height: 2rem;
+}
+body[ data-pagetype="contact"] form .submitForm svg {
+    position: absolute;
+    left: 42%;
 }
 footer form {
     position: relative;
@@ -1145,10 +1160,6 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
         padding-left: var(--spaceX);
         padding-bottom: 5rem;
     }
-    body[data-pagetype="archiveProject" ] main.wrapper,
-    body[data-pagetype="archiveBlog" ] main.wrapper {
-        min-height: auto;
-    }
     #newsletterLink-container{
         display: none;
     }
@@ -1250,6 +1261,9 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     form .submitForm svg {
         left: 30%;
     }
+    body[ data-pagetype="contact"] form .submitForm svg {
+        left: 38%;
+    }
     .ss-container {
         height: 4rem;
     }
@@ -1265,6 +1279,20 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     #screenSaver {
         height: 100vh;
     }
+    body > .footer-subscribe .footer-subscribe-form {
+        width: 80vw;
+        height: 80vw;
+        padding: 1rem;
+    }
+    footer form input[type="submit" ],
+    body > .footer-subscribe .footer-subscribe-form input[type="submit" ] {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    body > .footer-subscribe .footer-subscribe-form .text {
+        text-align: center;
+        font-size: .85rem;
+    }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
     .ss-container img.logo-img {
@@ -1279,6 +1307,14 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     }
     form .submitForm {
         width: 30%;
+    }
+    body[ data-pagetype="contact"] form .submitForm svg {
+        left: 44%;
+    }
+    body > .footer-subscribe .footer-subscribe-form {
+        width: 45vw;
+        height: 45vw;
+        padding: 1rem;
     }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
@@ -1328,6 +1364,9 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     form .submitForm svg {
         left: 30%;
     }
+    body[ data-pagetype="contact"] form .submitForm svg {
+        left: 44%;
+    }
     .ss-container {
         height: 4.5rem;
     }
@@ -1335,6 +1374,13 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
         font-size: 1.2rem;
         width: 55%;
     }
+    body > .footer-subscribe .footer-subscribe-form {
+        width: 45vw;
+        height: 45vw;
+        padding: 1rem;
+    }
+
+
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     :root{
@@ -1366,6 +1412,9 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     #screenSaver p.slogan-text {
         font-size: 1.2rem;
     }
+    body > .footer-subscribe .footer-subscribe-form {
+        padding: 1rem;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px) {
     #playVideo {
@@ -1392,5 +1441,8 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
 
     #screenSaver p.slogan-text {
         font-size: 1.25rem;
+    }
+    body > .footer-subscribe .footer-subscribe-form {
+        padding: 2rem;
     }
 }
