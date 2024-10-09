@@ -414,15 +414,16 @@ body.opMenu #menuContainer {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    will-change: opacity,transform;
 }
 
 .item-title {
     font-size: 3rem;
-    width: 70%;
+    width: auto;
     word-break: break-word;
     display: inline-block;
     /* line-height: 1.2; */
-    pointer-events: none;
+    pointer-events: auto;
     text-transform: capitalize;
     font-weight: 500;
     transition: all 0.3s;

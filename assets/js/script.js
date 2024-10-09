@@ -40,59 +40,88 @@ if (document.querySelector('#menuContainer')) {
 
     let menuLink = document.querySelectorAll('.menu-link');
     let subMenu = document.querySelectorAll('.subMenu');
-
     menuLink.forEach((menu, index) => {
-        menu.addEventListener('mouseenter', (e) => {
-            subMenu.forEach((sub) => {
-                sub.classList.remove('show');
-            });
-            subMenu[index].classList.add('show');
+        let lastMouseX = 0; // Track the last mouse X position
+        menu.addEventListener('mouseenter', function (e) {
             const image = menu.querySelector('.image_rev');
             const imageW = image.offsetWidth / 2;
             const imageH = image.offsetHeight / 2;
-            menu.classList.add('show');
+
+            // Get the bounding rectangle of the .menu-link
+            const rect = menu.getBoundingClientRect();
+
+            // GSAP animation for image
             gsap.to(image, {
                 duration: 0.5,
-                x: e.offsetX - imageW,
-                y: e.offsetY - imageH,
+                x: e.clientX - rect.left - imageW, // Adjust x based on the bounding rect
+                y: e.clientY - rect.top - imageH,   // Adjust y based on the bounding rect
                 autoAlpha: 1
             });
         });
+
+        menu.addEventListener('mousemove', function (e) {
+            const image = menu.querySelector('.image_rev');
+            const imageW = image.offsetWidth / 2;
+            const imageH = image.offsetHeight / 2;
+            // Get the bounding rectangle of the .menu-link
+            const rect = menu.getBoundingClientRect();
+            let timer;
+            // Determine rotation based on mouse position
+            // Determine mouse movement direction
+            const mouseX = e.clientX;
+            const deltaX = mouseX - lastMouseX; // Calculate the change in mouse position
+
+            // Update lastMouseX
+            lastMouseX = mouseX;
+
+            // Calculate rotation based on the direction of mouse movement
+            let rotation = 0;
+            if (deltaX > 0) {
+                rotation = 10; // Rotate right
+            } else if (deltaX < 0) {
+                rotation = -10; // Rotate left
+            }
+            // GSAP animation for image
+            gsap.to(image, {
+                duration: 0.5,
+                x: e.clientX - rect.left - imageW, // Adjust x based on the bounding rect
+                y: e.clientY - rect.top - imageH,   // Adjust y based on the bounding rect
+                rotation: rotation // Apply rotation
+            });
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                gsap.to(image, {
+                    rotation: 0 // Reset rotation
+                });
+            }, 100);
+        });
+
         menu.addEventListener('mouseleave', () => {
             const image = menu.querySelector('.image_rev');
-            menu.classList.remove('show');
+            // Hide image and reset rotation
             gsap.to(image, {
                 autoAlpha: 0,
                 rotation: 0 // Reset rotation
             });
         });
+    });
+    let menuItems = document.querySelectorAll('.item-title');
 
-        let timer,
-            oldX = 0;
-        menu.addEventListener('mousemove', (e) => {
-            const image = menu.querySelector('.image_rev');
-            const imageW = image.offsetWidth / 2;
-            const imageH = image.offsetHeight / 2;
-            let rotation;
-            if (e.pageX < oldX) {
-                rotation = (-1) * 7;
-            } else if (e.pageX > oldX) {
-                rotation = 7;
-            }
-            oldX = e.pageX;
-
-            gsap.to(image, {
-                duration: 0.5,
-                x: e.offsetX - imageW,
-                y: e.offsetY - imageH,
-                rotation: rotation // Apply rotation
+    menuItems.forEach((item, index) => {
+        item.addEventListener('mouseenter', function () {
+            // Remove 'show' class from all items
+            menuItems.forEach((otherItem) => {
+                otherItem.classList.remove('show');
             });
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                gsap.to(image, {
-                    rotation: 0 // Reset rotation
-                });
-            }, 110);
+
+            // Add 'show' class to the hovered item
+            item.classList.add('show');
+
+            // Show corresponding submenu
+            subMenu.forEach((sub) => sub.classList.remove('show'));
+            if (subMenu[index]) {
+                subMenu[index].classList.add('show');
+            }
         });
     });
 }
