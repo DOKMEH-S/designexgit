@@ -1,4 +1,21 @@
 jQuery(document).ready(function ($) {
+    //check size of screen
+    var row = 8; //more than 1199
+    var screenWidth = window.innerWidth;
+    var skeleton = '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    if(screenWidth < 768){
+       row = 6;
+   }else if(screenWidth > 769 &&  screenWidth < 1199){
+       row = 6;
+        skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    }else if(screenWidth < 1199){
+        row = 8;
+        skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+        skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    }
+
+
     function reformBox (){
         var dir_move, dir_timeout, tar, m_top = {
             left: 0,
@@ -78,18 +95,15 @@ jQuery(document).ready(function ($) {
             $('.hover-info', this).css(dir_move);
         });
     }
-    var skeleton = '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
 
     function AjaxFunc(offset) {
         var selected = [];
         jQuery('.project-filter.selected').each(function () {
             selected.push($(this).attr('data-id'));
         });
-        $('.see-more').attr('offset',(parseInt(offset) + 8) );
+        $('.see-more').attr('offset',(parseInt(offset) + row) );
         targetOffset = 9999999999999999;
+        $('#infinity-loading').removeAttr('id');
         $.ajax({
             url: frontend_ajax_object.ajaxurl,
             type: 'post',
@@ -97,7 +111,8 @@ jQuery(document).ready(function ($) {
             data: {
                 action: 'project_filter',
                 ch_id: selected,
-                offset: offset
+                offset: offset,
+                row: row
             },
             beforeSend: function(){
                 if(offset!=0){
