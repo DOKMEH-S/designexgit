@@ -20,7 +20,9 @@ canvas#defaultCanvas0 {
     left: 0;
     opacity: .4;
 }
-
+body.opMenu #cookieContainer {
+    z-index: 98;
+}
 .homeProjectWrap::-moz-selection,.homeProjectWrap * ::-moz-selection {
     background-color: transparent !important;
     color: var(--white) !important;
@@ -39,8 +41,6 @@ canvas#defaultCanvas0 {
     width: auto;
     padding: .7rem 1rem;
     box-sizing: border-box;
-    background-color: var(
-            --white);
     box-shadow: 1px -2px 11px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: 1fr 6rem;
@@ -344,7 +344,6 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     display: block;
     position: relative;
     padding-left: 1rem;
-    padding-bottom: 2px;
     line-height: 0.688rem;
 }
 .videoWrap::before {
