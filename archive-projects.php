@@ -98,11 +98,11 @@
                         </div>
                         <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="info hover-info">
                             <spna class="name"><?php echo $title; ?></spna>
-                            <?php $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
+                            <?php  $year =  get_field('year');
                             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
                             if ($year or $loc): ?>
                                 <span
-                                    class="dateLoc"><?php echo ($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : ''); ?></span>
+                                    class="dateLoc"><?php echo ($year ? ($year.' - ') : '') . ($loc ? ($loc[0]->name) : ''); ?></span>
                             <?php endif; ?>
                         </a>
                     </div>
