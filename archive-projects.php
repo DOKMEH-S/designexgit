@@ -1,12 +1,5 @@
 <?php get_header(); ?>
 <main class="wrapper">
-    <div id="newsletterLink-container">
-        <span>Monthly Newsletter</span>
-        <a href="">
-            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-            Subscribe here
-        </a>
-    </div>
     <?php $args = array(
         'taxonomy' => 'project_type',
         'parent' => 0

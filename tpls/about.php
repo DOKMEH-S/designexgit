@@ -1,13 +1,6 @@
 <?php //Template Name: About tpl
 get_header(); ?>
 <main class="wrapper aboutWrapper">
-    <div id="newsletterLink-container">
-        <span>Monthly Newsletter</span>
-        <a href="">
-            <img src="<?php ThemeAssets('img/link.svg');?>" alt="link">
-            Subscribe here
-        </a>
-    </div>
     <section id="aboutWrapper">
         <section class="logo-anchor-links">
             <!--            <div class="logo-items">-->

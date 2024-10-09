@@ -1,13 +1,6 @@
 <?php get_header(); ?>
 
 <main class="wrapper singleJobWrapper">
-    <div id="newsletterLink-container">
-        <span>Monthly Newsletter</span>
-        <a href="">
-            <img src="./assets/img/link.svg" alt="link">
-            Subscribe here
-        </a>
-    </div>
     <section class="singleJobHeroSectionContainer">
         <div class="job-date">
             <span><?php echo get_the_date('Y.M.d'); ?></span>

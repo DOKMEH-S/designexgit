@@ -1,13 +1,6 @@
 <?php get_header();
 $page_id = get_queried_object_id(); ?>
     <main class="wrapper">
-        <div id="newsletterLink-container">
-            <span>Monthly Newsletter</span>
-            <a href="">
-                <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-                Subscribe here
-            </a>
-        </div>
         <div class="projectHeader-container">
         <div class="mobileIcon">
                 <span class="open">open filter</span>

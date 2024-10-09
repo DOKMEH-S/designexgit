@@ -190,6 +190,13 @@ endif; ?>">
             <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
         </div>
     </div>
+    <div id="newsletterLink-container">
+        <span>Monthly Newsletter</span>
+        <div class="subscribeBtn">
+            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
+            <span>Subscribe here</span>
+        </div>
+    </div>
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
