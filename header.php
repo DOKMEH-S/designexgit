@@ -181,11 +181,12 @@ endif; ?>">
                                     href="<?php echo esc_url($whatsapp); ?>"><?php echo esc_html(get_field('whatsapp_text', $contactID)); ?></a>
                             </div>
                         <?php endif; ?>
-                        <div class="extraLink-item coordination">
-                            <div><span id="timeZone"></span> [UAE]</div>
-                            <span>N 25° 11' 31.726''</span>
-                            <span>N 25° 11' 31.726''</span>
-                        </div>
+
+                    </div>
+                    <div class="extraLink-item coordination">
+                        <div><span id="timeZone"></span> [UAE]</div>
+                        <span>N 25° 11' 31.726''</span>
+                        <span>N 25° 11' 31.726''</span>
                     </div>
 
                 </div>
