@@ -327,7 +327,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
 }
 .homeItemsWrap a {
     font-size: 0.688rem;
-    color: var(--secondary);
+    color: var(--primary);
     text-transform: capitalize;
     display: block;
     position: relative;
@@ -343,7 +343,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     mix-blend-mode: hue;
 }
 .homeItemsWrap a::before{
@@ -367,7 +367,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     top: 50%;
     left: 0;
     -webkit-transform: translateY(-50%);

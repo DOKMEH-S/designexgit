@@ -92,7 +92,7 @@ endif; ?>">
                     <nav>
                         <ul>
                             <li><a href="<?php echo get_post_type_archive_link('projects'); ?>"
-                                    aria-label="Projects">Projects</a></li>
+                                    aria-label="Projects" class="shuffle" data-text="Projects">Projects</a></li>
                             <?php $pages = get_pages(array(
                                 'meta_key' => '_wp_page_template',
                                 'meta_value' => 'tpls/services.php'
@@ -100,15 +100,15 @@ endif; ?>">
                             $serviceID = $pages[0]->ID;
                             if ($serviceID) { ?>
                                 <li><a href="<?php echo get_the_permalink($serviceID); ?>"
-                                        aria-label="Services"><?php echo get_the_title($serviceID); ?></a></li>
+                                        aria-label="Services" class="shuffle" data-text="<?php echo get_the_title($serviceID); ?>"></a></li>
                             <?php } ?>
                         </ul>
                     </nav>
                 </div>
                 <?php if (have_rows('menu_items', 'option')): ?>
                     <div class="icon">
-                        <span class="menu">MENU</span>
-                        <span class="close">CloSe</span>
+                        <span class="menu shuffle" data-text="MENU">MENU</span>
+                        <span class="close shuffle" data-text="CloSe">CloSe</span>
                     </div>
                 <?php endif; ?>
             </div>

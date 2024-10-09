@@ -441,7 +441,7 @@ body.opMenu #menuContainer {
     color: var(--primary);
 }
 .menu-list .menu-link.active {
-    color: var(--secondary);
+    color: var(--primary);
 }
 .menu-list .menu-link {
     z-index: 1;
@@ -456,7 +456,7 @@ body.opMenu #menuContainer {
     /* mix-blend-mode: difference; */
 }
 .menu-list .menu-link.show .item-title {
-    color: var(--secondary);
+    color: var(--primary);
 }
 .menu-list .menu-link.show {
     z-index: 2;
@@ -469,7 +469,7 @@ body.opMenu #menuContainer {
     font-size: 0.75rem;
     padding-left: 12px;
     transition: transform .3s;
-    color: var(--secondary);
+    color: var(--primary);
 }
 .menu-list .menu-link:hover small {
     transform: translate(0, -50%);
@@ -481,7 +481,7 @@ body.opMenu #menuContainer {
     transition: transform 0.3s, opacity 0.3s;
     width: 5px;
     height: 100%;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     top: 50%;
     transform: translate(-100%, -50%);
     left: 0;
@@ -497,7 +497,7 @@ body.opMenu #menuContainer {
     transition: all .3s;
 }
 .subMenuContainer .subMenu ul li a:hover {
-    color: var(--secondary);
+    color: var(--primary);
 }
 .subMenuContainer .subMenu ul li {
     line-height: 1.7;

@@ -22,7 +22,6 @@ Text Domain: dokmeh
     --borderColor:#231F20;
     --black:#000;
     --primary:#206E4B;
-    --secondary:#1FA066;
     --space:calc(100vw/12);
     --spaceX: calc(var(--space)*1);
     --spaceL:calc(var(--space)*2);
@@ -261,6 +260,10 @@ main{
     transform-origin: 50% top;
 }
 /*========GENERAL CLASS==========*/
+body[data-pagetype="archiveProject" ] main.wrapper ,
+body[data-pagetype="archiveBlog" ] main.wrapper {
+    min-height: 100vh;
+}
 body > main , body > footer {
     transition: all ease-in-out .5s;
 }
@@ -1135,6 +1138,10 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
         padding-top: calc(var(--headerHeight) / 2);
         padding-left: var(--spaceX);
         padding-bottom: 5rem;
+    }
+    body[data-pagetype="archiveProject" ] main.wrapper,
+    body[data-pagetype="archiveBlog" ] main.wrapper {
+        min-height: auto;
     }
     #newsletterLink-container{
         display: none;
