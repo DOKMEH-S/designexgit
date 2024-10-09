@@ -431,6 +431,9 @@ body.opMenu #menuContainer {
 .item-title.show {
     color: var(--secondary);
 }
+.menu-list .menu-link.active {
+    color: var(--secondary);
+}
 .menu-list .menu-link {
     z-index: 1;
     width: 100%;
