@@ -101,10 +101,10 @@
 
             </div>
 
-            <div class="dokmeh">
+            <a href="https://hidokmeh.com" class="dokmeh" target="_blank" <?php if(!is_page_template('tpls/contact.php')){?> rel="nofollow" <?php } ?> >
                 <span>Made with Love by </span>
                 <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
-            </div>
+            </a>
         </div>
     </footer>
 <?php endif; ?>
