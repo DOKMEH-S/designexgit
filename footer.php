@@ -702,8 +702,8 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
             mapOptions = {
-                zoom: 14,
-                center: new google.maps.LatLng(35.6892, 51.3890), // Tehran 35.6892° N, 51.3890° E
+                zoom: 7,
+                center: new google.maps.LatLng(25.2048, 55.2708), // Tehran 35.6892° N, 51.3890° E
                 zoomControl: true,
                 mapTypeControl: false,
                 scaleControl: false,
