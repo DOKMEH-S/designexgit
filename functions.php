@@ -218,10 +218,10 @@ function project_filter_handler()
             $outputHTML .= '<div class="image"><img src="' . get_the_post_thumbnail_url($projectID, 'medium') . '" alt="' . $title . '"></div>';
             $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="project-01" class="info hover-info">';
             $outputHTML .= '<spna class="name">' . $title . '</spna>';
-            $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
+            $year =  get_field('year');
             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
             if ($year or $loc):
-                $outputHTML .= '<span class="dateLoc">' . ($year ? $year[0]->name : '') . ($loc ? (' - ' . $loc[0]->name) : '') . '</span>';
+                $outputHTML .= '<span class="dateLoc">' . ($year ? ($year.'-') : '') . ($loc ? $loc[0]->name : '') . '</span>';
             endif;
             $outputHTML .= '</a></div>';
         endwhile;
