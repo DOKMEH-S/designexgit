@@ -198,6 +198,7 @@ endif; ?>">
     if (!is_404()): ?>
         <div class="footer-subscribe">
             <div class="footer-subscribe-form">
+                <p class="text">Redefining <strong>luxury architecture</strong> through sustainable, opulent <strong>environmental </strong><strong>responsibility</strong>!</p>
                 <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
             </div>
         </div>
