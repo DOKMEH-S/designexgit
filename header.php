@@ -154,7 +154,7 @@ endif; ?>">
                                     <?php endwhile; ?>
                                 </ul>
                             <?php else: ?>
-                                <ul></ul> 
+                                <ul></ul>
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
@@ -187,6 +187,7 @@ endif; ?>">
                         <span>N 25° 11' 31.726''</span>
                     </div>
                 </div>
+            </div>
             </div>
         <?php endif; ?>
 
