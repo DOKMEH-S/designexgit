@@ -37,7 +37,7 @@
     transition: transform ease-in-out .75s , opacity ease-in-out .5s;
 }
 #loading.transform #lottie {
-    transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX)));
+    transform: translateX(calc(50vw - (((100vw / 3)* 1 - var(--spaceX) - 4rem)* .5) - var(--spaceX) - .25rem));
 }
 
 #loading .loadingCovers {
@@ -508,6 +508,6 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     }
 
     #loading.transform #lottie {
-        transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX)));
+        transform: translateX(calc(50vw - ((50vw - var(--spaceX) - 5rem) * .5) - var(--spaceX) - .25rem));
     }
 }
