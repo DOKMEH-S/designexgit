@@ -124,12 +124,12 @@ if (document.querySelector('#menuContainer')) {
             }
         });
     });
-    document.querySelector('.menu-list').addEventListener('mouseleave',function () {
+   /* document.querySelector('.menu-list').addEventListener('mouseleave',function () {
         menuItems.forEach((otherItem) => {
             otherItem.classList.remove('show');
         });
         subMenu.forEach((sub) => sub.classList.remove('show'));
-    })
+    })*/
 }
 /*=============Scroll Direction*/
 let lastScrollTop = 0;
