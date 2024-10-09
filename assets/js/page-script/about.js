@@ -21,7 +21,9 @@ if(!isMobile.any || isMobile.tablet){
 }
 //======SLIDESHOW
 let slideIndex = 0;
-showSlides();
+if(document.getElementsByClassName("mySlides")){
+    showSlides();
+}
 
 function showSlides() {
     let i;

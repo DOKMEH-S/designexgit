@@ -58,9 +58,8 @@ header .menu-icon a {
     text-transform: capitalize;
     cursor: pointer;
     position: relative;
+    min-width: 4rem;
 }
-
-
 header nav ul li a::before {
     content: '';
     background-image: url(../img/link.svg);
@@ -112,9 +111,9 @@ header .menu-icon .quickMenu nav ul {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-column-gap: 5rem;
-    -moz-column-gap: 5rem;
-    column-gap: 5rem;
+    -webkit-column-gap: 3rem;
+    -moz-column-gap: 3rem;
+    column-gap: 3rem;
 }
 header .menu-icon .icon {
     cursor: pointer;
