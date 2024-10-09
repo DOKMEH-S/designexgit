@@ -325,7 +325,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
 .homeItemsWrap h3 {
     font-size: 0.625rem;
     font-weight: 400;
-    margin: 0;
+    margin: 0 0 6px 0;
     text-transform: capitalize;
 }
 .homeItemsWrap a {
@@ -336,7 +336,7 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     position: relative;
     padding-left: 1rem;
     padding-bottom: 2px;
-    margin-top: 6px;
+    line-height: 0.688rem;
 }
 .videoWrap::before {
     content: '';
@@ -471,7 +471,7 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: flex-end;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
     overflow: hidden;
 }
 #currentProjectName p {
