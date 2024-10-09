@@ -814,8 +814,24 @@ body.loadingDone .swiper {
     body.loadingDone #currentProjectName p {
         font-size: .875rem;
     }
+    .projectInfo span.project_year {
+        width: 30px;
+    }
+
+    .projectInfo img.logo {
+        width: 30px;
+        height: 30px;
+    }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px){
+    .projectInfo span.project_year {
+        width: 31px;
+    }
+
+    .projectInfo img.logo {
+        width: 31px;
+        height: 31px;
+    }
     .homeProjectContainer {
         grid-column-gap: 3.163rem;
     }
