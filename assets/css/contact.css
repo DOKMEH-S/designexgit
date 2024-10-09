@@ -79,6 +79,8 @@ section.contactInfoMapFormContainer {
     margin-bottom: 2.5rem;
 }
 .contactSocialMedia a [class^=icon-] {
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
 }
 
@@ -362,6 +364,8 @@ section.faq-contactSlider-container {
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
@@ -692,6 +696,8 @@ progress[value]::-webkit-progress-bar {
     .number-percentage {
         font-size: 2rem;
         height: 4rem;
+        -webkit-writing-mode: tb-rl;
+        -ms-writing-mode: tb-rl;
         writing-mode: tb-rl;
         margin-left: 9px;
     }
