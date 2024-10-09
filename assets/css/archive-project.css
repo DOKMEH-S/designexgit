@@ -31,7 +31,7 @@
     font-size: .75rem;
 }
 .projectBody-container {
-    margin-top: 8rem;
+    margin-top: 2rem;
     margin-bottom: 8rem;
     overflow: hidden;
     position: relative;
@@ -273,7 +273,7 @@
 }
 @media only screen and (min-width: 769px) and (max-width:1199px) {
     .projectBody-container {
-        margin-top: 5rem;
+        margin-top: 1.5rem;
         margin-bottom: 5rem;
     }
     .projectItem {
@@ -283,7 +283,6 @@
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px) {
     .projectBody-container {
-        margin-top: 6rem;
         margin-bottom: 6rem;
     }
 }
