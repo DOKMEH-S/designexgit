@@ -74,12 +74,12 @@
     <?php endif;
     $args = array(
         'post_type' => 'projects',
-        'posts_per_page' => 8,
+        'posts_per_page' => 12,
     );
     $query = new WP_Query($args);
     if ($query->have_posts()):
         $count = $query->found_posts;
-        $i = ($count > 8) ? 0 : 5; ?>
+        $i = ($count > 12) ? 0 : 5; ?>
         <div class="projectBody-container">
             <div class="projectItems">
                 <?php $locationArray = array();
@@ -96,7 +96,7 @@
                     <div class="projectItem hover-box" <?php if ($i == 4) { ?> id="infinity-loading" <?php } ?>>
                         <div class="image"><img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo $title; ?>">
                         </div>
-                        <a href="<?php the_permalink(); ?>" aria-label="project-01" class="info hover-info">
+                        <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="info hover-info">
                             <spna class="name"><?php echo $title; ?></spna>
                             <?php $year = wp_get_object_terms($projectID, 'project_type', array('parent' => 5));
                             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
@@ -109,7 +109,7 @@
                 <?php endwhile;
                 wp_reset_postdata(); ?>
             </div>
-            <div class="see-more" id="see-more" offset=8 style="display: none;">
+            <div class="see-more" id="see-more" offset=12 style="display: none;">
                 <span> <?php _e('loading', 'dokmeh'); ?></span>
             </div>
         </div>
