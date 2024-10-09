@@ -61,6 +61,8 @@ section.dateTime-title h1 {
     -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 html.loadingDone section.dateTime-title h1{
     opacity: 1;
