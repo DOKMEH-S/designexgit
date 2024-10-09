@@ -666,7 +666,6 @@ progress[value]::-webkit-progress-bar {
         padding-left: var(--spaceL);
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
-        white-space: pre-line;
         margin-bottom: 2rem;
     }
 
@@ -691,8 +690,10 @@ progress[value]::-webkit-progress-bar {
         background-position: top;
     }
     .number-percentage {
-        font-size: 1.6rem;
+        font-size: 2rem;
         height: 4rem;
+        writing-mode: tb-rl;
+        margin-left: 9px;
     }
 
     .stepsWrapper {
