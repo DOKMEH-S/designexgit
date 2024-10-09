@@ -428,7 +428,9 @@ body.opMenu #menuContainer {
     font-weight: 500;
     transition: all 0.3s;
 }
-
+.item-title.show {
+    color: var(--secondary);
+}
 .menu-list .menu-link {
     z-index: 1;
     width: 100%;
