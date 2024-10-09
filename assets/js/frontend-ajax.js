@@ -78,10 +78,10 @@ jQuery(document).ready(function ($) {
             $('.hover-info', this).css(dir_move);
         });
     }
-    var skeleton = '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    var skeleton = '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
 
     function AjaxFunc(offset) {
         var selected = [];
