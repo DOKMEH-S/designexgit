@@ -950,7 +950,6 @@ form .submitForm:hover {
 
 
 span.wpcf7-spinner:after {
-span.wpcf7-spinner:after {
     content: 'LOADING ...';
     color: var(--primary);
     width: 100%;
