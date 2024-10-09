@@ -139,7 +139,7 @@ $project_ID = get_the_ID();?>
 
         if ($related_query->have_posts()) { ?>
             <section class="relatedProjectsContainer">
-                <div class="titleWrap">
+                <div class="titleWrap skewText">
                     <h2 class="title-roboto">related projects</h2>
                 </div>
                 <div class="relatedProjectsWrapper">
@@ -149,7 +149,7 @@ $project_ID = get_the_ID();?>
                         $date = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 5, 'fields' => 'names'));
                         $location = wp_get_post_terms(get_the_ID(), 'project_type', array('child_of' => 93, 'fields' => 'names')); ?>
 
-                        <div class="relatedProjectsWrap">
+                        <div class="relatedProjectsWrap skewText">
                             <div class="projectMedia">
                                 <?php if (has_post_thumbnail()): ?>
                                     <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">

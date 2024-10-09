@@ -63,7 +63,7 @@
                         <?php while ($related_cats_post->have_posts()):
                             $related_cats_post->the_post();
                             $relID = get_the_ID(); ?>
-                            <div class="relatedBlogWrap">
+                            <div class="relatedBlogWrap skewText">
                                 <div class="blogMedia">
                                     <img src="<?php the_post_thumbnail($relID, 'medium'); ?>"
                                          alt="<?php echo get_the_title($relID); ?>">
