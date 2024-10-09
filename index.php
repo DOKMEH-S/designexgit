@@ -1,6 +1,6 @@
 <?php get_header();
 $page_id = get_queried_object_id(); ?>
-    <main class="wrapper">
+    <main class="wrapper" id="scrollDestination">
         <div class="projectHeader-container">
         <div class="mobileIcon">
                 <span class="open">open filter</span>
@@ -54,7 +54,7 @@ $page_id = get_queried_object_id(); ?>
         $Blogs = new WP_Query($Args);
         if ($Blogs->have_posts()):$count = $Blogs->found_posts;
             $i= ($count > 4) ?  0 : 5;?>
-            <div class="blogBody" id="scrollDestination">
+            <div class="blogBody">
                 <div class="blogItems">
                     <?php while ($Blogs->have_posts()):$Blogs->the_post();
                         $blogID = get_the_ID();
