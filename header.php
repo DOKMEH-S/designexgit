@@ -137,8 +137,11 @@ endif; ?>">
 
                 <div class="subMenuContainer">
                     <?php while (have_rows('menu_items', 'option')):
-                        the_row(); ?>
-                        <div class="subMenu">
+                        the_row();
+                        $menu_link = get_sub_field('link');
+                        $sub_menu_active = (untrailingslashit($menu_link['url']) == $current_url) ? 'active' : '';
+                        ?>
+                        <div class="subMenu <?php echo $sub_menu_active; ?>">
                             <?php if (have_rows('sub_menu')): ?>
                                 <ul>
                                     <?php while (have_rows('sub_menu')):
@@ -187,22 +190,23 @@ endif; ?>">
             </div>
         <?php endif; ?>
 
+
     <?php endif;
-    if(!is_404()):?>
-    <div class="footer-subscribe">
-        <div class="footer-subscribe-form">
-            <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
+    if (!is_404()): ?>
+        <div class="footer-subscribe">
+            <div class="footer-subscribe-form">
+                <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
+            </div>
         </div>
-    </div>
-    <?php endif;?>
+    <?php endif; ?>
     <?php if (!is_404()): ?>
-    <div id="newsletterLink-container">
-        <span>Monthly Newsletter</span>
-        <div class="subscribeBtn">
-            <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-            <span>Subscribe here</span>
+        <div id="newsletterLink-container">
+            <span>Monthly Newsletter</span>
+            <div class="subscribeBtn">
+                <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
+                <span>Subscribe here</span>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
     <div id="screenSaver">
         <div class="ss-container">
