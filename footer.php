@@ -149,24 +149,6 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     document.addEventListener("DOMContentLoaded", function (event) {
         <?php if (!is_404()): ?>
         document.querySelector('header').style.opacity = '1';
-
-
-        const subscribeButton = document.querySelector('#menuContainer .extraLink-item.subscribe');
-        const footerForm = document.querySelector('.footer-subscribe .footer-subscribe-form');
-
-        // Handle click on subscribe button
-        subscribeButton.addEventListener('click', function(event) {
-            document.body.classList.add('opSubscribe');
-            event.stopPropagation(); // Prevent event from bubbling up
-        });
-
-        // Handle clicks outside the form and buttons
-        document.addEventListener('click', function(event) {
-            const isClickInside = footerForm.contains(event.target) || subscribeButton.contains(event.target);
-            if (!isClickInside) {
-                document.body.classList.remove('opSubscribe');
-            }
-        });
         <?php if (!is_front_page() and !is_404()): ?>
         document.querySelector('footer').style.opacity = '1';
         <?php endif;?>
