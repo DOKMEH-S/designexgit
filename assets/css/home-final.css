@@ -762,9 +762,9 @@ body.loadingDone .swiper {
         grid-column-gap: 3.263rem;
     }
     .homeProjectWrap {
-        -webkit-column-gap: 1.5rem;
-        -moz-column-gap: 1.5rem;
-        column-gap: 1.5rem;
+        -webkit-column-gap: .75rem;
+        -moz-column-gap: .75rem;
+        column-gap: .75rem;
     }
     .homeElementCounterWrapper #counterBox {
         left: 2rem;
@@ -792,9 +792,9 @@ body.loadingDone .swiper {
         grid-column-gap: 3.163rem;
     }
     .homeProjectWrap {
-        -webkit-column-gap: 1.25rem;
-        -moz-column-gap: 1.25rem;
-        column-gap: 1.25rem;
+        -webkit-column-gap: .75rem;
+        -moz-column-gap: .75rem;
+        column-gap: .75rem;
     }
     #mediaHomeWrap {
         height: 25vh;
