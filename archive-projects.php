@@ -11,7 +11,7 @@
                 <span class="open">open filter</span>
                 <span class="close">close filter</span>
             </div>
-            <div class="projectHeader-wrapper">
+            <div class="projectHeader-wrapper" data-lenis-prevent>
                 <?php $parentID = $cats[0]->term_id;
                 $args_c = array(
                     'taxonomy' => 'project_type',

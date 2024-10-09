@@ -100,7 +100,7 @@ endif; ?>">
                             $serviceID = $pages[0]->ID;
                             if ($serviceID) { ?>
                                 <li><a href="<?php echo get_the_permalink($serviceID); ?>"
-                                        aria-label="Services" class="shuffle" data-text="<?php echo get_the_title($serviceID); ?>"></a></li>
+                                        aria-label="Services" class="shuffle" data-text="<?php echo get_the_title($serviceID); ?>"><?php echo get_the_title($serviceID); ?></a></li>
                             <?php } ?>
                         </ul>
                     </nav>
@@ -162,7 +162,7 @@ endif; ?>">
 
                 <div class="extraLinks">
                     <div class="extraLinks-contact">
-                        <div class="extraLink-item">
+                        <div class="extraLink-item subscribe">
                             <span>Monthly Newsletter</span>
                             <div class="cta">Subscribe here</a>
                             </div>
