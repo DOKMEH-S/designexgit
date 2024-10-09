@@ -344,3 +344,9 @@ add_action('wp_ajax_nopriv_blog_filter', 'blog_filter_handler');
 //    wp_deregister_style('newsletter-css');
 //}, 100);
 
+function deregister_plugin_styles() {
+    wp_dequeue_style('newsletter-css');
+    wp_deregister_style( 'newsletter-css' );
+}
+add_action( 'wp_print_styles', 'deregister_plugin_styles', 100 );
+
