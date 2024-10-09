@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
    }else if(screenWidth > 769 &&  screenWidth < 1199){
        row = 6;
         skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
-    }else if(screenWidth < 1199){
+    }else if(screenWidth > 1199){
         row = 8;
         skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
         skeleton += '<div class="projectItem skeleton"><div class="image"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
