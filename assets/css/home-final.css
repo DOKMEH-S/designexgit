@@ -219,7 +219,7 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     height: 2.375rem;
     -o-object-fit: contain;
     object-fit: contain;
-    margin-bottom: -.3rem;
+    margin-bottom: .75rem;
 }
 
 .projectInfo h2.project_name {
@@ -233,6 +233,7 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     font-size: 0.688rem;
     text-transform: capitalize;
     font-weight: 400;
+    line-height: 0.688rem;
 }
 h1.home-title {
     position: relative;
