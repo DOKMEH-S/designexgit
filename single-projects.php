@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php get_header();
+$project_ID = get_the_ID();?>
 <main class="wrapper">
     <section class="singleProjectHeroSectionContainer">
         <div class="singleProjectNameInfoAwardsWrapper">
@@ -57,8 +58,7 @@
             $vr = get_field('vr_url');
 
             if ($videoModal):
-                $poster = get_field('poster');
-                ?>
+                $poster = get_field('poster');?>
                 <div class="singleProjectVideoContainer">
                     <video autoplay muted loop playsinline preload="auto" poster="<?php echo $poster['sizes']['medium']; ?>"
                         id="projectVideo" data-url="<?php echo $videoModal['url']; ?>">
@@ -69,15 +69,13 @@
                         <img src="<?php ThemeAssets('img/inner-icon-play.svg'); ?>" alt="play icon">
                     </div>
                 </div>
-                <?php
-            elseif ($image): ?>
-                <div class="singleProjectVideoContainer">
-                    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
-                </div>
-                <?php
-            elseif ($vr): ?>
+            <?php elseif ($vr): ?>
                 <div class="singleProjectVideoContainer">
                     <iframe src="<?php echo $vr; ?>" title="<?php get_the_title(); ?>"></iframe>
+                </div>
+            <?php else:?>
+                <div class="singleProjectVideoContainer">
+                    <img src="<?php echo get_the_post_thumbnail_url($project_ID,'large'); ?>" alt="<?php echo the_title(); ?>">
                 </div>
             <?php endif; ?>
             <?php
