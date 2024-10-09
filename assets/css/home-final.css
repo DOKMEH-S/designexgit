@@ -215,8 +215,8 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     justify-content: flex-end;
 }
 .projectInfo img.logo {
-    width: 2.375rem;
-    height: 2.375rem;
+    width: 34px;
+    height: 34px;
     -o-object-fit: contain;
     object-fit: contain;
     margin-bottom: .75rem;
@@ -234,7 +234,8 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     text-transform: capitalize;
     font-weight: 400;
     line-height: 0.688rem;
-    display: block;
+    display: inline-block;
+    width: 34px;
 }
 h1.home-title {
     position: relative;
@@ -446,6 +447,9 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
     min-height: 6rem;
     top: 50%;
     transform: translateY(-50%);
+}
+.title-year {
+    display: flex;
 }
 .homeElementCounterWrapper #counterBox span {
     font-variant: slashed-zero;
