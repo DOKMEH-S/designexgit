@@ -148,10 +148,22 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         <?php if (!is_404()): ?>
-        document.getElementById('newsletterLink-container').addEventListener('click', function() {
+        document.querySelector('header').style.opacity = '1';
+
+
+        const newsletterLink = document.getElementById('newsletterLink-container');
+        const footerForm = document.querySelector('.footer-subscribe .footer-subscribe-form');
+
+        newsletterLink.addEventListener('click', function() {
             document.body.classList.add('opSubscribe');
         });
-        document.querySelector('header').style.opacity = '1';
+
+        document.addEventListener('click', function(event) {
+            const isClickInside = footerForm.contains(event.target) || newsletterLink.contains(event.target);
+            if (!isClickInside) {
+                document.body.classList.remove('opSubscribe');
+            }
+        });
         <?php if (!is_front_page() and !is_404()): ?>
         document.querySelector('footer').style.opacity = '1';
         <?php endif;?>

@@ -1102,7 +1102,7 @@ body > .footer-subscribe:before {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, .5);!;
+    background-color: rgba(255, 255, 255, .5)!important;
     transform: none;
     z-index: 99;
 }
