@@ -167,21 +167,23 @@ endif; ?>">
                             <div class="cta">Subscribe here</a>
                             </div>
 
+                            <?php $pages = get_pages(array(
+                                'meta_key' => '_wp_page_template',
+                                'meta_value' => 'tpls/contact.php'
+                            ));
+                            $contactID = $pages[0]->ID; ?>
+                            <?php
+                            $whatsapp = get_field('whatsapp', $contactID);
+                            if ($whatsapp): ?>
+                                <div class="extraLink-item">
+                                    <span>Do You Have a Project?</span>
+                                    <a aria-label="Designex Whatsapp"
+                                        href="<?php echo esc_url($whatsapp); ?>"><?php echo esc_html(get_field('whatsapp_text', $contactID)); ?></a>
+                                </div>
+                            <?php endif; ?>
+
                         </div>
-                        <?php $pages = get_pages(array(
-                            'meta_key' => '_wp_page_template',
-                            'meta_value' => 'tpls/contact.php'
-                        ));
-                        $contactID = $pages[0]->ID; ?>
-                        <?php
-                        $whatsapp = get_field('whatsapp', $contactID);
-                        if ($whatsapp): ?>
-                            <div class="extraLink-item">
-                                <span>Do You Have a Project?</span>
-                                <a aria-label="Designex Whatsapp"
-                                    href="<?php echo esc_url($whatsapp); ?>"><?php echo esc_html(get_field('whatsapp_text', $contactID)); ?></a>
-                            </div>
-                        <?php endif; ?>
+
                         <div class="extraLink-item coordination">
                             <div><span id="timeZone"></span> [UAE]</div>
                             <span>N 25° 11' 31.726''</span>
