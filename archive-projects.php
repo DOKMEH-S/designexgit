@@ -80,7 +80,7 @@
     if ($query->have_posts()):
         $count = $query->found_posts;
         $i = ($count > 12) ? 0 : 5; ?>
-        <div class="projectBody-container">
+        <div class="projectBody-container" id="scrollDestination">
             <div class="projectItems">
                 <?php $locationArray = array();
                 while ($query->have_posts()):
