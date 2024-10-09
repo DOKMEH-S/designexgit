@@ -545,11 +545,12 @@ body.loadingDone .swiper {
     }
     #cookieContainer {
         grid-row-gap: 1rem;
-        left: var(--spaceX););
-        width: calc(100% - var(--spaceX)*2);
-        grid-template-columns: 1fr 6rem;
+        left: var(--spaceX);
+        width: calc(100% - var(--spaceX)* 2);
+        grid-template-columns: 1fr 5rem;
         bottom: auto;
-        top: calc((var(--vh, 1vh) * 100) - var(--headerHeight) - 4rem);
+        top: calc((var(--vh, 1vh)* 100) - var(--headerHeight) - 4rem);
+        grid-column-gap: 0;
     }
     button#acceptCookie {margin: 0 auto;}
     h1.home-title {
@@ -635,7 +636,7 @@ body.loadingDone .swiper {
         margin-top: 0.5rem;
     }
     #mediaHomeWrap {
-        height: 25vh;
+        height: 16vh;
     }
     .homeItemsWrapper {
         display: none;
