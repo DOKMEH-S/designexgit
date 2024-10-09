@@ -91,7 +91,7 @@ function Dokmeh_scripts()
             )
         );
     elseif (is_home()):
-        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/blog-ajax.js', array(), '1.0.0', true);
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/blog-ajax.js', array(), '1.0.1', true);
         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
             array(
                 'ajaxurl' => admin_url('admin-ajax.php'),

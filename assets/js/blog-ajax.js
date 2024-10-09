@@ -33,6 +33,17 @@ jQuery(document).ready(function ($) {
                     }
                     $('.see-more').css('display', 'none');
                     $('.see-more').removeClass('infinite-load');
+                    // add blur to boxes
+                        const blogItems = document.querySelectorAll('.blogItem');
+                        blogItems.forEach(item => {
+                            const link = item.querySelector('.link');
+                            link.addEventListener('mouseenter', function () {
+                                item.classList.add('blur'); // Add the blur class on hover
+                            });
+                            link.addEventListener('mouseleave', function () {
+                                item.classList.remove('blur'); // Remove the blur class when not hovering
+                            });
+                        });
                 }
             },//this function handle json response data
             error: function (response) {
