@@ -25,11 +25,11 @@ body.opMenu #cookieContainer {
 }
 .homeProjectWrap::-moz-selection,.homeProjectWrap * ::-moz-selection {
     background-color: transparent !important;
-    color: var(--white) !important;
+    color: inherit !important;
 }
 .homeProjectWrap::selection,.homeProjectWrap * ::selection {
     background-color: transparent !important;
-    color: transparent !important;
+    color: inherit !important;
 }
 /*============GENERAL CLASS==================*/
 /*============COOKIE==================*/

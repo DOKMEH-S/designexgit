@@ -35,13 +35,13 @@ body[data-pagetype="about"] main{
     left: -3.5rem;
 }
 .aboutTitle h2 {margin-top: 0;margin-bottom: 0;}
-.awardsWrap::-moz-selection,.awardsWrap * ::-moz-selection {
+.awardsWrap::-moz-selection,.awardsWrap *::-moz-selection {
     background-color: transparent !important;
-    color: var(--white) !important;
+    color: inherit !important;
 }
-.awardsWrap::selection,.awardsWrap * ::selection {
+.awardsWrap::selection,.awardsWrap *::selection {
     background-color: transparent !important;
-    color: transparent !important;
+    color: inherit !important;
 }
 /*=============ANCHOR LINKS================*/
 .logo-items img {
