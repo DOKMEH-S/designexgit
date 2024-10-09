@@ -302,7 +302,7 @@ body.opMenu #menuContainer {
 
 #menuContainer .extraLink-item > a {
     color: var(--primary);
-    padding-left: 1.625rem;
+    padding-left: 1rem;
     margin: .5rem 0 0 0;
     position: relative;
 }
@@ -310,22 +310,18 @@ body.opMenu #menuContainer {
 #menuContainer .extraLink-item > a:before{
     content: '';
     position: absolute;
-    width: 1rem;
-    height: 1rem;
     top: 50%;
     left: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     background-color: var(--primary);
+    width: 10px;
+    height: 10px;
 }
 #menuContainer .extraLink-item > a:after{
     content: '';
-    position: absolute;
-    width: 0.5rem;
-    height: 0.5rem;
     top: 50%;
-    left: .28rem;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -337,6 +333,13 @@ body.opMenu #menuContainer {
     -webkit-transition: all ease-in-out .35s;
     -o-transition: all ease-in-out .35s;
     transition: all ease-in-out .35s;
+    width: 6px;
+    height: 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 2px;
 }
 #menuContainer .extraLink-item.coordination > * {
     color: var(--primary);
