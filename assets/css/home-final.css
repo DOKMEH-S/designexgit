@@ -553,6 +553,10 @@ body.loadingDone .swiper {
 }
 /*===========HOME PROJECTS==============*/
 @media only screen and (max-width: 768px){
+    .title-year {
+        flex-direction: column;
+        row-gap: 0.25rem;
+    }
     canvas#defaultCanvas0{
         opacity: 0.2;
     }
@@ -683,6 +687,10 @@ body.loadingDone .swiper {
     }
 }
 @media only screen and (min-width: 769px) and (max-width: 1199px){
+    .title-year {
+        flex-direction: column;
+        row-gap: 0.25rem;
+    }
     main.homeWrapper {
         padding-left: var(--spaceX);
         width: 50vw;
@@ -815,12 +823,12 @@ body.loadingDone .swiper {
         font-size: .875rem;
     }
     .projectInfo span.project_year {
-        width: 30px;
+        width: 29px;
     }
 
     .projectInfo img.logo {
-        width: 30px;
-        height: 30px;
+        width: 29px;
+        height: 29px;
     }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px){
