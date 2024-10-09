@@ -333,8 +333,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // --------------------------------------------------------shuffleText
 // --------------------------------------------------------subscribeModal
-
-
 // Select the required elements
 const subscribeLink = document.querySelector('#menuContainer .extraLink-item.subscribe');
 const subscribeButton = document.querySelector('#newsletterLink-container > .subscribeBtn');
@@ -348,7 +346,7 @@ const addClassToBody = () => {
 // Function to remove class
 const removeClassFromBody = (event) => {
     const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
-    if (!footerSubscribeForm.contains(event.target)) {
+    if (!footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
         body.classList.remove('opSubscribe');
     }
 };
