@@ -339,15 +339,19 @@ const subscribeButton = document.querySelector('#newsletterLink-container > .sub
 const body = document.body;
 
 // Function to add class
-const addClassToBody = () => {
+const addClassToBody = (event) => {
+    event.stopPropagation(); // Prevent the click from bubbling up
     body.classList.add('opSubscribe');
+    console.log('Class opSubscribe added to body.');
 };
 
 // Function to remove class
 const removeClassFromBody = (event) => {
     const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
-    if (!footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
+    // Check if the click target is outside the footerSubscribeForm
+    if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
         body.classList.remove('opSubscribe');
+        console.log('Class opSubscribe removed from body.');
     }
 };
 
