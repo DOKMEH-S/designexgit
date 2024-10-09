@@ -9,6 +9,9 @@ body[data-pagetype="archiveBlog"] header ,
 .projectHeader-container {
     background-color: rgba(255, 255, 255, .5) !important;
 }
+body.opMenu body[data-pagetype="archiveProject"] header,body.opMenu body[data-pagetype="archiveBlog"] header{
+    background-color: var(--white);
+}
 .projectHeader-element img {
     display: block;
     -o-object-fit: contain;
