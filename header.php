@@ -165,6 +165,8 @@ endif; ?>">
                         <div class="extraLink-item">
                             <span>Monthly Newsletter</span>
                             <div class="cta">Subscribe here</a>
+                            </div>
+
                         </div>
                         <?php $pages = get_pages(array(
                             'meta_key' => '_wp_page_template',
@@ -180,14 +182,13 @@ endif; ?>">
                                     href="<?php echo esc_url($whatsapp); ?>"><?php echo esc_html(get_field('whatsapp_text', $contactID)); ?></a>
                             </div>
                         <?php endif; ?>
-                    </div>
-                    <div class="extraLink-item coordination">
-                        <div><span id="timeZone"></span> [UAE]</div>
-                        <span>N 25° 11' 31.726''</span>
-                        <span>N 25° 11' 31.726''</span>
+                        <div class="extraLink-item coordination">
+                            <div><span id="timeZone"></span> [UAE]</div>
+                            <span>N 25° 11' 31.726''</span>
+                            <span>N 25° 11' 31.726''</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         <?php endif; ?>
 
