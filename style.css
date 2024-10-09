@@ -332,7 +332,7 @@ body.opMenu > main , body.opMenu > footer {
     font-size: 0.625rem;
     margin-bottom: 1rem;
 }
-#newsletterLink-container > a {
+#newsletterLink-container > .subscribeBtn {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -355,7 +355,7 @@ body.opMenu > main , body.opMenu > footer {
     width: fit-content;
     font-size: .75rem;
 }
-#newsletterLink-container > a img {
+#newsletterLink-container > .subscribeBtn img {
     width: .75rem;
     height: .75rem;
     -o-object-fit: contain;
@@ -368,7 +368,7 @@ body.opMenu > main , body.opMenu > footer {
     transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
     transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s, -webkit-transform cubic-bezier(0.18, 0.89, 0.32, 1.28) .3s .0s;
 }
-#newsletterLink-container > a:hover img {
+#newsletterLink-container > .subscribeBtn:hover img {
     -webkit-transform: translate(0.8rem, -0.3rem);
     -ms-transform: translate(0.8rem, -0.3rem);
     transform: translate(0.8rem, -0.3rem);
@@ -1064,6 +1064,49 @@ form .upload .warning {
     transform: translateX(-50%);
 }
 /*========Upload========*/
+/*========body > .footer-subscribe========*/
+.footer-subscribe {
+    position: relative;
+}
+
+body > .footer-subscribe {
+    transition: all ease-in-out .4s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.opSubscribe > .footer-subscribe {
+    opacity: 1;
+    visibility: visible;
+}
+body > .footer-subscribe .footer-subscribe-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 99;
+    background-color: var(--white);
+    padding: 2rem;
+    width: 50vw;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 6px 6px 6px rgba(32, 110, 75, 0.5);
+}
+
+body > .footer-subscribe:before {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .5)!important;
+    transform: none;
+    z-index: 99;
+}
+/*========body > .footer-subscribe========*/
 /*==================input================*/
 @media only screen and (max-width: 768px) {
     :root {
@@ -1211,7 +1254,7 @@ form .upload .warning {
     :root{
         --space: calc(100vw / 16);
     }
-    #newsletterLink-container > a {
+    #newsletterLink-container > .subscribeBtn {
         -webkit-column-gap: .4rem;
         -moz-column-gap: .4rem;
         column-gap: .4rem;
@@ -1219,7 +1262,7 @@ form .upload .warning {
         font-size: .625rem;
     }
 
-    #newsletterLink-container > a img {
+    #newsletterLink-container > .subscribeBtn img {
         width: 0.625rem;
         height: 0.625rem;
     }

@@ -3,13 +3,6 @@
         <?php while (have_posts()) : the_post();
             $postID = get_the_ID();
             global $post; ?>
-            <div id="newsletterLink-container">
-                <span>Monthly Newsletter</span>
-                <a href="">
-                    <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-                    Subscribe here
-                </a>
-            </div>
             <section class="dateTime-title">
                 <div class="dateTime">
                     <span class="date"><?php echo get_the_date('Y.M.d'); ?></span>

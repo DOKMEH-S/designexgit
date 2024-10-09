@@ -72,13 +72,6 @@ get_header(); ?>
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <main class="wrapper homeWrapper">
-                <div id="newsletterLink-container">
-                    <span>Monthly Newsletter</span>
-                    <a href="">
-                        <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-                        Subscribe here
-                    </a>
-                </div>
                 <?php
                 $projects = get_field('project');
                 if ($projects): ?>

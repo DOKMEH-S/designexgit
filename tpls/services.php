@@ -1,13 +1,6 @@
 <?php //Template Name: Services tpl
 get_header(); ?>
 <main class="wrapper">
-    <div id="newsletterLink-container">
-        <span>Monthly Newsletter</span>
-        <a href="">
-            <img src="<?php ThemeAssets('img/link.svg');?>" alt="link">
-            Subscribe here
-        </a>
-    </div>
     <div class="pageTitle">
         <span><?php echo get_field('title');?></span>
         <h1><?php echo get_the_title();?></h1>

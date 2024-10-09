@@ -148,6 +148,9 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         <?php if (!is_404()): ?>
+        document.getElementById('newsletterLink-container').addEventListener('click', function() {
+            document.body.classList.add('opSubscribe');
+        });
         document.querySelector('header').style.opacity = '1';
         <?php if (!is_front_page() and !is_404()): ?>
         document.querySelector('footer').style.opacity = '1';

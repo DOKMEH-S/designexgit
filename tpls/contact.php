@@ -3,13 +3,6 @@ get_header(); ?>
     <main class="wrapper contactWrapper">
         <?php while (have_posts()):the_post();
             $contactID = get_the_ID(); ?>
-            <div id="newsletterLink-container">
-                <span>Monthly Newsletter</span>
-                <a href="">
-                    <img src="<?php ThemeAssets('img/link.svg'); ?>" alt="link">
-                    Subscribe here
-                </a>
-            </div>
             <section class="contactInfoMapFormContainer">
                 <?php $main_title = get_field('main_title');?>
                 <h1 class="contact_title"><?php echo $main_title ? $main_title : get_the_title();?></h1>
