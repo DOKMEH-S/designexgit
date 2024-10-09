@@ -82,7 +82,7 @@ get_header(); ?>
                                 setup_postdata($post);
                                 $project_logo = get_field('project_logo');
                                 $sketch_image = get_field('sketch_image');
-                                $year = wp_get_object_terms($post->ID, 'project_type', array('parent' => 5)); ?>
+                                $year =  get_field('year');?>
                                 <div class="swiper-slide">
                                     <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
                                        data-url="<?php echo esc_url($sketch_image['sizes']['medium']); ?>">
@@ -97,7 +97,7 @@ get_header(); ?>
                                             <div class="title-year">
                                                 <h2 class="project_name">/<?php the_title(); ?></h2>
                                                 <?php if ($year): ?>
-                                                    <span class="project_year"><?php echo $year[0]->name; ?>/</span>
+                                                    <span class="project_year"><?php echo $year;?>/</span>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
