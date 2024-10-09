@@ -242,7 +242,7 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
     font-size: 0.688rem;
     text-transform: capitalize;
     font-weight: 400;
-    line-height: 0.688rem;
+    line-height: 0.5rem;
     display: inline-block;
     width: 34px;
 }
