@@ -119,12 +119,11 @@ endif; ?>">
                     <?php
                     $counter = 1;
                     global $wp;
-                    $current_url = untrailingslashit(home_url(add_query_arg(array(), $wp->request))); // گرفتن URL فعلی و حذف اسلش انتهایی
+                    $current_url = untrailingslashit(home_url(add_query_arg(array(), $wp->request)));
                     while (have_rows('menu_items', 'option')):
                         the_row();
                         $menu_link = get_sub_field('link');
                         $menu_image = get_sub_field('image');
-                        // بررسی تطابق URL و اضافه کردن کلاس active
                         $is_active = (untrailingslashit($menu_link['url']) == $current_url) ? 'active' : '';
                         ?>
                         <a href="<?php echo esc_url($menu_link['url']); ?>" class="menu-link <?php echo $is_active; ?>">
@@ -135,11 +134,12 @@ endif; ?>">
                         </a>
                     <?php endwhile; ?>
                 </div>
+
                 <div class="subMenuContainer">
                     <?php while (have_rows('menu_items', 'option')):
                         the_row(); ?>
-                        <?php if (have_rows('sub_menu')): ?>
-                            <div class="subMenu">
+                        <div class="subMenu">
+                            <?php if (have_rows('sub_menu')): ?>
                                 <ul>
                                     <?php while (have_rows('sub_menu')):
                                         the_row();
@@ -150,8 +150,10 @@ endif; ?>">
                                         </li>
                                     <?php endwhile; ?>
                                 </ul>
-                            </div>
-                        <?php endif; ?>
+                            <?php else: ?>
+                                <ul></ul> 
+                            <?php endif; ?>
+                        </div>
                     <?php endwhile; ?>
                 </div>
 
@@ -184,6 +186,7 @@ endif; ?>">
                 </div>
             </div>
         <?php endif; ?>
+
     <?php endif;
     if(!is_404()):?>
     <div class="footer-subscribe">
