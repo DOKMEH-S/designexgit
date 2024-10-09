@@ -264,21 +264,21 @@ function handleTouchMove(evt) {
         if (xDiff > 0) {
             // document.querySelector("#swipeleft").classList.add("active");
             document.querySelector('html').classList.add('swipeLeft');
-             document.querySelector('html').classList.remove('mouseStopped')
+            document.querySelector('html').classList.remove('mouseStopped')
         } else {
             // document.querySelector("#swiperight").classList.add("active");
             document.querySelector('html').classList.add('swipeRight');
-             document.querySelector('html').classList.remove('mouseStopped')
+            document.querySelector('html').classList.remove('mouseStopped')
         }
     } else {
         if (yDiff > 0) {
             // document.querySelector("#swipeup").classList.add("active");
             document.querySelector('html').classList.add('swipeUp');
-             document.querySelector('html').classList.remove('mouseStopped')
+            document.querySelector('html').classList.remove('mouseStopped')
         } else {
             // document.querySelector("#swipedown").classList.add("active");
             document.querySelector('html').classList.add('swipeDown');
-             document.querySelector('html').classList.remove('mouseStopped')
+            document.querySelector('html').classList.remove('mouseStopped')
         }
     }
     /* reset values */
@@ -332,3 +332,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 // --------------------------------------------------------shuffleText
+// --------------------------------------------------------subscribeModal
+
+
+// Select the required elements
+const subscribeLink = document.querySelector('#menuContainer .extraLink-item.subscribe');
+const subscribeButton = document.querySelector('#newsletterLink-container > .subscribeBtn');
+const body = document.body;
+
+// Function to add class
+const addClassToBody = () => {
+    body.classList.add('opSubscribe');
+};
+
+// Function to remove class
+const removeClassFromBody = (event) => {
+    const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
+    if (!footerSubscribeForm.contains(event.target)) {
+        body.classList.remove('opSubscribe');
+    }
+};
+
+// Event listeners
+if (subscribeLink) {
+    subscribeLink.addEventListener('click', addClassToBody);
+}
+
+if (subscribeButton) {
+    subscribeButton.addEventListener('click', addClassToBody);
+}
+
+// Click outside detection
+document.addEventListener('click', removeClassFromBody);
+// --------------------------------------------------------subscribeModal

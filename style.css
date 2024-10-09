@@ -927,15 +927,14 @@ form .submitForm:hover {
     background-color: var(--white);
 }
 
-body[ data-pagetype="contact"] .wpcf7 form .wpcf7-response-output {
+.wpcf7 form .wpcf7-response-output {
     text-align: center;
     border-color: var(--primary) !important;
     border-radius: 3.75rem;
 }
-body[ data-pagetype="contact"] .wpcf7 form.invalid .wpcf7-response-output {
+.wpcf7 form.invalid .wpcf7-response-output {
     border-color: #dc3232 !important;
     background-color: #dc3232;
-    text-align: inherit;
     color: var(--white);
     margin-right: 0;
     margin-left: 0;
