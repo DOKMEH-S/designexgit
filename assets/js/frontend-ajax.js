@@ -78,6 +78,11 @@ jQuery(document).ready(function ($) {
             $('.hover-info', this).css(dir_move);
         });
     }
+    var skeleton = '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+    skeleton += '<div class="image skeleton"><img src="" alt=""></div><a href="" class="info hover-info"></a></div>';
+
     function AjaxFunc(offset) {
         var selected = [];
         jQuery('.project-filter.selected').each(function () {
@@ -97,6 +102,7 @@ jQuery(document).ready(function ($) {
             beforeSend: function(){
                 if(offset!=0){
                     $('.see-more').addClass('infinite-load');
+                    $('.projectItems').append(skeleton);
                 }
                 $('.see-more').css('display','flex');
             },
@@ -106,10 +112,11 @@ jQuery(document).ready(function ($) {
                         $('.projectItems').html(response.content);
                     }else{
                         $('.projectItems').append(response.content);
+                        $('.skeleton').remove();
                     }
                     reformBox ();
                     if (response.show) {
-                        targetOffset = ($("#infinity-loading").offset().top) - 200;
+                        targetOffset = ($("#infinity-loading").offset().top) - 300;
                     }
                     $('.see-more').css('display','none');
                     $('.see-more').removeClass('infinite-load');
@@ -131,7 +138,7 @@ jQuery(document).ready(function ($) {
     });
 
     // archive project - Infinity loading --------------------------------------
-    var targetOffset = (jQuery("#infinity-loading").offset().top) - 200;
+    var targetOffset = (jQuery("#infinity-loading").offset().top) - 300;
     var $w = $(window).scroll(function () {
         if ($w.scrollTop() > targetOffset) {
             targetOffset = 9999999999999999;
@@ -139,8 +146,6 @@ jQuery(document).ready(function ($) {
             AjaxFunc(offset);
         }
     });
-
-
 
         // jQuery('.subscribe-form').on('submit', function(e) {
         //     e.preventDefault(); // جلوگیری از ارسال فرم به صورت عادی
