@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*============GENERAL CLASS==================*/
 :root{
     counter-reset: item;
@@ -27,6 +34,10 @@ body.opMenu #cookieContainer {
     background-color: transparent !important;
     color: inherit !important;
 }
+.homeProjectWrap::-moz-selection, .homeProjectWrap * ::-moz-selection {
+    background-color: transparent !important;
+    color: inherit !important;
+}
 .homeProjectWrap::selection,.homeProjectWrap * ::selection {
     background-color: transparent !important;
     color: inherit !important;
@@ -40,12 +51,20 @@ body.opMenu #cookieContainer {
     left: calc(var(--spaceX) + (calc((100vw / 3) * 2 - var(--spaceL))/2));
     width: auto;
     padding: .7rem 1rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-box-shadow: 1px -2px 11px rgba(0, 0, 0, 0.1);
     box-shadow: 1px -2px 11px rgba(0, 0, 0, 0.1);
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 4rem 6rem;
     grid-template-columns: 1fr 6rem;
     grid-column-gap: 4rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     border-radius: 60px;
     background-color: #206E4BCC;
@@ -58,6 +77,8 @@ body.opMenu #cookieContainer {
     width: 100%;
     height: 100vh;
     background-color: rgba(255,255,255,0.4);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 button#acceptCookie {
@@ -69,7 +90,10 @@ button#acceptCookie {
     background-color: var(--white);
     text-transform: capitalize;
     cursor: pointer;
+    -webkit-transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 0.75rem;
 }
@@ -123,6 +147,8 @@ body.desktop .homeProjectContainer {
     -ms-transform-origin: center center;
     transform-origin: center center;
     /*perspective: 1000px;*/
+    -webkit-transform: translate(0) !important;
+    -ms-transform: translate(0) !important;
     transform: translate(0) !important;
     will-change: transform;
     padding-top: var(--headerHeight);
@@ -133,8 +159,12 @@ body.desktop .swiper {
     margin: 0;
 }
 body.desktop .swiper{
+    -webkit-transform: translateX(60px) !important;
+    -ms-transform: translateX(60px) !important;
     transform: translateX(60px) !important;
     opacity: 0;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 section.homeSideBarContainer {
@@ -194,6 +224,7 @@ section.homeSideBarContainer {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
+    display: -ms-grid;
     display: grid;
     -webkit-box-align: end;
     -ms-flex-align: end;
@@ -204,6 +235,7 @@ section.homeSideBarContainer {
     -webkit-transform-origin: center center;
     -ms-transform-origin: center center;
     transform-origin: center center;
+    -ms-grid-columns: 1fr .75rem .2fr;
     grid-template-columns: 1fr .2fr;
 }
 .homeProjectWrap:hover .projectMedia img {
@@ -217,10 +249,19 @@ body.desktop .swiper-slide:nth-of-type(even) .homeProjectWrap {
 
 .projectInfo {
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 }
 .projectInfo img.logo {
@@ -253,7 +294,11 @@ h1.home-title {
     font-weight: 300;
     text-align: right;
     opacity: 0;
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
     transform: translateY(60px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 
@@ -328,7 +373,11 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     justify-content: space-between;
     margin-top: 1.5rem;
     opacity: 0;
+    -webkit-transform: translateY(-60px);
+    -ms-transform: translateY(-60px);
     transform: translateY(-60px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 .homeItemsWrap h3 {
@@ -391,7 +440,11 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     width: 100%;
     display: block;
     opacity: 0;
+    -webkit-transform: translateY(-60px);
+    -ms-transform: translateY(-60px);
     transform: translateY(-60px);
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 
@@ -454,13 +507,19 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
     min-width: 3rem;
     min-height: 6rem;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 .title-year {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .homeElementCounterWrapper #counterBox span {
     font-variant: slashed-zero;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 #currentProjectName {
@@ -484,13 +543,18 @@ html.loadingDone body[data-pagetype="home"] .homeElementCounterWrapper .loading-
 }
 #currentProjectName p {
     margin: 0;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -o-transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
     transform: translateY(100%);
 }
 body.mobile main.wrapper.homeWrapper {
     padding-top: calc(var(--headerHeight)*.5);
     padding-bottom: 5rem;
     height: calc(var(--vh, 1vh) * 100);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 body.mobile .swiper {
@@ -501,6 +565,8 @@ body.mobile .swiper-slide-active .projectMedia {
     opacity: 1;
 }
 body.mobile section.homeSideBarContainer.hide {
+    -webkit-transform: translate(130%, 0);
+    -ms-transform: translate(130%, 0);
     transform: translate(130%, 0);
 }
 .counterValueBox,.totalProjectBox {
@@ -508,52 +574,87 @@ body.mobile section.homeSideBarContainer.hide {
     width: 2rem;
     height: 3rem;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
 
 .totalProjectBox span {
+    -webkit-transform: translateY(-150%);
+    -ms-transform: translateY(-150%);
     transform: translateY(-150%);
 }
 
 .counterValueBox span {
+    -webkit-transform: translateY(150%);
+    -ms-transform: translateY(150%);
     transform: translateY(150%);
 }
 body.loadingDone .homeElementCounterWrapper #counterBox span {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
 }
 
 body.loadingDone #currentProjectName p {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
+    -webkit-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
     transition-delay: 0.2s;
 }
 body.loadingDone h1.home-title {
     opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
+    -webkit-transition-delay: 0.4s;
+    -o-transition-delay: 0.4s;
     transition-delay: 0.4s;
 }
 
 body.loadingDone .homeVideoContainer {
     opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
+    -webkit-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
     transition-delay: 0.6s;
 }
 
 body.loadingDone .homeItemsWrapper {
     opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transform: translateY(0);
+    -webkit-transition-delay: 0.7s;
+    -o-transition-delay: 0.7s;
     transition-delay: 0.7s;
 }
 
 body.loadingDone .swiper {
     opacity: 1;
+    -webkit-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
     transform: translateX(0) !important;
+    -webkit-transition-delay: 0.9s;
+    -o-transition-delay: 0.9s;
     transition-delay: 0.9s;
 }
 /*===========HOME PROJECTS==============*/
 @media only screen and (max-width: 768px){
     .title-year {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         row-gap: 0.25rem;
     }
@@ -564,6 +665,7 @@ body.loadingDone .swiper {
         grid-row-gap: 1rem;
         left: var(--spaceX);
         width: calc(100% - var(--spaceX)* 2);
+        -ms-grid-columns: 1fr 0 5rem;
         grid-template-columns: 1fr 5rem;
         bottom: auto;
         top: calc((var(--vh, 1vh)* 100) - var(--headerHeight) - 4rem);
@@ -635,6 +737,8 @@ body.loadingDone .swiper {
         -ms-flex: none;
         flex: none;
         opacity: 0.5;
+        -webkit-transition: all ease-in-out 0.5s;
+        -o-transition: all ease-in-out 0.5s;
         transition: all ease-in-out 0.5s;
     }
     .active .projectMedia{
@@ -655,6 +759,9 @@ body.loadingDone .swiper {
         -ms-flex-pack: justify;
         justify-content: space-between;
         width: 100%;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
     }
     .projectInfo img.logo {
@@ -688,6 +795,9 @@ body.loadingDone .swiper {
 }
 @media only screen and (min-width: 769px) and (max-width: 1199px){
     .title-year {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         row-gap: 0.25rem;
     }
@@ -709,6 +819,7 @@ body.loadingDone .swiper {
         -ms-flex-direction: column;
         flex-direction: column;
         height: 100%;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     }
 
@@ -739,6 +850,9 @@ body.loadingDone .swiper {
         -ms-flex-pack: justify;
         justify-content: space-between;
         margin-top: .5rem;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
     }
     h1.home-title {
@@ -764,6 +878,8 @@ body.loadingDone .swiper {
     .projectMedia {
         height: 17vh;
         opacity: 0.5;
+        -webkit-transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
         transition: all ease-in-out 0.4s;
     }
     #currentProjectName {
@@ -777,6 +893,8 @@ body.loadingDone .swiper {
         opacity: 0;
     }
     body.mobile section.homeSideBarContainer.hide {
+        -webkit-transform: none;
+        -ms-transform: none;
         transform: none;
     }
 }
