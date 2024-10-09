@@ -100,8 +100,7 @@
                 <?php endif; ?>
 
             </div>
-
-            <a href="https://hidokmeh.com" class="dokmeh" target="_blank" <?php if(!is_page_template('tpls/contact.php')){?> rel="nofollow" <?php } ?> >
+            <a href="https://hidokmeh.com" class="dokmeh" target="_blank" <?php if(!is_page_template('tpls/contact.php')){?> rel="nofollow" <?php } ?> aria-label="Dokmeh creative agancy">
                 <span>Made with Love by </span>
                 <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
             </a>
