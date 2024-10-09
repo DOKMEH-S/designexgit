@@ -562,6 +562,16 @@ html.loadingDone .loading_text_canvas.two > *.projectInfo {
     .loading_text_canvas.two > * {
         font-size: 2rem;
     }
+    @keyframes loadingTransform {
+        from{
+            -webkit-transform: translate(0 ,0);
+            transform: translate(0 ,0);
+        }
+        to{
+            -webkit-transform: translate(calc(25rem* cos(20deg)), calc(25rem* sin(20deg)* -1));
+            transform: translate(calc(25rem* cos(20deg)), calc(25rem* sin(20deg)* -1));
+        }
+    }
 }
 @media only screen and (min-width: 769px) and (max-width:1199px){
     #loading #lottie {
