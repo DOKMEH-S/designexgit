@@ -192,6 +192,7 @@ endif; ?>">
         </div>
     </div>
     <?php endif;?>
+    <?php if (!is_404()): ?>
     <div id="newsletterLink-container">
         <span>Monthly Newsletter</span>
         <div class="subscribeBtn">
@@ -199,6 +200,7 @@ endif; ?>">
             <span>Subscribe here</span>
         </div>
     </div>
+    <?php endif; ?>
     <div id="screenSaver">
         <div class="ss-container">
             <img src="<?php ThemeAssets('img/dx-white-logo.svg'); ?>" alt="logo" class="Designex Logo">
