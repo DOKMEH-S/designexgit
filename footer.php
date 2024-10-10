@@ -137,7 +137,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 <?php elseif (is_page_template('tpls/about.php')): ?>
     <script defer src="<?php ThemeAssets('js/imagesloaded.pkgd.min.js'); ?>"></script>
     <script defer type="module" src="<?php ThemeAssets('js/index.js'); ?>"></script>
-    <script defer src="<?php ThemeAssets('js/page-script/about.js'); ?>"></script>
+    <script defer src="<?php ThemeAssets('js/page-script/about.js?v=1.0.0'); ?>"></script>
 <?php elseif (is_page_template('tpls/contact.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/contact.js'); ?>"></script>
 <?php elseif (is_404()): ?>
