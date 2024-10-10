@@ -140,7 +140,7 @@ section.singleJobCultureContainer .content .twoColumn{
 }
 @media only screen and (max-width: 768px){
     main.wrapper.singleJobWrapper {
-        padding: calc(var(--headerHeight) + 1.875rem) 0 5rem;
+        padding: calc(var(--headerHeight) * .5) 0 5rem;
     }
     section.singleJobHeroSectionContainer {
         -ms-grid-columns: 1fr;
@@ -167,6 +167,8 @@ section.singleJobCultureContainer .content .twoColumn{
 
     .job-title-media-wrapper h1.jobTitle {
         font-size: 2.5rem;
+        margin-top: 1.125rem;
+        margin-bottom: 1rem;
     }
 
     .job-date span {
@@ -182,7 +184,10 @@ section.singleJobCultureContainer .content .twoColumn{
         padding: 0 var(--spaceX);
     }
     section.singleJobCultureContainer {
-        width: calc(100% - var(--spaceX));
+        width: calc(100% - var(--spaceX)*2);
+    }
+    section.singleJobCultureContainer h2{
+        font-size: 2rem;
     }
 }
 @media only screen and (min-width: 640px) and (max-width:768px){}
