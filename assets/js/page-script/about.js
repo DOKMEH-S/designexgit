@@ -16,6 +16,9 @@ if(!isMobile.any || isMobile.tablet){
             scrub: 1,
             pin: '.logo-anchor-links',
             pinSpacing: false,
+            onEnter: () => {
+                ScrollTrigger.refresh()
+            }
         }
     })
 }
@@ -103,6 +106,7 @@ sections.forEach((section, index) => {
             start: "-100px top",
             end: "80% top",
             onEnter: () => {
+                ScrollTrigger.refresh();
                 document.querySelectorAll('#aboutAnchorLinks a')[index].classList.add("active");
             },
             onLeave: () => {
