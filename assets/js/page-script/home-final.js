@@ -61,13 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
         onStop: () => {
             if(!isMobile.any){
                 gsap.to('.homeProjectWrap', {
-                    ease: "expo.out",
+                    ease: "none",
                     duration: .5,
                     scale: 1,
                     overwrite:true,
                 });
                 gsap.to('canvas#defaultCanvas0',{
-                    ease: "back.inOut(1.7)",
+                    ease: "none",
                     duration:.5,
                     webkitFilter:"blur(0)",
                     scale:1,
