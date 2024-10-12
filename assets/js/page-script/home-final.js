@@ -124,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
             start: "10% center",
             end:"90% center",
             onEnter: () => {
-                console.log(index)
+                console.log(index);
+                appendAudio(`sliderAudio${index}`);
                 if(index !== 0){
                     // audioSlider.muted = false;
                     // audioSlider.pause();
