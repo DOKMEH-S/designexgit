@@ -85,29 +85,25 @@ document.addEventListener('DOMContentLoaded', function() {
         cards = gsap.utils.toArray('.homeProjectWrap');
     let audioSlider1 = document.getElementById('sliderAudio');
     //=======================AUDIO
-    function appendAudio(id) {
-        // Create audio element
-        const audio = document.createElement('audio');
-        audio.id = id;
+    function appendAudio(index) {
+        const audioId = `sliderAudio${index}`;
+        const audioSources = [
+            "<?php ThemeAssets('audio/Tick-03.ogg'); ?>",
+            "<?php ThemeAssets('audio/Tick-03.mp3'); ?>"
+        ];
 
-        // Create source elements
-        const sourceOgg = document.createElement('source');
-        sourceOgg.src = '<?php ThemeAssets("audio/Tick-03.ogg"); ?>';
-        sourceOgg.type = 'audio/ogg';
+        const audioElement = document.createElement('audio');
+        audioElement.id = audioId;
 
-        const sourceMp3 = document.createElement('source');
-        sourceMp3.src = '<?php ThemeAssets("audio/Tick-03.mp3"); ?>';
-        sourceMp3.type = 'audio/mpeg';
+        audioSources.forEach(src => {
+            const sourceElement = document.createElement('source');
+            sourceElement.src = src;
+            sourceElement.type = src.endsWith('.ogg') ? 'audio/ogg' : 'audio/mpeg';
+            audioElement.appendChild(sourceElement);
+        });
 
-        // Append sources to audio
-        audio.appendChild(sourceOgg);
-        audio.appendChild(sourceMp3);
-
-        // Fallback text
-        audio.innerHTML = 'Your browser does not support the audio element.';
-
-        // Append audio element to body
-        document.getElementById('audioWrapper').appendChild(audio);
+        audioElement.innerHTML = 'Your browser does not support the audio element.';
+        document.getElementById('audioWrapper').appendChild(audioElement);
     }
     //=======================AUDIO
     //=======================COOKIE BOX
