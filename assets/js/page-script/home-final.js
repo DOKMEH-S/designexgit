@@ -210,7 +210,6 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             on: {
                 init: function () {
-                    appendAudio(swiper.realIndex);
                     let heightSwiper = document.querySelector('.swiper-slide').clientHeight,
                         heightInfo = document.querySelector('.projectInfo').clientHeight,
                         projectMediaHeight = heightSwiper - heightInfo;
@@ -220,6 +219,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
             },
         });
+        swiper.on('init',function () {
+            appendAudio(swiper.realIndex);
+            console.log(swiper.realIndex);
+        })
         swiper.on('beforeSlideChangeStart',function () {
             homeSideBarContainer.classList.add('hide');
         })
@@ -232,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 homeSideBarContainer.classList.add('hide');
             }
             if(swiper.realIndex !== 0){
-                console.log(swiper.realIndex);
                 //document.getElementById(`audioSlider${swiper.realIndex}`).play();
             }
             let currentEl = e.el.children[0].children[swiper.activeIndex];
