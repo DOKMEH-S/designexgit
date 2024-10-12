@@ -120,9 +120,9 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src="<?php ThemeAssets('js/nodelay.js'); ?>"></script>
-<script defer src="<?php ThemeAssets('js/script.js'); ?>"></script>
+<script defer src="<?php ThemeAssets('js/script.js?v=1.0.0'); ?>"></script>
 <?php if (is_front_page()): ?>
-    <script defer src="<?php ThemeAssets('js/page-script/home-final.js'); ?>"></script>
+    <script defer src="<?php ThemeAssets('js/page-script/home-final.js?v=1.0.0'); ?>"></script>
 <?php endif; ?>
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
