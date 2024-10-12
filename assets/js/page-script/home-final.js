@@ -215,14 +215,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         projectMediaHeight = heightSwiper - heightInfo;
                     document.querySelectorAll('.projectMedia').forEach((projectMedia) => {
                         projectMedia.style.height = projectMediaHeight+'px';
-                        console.log(swiper.realIndex);
                     })
                 },
             },
         });
-        swiper.on('init',function () {
-            appendAudio(swiper.realIndex);
-        })
         swiper.on('beforeSlideChangeStart',function () {
             homeSideBarContainer.classList.add('hide');
         })
@@ -235,7 +231,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 homeSideBarContainer.classList.add('hide');
             }
             if(swiper.realIndex !== 0){
-                //document.getElementById(`audioSlider${swiper.realIndex}`).play();
+                appendAudio(swiper.realIndex);
+                document.getElementById(`audioSlider${swiper.realIndex}`).play();
             }
             let currentEl = e.el.children[0].children[swiper.activeIndex];
             let currentSkisImage = currentEl.children[0].getAttribute('data-url');
