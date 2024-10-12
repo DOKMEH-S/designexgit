@@ -1,5 +1,6 @@
 //===========GET UAE TIME ZONE
 const timeZone = document.getElementById('timeZone');
+let isMenuOpen = false;
 
 function updateUAETime() {
     const now = new Date();
@@ -14,12 +15,9 @@ function updateUAETime() {
     const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
     timeZone.innerHTML = uaeTime;
 
-    setTimeout(updateUAETime, 1000);
-}
-
-// Check if #menuContainer exists
-if (document.getElementById('menuContainer')) {
-    updateUAETime();
+    if (isMenuOpen) {
+        setTimeout(updateUAETime, 1000); // Update every second
+    }
 }
 
 // =============================Menu
@@ -31,8 +29,11 @@ if (document.querySelector('#menuContainer')) {
         document.body.classList.toggle('opMenu');
         if (document.querySelector('html').classList.contains('lenis')) {
             if (document.body.classList.contains('opMenu')) {
+                isMenuOpen = true;
+                updateUAETime();
                 lenis.stop(); // Stop lenis when opMenu is added
             } else {
+                isMenuOpen = false;
                 lenis.start(); // Start lenis when opMenu is removed
             }
         }
