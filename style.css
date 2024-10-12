@@ -1431,7 +1431,7 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     }
     body > .footer-subscribe .footer-subscribe-form {
         width: 80vw;
-        height: 80vw;
+        height: 24vh;
         padding: 1rem;
     }
     footer form input[type="submit" ],
@@ -1529,7 +1529,7 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     }
     body > .footer-subscribe .footer-subscribe-form {
         width: 45vw;
-        height: 45vw;
+        height: 18vh;
         padding: 1rem;
     }
 
