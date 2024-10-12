@@ -1212,9 +1212,9 @@ body > .footer-subscribe .footer-subscribe-form {
     transform: translate(-50% , -50%);
     z-index: 99;
     background-color: var(--white);
-    padding: 3rem;
+    padding: 1.5rem;
     width: 28vw;
-    height: 28vw;
+    height: 30vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1228,7 +1228,7 @@ body > .footer-subscribe .footer-subscribe-form {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    row-gap: 2rem;
+    row-gap: 1rem;
     -webkit-box-shadow: 6px 6px 6px rgba(32, 110, 75, 0.5);
     box-shadow: 6px 6px 6px rgba(32, 110, 75, 0.5);
     -webkit-box-sizing: border-box;
@@ -1266,9 +1266,11 @@ body > .footer-subscribe:before {
 }
 body > .footer-subscribe .footer-subscribe-form .tnp.tnp-subscription {
     width: 100%;
+    display: flex;
 }
 body > .footer-subscribe .footer-subscribe-form form#subscribe-form {
     position: relative;
+    width: 100%;
 }
 body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     position: absolute;
