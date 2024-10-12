@@ -83,13 +83,39 @@ document.addEventListener('DOMContentLoaded', function() {
     let spacing = 0.1, // spacing of the cards (stagger)
         snapTime = gsap.utils.snap(spacing), // we'll use this to snapTime the playhead on the seamlessLoop
         cards = gsap.utils.toArray('.homeProjectWrap');
-    let audioSlider = document.getElementById('sliderAudio');
+    let audioSlider1 = document.getElementById('sliderAudio');
+    //=======================AUDIO
+    function appendAudio(id) {
+        // Create audio element
+        const audio = document.createElement('audio');
+        audio.id = id;
+
+        // Create source elements
+        const sourceOgg = document.createElement('source');
+        sourceOgg.src = '<?php ThemeAssets("audio/Tick-03.ogg"); ?>';
+        sourceOgg.type = 'audio/ogg';
+
+        const sourceMp3 = document.createElement('source');
+        sourceMp3.src = '<?php ThemeAssets("audio/Tick-03.mp3"); ?>';
+        sourceMp3.type = 'audio/mpeg';
+
+        // Append sources to audio
+        audio.appendChild(sourceOgg);
+        audio.appendChild(sourceMp3);
+
+        // Fallback text
+        audio.innerHTML = 'Your browser does not support the audio element.';
+
+        // Append audio element to body
+        document.body.appendChild(audio);
+    }
+    //=======================AUDIO
     //=======================COOKIE BOX
     let cookieBtn = document.getElementById('acceptCookie');
     cookieBtn.addEventListener('click',function () {
         document.querySelector('body').classList.add('hideC');
-        audioSlider.muted = true;
-        audioSlider.play();
+        //audioSlider1.muted = true;
+        //audioSlider1.play();
     })
     //=======================COOKIE BOX
     projects.forEach((project, index) => {
@@ -98,11 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
             start: "10% center",
             end:"90% center",
             onEnter: () => {
+                console.log(index)
                 if(index !== 0){
-                    audioSlider.muted = false;
-                    audioSlider.pause();
-                    audioSlider.currentTime = 0;
-                    audioSlider.play();
+                    // audioSlider.muted = false;
+                    // audioSlider.pause();
+                    // audioSlider.currentTime = 0;
+                    // audioSlider.play();
                 }
                 if(!isMobile.any){
                     counterValue.textContent = String(index + 1).padStart(2, '0');
@@ -113,10 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             onEnterBack: () => {
-                audioSlider.muted = false;
-                audioSlider.pause();
-                audioSlider.currentTime = 0;
-                audioSlider.play();
+                // audioSlider.muted = false;
+                // audioSlider.pause();
+                // audioSlider.currentTime = 0;
+                // audioSlider.play();
                 if(!isMobile.any){
                     counterValue.textContent = String(counterValue.textContent - 1).padStart(2, '0');
                     projectUrl = project.getAttribute('href');

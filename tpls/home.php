@@ -111,9 +111,8 @@ get_header(); ?>
             </main>
         </div>
     </div>
-    <audio id="sliderAudio">
-        <!--<source src="<?php /*ThemeAssets('audio/Tick-02.ogg'); */?>" type="audio/ogg">-->
-        <source src="<?php ThemeAssets('audio/Tick-03.mp3'); ?>" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <div id="audioWrapper">
+
+    </div>
+
 <?php get_footer();
