@@ -85,7 +85,7 @@ function setup () {
         if (window['goToStep' + 6]) {
             window['goToStep' + 6]();
         }
-    },3000)
+    },4000)
 }
 
 function windowResized () {
