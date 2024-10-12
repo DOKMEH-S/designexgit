@@ -14,13 +14,12 @@ function updateUAETime() {
     const uaeTime = new Intl.DateTimeFormat('en-US', options).format(now);
     timeZone.innerHTML = uaeTime;
 
-    setTimeout(updateUAETime, 1000);
+    // Only call again if the menu is still open
+    if (isMenuOpen) {
+        setTimeout(updateUAETime, 1000); // Update every second
+    }
 }
 
-// Check if #menuContainer exists
-if (document.getElementById('menuContainer') && isMenuOpen) {
-        updateUAETime();
-}
 
 // =============================Menu
 // Check if #menuContainer exists on the page
@@ -31,9 +30,12 @@ if (document.querySelector('#menuContainer')) {
         document.body.classList.toggle('opMenu');
         if (document.querySelector('html').classList.contains('lenis')) {
             if (document.body.classList.contains('opMenu')) {
+                console.log(isMenuOpen);
                 isMenuOpen = true;
+                updateUAETime(); // Start updating time immediately
                 lenis.stop(); // Stop lenis when opMenu is added
             } else {
+                console.log(isMenuOpen);
                 isMenuOpen = false;
                 lenis.start(); // Start lenis when opMenu is removed
             }
