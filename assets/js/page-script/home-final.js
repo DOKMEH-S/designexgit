@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if(!isMobile.any){
                 if(self.getVelocity() > 0){
                     gsap.to('.homeProjectWrap', {
-                        ease: "expo.out",
-                        duration: .5,
+                        ease: "power4.out",
+                        duration: 1,
                         scale: 1.14,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "back.inOut(1.7)",
+                        ease: "power4.out",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 } else {
                     gsap.to('.homeProjectWrap', {
-                        ease: "expo.out",
-                        duration: .5,
+                        ease: "power4.out",
+                        duration: 1,
                         scale: 0.9,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "back.inOut(1.7)",
+                        ease: "power4.out",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -231,8 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 homeSideBarContainer.classList.add('hide');
             }
             if(swiper.realIndex !== 0){
-                audioSlider.muted = false;
-                audioSlider.play();
+                document.getElementById(`audioSlider${swiper.realIndex}`).play();
             }
             let currentEl = e.el.children[0].children[swiper.activeIndex];
             let currentSkisImage = currentEl.children[0].getAttribute('data-url');
