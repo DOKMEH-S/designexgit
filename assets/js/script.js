@@ -18,7 +18,9 @@ function updateUAETime() {
 }
 
 // Check if #menuContainer exists
-
+if (document.getElementById('menuContainer')) {
+    updateUAETime();
+}
 
 // =============================Menu
 // Check if #menuContainer exists on the page
@@ -30,7 +32,6 @@ if (document.querySelector('#menuContainer')) {
         if (document.querySelector('html').classList.contains('lenis')) {
             if (document.body.classList.contains('opMenu')) {
                 lenis.stop(); // Stop lenis when opMenu is added
-                updateUAETime();
             } else {
                 lenis.start(); // Start lenis when opMenu is removed
             }
