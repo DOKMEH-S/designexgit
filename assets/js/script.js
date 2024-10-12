@@ -1,6 +1,6 @@
 //===========GET UAE TIME ZONE
 const timeZone = document.getElementById('timeZone');
-
+let isMenuOpen = false;
 function updateUAETime() {
     const now = new Date();
 
@@ -18,8 +18,8 @@ function updateUAETime() {
 }
 
 // Check if #menuContainer exists
-if (document.getElementById('menuContainer')) {
-    updateUAETime();
+if (document.getElementById('menuContainer') && isMenuOpen) {
+        updateUAETime();
 }
 
 // =============================Menu
@@ -31,8 +31,10 @@ if (document.querySelector('#menuContainer')) {
         document.body.classList.toggle('opMenu');
         if (document.querySelector('html').classList.contains('lenis')) {
             if (document.body.classList.contains('opMenu')) {
+                isMenuOpen = true;
                 lenis.stop(); // Stop lenis when opMenu is added
             } else {
+                isMenuOpen = false;
                 lenis.start(); // Start lenis when opMenu is removed
             }
         }
