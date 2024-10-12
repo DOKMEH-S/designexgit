@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(self.getVelocity() > 0){
                     gsap.to('.homeProjectWrap', {
                         ease: "expo.out",
-                        duration: 1,
+                        duration: .5,
                         scale: 1.14,
                     });
                     gsap.to('canvas#defaultCanvas0', {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     gsap.to('.homeProjectWrap', {
                         ease: "expo.out",
-                        duration: 1,
+                        duration: .5,
                         scale: 0.9,
                     });
                     gsap.to('canvas#defaultCanvas0', {
