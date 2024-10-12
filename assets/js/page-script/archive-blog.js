@@ -8,7 +8,7 @@ mobileIcon.addEventListener('click', function (event) {
         // lenis.stop();
     } else {
         // lenis.start();
-    }
+    } 
 });
 
 // Add a click event listener to the document
