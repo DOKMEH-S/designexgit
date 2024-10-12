@@ -111,6 +111,10 @@ get_header(); ?>
             </main>
         </div>
     </div>
+    <audio class="audioWrap" controls="" preload="auto">
+        <source src="<?php ThemeAssets('audio/Tick-03.ogg'); ?>" type="audio/ogg">
+        <source src="<?php ThemeAssets('audio/Tick-03.mp3'); ?>" type="audio/mpeg">
+    </audio>
     <div id="audioWrapper">
 
     </div>

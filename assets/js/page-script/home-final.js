@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if(!isMobile.any){
                 if(self.getVelocity() > 0){
                     gsap.to('.homeProjectWrap', {
-                        ease: "power4.out",
+                        ease: "expo.out",
                         duration: 1,
                         scale: 1.14,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "power4.out",
+                        ease: "back.inOut(1.7)",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 } else {
                     gsap.to('.homeProjectWrap', {
-                        ease: "power4.out",
+                        ease: "expo.out",
                         duration: 1,
                         scale: 0.9,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "power4.out",
+                        ease: "back.inOut(1.7)",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -84,34 +84,22 @@ document.addEventListener('DOMContentLoaded', function() {
         snapTime = gsap.utils.snap(spacing), // we'll use this to snapTime the playhead on the seamlessLoop
         cards = gsap.utils.toArray('.homeProjectWrap');
     let audioSlider1 = document.getElementById('sliderAudio');
+    let audioWrapper =  document.getElementById('audioWrapper');
     //=======================AUDIO
     function appendAudio(index) {
-        const audioId = `sliderAudio${index}`;
-        const audioSources = [
-            "<?php ThemeAssets('audio/Tick-03.ogg'); ?>",
-            "<?php ThemeAssets('audio/Tick-03.mp3'); ?>"
-        ];
-
-        const audioElement = document.createElement('audio');
-        audioElement.id = audioId;
-
-        audioSources.forEach(src => {
-            const sourceElement = document.createElement('source');
-            sourceElement.src = src;
-            sourceElement.type = src.endsWith('.ogg') ? 'audio/ogg' : 'audio/mpeg';
-            audioElement.appendChild(sourceElement);
-        });
-
-        audioElement.innerHTML = 'Your browser does not support the audio element.';
-        document.getElementById('audioWrapper').appendChild(audioElement);
+        const beepTwo = document.querySelector(".audioWrap").cloneNode(true);
+        beepTwo.id = `audioSlider${index}`;
+        audioWrapper.appendChild(beepTwo);
+        beepTwo.querySelector('source:first-of-type').src = `${document.location.origin}/wp-content/themes/dokmeh/assets/audio/Tick-03.mp3`;
+        beepTwo.querySelector('source:last-of-type').src = `${document.location.origin}/wp-content/themes/dokmeh/assets/audio/Tick-03.ogg`;
     }
     //=======================AUDIO
     //=======================COOKIE BOX
     let cookieBtn = document.getElementById('acceptCookie');
     cookieBtn.addEventListener('click',function () {
         document.querySelector('body').classList.add('hideC');
-        //audioSlider1.muted = true;
-        //audioSlider1.play();
+        document.getElementById('audioSlider0').muted = true
+        document.getElementById('audioSlider0').play();
     })
     //=======================COOKIE BOX
     projects.forEach((project, index) => {
@@ -120,13 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
             start: "10% center",
             end:"90% center",
             onEnter: () => {
-                console.log(index);
-                appendAudio(`sliderAudio${index}`);
+                appendAudio(index);
                 if(index !== 0){
-                    // audioSlider.muted = false;
-                    // audioSlider.pause();
-                    // audioSlider.currentTime = 0;
-                    // audioSlider.play();
+                    document.getElementById(`audioSlider${index}`).play();
                 }
                 if(!isMobile.any){
                     counterValue.textContent = String(index + 1).padStart(2, '0');
@@ -137,10 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             onEnterBack: () => {
-                // audioSlider.muted = false;
-                // audioSlider.pause();
-                // audioSlider.currentTime = 0;
-                // audioSlider.play();
+                appendAudio(index);
+                document.getElementById(`audioSlider${index}`).play();
                 if(!isMobile.any){
                     counterValue.textContent = String(counterValue.textContent - 1).padStart(2, '0');
                     projectUrl = project.getAttribute('href');
@@ -159,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (st > last_scroll_top) {
             // downscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "power4.out",
+                ease: "back.inOut(1.7)",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 filter:"blur(3px)",
@@ -168,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (st < last_scroll_top) {
             // upscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "power4.out",
+                ease: "back.inOut(1.7)",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 scale:1.3,

@@ -42,6 +42,13 @@ body.opMenu #cookieContainer {
     background-color: transparent !important;
     color: inherit !important;
 }
+#audioWrapper {
+    display: none;
+}
+audio {
+    visibility: hidden;
+    opacity: 0;
+}
 /*============GENERAL CLASS==================*/
 /*============COOKIE==================*/
 #cookieContainer {
