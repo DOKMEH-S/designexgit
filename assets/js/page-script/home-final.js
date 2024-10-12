@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             if(swiper.realIndex !== 0){
                 console.log(swiper.realIndex);
-                document.getElementById(`audioSlider${swiper.realIndex}`).play();
+                //document.getElementById(`audioSlider${swiper.realIndex}`).play();
             }
             let currentEl = e.el.children[0].children[swiper.activeIndex];
             let currentSkisImage = currentEl.children[0].getAttribute('data-url');
