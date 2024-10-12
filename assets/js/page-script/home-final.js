@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if(!isMobile.any){
                 if(self.getVelocity() > 0){
                     gsap.to('.homeProjectWrap', {
-                        ease: "power4.out",
+                        ease: "expo.out",
                         duration: 1,
                         scale: 1.14,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "power4.out",
+                        ease: "back.inOut(1.7)",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 } else {
                     gsap.to('.homeProjectWrap', {
-                        ease: "power4.out",
+                        ease: "expo.out",
                         duration: 1,
                         scale: 0.9,
                     });
                     gsap.to('canvas#defaultCanvas0', {
-                        ease: "power4.out",
+                        ease: "back.inOut(1.7)",
                         duration: 1,
                         webkitFilter: "blur(3px)",
                         filter: "blur(3px)",
@@ -61,13 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
         onStop: () => {
             if(!isMobile.any){
                 gsap.to('.homeProjectWrap', {
-                    ease: "none",
+                    ease: "expo.out",
                     duration: .5,
                     scale: 1,
                     overwrite:true,
                 });
                 gsap.to('canvas#defaultCanvas0',{
-                    ease: "none",
+                    ease: "back.inOut(1.7)",
                     duration:.5,
                     webkitFilter:"blur(0)",
                     scale:1,
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (st > last_scroll_top) {
             // downscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "power4.out",
+                ease: "back.inOut(1.7)",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 filter:"blur(3px)",
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (st < last_scroll_top) {
             // upscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "power4.out",
+                ease: "back.inOut(1.7)",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 scale:1.3,
