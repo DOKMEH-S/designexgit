@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             homeSideBarContainer.classList.add('hide');
         })
         swiper.on('slideChange', function (e) {
+            appendAudio(swiper.realIndex);
             const currentIndex = this.activeIndex;
             const previousIndex = this.previousIndex;
             if (currentIndex > previousIndex) {
