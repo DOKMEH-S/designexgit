@@ -1275,6 +1275,10 @@ body > .footer-subscribe .footer-subscribe-form .tnp-field.tnp-field-button {
     top: 0;
     right: 0;
 }
+body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-message {
+    font-size: .85rem;
+    text-align: center;
+}
 /*========body > .footer-subscribe========*/
 /*==================input================*/
 @media only screen and (max-width: 768px) {
