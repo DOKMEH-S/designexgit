@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.innerHTML = 'Your browser does not support the audio element.';
 
         // Append audio element to body
-        document.body.appendChild(audio);
+        document.getElementById('audioWrapper').appendChild(audio);
     }
     //=======================AUDIO
     //=======================COOKIE BOX
