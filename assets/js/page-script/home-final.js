@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const beepTwo = document.querySelector(".audioWrap").cloneNode(true);
         beepTwo.id = `audioSlider${index}`;
         audioWrapper.appendChild(beepTwo);
-        beepTwo.querySelector('source:first-of-type').src = `${document.location.origin}/wp-content/themes/Dokmeh/assets/audio/Tick-03.mp3`;
-        beepTwo.querySelector('source:last-of-type').src = `${document.location.origin}/wp-content/themes/Dokmeh/assets/audio/Tick-03.ogg`;
+        beepTwo.querySelector('source:first-of-type').src = `${document.location.origin}/wp-content/themes/dokmeh/assets/audio/Tick-03.mp3`;
+        beepTwo.querySelector('source:last-of-type').src = `${document.location.origin}/wp-content/themes/dokmeh/assets/audio/Tick-03.ogg`;
     }
     //=======================AUDIO
     //=======================COOKIE BOX
