@@ -587,7 +587,25 @@ body.opMenu #menuContainer {
 /*=============MENU CONTAINER================*/
 @media only screen and (max-width:768px) {
     #menuContainer .extraLinks {
+        width: 100%;
+        padding: 0 var(--spaceX);
+        right: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        position: relative;
+        box-sizing: border-box;
+    }
+    #menuContainer .extraLinks  .extraLink-item.coordination ,
+    #menuContainer .extraLinks .extraLinks-contact .extraLink-item:not(.subscribe){
         display: none;
+    }
+
+    #menuContainer .extraLinks .extraLinks-contact {
+        width: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
     }
     #menuContainer {
         top: 0;
@@ -596,7 +614,15 @@ body.opMenu #menuContainer {
         height: 100%;
     }
     #menuContainer {
-        height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+        height: calc(var(--vh, 1vh)* 100 - var(--headerHeight));
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        row-gap: 1.5rem;
     }
     body.scrollingDown #menuContainer ,
     body.scrollEnd #menuContainer{
@@ -639,6 +665,7 @@ body.opMenu #menuContainer {
     .menu-list {
         padding-right: var(--spaceX);
         padding-bottom: 0;
+        height: auto;
     }
 
     .item-title {
