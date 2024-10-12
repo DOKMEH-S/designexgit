@@ -215,13 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         projectMediaHeight = heightSwiper - heightInfo;
                     document.querySelectorAll('.projectMedia').forEach((projectMedia) => {
                         projectMedia.style.height = projectMediaHeight+'px';
+                        console.log(swiper.realIndex);
                     })
                 },
             },
         });
         swiper.on('init',function () {
             appendAudio(swiper.realIndex);
-            console.log(swiper.realIndex);
         })
         swiper.on('beforeSlideChangeStart',function () {
             homeSideBarContainer.classList.add('hide');
