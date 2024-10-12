@@ -36,6 +36,13 @@ if (document.querySelector('#menuContainer')) {
                 isMenuOpen = false;
                 lenis.start(); // Start lenis when opMenu is removed
             }
+        } else {
+            if (document.body.classList.contains('opMenu')) {
+                isMenuOpen = true;
+                updateUAETime();
+            } else {
+                isMenuOpen = false;
+            }
         }
     });
 
