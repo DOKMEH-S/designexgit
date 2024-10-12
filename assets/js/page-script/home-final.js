@@ -231,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 homeSideBarContainer.classList.add('hide');
             }
             if(swiper.realIndex !== 0){
+                console.log(swiper.realIndex);
                 document.getElementById(`audioSlider${swiper.realIndex}`).play();
             }
             let currentEl = e.el.children[0].children[swiper.activeIndex];
