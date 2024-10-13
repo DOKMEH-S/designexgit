@@ -50,7 +50,7 @@ function Dokmeh_scripts()
     wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), _S_VERSION);
     // Check if it's the front page
 
-    if (is_front_page()) {
+    if (is_front_page() OR is_page_template('tpls/homeShadow.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/home-final.css', array(), _S_VERSION);
     } 
     elseif (is_page_template('tpls/about.php')) {
