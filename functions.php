@@ -2,7 +2,7 @@
 function Dokmeh_theme_setup()
 {
     if (!defined('_S_VERSION')) {
-        define('_S_VERSION', '1.0.9');
+        define('_S_VERSION', '1.1.0');
     }
     $menus = array(
         'main-menu' => 'Main Menu',
