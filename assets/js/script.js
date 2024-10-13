@@ -390,21 +390,29 @@ if (closeButton) {
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
 var draggable = document.querySelector('#draggable');
+var footerSubscribe = document.querySelector('body > .footer-subscribe');
 
 draggable.addEventListener('mousedown', function (e) {
+
+    // Add "dragging" class to the body
+    footerSubscribe.classList.add('dragging');
+    // Calculate offsets
     let offsetX = e.clientX - draggable.getBoundingClientRect().left;
     let offsetY = e.clientY - draggable.getBoundingClientRect().top;
 
+    // Function to handle mouse movement
     function mouseMoveHandler(e) {
         draggable.style.left = (e.clientX - offsetX) + 'px';
         draggable.style.top = (e.clientY - offsetY) + 'px';
     }
 
+    // Function to handle mouse release
     function mouseUpHandler() {
         document.removeEventListener('mousemove', mouseMoveHandler);
         document.removeEventListener('mouseup', mouseUpHandler);
     }
 
+    // Attach mousemove and mouseup event listeners
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 });
