@@ -197,10 +197,10 @@ endif; ?>">
     <?php endif;
     if (!is_404()): ?>
         <div class="footer-subscribe">
-            <div class="footer-subscribe-close">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path fill="#206E4B" d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
-            </div>
             <div class="footer-subscribe-form" id="draggable">
+                <div class="footer-subscribe-close">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path fill="#fff" d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
+                </div>
                 <p class="text">Redefining <strong>luxury architecture</strong> through sustainable, opulent <strong>environmental </strong><strong>responsibility</strong>!</p>
                 <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
             </div>

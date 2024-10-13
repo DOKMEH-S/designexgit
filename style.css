@@ -1234,6 +1234,19 @@ body > .footer-subscribe .footer-subscribe-form {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+body.opSubscribe > .footer-subscribe .footer-subscribe-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: .5rem;
+    cursor: pointer;
+}
+
+body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--primary);
+}
 body > .footer-subscribe .footer-subscribe-form .text{
     text-align: center;
     font-size: 1rem;
