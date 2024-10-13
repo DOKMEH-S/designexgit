@@ -390,30 +390,39 @@ document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
 var draggable = document.querySelector('#draggable');
-var footerSubscribe = document.querySelector('body > .footer-subscribe');
 
-draggable.addEventListener('mousedown', function (e) {
+function startDrag(e) {
 
-    // Add "dragging" class to the body
-    footerSubscribe.classList.add('dragging');
     // Calculate offsets
-    let offsetX = e.clientX - draggable.getBoundingClientRect().left;
-    let offsetY = e.clientY - draggable.getBoundingClientRect().top;
+    let clientX = e.clientX || e.touches[0].clientX;
+    let clientY = e.clientY || e.touches[0].clientY;
+    let offsetX = clientX - draggable.getBoundingClientRect().left;
+    let offsetY = clientY - draggable.getBoundingClientRect().top;
 
-    // Function to handle mouse movement
-    function mouseMoveHandler(e) {
-        draggable.style.left = (e.clientX - offsetX) + 'px';
-        draggable.style.top = (e.clientY - offsetY) + 'px';
+    function moveHandler(e) {
+        clientX = e.clientX || e.touches[0].clientX;
+        clientY = e.clientY || e.touches[0].clientY;
+        draggable.style.left = (clientX - offsetX) + 'px';
+        draggable.style.top = (clientY - offsetY) + 'px';
     }
 
-    // Function to handle mouse release
-    function mouseUpHandler() {
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
+    function endDrag() {
+        // Remove "dragging" class from the body
+        body.classList.remove('dragging');
+        document.removeEventListener('mousemove', moveHandler);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchmove', moveHandler);
+        document.removeEventListener('touchend', endDrag);
     }
 
-    // Attach mousemove and mouseup event listeners
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-});
+    // Attach event listeners for mouse and touch events
+    document.addEventListener('mousemove', moveHandler);
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchmove', moveHandler);
+    document.addEventListener('touchend', endDrag);
+}
+
+// Attach events for both mouse and touch
+draggable.addEventListener('mousedown', startDrag);
+draggable.addEventListener('touchstart', startDrag);
 // --------------------------------------------------------draggabilly
