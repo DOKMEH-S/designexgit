@@ -109,6 +109,7 @@
 <?php endif; ?>
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
+<script defer src='<?php ThemeAssets('js/draggability.pkgd.min.js'); ?>'></script>
 <?php if (is_front_page()): ?>
     <script defer src="<?php ThemeAssets('js/ScrollSmoother.min.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
