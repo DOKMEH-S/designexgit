@@ -1240,6 +1240,9 @@ body.opSubscribe > .footer-subscribe .footer-subscribe-close {
     right: 0;
     margin: .5rem;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
@@ -1279,6 +1282,8 @@ body > .footer-subscribe:before {
 }
 body > .footer-subscribe .footer-subscribe-form .tnp.tnp-subscription {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 body > .footer-subscribe .footer-subscribe-form form#subscribe-form {
@@ -1446,6 +1451,10 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
         width: 80vw;
         height: 24vh;
         padding: 1rem;
+    }
+    body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
+        width: .75rem;
+        height: .75rem;
     }
     footer form input[type="submit" ],
     body > .footer-subscribe .footer-subscribe-form input[type="submit" ] {
