@@ -13,7 +13,8 @@
         }
 
         #menuContainer,
-        #screenSaver {
+        #screenSaver ,
+        .footer-subscribe{
             display: none;
         }
 

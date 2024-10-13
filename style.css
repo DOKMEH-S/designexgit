@@ -1200,9 +1200,7 @@ form .upload .warning {
 body > .footer-subscribe {
     position: relative;
 }
-body.opSubscribe > .footer-subscribe{
-    position: relative;
-}
+
 body > .footer-subscribe .footer-subscribe-form {
     position: fixed;
     top: calc(50% - 30vh / 2);
@@ -1232,7 +1230,7 @@ body > .footer-subscribe .footer-subscribe-form {
     box-sizing: border-box;
     cursor: move;
 }
-body.opSubscribe > .footer-subscribe .footer-subscribe-close {
+body > .footer-subscribe .footer-subscribe-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -1243,7 +1241,7 @@ body.opSubscribe > .footer-subscribe .footer-subscribe-close {
     display: flex;
 }
 
-body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
+body > .footer-subscribe .footer-subscribe-close svg {
     width: 1rem;
     height: 1rem;
     background-color: var(--primary);
@@ -1453,7 +1451,7 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
         height: 24vh;
         padding: 1rem;
     }
-    body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
+    body > .footer-subscribe .footer-subscribe-close svg {
         width: .75rem;
         height: .75rem;
     }
