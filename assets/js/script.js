@@ -132,12 +132,12 @@ if (document.querySelector('#menuContainer')) {
             }
         });
     });
-   /* document.querySelector('.menu-list').addEventListener('mouseleave',function () {
-        menuItems.forEach((otherItem) => {
-            otherItem.classList.remove('show');
-        });
-        subMenu.forEach((sub) => sub.classList.remove('show'));
-    })*/
+    /* document.querySelector('.menu-list').addEventListener('mouseleave',function () {
+         menuItems.forEach((otherItem) => {
+             otherItem.classList.remove('show');
+         });
+         subMenu.forEach((sub) => sub.classList.remove('show'));
+     })*/
 }
 /*=============Scroll Direction*/
 let lastScrollTop = 0;
@@ -361,12 +361,12 @@ const addClassToBody = (event) => {
 };
 
 // Function to remove class
-// const removeClassFromBody = (event) => {
-//     // Check if the click target is outside the footerSubscribeForm
-//     if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
-//         body.classList.remove('opSubscribe');
-//     }
-// };
+const removeClassFromBody = (event) => {
+    // Check if the click target is outside the footerSubscribeForm
+    if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
+        body.classList.remove('opSubscribe');
+    }
+};
 
 // Function to remove class on close button click
 const closeForm = (event) => {
@@ -386,7 +386,7 @@ if (closeButton) {
 }
 
 // Click outside detection
-// document.addEventListener('click', removeClassFromBody);
+document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
 var draggable = document.querySelector('#draggable');
