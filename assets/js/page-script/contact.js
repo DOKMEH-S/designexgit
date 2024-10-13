@@ -55,7 +55,6 @@ if (document.querySelector('.accordion')) {
             }
         });
     }
-
     // Open the first dropdown by default
     var firstContainer = document.getElementById(linkToggle[0].dataset.container);
     firstContainer.classList.add('active');
