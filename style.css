@@ -1200,16 +1200,11 @@ form .upload .warning {
 body > .footer-subscribe {
     position: relative;
 }
-body.opSubscribe > .footer-subscribe{
-    position: relative;
-}
+
 body > .footer-subscribe .footer-subscribe-form {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50% , -50%);
-    -ms-transform: translate(-50% , -50%);
-    transform: translate(-50% , -50%);
+    top: calc(50% - 30vh / 2);
+    left: calc(50% - 28vw / 2);
     z-index: 99;
     background-color: var(--white);
     padding: 1.5rem;
@@ -1233,16 +1228,20 @@ body > .footer-subscribe .footer-subscribe-form {
     box-shadow: 6px 6px 6px rgba(32, 110, 75, 0.5);
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    cursor: move;
 }
-body.opSubscribe > .footer-subscribe .footer-subscribe-close {
+body > .footer-subscribe .footer-subscribe-close {
     position: absolute;
     top: 0;
     right: 0;
     margin: .5rem;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
-body.opSubscribe > .footer-subscribe .footer-subscribe-close svg {
+body > .footer-subscribe .footer-subscribe-close svg {
     width: 1rem;
     height: 1rem;
     background-color: var(--primary);
@@ -1253,9 +1252,9 @@ body > .footer-subscribe .footer-subscribe-form .text{
 }
 body > .footer-subscribe .footer-subscribe-form ,
 body > .footer-subscribe:before{
-    -webkit-transition: all ease-in-out .4s;
-    -o-transition: all ease-in-out .4s;
-    transition: all ease-in-out .4s;
+    -webkit-transition: opacity ease-in-out .4s;
+    -o-transition: opacity ease-in-out .4s;
+    transition: opacity ease-in-out .4s;
     opacity: 0;
     pointer-events: none;
 }
@@ -1279,6 +1278,8 @@ body > .footer-subscribe:before {
 }
 body > .footer-subscribe .footer-subscribe-form .tnp.tnp-subscription {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 body > .footer-subscribe .footer-subscribe-form form#subscribe-form {
@@ -1294,6 +1295,7 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     font-size: .85rem;
     text-align: center;
 }
+
 /*========body > .footer-subscribe========*/
 /*==================input================*/
 @media only screen and (max-width: 768px) {
@@ -1443,9 +1445,15 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
         height: 100vh;
     }
     body > .footer-subscribe .footer-subscribe-form {
+        top: calc(50% - 24vh / 2);
+        left: calc(50% - 80vw / 2);
         width: 80vw;
         height: 24vh;
         padding: 1rem;
+    }
+    body > .footer-subscribe .footer-subscribe-close svg {
+        width: .75rem;
+        height: .75rem;
     }
     footer form input[type="submit" ],
     body > .footer-subscribe .footer-subscribe-form input[type="submit" ] {
@@ -1476,8 +1484,10 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
         left: 44%;
     }
     body > .footer-subscribe .footer-subscribe-form {
-        width: 45vw;
-        height: 45vw;
+        top: calc(50% - 22vh / 2);
+        left: calc(50% - 60vw / 2);
+        width: 60vw;
+        height: 22vh;
         padding: 1rem;
     }
 
@@ -1541,6 +1551,8 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
         width: 55%;
     }
     body > .footer-subscribe .footer-subscribe-form {
+        top: calc(50% - 18vh / 2);
+        left: calc(50% - 45vw / 2);
         width: 45vw;
         height: 18vh;
         padding: 1rem;

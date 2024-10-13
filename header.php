@@ -13,7 +13,8 @@
         }
 
         #menuContainer,
-        #screenSaver {
+        #screenSaver ,
+        .footer-subscribe{
             display: none;
         }
 
@@ -38,7 +39,7 @@
     <?php wp_head(); ?>
 </head>
 <?php $logo = get_field('logo', 'option'); ?>
-<?php if (is_front_page()): ?>
+<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): ?>
     <div id="loading">
         <div id="lottie"></div>
         <div class="loadingCovers">
@@ -56,7 +57,7 @@
     </div>
 <?php endif; ?>
 
-<body data-pagetype="<?php if (is_front_page()): echo 'home';
+<body data-pagetype="<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): echo 'home';
 elseif (is_archive('projects')): echo 'archiveProject';
 elseif (is_singular('projects')): echo 'singleProject';
 elseif (is_archive('jobs')): echo 'jobs';
