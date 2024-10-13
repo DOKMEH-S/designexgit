@@ -1,4 +1,4 @@
-<?php if (!is_front_page() and !is_404()): ?>
+<?php if (!is_front_page() and !is_404() and !is_page_template('tpls/homeShadow.php')): ?>
     <footer class="paddingX">
         <div class="footerSides">
             <div class="footerSide">
@@ -110,19 +110,19 @@
 <script defer src='<?php ThemeAssets('js/gsap.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/ScrollTrigger.min.js'); ?>'></script>
 <script defer src='<?php ThemeAssets('js/draggability.pkgd.min.js'); ?>'></script>
-<?php if (is_front_page()): ?>
+<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): ?>
     <script defer src="<?php ThemeAssets('js/ScrollSmoother.min.js'); ?>"></script>
     <script defer src="<?php ThemeAssets('js/home-overlay.js') ?>"></script>
 <?php else: ?>
     <script defer src='<?php ThemeAssets('js/lenis.min.js'); ?>'></script>
     <script defer src="<?php ThemeAssets('js/lenis-script.js'); ?>"></script>
 <?php endif;
-if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.php')): ?>
+if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.php') or is_page_template('tpls/homeShadow.php')): ?>
     <script defer src="<?php ThemeAssets('js/swiper-bundle.min.js'); ?>"></script>
 <?php endif; ?>
 <script defer src="<?php ThemeAssets('js/nodelay.js'); ?>"></script>
 <script defer src="<?php ThemeAssets('js/script.js?v=1.0.0'); ?>"></script>
-<?php if (is_front_page()): ?>
+<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/home-final.js?v=1.0.2'); ?>"></script>
 <?php endif; ?>
 <?php if (is_singular('projects')): ?>
@@ -149,7 +149,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     document.addEventListener("DOMContentLoaded", function (event) {
         <?php if (!is_404()): ?>
         document.querySelector('header').style.opacity = '1';
-        <?php if (!is_front_page() and !is_404()): ?>
+        <?php if (!is_front_page() and !is_404() and !is_page_template('tpls/homeShadow.php')): ?>
         document.querySelector('footer').style.opacity = '1';
         <?php endif;?>
         document.querySelector('.startProject.mobile').style.opacity = '1';
@@ -171,7 +171,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 
     });
 </script>
-<?php if (is_front_page()): ?>
+<?php if (is_front_page() or is_page_template('tpls/homeShadow.php')): ?>
     <script>
         // setTimeout(() => {
         //     const counter = document.querySelectorAll('.percentCounter');
