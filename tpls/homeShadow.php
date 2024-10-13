@@ -21,39 +21,39 @@ get_header(); ?>
             <h1 class="home-title"><?php echo $intro_title ? $intro_title : get_the_title(); ?></h1>
             <div class="tiltContainer">
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
                 <a class="tiltWrap">
-                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.pnghttps://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
+                    <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
             </div>
