@@ -382,23 +382,5 @@ if (subscribeButton) {
 document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
-const draggable = document.getElementById('draggable');
-
-draggable.addEventListener('mousedown', function (e) {
-    let offsetX = e.clientX - draggable.getBoundingClientRect().left;
-    let offsetY = e.clientY - draggable.getBoundingClientRect().top;
-
-    function mouseMoveHandler(e) {
-        draggable.style.left = (e.clientX - offsetX) + 'px';
-        draggable.style.top = (e.clientY - offsetY) + 'px';
-    }
-
-    function mouseUpHandler() {
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
-    }
-
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-});
+var draggable = document.querySelector('.draggable');
 // --------------------------------------------------------draggabilly
