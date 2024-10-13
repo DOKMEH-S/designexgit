@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (st > last_scroll_top) {
             // downscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "back.inOut(1.7)",
+                ease: "power4.out",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 filter:"blur(3px)",
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (st < last_scroll_top) {
             // upscroll code
             gsap.to('canvas#defaultCanvas0',{
-                ease: "back.inOut(1.7)",
+                ease: "power4.out",
                 duration:1,
                 webkitFilter:"blur(3px)",
                 scale:1.3,
