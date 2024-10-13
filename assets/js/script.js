@@ -132,12 +132,12 @@ if (document.querySelector('#menuContainer')) {
             }
         });
     });
-   /* document.querySelector('.menu-list').addEventListener('mouseleave',function () {
-        menuItems.forEach((otherItem) => {
-            otherItem.classList.remove('show');
-        });
-        subMenu.forEach((sub) => sub.classList.remove('show'));
-    })*/
+    /* document.querySelector('.menu-list').addEventListener('mouseleave',function () {
+         menuItems.forEach((otherItem) => {
+             otherItem.classList.remove('show');
+         });
+         subMenu.forEach((sub) => sub.classList.remove('show'));
+     })*/
 }
 /*=============Scroll Direction*/
 let lastScrollTop = 0;
@@ -361,12 +361,12 @@ const addClassToBody = (event) => {
 };
 
 // Function to remove class
-// const removeClassFromBody = (event) => {
-//     // Check if the click target is outside the footerSubscribeForm
-//     if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
-//         body.classList.remove('opSubscribe');
-//     }
-// };
+const removeClassFromBody = (event) => {
+    // Check if the click target is outside the footerSubscribeForm
+    if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
+        body.classList.remove('opSubscribe');
+    }
+};
 
 // Function to remove class on close button click
 const closeForm = (event) => {
@@ -386,25 +386,33 @@ if (closeButton) {
 }
 
 // Click outside detection
-// document.addEventListener('click', removeClassFromBody);
+document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
 var draggable = document.querySelector('#draggable');
+var footerSubscribe = document.querySelector('body > .footer-subscribe');
 
 draggable.addEventListener('mousedown', function (e) {
+
+    // Add "dragging" class to the body
+    footerSubscribe.classList.add('dragging');
+    // Calculate offsets
     let offsetX = e.clientX - draggable.getBoundingClientRect().left;
     let offsetY = e.clientY - draggable.getBoundingClientRect().top;
 
+    // Function to handle mouse movement
     function mouseMoveHandler(e) {
         draggable.style.left = (e.clientX - offsetX) + 'px';
         draggable.style.top = (e.clientY - offsetY) + 'px';
     }
 
+    // Function to handle mouse release
     function mouseUpHandler() {
         document.removeEventListener('mousemove', mouseMoveHandler);
         document.removeEventListener('mouseup', mouseUpHandler);
     }
 
+    // Attach mousemove and mouseup event listeners
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 });
