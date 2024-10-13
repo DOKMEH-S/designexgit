@@ -73,7 +73,9 @@ if (founderVideo){
     let modalVideo = document.getElementById('videoModal');
     let closeModal = document.getElementById('closeModalVideo');
     document.addEventListener('DOMContentLoaded', function() {
-        ceoVideo.setAttribute('poster',videoPoster);
+        if(videoPoster){
+            ceoVideo.setAttribute('poster',videoPoster);
+        }
         ceoVideoSrc.setAttribute('src',videoURL);
         ceoVideo.load();
         ceoVideoCTA.addEventListener('click',function () {

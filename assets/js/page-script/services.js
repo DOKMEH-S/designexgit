@@ -76,8 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleVideoClick(video) {
         let videoURL = video.getAttribute('data-url');
         let videoPoster = video.getAttribute('poster');
-
-        ceoVideo.setAttribute('poster', videoPoster);
+        if(videoPoster){
+            ceoVideo.setAttribute('poster', videoPoster);
+        }
         ceoVideoSrc.setAttribute('src', videoURL);
         ceoVideo.load();
 
