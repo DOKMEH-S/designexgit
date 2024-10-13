@@ -39,7 +39,7 @@
     <?php wp_head(); ?>
 </head>
 <?php $logo = get_field('logo', 'option'); ?>
-<?php if (is_front_page()): ?>
+<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): ?>
     <div id="loading">
         <div id="lottie"></div>
         <div class="loadingCovers">
