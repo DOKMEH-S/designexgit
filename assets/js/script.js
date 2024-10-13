@@ -389,7 +389,7 @@ if (closeButton) {
 document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
-var draggable = document.querySelector('#draggable');
+var draggable = document.querySelector('.draggable');
 
 function startDrag(e) {
 
