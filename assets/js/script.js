@@ -351,36 +351,61 @@ document.addEventListener('DOMContentLoaded', function() {
 const subscribeLink = document.querySelector('#menuContainer .extraLink-item.subscribe');
 const subscribeButton = document.querySelector('#newsletterLink-container > .subscribeBtn');
 const body = document.body;
+const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
+const closeButton = document.querySelector('.footer-subscribe-close'); // Assuming this is the close button
 
 // Function to add class
 const addClassToBody = (event) => {
     event.stopPropagation(); // Prevent the click from bubbling up
     body.classList.add('opSubscribe');
-    console.log('Class opSubscribe added to body.');
 };
 
 // Function to remove class
-const removeClassFromBody = (event) => {
-    const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
-    // Check if the click target is outside the footerSubscribeForm
-    if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
-        body.classList.remove('opSubscribe');
-        console.log('Class opSubscribe removed from body.');
-    }
+// const removeClassFromBody = (event) => {
+//     // Check if the click target is outside the footerSubscribeForm
+//     if (footerSubscribeForm && !footerSubscribeForm.contains(event.target) && body.classList.contains('opSubscribe')) {
+//         body.classList.remove('opSubscribe');
+//     }
+// };
+
+// Function to remove class on close button click
+const closeForm = (event) => {
+    event.stopPropagation(); // Prevent the click from bubbling up
+    body.classList.remove('opSubscribe');
 };
 
 // Event listeners
 if (subscribeLink) {
     subscribeLink.addEventListener('click', addClassToBody);
 }
-
 if (subscribeButton) {
     subscribeButton.addEventListener('click', addClassToBody);
 }
+if (closeButton) {
+    closeButton.addEventListener('click', closeForm);
+}
 
 // Click outside detection
-document.addEventListener('click', removeClassFromBody);
+// document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggabilly
-var draggable = document.querySelector('.draggable');
+var draggable = document.querySelector('#draggable');
+
+draggable.addEventListener('mousedown', function (e) {
+    let offsetX = e.clientX - draggable.getBoundingClientRect().left;
+    let offsetY = e.clientY - draggable.getBoundingClientRect().top;
+
+    function mouseMoveHandler(e) {
+        draggable.style.left = (e.clientX - offsetX) + 'px';
+        draggable.style.top = (e.clientY - offsetY) + 'px';
+    }
+
+    function mouseUpHandler() {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    }
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+});
 // --------------------------------------------------------draggabilly
