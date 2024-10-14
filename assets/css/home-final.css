@@ -8,8 +8,8 @@
 /*============GENERAL CLASS==================*/
 :root{
     counter-reset: item;
-    --tiltWidth : 45px;
-    --titltLeft : calc(var(--tiltWidth) + 10px)
+    --tiltWidth : 40px;
+    --titltLeft : calc(var(--tiltWidth) + 5px)
 }
 html {
     scroll-behavior: smooth;
@@ -58,7 +58,7 @@ audio {
 /*============TILT==================*/
 .tiltContainer {
     position: relative; /* Relative positioning for absolute children */
-    width: calc(3 * var(--tiltWidth) + 20px); /* Set a fixed width for the container */
+    width: calc(3 * var(--tiltWidth) + 10px); /* Set a fixed width for the container */
     margin: 0 auto; /* Center the container horizontally */
 }
 
@@ -718,6 +718,9 @@ body.loadingDone .swiper {
 }
 /*===========HOME PROJECTS==============*/
 @media only screen and (max-width: 768px){
+    .tiltContainer{
+        display: none;
+    }
     .title-year {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -1039,7 +1042,7 @@ body.loadingDone .swiper {
         height: 25vh;
     }
     h1.home-title {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
 
