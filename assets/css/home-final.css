@@ -966,6 +966,12 @@ body.loadingDone .swiper {
     }
 }
 @media only screen and (min-width: 1200px) and (max-width:1399px){
+    :root{
+        --tiltWidth: 25px;
+    }
+    .tiltWrap span {
+        font-size: 0.5rem;
+    }
     h1.home-title {
         font-size: 1.3rem;
     }
@@ -1010,6 +1016,9 @@ body.loadingDone .swiper {
     }
 }
 @media only screen and (min-width: 1400px) and (max-width:1600px){
+    :root{
+        --tiltWidth: 30px;
+    }
     .projectInfo span.project_year {
         width: 31px;
     }
