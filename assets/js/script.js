@@ -350,6 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Select the required elements
 const subscribeLink = document.querySelector('#menuContainer .extraLink-item.subscribe');
 const subscribeButton = document.querySelector('#newsletterLink-container > .subscribeBtn');
+const HomeSubscribeButton = document.querySelector('.homeItemsWrap.subscribe');
 const body = document.body;
 const footerSubscribeForm = document.querySelector('.footer-subscribe-form');
 const closeButton = document.querySelector('.footer-subscribe-close'); // Assuming this is the close button
@@ -380,6 +381,9 @@ if (subscribeLink) {
 }
 if (subscribeButton) {
     subscribeButton.addEventListener('click', addClassToBody);
+}
+if (HomeSubscribeButton) {
+    HomeSubscribeButton.addEventListener('click', addClassToBody);
 }
 if (closeButton) {
     closeButton.addEventListener('click', closeForm);
