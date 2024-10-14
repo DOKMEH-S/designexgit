@@ -8,6 +8,8 @@
 /*============GENERAL CLASS==================*/
 :root{
     counter-reset: item;
+    --tiltWidth : 45px;
+    --titltLeft : calc(var(--tiltWidth) + 10px)
 }
 html {
     scroll-behavior: smooth;
@@ -52,33 +54,39 @@ audio {
 /*============GENERAL CLASS==================*/
 /*============TILT==================*/
 .tiltContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 40%;
-    margin: 1.5rem auto 0;
-    justify-content: space-between;
-    row-gap: 0.5rem;
+    position: relative; /* Relative positioning for absolute children */
+    width: calc(3 * var(--tiltWidth) + 20px); /* Set a fixed width for the container */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
 .tiltWrap {
     display: block;
-    width: 30%;
-    position: relative;
+    width: var(--tiltWidth); /* Set a fixed width for each item */
+    height: var(--tiltWidth); /* Set a fixed height for each item */
     cursor: pointer;
+    position: absolute; /* Keep absolute positioning */
 }
 
+.tiltWrap:nth-child(1) { top: 0; left: 0; }
+.tiltWrap:nth-child(2) { top: 0; left: var(--titltLeft); } /* Adjust left based on width */
+.tiltWrap:nth-child(3) { top: 0; left: calc(var(--titltLeft)*2); } /* Adjust left based on width */
+.tiltWrap:nth-child(4) { top: var(--titltLeft); left: 0; }
+.tiltWrap:nth-child(5) { top: var(--titltLeft); left: var(--titltLeft); }
+.tiltWrap:nth-child(6) { top: var(--titltLeft); left: calc(var(--titltLeft)*2); }
+.tiltWrap:nth-child(7) { top: calc(var(--titltLeft)*2); left: 0; }
+.tiltWrap:nth-child(8) { top: calc(var(--titltLeft)*2); left: var(--titltLeft); }
+.tiltWrap:nth-child(9) { top: calc(var(--titltLeft)*2); left: calc(var(--titltLeft)*2); }
+
 .tiltIcon {
-    z-index: 1;
+    width: 100%; /* Maintain full width */
+    height: 100%; /* Maintain full height */
     position: relative;
-    width: 100%;
-    height: 100%;
+    z-index: 1;
 }
 
 .tiltIcon img {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Image covers the icon */
+    height: 100%; /* Responsive image */
     vertical-align: middle;
 }
 
@@ -88,12 +96,10 @@ audio {
     font-size: 0.688rem;
     width: 100%;
     text-align: center;
-    top: 0;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) .8s;
+    top: 0; /* Position at the bottom */
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
-
-.tiltWrap:hover span {
-    top: 0;
+.tiltWrap:hover span{
     transform: translateY(-100%);
 }
 /*============TILT==================*/
@@ -672,6 +678,7 @@ body.loadingDone h1.home-title {
     -webkit-transition-delay: 0.4s;
     -o-transition-delay: 0.4s;
     transition-delay: 0.4s;
+    margin-bottom: 1rem;
 }
 
 body.loadingDone .homeVideoContainer {
