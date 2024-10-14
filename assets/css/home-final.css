@@ -51,6 +51,9 @@ audio {
     visibility: hidden;
     opacity: 0;
 }
+.homeItemsWrap {
+    cursor: pointer;
+}
 /*============GENERAL CLASS==================*/
 /*============TILT==================*/
 .tiltContainer {
