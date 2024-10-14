@@ -391,61 +391,62 @@ document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------draggable FOR TILT HOME
 // Select all elements with the class 'draggable'
 var draggables = document.querySelectorAll('.draggable');
-
+let tiltContainer = document.querySelector('.tiltContainer');
 let windowWidth = window.innerWidth;
 const homeSidebar = document.querySelector('section.homeSideBarContainer');
 let homeContainerWidth = homeSidebar.clientWidth;
 const rectHS = homeSidebar.getBoundingClientRect();
 const rightPositionHS = window.innerWidth - rectHS.right;
 let widthFinal = windowWidth - homeContainerWidth - rightPositionHS;
-let offsetTopHS = document.querySelector('.tiltContainer').offsetTop;
-let offsetLeftHS = document.querySelector('.tiltContainer').offsetLeft;
-console.log(offsetLeftHS)
 
-draggables.forEach(function(draggable) {
-    function startDrag(e) {
-        // Prevent default behavior
-        e.preventDefault();
-        //console.log(e)
-        // Add "dragging" class to the body
-        document.body.classList.add('dragging');
+if(tiltContainer){
+    let offsetTopHS = tiltContainer.offsetTop;
+    let offsetLeftHS = tiltContainer.offsetLeft;
+    draggables.forEach(function(draggable) {
+        function startDrag(e) {
+            // Prevent default behavior
+            e.preventDefault();
+            //console.log(e)
+            // Add "dragging" class to the body
+            document.body.classList.add('dragging');
 
-        // Calculate offsets
-        let clientX = e.clientX || e.touches[0].clientX;
-        let clientY = e.clientY || e.touches[0].clientY;
-        let rect = draggable.getBoundingClientRect();
-        let offsetX = clientX - rect.left;
-        let offsetY = clientY - rect.top;
+            // Calculate offsets
+            let clientX = e.clientX || e.touches[0].clientX;
+            let clientY = e.clientY || e.touches[0].clientY;
+            let rect = draggable.getBoundingClientRect();
+            let offsetX = clientX - rect.left;
+            let offsetY = clientY - rect.top;
 
-        function moveHandler(e) {
-            clientX = e.clientX || e.touches[0].clientX;
-            clientY = e.clientY || e.touches[0].clientY;
+            function moveHandler(e) {
+                clientX = e.clientX || e.touches[0].clientX;
+                clientY = e.clientY || e.touches[0].clientY;
 
-            // Update the position of the draggable element
-            draggable.style.left = (clientX - offsetX - widthFinal - offsetLeftHS) + 'px';
-            draggable.style.top = (clientY - offsetY - offsetTopHS) + 'px';
+                // Update the position of the draggable element
+                draggable.style.left = (clientX - offsetX - widthFinal - offsetLeftHS) + 'px';
+                draggable.style.top = (clientY - offsetY - offsetTopHS) + 'px';
+            }
+
+            function endDrag() {
+                // Remove "dragging" class from the body
+                document.body.classList.remove('dragging');
+                document.removeEventListener('mousemove', moveHandler);
+                document.removeEventListener('mouseup', endDrag);
+                document.removeEventListener('touchmove', moveHandler);
+                document.removeEventListener('touchend', endDrag);
+            }
+
+            // Attach event listeners for mouse and touch events
+            document.addEventListener('mousemove', moveHandler);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchmove', moveHandler);
+            document.addEventListener('touchend', endDrag);
         }
 
-        function endDrag() {
-            // Remove "dragging" class from the body
-            document.body.classList.remove('dragging');
-            document.removeEventListener('mousemove', moveHandler);
-            document.removeEventListener('mouseup', endDrag);
-            document.removeEventListener('touchmove', moveHandler);
-            document.removeEventListener('touchend', endDrag);
-        }
-
-        // Attach event listeners for mouse and touch events
-        document.addEventListener('mousemove', moveHandler);
-        document.addEventListener('mouseup', endDrag);
-        document.addEventListener('touchmove', moveHandler);
-        document.addEventListener('touchend', endDrag);
-    }
-
-    // Attach events for both mouse and touch
-    draggable.addEventListener('mousedown', startDrag);
-    draggable.addEventListener('touchstart', startDrag);
-});
+        // Attach events for both mouse and touch
+        draggable.addEventListener('mousedown', startDrag);
+        draggable.addEventListener('touchstart', startDrag);
+    });
+}
 // --------------------------------------------------------draggable For subscribe
 let draggableSubscribe = document.getElementById('dragSubscribe');
 function startDragS(e) {
