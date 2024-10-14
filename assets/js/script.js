@@ -390,16 +390,15 @@ document.addEventListener('click', removeClassFromBody);
 // --------------------------------------------------------subscribeModal
 // --------------------------------------------------------draggable FOR TILT HOME
 // Select all elements with the class 'draggable'
-var draggables = document.querySelectorAll('.draggable');
 let tiltContainer = document.querySelector('.tiltContainer');
-let windowWidth = window.innerWidth;
-const homeSidebar = document.querySelector('section.homeSideBarContainer');
-let homeContainerWidth = homeSidebar.clientWidth;
-const rectHS = homeSidebar.getBoundingClientRect();
-const rightPositionHS = window.innerWidth - rectHS.right;
-let widthFinal = windowWidth - homeContainerWidth - rightPositionHS;
-
 if(tiltContainer){
+    var draggables = document.querySelectorAll('.draggable');
+    let windowWidth = window.innerWidth;
+    const homeSidebar = document.querySelector('section.homeSideBarContainer');
+    let homeContainerWidth = homeSidebar.clientWidth;
+    const rectHS = homeSidebar.getBoundingClientRect();
+    const rightPositionHS = window.innerWidth - rectHS.right;
+    let widthFinal = windowWidth - homeContainerWidth - rightPositionHS;
     let offsetTopHS = tiltContainer.offsetTop;
     let offsetLeftHS = tiltContainer.offsetLeft;
     draggables.forEach(function(draggable) {
