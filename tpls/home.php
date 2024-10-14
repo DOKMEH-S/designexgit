@@ -51,7 +51,7 @@ get_header(); ?>
             <div class="homeItemsWrapper">
                 <div class="homeItemsWrap subscribe">
                     <h3>Monthly Newsletter</h3>
-                    <div class="cta">Subscribe here</a>
+                    <div class="cta">Subscribe here</div>
                 </div>
                 <?php $pages = get_pages(array(
                     'meta_key' => '_wp_page_template',
