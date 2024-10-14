@@ -446,7 +446,8 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     margin: 0 0 6px 0;
     text-transform: capitalize;
 }
-.homeItemsWrap .cta {
+.homeItemsWrap .cta ,
+.homeItemsWrap a{
     font-size: 0.688rem;
     color: var(--primary);
     text-transform: capitalize;
@@ -466,7 +467,8 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     background-color: var(--primary);
     mix-blend-mode: hue;
 }
-.homeItemsWrap .cta::before{
+.homeItemsWrap .cta::before ,
+.homeItemsWrap a::before{
     content: '';
     background-image: url(../img/link-white.svg);
     width: 6px;
@@ -482,7 +484,8 @@ h1.home-title::before,.homeVideoItemsWrapper::before {
     transform: translateY(-50%);
     z-index: 1;
 }
-.homeItemsWrap .cta::after{
+.homeItemsWrap .cta::after ,
+.homeItemsWrap a::after{
     content: '';
     position: absolute;
     width: 10px;
