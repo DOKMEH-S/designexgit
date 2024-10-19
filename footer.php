@@ -221,8 +221,8 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 <?php else : ?>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                document.querySelector('#loading').classList.add('ink');
+            // setTimeout(() => {
+            //     document.querySelector('#loading').classList.add('ink');
                 setTimeout(() => {
                     document.querySelector('#loading').classList.add('transform');
                     setTimeout(() => {
@@ -230,7 +230,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
                         document.querySelector('body').classList.add('loadingDone');
                     }, 500);
                 }, 750);
-            }, 700);
+            // }, 700);
         });
     </script>
 <?php endif; ?>
