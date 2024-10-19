@@ -793,21 +793,12 @@ html.mouseStopped #screenSaver {
     height: 5rem;
 }
 
-.ss-container img.logo-img {
-    width: 5rem;
-    height: 100%;
-}
-
 .ss-container img {
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
 }
 
-.ss-container img.logo-text {
-    width: 30rem;
-    height: 100%;
-}
 #screenSaver p.slogan-text {
     position: absolute;
     bottom: calc(var(--spaceX)*.5);
@@ -1386,42 +1377,13 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     body.noMove.scrollingDown #menuContainer{
         height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
     }
-    .ss-container img.logo-img {
-        width: 2rem;
-    }
-
-    .ss-container img.logo-text {
-        width: 15rem;
-    }
 
     .ss-container {
         -webkit-column-gap: 1rem;
         -moz-column-gap: 1rem;
         column-gap: 1rem;
     }
-    .second-loading-container.ss-container {
-        width: 18rem;
-    }
-    @-webkit-keyframes loadingTransform {
-        from{
-            -webkit-transform: translate(0 ,0);
-            transform: translate(0 ,0);
-        }
-        to{
-            -webkit-transform: translate(calc(5rem* cos(20deg)), calc(5rem* sin(20deg)* -1));
-            transform: translate(calc(5rem* cos(20deg)), calc(5rem* sin(20deg)* -1));
-        }
-    }
-    @keyframes loadingTransform {
-        from{
-            -webkit-transform: translate(0 ,0);
-            transform: translate(0 ,0);
-        }
-        to{
-            -webkit-transform: translate(calc(5rem* cos(20deg)), calc(5rem* sin(20deg)* -1));
-            transform: translate(calc(5rem* cos(20deg)), calc(5rem* sin(20deg)* -1));
-        }
-    }
+
     form .submitForm svg {
         left: 30%;
     }
@@ -1466,16 +1428,6 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     }
 }
 @media only screen and (min-width: 640px) and (max-width:768px) {
-    .ss-container img.logo-img {
-        width: 3rem;
-    }
-
-    .ss-container img.logo-text {
-        width: 20rem;
-    }
-    .second-loading-container.ss-container {
-        width: 24rem;
-    }
     form .submitForm {
         width: 30%;
     }

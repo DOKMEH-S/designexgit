@@ -42,14 +42,9 @@ header .identity {
     -webkit-column-gap: 1rem;
     -moz-column-gap: 1rem;
     column-gap: 1rem;
-}
-header .identity img.logo-img {
-    width: 2rem;
+    width: 16rem;
 }
 
-header .identity img.logo-text {
-    width: 13rem;
-}
 header .identity img  {
     height: 100%;
     -o-object-fit: contain;
@@ -641,8 +636,6 @@ body.opMenu #menuContainer {
         -webkit-column-gap: .5rem;
         -moz-column-gap: .5rem;
         column-gap: .5rem;
-    }
-    header .identity img.logo-text {
         width: 8rem;
     }
     header .startProject {
