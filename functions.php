@@ -211,12 +211,18 @@ function project_filter_handler()
             $i++;
             $projectID = get_the_ID();
             $title = get_the_title();
-            $outputHTML .= '<div class="projectItem hover-box "';
+            $outputHTML .= '<div class="projectItem hover-box';
+            if($coming_soon){
+                $outputHTML .= 'deactive-link"';
+            }
             if ($i == 4) {
                 $outputHTML .= ' id ="infinity-loading"';
             }
             $outputHTML .= '>';
             $outputHTML .= '<div class="image"><img src="' . get_the_post_thumbnail_url($projectID, 'medium') . '" alt="' . $title . '"></div>';
+            if($coming_soon){
+                $outputHTML .='<div class="coming-soon"><span>coming soon</span></div>';
+            }
             $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="project-01" class="info hover-info">';
             $outputHTML .= '<spna class="name">' . $title . '</spna>';
             $year =  get_field('year');
