@@ -13,8 +13,8 @@
         }
 
         #menuContainer,
-        #screenSaver ,
-        .footer-subscribe{
+        #screenSaver,
+        .footer-subscribe {
             display: none;
         }
 
@@ -39,7 +39,7 @@
     <?php wp_head(); ?>
 </head>
 <?php $logo = get_field('logo', 'option'); ?>
-<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): ?>
+<?php if (is_front_page() or is_page_template('tpls/homeShadow.php')): ?>
     <div id="loading">
         <div id="lottie"></div>
         <div class="loadingCovers">
@@ -57,7 +57,7 @@
     </div>
 <?php endif; ?>
 
-<body data-pagetype="<?php if (is_front_page() OR is_page_template('tpls/homeShadow.php')): echo 'home';
+<body data-pagetype="<?php if (is_front_page() or is_page_template('tpls/homeShadow.php')): echo 'home';
 elseif (is_archive('projects')): echo 'archiveProject';
 elseif (is_singular('projects')): echo 'singleProject';
 elseif (is_archive('jobs')): echo 'jobs';
@@ -71,6 +71,8 @@ elseif (is_page_template('tpls/services.php')):
     echo 'services';
 elseif (is_404()):
     echo 'notFound';
+elseif (is_page('')):
+    echo 'jobs';
 endif; ?>">
     <?php if (!is_404()): ?>
         <?php $pages = get_pages(array(
@@ -92,16 +94,17 @@ endif; ?>">
                 <div class="quickMenu">
                     <nav>
                         <ul>
-                            <li><a href="<?php echo get_post_type_archive_link('projects'); ?>"
-                                    aria-label="Projects" class="shuffle" data-text="Projects">Projects</a></li>
+                            <li><a href="<?php echo get_post_type_archive_link('projects'); ?>" aria-label="Projects"
+                                    class="shuffle" data-text="Projects">Projects</a></li>
                             <?php $pages = get_pages(array(
                                 'meta_key' => '_wp_page_template',
                                 'meta_value' => 'tpls/services.php'
                             ));
                             $serviceID = $pages[0]->ID;
                             if ($serviceID) { ?>
-                                <li><a href="<?php echo get_the_permalink($serviceID); ?>"
-                                        aria-label="Services" class="shuffle" data-text="<?php echo get_the_title($serviceID); ?>"><?php echo get_the_title($serviceID); ?></a></li>
+                                <li><a href="<?php echo get_the_permalink($serviceID); ?>" aria-label="Services" class="shuffle"
+                                        data-text="<?php echo get_the_title($serviceID); ?>"><?php echo get_the_title($serviceID); ?></a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </nav>
@@ -198,11 +201,15 @@ endif; ?>">
     <?php endif;
     if (!is_404()): ?>
         <div class="footer-subscribe">
-            <div class="footer-subscribe-form draggable" id="">
+            <div class="footer-subscribe-form" id="dragSubscribe">
                 <div class="footer-subscribe-close">
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path fill="#fff" d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                        <path fill="#fff"
+                            d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z" />
+                    </svg>
                 </div>
-                <p class="text">Redefining <strong>luxury architecture</strong> through sustainable, opulent <strong>environmental </strong><strong>responsibility</strong>!</p>
+                <p class="text">Redefining <strong>luxury architecture</strong> through sustainable, opulent
+                    <strong>environmental </strong><strong>responsibility</strong>!</p>
                 <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
             </div>
         </div>

@@ -2,7 +2,7 @@
 function Dokmeh_theme_setup()
 {
     if (!defined('_S_VERSION')) {
-        define('_S_VERSION', '1.1.0');
+        define('_S_VERSION', '1.1.3');
     }
     $menus = array(
         'main-menu' => 'Main Menu',
@@ -58,9 +58,6 @@ function Dokmeh_scripts()
     } elseif (is_page_template('tpls/services.php')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/services.css', array(), _S_VERSION);
     } 
-    elseif (is_singular('jobs')) {
-        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-job.css', array(), _S_VERSION);
-    } 
     elseif (is_post_type_archive('jobs')) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/jobs.css', array(), _S_VERSION);
     } 
@@ -82,6 +79,9 @@ function Dokmeh_scripts()
     } elseif (is_404()) {
         wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/notFound.css', array(), _S_VERSION);
     }
+    elseif (is_singular('jobs') or basename(get_page_template()) === 'page.php') {
+        wp_enqueue_style('page-style', get_template_directory_uri() . '/assets/css/single-job.css', array(), _S_VERSION);
+    } 
 
     if (is_post_type_archive('projects')) :
         wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.3', true);
