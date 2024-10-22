@@ -88,7 +88,7 @@
         <div class="footerPolicyDokmeh">
 
             <div class="footer-policy-items">
-                <p class="item" aria-label="Copy Righit"><?php echo get_field('copy', 'option'); ?></p>
+                <p class="item" aria-label="Copy Righit"><?php echo get_current_year(); echo get_field('copy', 'option'); ?></p>
                 <?php if (have_rows('footer_policy', 'option')): ?>
                     <?php while (have_rows('footer_policy', 'option')):
                         the_row();
