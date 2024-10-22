@@ -494,6 +494,59 @@ section.relatedProjectsContainer::before {
     transform: translateY(0);
     pointer-events: auto;
 }
+.coming-soon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: hsl(153deg 55% 28% / 10%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 1rem;
+    opacity: 0;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.deactive-link.deactive-link-motion .project-info ,
+.deactive-link.deactive-link-motion .projectMedia,
+.deactive-link.deactive-link-motion::before{
+    opacity: 0
+}
+.deactive-link.deactive-link-motion .coming-soon {
+    -webkit-animation: .55s ease-in-out 2 commingsoon;
+    animation: .55s ease-in-out 2 commingsoon
+}
+@-webkit-keyframes commingsoon {
+    0%,to {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes commingsoon {
+    0%,to {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}
 /*==========RELATED PROJECTS============*/
 /*==========MODAL VIDEO============*/
 
