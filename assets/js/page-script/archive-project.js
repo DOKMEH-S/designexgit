@@ -118,3 +118,12 @@ document.querySelectorAll('.projectHeader-container_row-items > *').forEach(anch
     });
 })
 /*============ScrollUp=============*/
+/*============deactive-link=============*/
+$(".deactive-link").on('click',function (e) {
+    e.preventDefault();
+    $(this).addClass('deactive-link-motion');
+    setTimeout(function () {
+        $(".deactive-link").removeClass('deactive-link-motion');
+    },1200)
+})
+/*============deactive-link=============*/

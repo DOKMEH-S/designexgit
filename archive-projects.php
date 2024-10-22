@@ -96,6 +96,7 @@
                     <div class="projectItem hover-box" <?php if ($i == 4) { ?> id="infinity-loading" <?php } ?>>
                         <div class="image"><img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo $title; ?>">
                         </div>
+
                         <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="info hover-info">
                             <spna class="name"><?php echo $title; ?></spna>
                             <?php  $year =  get_field('year');
