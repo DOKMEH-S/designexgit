@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-    <?php $expert = get_field('des');
+    <?php $expert = get_field('expert');
     if ($expert): ?>
         <section class="singleJobContentFormContainer">
             <div class="singleJobDescription skewText ">
