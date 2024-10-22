@@ -3,9 +3,6 @@
 
 <main class="wrapper singleJobWrapper">
     <section class="singleJobHeroSectionContainer">
-        <div class="job-date">
-            <span><?php echo get_the_date('Y.M.d'); ?></span>
-        </div>
         <div class="job-title-media-wrapper">
             <?php $post_title = get_the_title();
             $title_br = str_replace(' ', '<br>', $post_title);
@@ -16,16 +13,8 @@
             </div>
         </div>
     </section>
-    <?php $expert = get_field('expert');
-    if ($expert): ?>
-        <section class="singleJobContentFormContainer">
-            <div class="singleJobDescription skewText ">
-                <?php echo $expert; ?>
-            </div>
-        </section>
-    <?php endif; ?>
-    <section class="singleJobCultureContainer">
-        <div class="content skewText ">
+    <section class="singleJobCultureContainer defaultPageWrapper">
+        <div class="content skewText">
             <?php the_content(); ?>
         </div>
     </section>
