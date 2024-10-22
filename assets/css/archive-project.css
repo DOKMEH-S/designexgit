@@ -106,7 +106,7 @@
     top: 0;
     left: 0;
     z-index: 2;
-    background-color: rgba(255,230,0,.1);
+    background-color: hsl(153deg 55% 28% / 10%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -121,6 +121,9 @@
     font-weight: 300;
     font-style: italic;
     text-align: center
+}
+.projectItem .coming-soon > * {
+    font-size: .85rem;
 }
 .deactive-link.deactive-link-motion .info ,
 .deactive-link.deactive-link-motion .image {
