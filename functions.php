@@ -224,7 +224,7 @@ function project_filter_handler()
             if($coming_soon){
                 $outputHTML .='<div class="coming-soon"><span>coming soon</span></div>';
             }
-            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="project-01" class="info hover-info">';
+            $outputHTML .= '<a href="' . ($coming_soon ? '#' : get_the_permalink()) . '" aria-label="project-01" class="info hover-info">';
             $outputHTML .= '<spna class="name">' . $title . '</spna>';
             $year =  get_field('year');
             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));

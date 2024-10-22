@@ -102,7 +102,7 @@
                                     <span>coming soon</span>
                                 </div>
                             <?php endif; ?>
-                            <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title; ?>"
+                            <a href="<?php echo $coming_soon ? '#' : get_the_permalink(); ?>" aria-label="<?php echo $title; ?>"
                                class="info hover-info">
                                 <spna class="name"><?php echo $title; ?></spna>
                                 <?php $year = get_field('year');

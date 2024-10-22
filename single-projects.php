@@ -158,7 +158,7 @@ $project_ID = get_the_ID(); ?>
                                              alt="<?php the_title(); ?>">
                                     <?php endif; ?>
                                 </div>
-                                <a href="<?php the_permalink(); ?>" class="project-info">
+                                <a href="<?php echo $coming_soon ? '#' : get_the_permalink(); ?>" class="project-info">
                                     <p class="project-name"><?php the_title(); ?></p>
                                     <div class="year-location">
                                         <?php if ($date[0]): ?>
