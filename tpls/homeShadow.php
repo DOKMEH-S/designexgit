@@ -20,39 +20,39 @@ get_header(); ?>
         <div class="title-tilt-container">
             <h1 class="home-title"><?php echo $intro_title ? $intro_title : get_the_title(); ?></h1>
             <div class="tiltContainer">
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
-                <a class="tiltWrap draggable">
+                <a href="#" class="tiltWrap draggable">
                     <div class="tiltIcon"><img src="https://designex.d-km.com/wp-content/uploads/2024/04/NAH_ICON-4.png" alt=""></div>
                     <span>Home</span>
                 </a>
@@ -155,8 +155,4 @@ get_header(); ?>
         <source src="<?php ThemeAssets('audio/Tick-03.ogg'); ?>" type="audio/ogg">
         <source src="<?php ThemeAssets('audio/Tick-03.mp3'); ?>" type="audio/mpeg">
     </audio>
-    <div id="audioWrapper">
-
-    </div>
-
 <?php get_footer();
