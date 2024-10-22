@@ -89,7 +89,7 @@
 
             <div class="footer-policy-items">
                 <p class="item" aria-label="Copy Right">
-                    <?php echo get_current_year() . ' ' . get_field('copy', 'option'); ?></p>
+                    <?php echo date('Y'). ' ' . get_field('copy', 'option'); ?></p>
 
                 <?php if (have_rows('footer_policy', 'option')): ?>
                     <?php while (have_rows('footer_policy', 'option')):
