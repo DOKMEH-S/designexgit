@@ -213,8 +213,9 @@ function project_filter_handler()
             $title = get_the_title();
             $outputHTML .= '<div class="projectItem hover-box';
             if($coming_soon){
-                $outputHTML .= ' deactive-link" ';
+                $outputHTML .= ' deactive-link';
             }
+            $outputHTML .= '"';
             if ($i == 4) {
                 $outputHTML .= ' id ="infinity-loading"';
             }
