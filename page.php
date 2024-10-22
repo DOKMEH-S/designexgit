@@ -17,8 +17,7 @@
         </div>
     </section>
     <?php $expert = get_field('des');
-    $form = '[contact-form-7 id="e19baeb" title="Job form"]';
-    if ($expert or $form): ?>
+    if ($expert): ?>
         <section class="singleJobContentFormContainer">
             <div class="singleJobDescription skewText ">
                 <?php echo $expert; ?>
