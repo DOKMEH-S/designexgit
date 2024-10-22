@@ -2,7 +2,7 @@
 function Dokmeh_theme_setup()
 {
     if (!defined('_S_VERSION')) {
-        define('_S_VERSION', '1.1.4');
+        define('_S_VERSION', '1.1.5');
     }
     $menus = array(
         'main-menu' => 'Main Menu',
@@ -84,7 +84,7 @@ function Dokmeh_scripts()
     } 
 
     if (is_post_type_archive('projects')) :
-        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.5', true);
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.6', true);
         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
             array(
                 'ajaxurl' => admin_url('admin-ajax.php'),
