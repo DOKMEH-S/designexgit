@@ -84,7 +84,7 @@ function Dokmeh_scripts()
     }
 
     if (is_post_type_archive('projects')) :
-        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.3', true);
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.4', true);
         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
             array(
                 'ajaxurl' => admin_url('admin-ajax.php'),

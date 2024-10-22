@@ -133,6 +133,13 @@ jQuery(document).ready(function ($) {
                     if (response.show) {
                         targetOffset = ($("#infinity-loading").offset().top) - 300;
                     }
+                    $(".deactive-link").on('click',function (e) {
+                        e.preventDefault();
+                        $(this).addClass('deactive-link-motion');
+                        setTimeout(function () {
+                            $(".deactive-link").removeClass('deactive-link-motion');
+                        },1200)
+                    })
                     $('.see-more').css('display','none');
                     $('.see-more').removeClass('infinite-load');
                 }

@@ -95,8 +95,14 @@
                     } ?>
                     <div class="projectItem hover-box" <?php if ($i == 4) { ?> id="infinity-loading" <?php } ?>>
                         <div class="image"><img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo $title; ?>">
+                            <?php $coming_soon = get_field('coming_soon');
+                            if($coming_soon):?>
+                            <div class="coming-soon">
+                                <span>coming soon</span>
+                            </div>
+                            <?php endif; ?>
                         </div>
-                        <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="info hover-info">
+                        <a href="<?php the_permalink(); ?>" aria-label="<?php echo $title;?>" class="info hover-info <?php if($coming_soon) echo 'deactive-link';?>">
                             <spna class="name"><?php echo $title; ?></spna>
                             <?php  $year =  get_field('year');
                             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));
