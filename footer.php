@@ -130,7 +130,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
 <?php if (is_singular('projects')): ?>
     <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
-    <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+    <script defer src="<?php ThemeAssets('js/page-script/archive-project.js?v=1.0.1'); ?>"></script>
 <?php elseif (is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
