@@ -50,3 +50,20 @@ var swiper = new Swiper(".mySwiper", {
         disableOnInteraction: false,
     },
 });
+/*============deactive-link=============*/
+let deactiveLinks = document.querySelectorAll('.deactive-link');
+if(deactiveLinks){
+    deactiveLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.add('deactive-link-motion');
+
+            setTimeout(function() {
+                document.querySelectorAll('.deactive-link').forEach(function(link) {
+                    link.classList.remove('deactive-link-motion');
+                });
+            }, 1200);
+        });
+    });
+}
+/*============deactive-link=============*/
