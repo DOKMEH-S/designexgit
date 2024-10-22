@@ -23,9 +23,6 @@
             <div class="singleJobDescription skewText ">
                 <?php echo $expert; ?>
             </div>
-            <div class="singleJobFormContainer">
-                <?php echo do_shortcode($form); ?>
-            </div>
         </section>
     <?php endif; ?>
     <section class="singleJobCultureContainer">
