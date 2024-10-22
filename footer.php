@@ -88,7 +88,9 @@
         <div class="footerPolicyDokmeh">
 
             <div class="footer-policy-items">
-                <p class="item" aria-label="Copy Righit"><?php echo get_current_year(); echo get_field('copy', 'option'); ?></p>
+                <p class="item" aria-label="Copy Right">
+                    <?php echo get_current_year() . ' ' . get_field('copy', 'option'); ?></p>
+
                 <?php if (have_rows('footer_policy', 'option')): ?>
                     <?php while (have_rows('footer_policy', 'option')):
                         the_row();
@@ -100,8 +102,7 @@
                 <?php endif; ?>
 
             </div>
-            <a href="https://hidokmeh.com" class="dokmeh" target="_blank" <?php if (!is_page_template('tpls/contact.php')) { ?>
-                    rel="nofollow" <?php } ?> aria-label="Dokmeh creative agancy">
+            <a href="https://hidokmeh.com" class="dokmeh" target="_blank" <?php if (!is_page_template('tpls/contact.php')) { ?> rel="nofollow" <?php } ?> aria-label="Dokmeh creative agancy">
                 <span>Made with Love by </span>
                 <img src="<?php ThemeAssets('img/logo-dokmeh.webp'); ?>" alt="Dokmeh creative agency">
             </a>
