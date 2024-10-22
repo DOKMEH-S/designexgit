@@ -207,10 +207,11 @@ function project_filter_handler()
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
         $i = $count > $per_page + $offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
+            $coming_soon = get_field('coming_soon');
             $i++;
             $projectID = get_the_ID();
             $title = get_the_title();
-            $outputHTML .= '<div class="projectItem hover-box"';
+            $outputHTML .= '<div class="projectItem hover-box "';
             if ($i == 4) {
                 $outputHTML .= ' id ="infinity-loading"';
             }
