@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     counterValue.textContent = String(index + 1).padStart(2, '0');
                     projectUrl = project.getAttribute('href');
                     currentProjectName.setAttribute('href',projectUrl);
+                    console.log(project.children[1].children[1].children[0]);
                     projectName = project.children[1].children[1].children[0].textContent.substring(1);
                     currentProjectName.children[0].textContent = projectName;
                 }
