@@ -111,10 +111,10 @@ get_header(); ?>
                                         <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
                                     </div>
                                     <div class="projectInfo">
-                                        <?php if ($project_logo): ?>
-                                            <img src="<?php echo esc_url($project_logo['sizes']['thumbnail']); ?>"
-                                                alt="<?php echo $project_logo['alt']; ?>" class="logo">
-                                        <?php endif; ?>
+                                        <img src="<?php echo $project_logo ? esc_url($project_logo['sizes']['thumbnail']) : ''; ?>"
+                                            alt="<?php echo $project_logo ? $project_logo['alt'] : 'No logo available'; ?>"
+                                            class="logo <?php echo !$project_logo ? 'noLogo' : ''; ?>">
+
                                         <div class="title-year">
                                             <h2 class="project_name">/<?php the_title(); ?></h2>
                                             <?php if ($year): ?>
