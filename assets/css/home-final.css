@@ -97,7 +97,7 @@ audio {
     position: absolute;
     z-index: 0;
     font-size: 0.6rem;
-    width: 100%;
+    width: fit-content;
     text-align: center;
     top: 0; /* Position at the bottom */
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
@@ -105,6 +105,8 @@ audio {
     display: block;
     left: 50%;
     transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: var(--white);
 }
 .tiltWrap:hover span{
     transform: translate(-50%,-110%);
