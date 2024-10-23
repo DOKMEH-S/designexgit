@@ -1,4 +1,4 @@
-<?php //Template Name: Home Shadow tpl
+<?php //Template Name: Home tpl
 get_header(); ?>
     <div id="cookieContainer">
         <div class="cookieWrapper">
@@ -89,9 +89,9 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
             <div class="homeItemsWrapper">
-                <div class="homeItemsWrap">
+                <div class="homeItemsWrap subscribe">
                     <h3>Monthly Newsletter</h3>
-                    <a href="" class="">Subscribe here</a>
+                    <div class="cta">Subscribe here</div>
                 </div>
                 <?php $pages = get_pages(array(
                     'meta_key' => '_wp_page_template',

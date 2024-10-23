@@ -133,6 +133,17 @@ jQuery(document).ready(function ($) {
                     if (response.show) {
                         targetOffset = ($("#infinity-loading").offset().top) - 300;
                     }
+                    document.querySelectorAll('.deactive-link').forEach(function(link) {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            this.classList.add('deactive-link-motion');
+                            setTimeout(function() {
+                                document.querySelectorAll('.deactive-link').forEach(function(link) {
+                                    link.classList.remove('deactive-link-motion');
+                                });
+                            }, 1200);
+                        });
+                    });
                     $('.see-more').css('display','none');
                     $('.see-more').removeClass('infinite-load');
                 }

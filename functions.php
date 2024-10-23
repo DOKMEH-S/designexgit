@@ -2,7 +2,7 @@
 function Dokmeh_theme_setup()
 {
     if (!defined('_S_VERSION')) {
-        define('_S_VERSION', '1.1.3');
+        define('_S_VERSION', '1.1.5');
     }
     $menus = array(
         'main-menu' => 'Main Menu',
@@ -84,7 +84,7 @@ function Dokmeh_scripts()
     } 
 
     if (is_post_type_archive('projects')) :
-        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.3', true);
+        wp_enqueue_script('frontend-ajax', get_template_directory_uri() . '/assets/js/frontend-ajax.js', array(), '1.0.6', true);
         wp_localize_script('frontend-ajax', 'frontend_ajax_object',
             array(
                 'ajaxurl' => admin_url('admin-ajax.php'),
@@ -207,16 +207,24 @@ function project_filter_handler()
     if ($Projectquery->have_posts()) : $count = $Projectquery->found_posts;
         $i = $count > $per_page + $offset ? 0 : 5;
         while ($Projectquery->have_posts()) :$Projectquery->the_post();
+            $coming_soon = get_field('coming_soon');
             $i++;
             $projectID = get_the_ID();
             $title = get_the_title();
-            $outputHTML .= '<div class="projectItem hover-box"';
+            $outputHTML .= '<div class="projectItem hover-box';
+            if($coming_soon){
+                $outputHTML .= ' deactive-link';
+            }
+            $outputHTML .= '"';
             if ($i == 4) {
                 $outputHTML .= ' id ="infinity-loading"';
             }
             $outputHTML .= '>';
             $outputHTML .= '<div class="image"><img src="' . get_the_post_thumbnail_url($projectID, 'medium') . '" alt="' . $title . '"></div>';
-            $outputHTML .= '<a href="' . get_the_permalink() . '" aria-label="project-01" class="info hover-info">';
+            if($coming_soon){
+                $outputHTML .='<div class="coming-soon"><span>coming soon</span></div>';
+            }
+            $outputHTML .= '<a href="' . ($coming_soon ? '#' : get_the_permalink()) . '" aria-label="project-01" class="info hover-info">';
             $outputHTML .= '<spna class="name">' . $title . '</spna>';
             $year =  get_field('year');
             $loc = wp_get_object_terms($projectID, 'project_type', array('parent' => 93));

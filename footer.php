@@ -128,9 +128,9 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
     <script defer src="<?php ThemeAssets('js/page-script/home-final.js?v=1.0.3'); ?>"></script>
 <?php endif; ?>
 <?php if (is_singular('projects')): ?>
-    <script defer src="<?php ThemeAssets('js/page-script/single-project.js'); ?>"></script>
+    <script defer src="<?php ThemeAssets('js/page-script/single-project.js?v=1.0.1'); ?>"></script>
 <?php elseif (is_archive('projects')): ?>
-    <script defer src="<?php ThemeAssets('js/page-script/archive-project.js'); ?>"></script>
+    <script defer src="<?php ThemeAssets('js/page-script/archive-project.js?v=1.0.1'); ?>"></script>
 <?php elseif (is_home()): ?>
     <script defer src="<?php ThemeAssets('js/page-script/archive-blog.js'); ?>"></script>
 <?php elseif (is_page_template('tpls/services.php')): ?>
@@ -706,7 +706,7 @@ if (is_front_page() or is_singular('projects') or is_page_template('tpls/about.p
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var image = new google.maps.MarkerImage("<?php ThemeAssets('img/pin.png'); ?>");
             mapOptions = {
-                zoom: 7,
+                zoom: 11,
                 center: new google.maps.LatLng(25.2048, 55.2708), // Tehran 35.6892° N, 51.3890° E
                 zoomControl: true,
                 mapTypeControl: false,
