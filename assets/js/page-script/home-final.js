@@ -246,10 +246,15 @@ document.addEventListener('DOMContentLoaded', function() {
             currentProjectName.setAttribute('href',currentSwiperLink);
             currentProjectName.children[0].textContent = swipeProjectName;
             counterValue.textContent = String(projectNumber).padStart(2, '0');
-            gsap.to(mediaBox, { opacity: 0, duration: 0.25, onComplete: () => {
-                    mediaBox.setAttribute('src', currentSkisImage);
-                    gsap.to(mediaBox, { opacity: 1, duration: 0.25 });
-                }});
+            if(currentSkisImage){
+                mediaBox.classList.remove('hide');
+                gsap.to(mediaBox, { opacity: 0, duration: 0.25, onComplete: () => {
+                        mediaBox.setAttribute('src', currentSkisImage);
+                        gsap.to(mediaBox, { opacity: 1, duration: 0.25 });
+                    }});
+            } else {
+                mediaBox.classList.add('hide');
+            }
             setTimeout(() => {
                 homeSideBarContainer.classList.remove('hide');
             },2500)

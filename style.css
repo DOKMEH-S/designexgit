@@ -1398,7 +1398,7 @@ body > .footer-subscribe .footer-subscribe-form form#subscribe-form .subscribe-m
     #screenSaver p.slogan-text {
         font-size: 1.2rem;
         width: calc(100% - var(--spaceX)*2);
-        bottom: 7rem;
+        bottom: 10rem;
         right: var(--spaceX);
         text-align: center;
     }
