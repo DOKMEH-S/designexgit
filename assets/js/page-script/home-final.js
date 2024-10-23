@@ -116,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     counterValue.textContent = String(index + 1).padStart(2, '0');
                     projectUrl = project.getAttribute('href');
                     currentProjectName.setAttribute('href',projectUrl);
-                    console.log(project.children[1].children[1].children[0]);
                     projectName = project.children[1].children[1].children[0].textContent.substring(1);
                     currentProjectName.children[0].textContent = projectName;
                 }
@@ -182,13 +181,17 @@ document.addEventListener('DOMContentLoaded', function() {
     projectBoxes.forEach(projectBox => {
         projectBox.addEventListener('mouseenter', function () {
             let currentLink = this.getAttribute('data-url'); // Get the data-url attribute
-
+             if(currentLink){
+                 mediaBox.classList.remove('hide');
+                 gsap.to(mediaBox, { opacity: 0, duration: 0.25, onComplete: () => {
+                         mediaBox.setAttribute('src', currentLink); // Change the src after fade out
+                         // Fade in the image
+                         gsap.to(mediaBox, { opacity: 1, duration: 0.25 });
+                     }});
+             } else {
+                 mediaBox.classList.add('hide');
+             }
             // Fade out the image
-            gsap.to(mediaBox, { opacity: 0, duration: 0.25, onComplete: () => {
-                    mediaBox.setAttribute('src', currentLink); // Change the src after fade out
-                    // Fade in the image
-                    gsap.to(mediaBox, { opacity: 1, duration: 0.25 });
-                }});
         });
     });
     let homeSideBarContainer =  document.querySelector('.homeSideBarContainer');
