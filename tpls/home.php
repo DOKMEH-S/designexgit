@@ -112,7 +112,7 @@ get_header(); ?>
                                     </div>
                                     <div class="projectInfo">
                                         <img src="<?php echo $project_logo ? esc_url($project_logo['sizes']['thumbnail']) : ''; ?>"
-                                            alt="<?php echo $project_logo ? $project_logo['alt'] : 'No logo available'; ?>"
+                                            alt="<?php echo $project_logo ? $project_logo['alt'] : ''; ?>"
                                             class="logo <?php echo !$project_logo ? 'noLogo' : ''; ?>">
 
                                         <div class="title-year">
