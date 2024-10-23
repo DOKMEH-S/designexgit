@@ -27,6 +27,7 @@ body[data-pagetype="archiveProject"] main ,
 body[data-pagetype="archiveBlog"] main{
     padding-top: calc(var(--headerHeight)*.7 + 1.875rem);
 }
+
 .projectHeader-element img {
     display: block;
     -o-object-fit: contain;

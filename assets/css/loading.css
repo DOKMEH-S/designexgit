@@ -179,7 +179,25 @@
         height: 2rem;
     }
 }
-
+body[data-pagetype="archiveProject"] #loading.second-loading.transform .second-loading-container ,
+body[data-pagetype="archiveBlog"] #loading.second-loading.transform .second-loading-container {
+    -webkit-animation: loadingTransformArchive .75s forwards;
+    animation: loadingTransformArchive .75s forwards;
+}
+@keyframes loadingTransformArchive {
+    from{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        height: 5rem;
+    }
+    to{
+        top: calc(var(--headerHeight)*.35 - (2rem*.5));
+        left: var(--spaceX);
+        transform: translate(0, 0);
+        height: 2rem;
+    }
+}
 #loading.second-loading .second-loading-container img {
     object-position: left;
 }
