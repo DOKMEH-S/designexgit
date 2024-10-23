@@ -146,8 +146,8 @@ body[data-pagetype="archiveBlog"] main{
     display: -ms-flexbox;
     display: flex;
     position: relative;
-    padding-bottom: .125rem;
-    margin-bottom: .125rem;
+    padding-bottom: .25rem;
+    margin-bottom: .25rem;
     width: 100%;
 }
 .projectHeader-container_row-above:before {
