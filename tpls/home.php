@@ -25,13 +25,15 @@ get_header(); ?>
                 <?php while (have_rows('menu_items', 'option')):
                     the_row();
                     $menu_link = get_sub_field('link');
-                    $home_image = get_sub_field('home_image'); ?>
-                    <a href="<?php echo esc_url($menu_link['url']); ?>" class="tiltWrap draggable">
-                        <div class="tiltIcon"><img src="<?php echo $home_image['sizes']['thumbnail']; ?>"
-                                alt="<?php echo $home_image['alt']; ?>"></div>
-                        <span><?php echo esc_html($menu_link['title']); ?></span>
-                    </a>
-                <?php endwhile; ?>
+                    $home_image = get_sub_field('home_image');
+                    if ($home_image): ?>
+                        <a href="<?php echo esc_url($menu_link['url']); ?>" class="tiltWrap draggable">
+                            <div class="tiltIcon"><img src="<?php echo $home_image['sizes']['thumbnail']; ?>"
+                                    alt="<?php echo $home_image['alt']; ?>"></div>
+                            <span><?php echo esc_html($menu_link['title']); ?></span>
+                        </a>
+                    <?php endif;
+                endwhile; ?>
             </div>
         <?php endif; ?>
     </div>
