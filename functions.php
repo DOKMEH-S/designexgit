@@ -98,18 +98,16 @@ function Dokmeh_scripts()
             )
         );
     endif;
+    // --- remove contact form 7 files from pages doesn't have form ----------
+    if( is_singular('jobs') OR is_page_template('tpls/contact.php') ) {
+        wp_enqueue_script('contact-form-7');
+        wp_enqueue_style('contact-form-7');
+    }else{
+        wp_dequeue_script( 'contact-form-7' );
+        wp_dequeue_style( 'contact-form-7' );
+    }
+    //-------------------------------------------------------------------
 
-//    wp_dequeue_style('newsletter');
-//    wp_deregister_style('newsletter');
-// // --- remove contact form 7 files from pages doesn't have form ----------
-//     if( is_front_page() OR is_page_template('tpls/contact.php') ) {
-//         wp_enqueue_script('contact-form-7');
-//         wp_enqueue_style('contact-form-7');
-//     }else{
-//         wp_dequeue_script( 'contact-form-7' );
-//         wp_dequeue_style( 'newsletter-css' );
-//     }
-//     //-------------------------------------------------------------------
 
 }
 
@@ -359,3 +357,36 @@ function deregister_plugin_styles() {
 }
 add_action( 'wp_print_styles', 'deregister_plugin_styles', 100 );
 
+
+
+function remove_flatpickr_script() {
+    // Check if the script is registered
+    if (wp_script_is('flatpickr', 'enqueued')) {
+        wp_dequeue_script('flatpickr');
+    }
+}
+add_action('wp_print_scripts', 'remove_flatpickr_script', 100);
+
+
+function disable_wp_emojicons() {
+    // Remove emoji script
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('wp_print_scripts', 'print_emoji_detection_script');
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    
+    // Remove from TinyMCE editor
+    add_filter('tiny_mce_plugins', 'disable_emojicons_tinymce');
+    
+    // Remove DNS prefetch
+    add_filter('emoji_svg_url', '__return_false');
+}
+
+function disable_emojicons_tinymce($plugins) {
+    if (is_array($plugins)) {
+        return array_diff($plugins, array('wpemoji'));
+    }
+    return array();
+}
+add_action('init', 'disable_wp_emojicons');
