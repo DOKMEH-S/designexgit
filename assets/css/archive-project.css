@@ -126,6 +126,9 @@
 .deactive-link.deactive-link-motion .image {
     opacity: 0
 }
+.deactive-link.deactive-link-motion .info {
+    display:none !important;
+}
 .deactive-link.deactive-link-motion .coming-soon {
     -webkit-animation: .55s ease-in-out 2 commingsoon;
     animation: .55s ease-in-out 2 commingsoon
