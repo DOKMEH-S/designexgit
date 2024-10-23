@@ -100,7 +100,7 @@ $project_ID = get_the_ID(); ?>
                     <div class="swiper-wrapper">
                         <?php foreach ($gallery as $image_url): ?>
                             <div class="swiper-slide">
-                                <img src="<?php echo esc_url($image_url['sizes']['large']); ?>"
+                                <img src="<?php echo esc_url($image_url['url']); ?>"
                                      alt="<?php echo isset($image_url['alt']) ? esc_attr($image_url['alt']) : ''; ?>">
                             </div>
                         <?php endforeach; ?>
