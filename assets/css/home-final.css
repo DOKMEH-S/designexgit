@@ -96,14 +96,19 @@ audio {
 .tiltWrap span {
     position: absolute;
     z-index: 0;
-    font-size: 0.688rem;
+    font-size: 0.6rem;
     width: 100%;
     text-align: center;
     top: 0; /* Position at the bottom */
     transition: all cubic-bezier(0.4, 0, 0.2, 1) .5s;
+    opacity: 0;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .tiltWrap:hover span{
-    transform: translateY(-100%);
+    transform: translate(-50%,-110%);
+    opacity: 1;
 }
 /*============TILT==================*/
 /*============COOKIE==================*/
