@@ -30,7 +30,8 @@ get_header(); ?>
                         <div class="tiltWrap draggable">
                             <div class="tiltIcon"><img src="<?php echo $home_image['sizes']['thumbnail']; ?>"
                                     alt="<?php echo $home_image['alt']; ?>"></div>
-                            <a href="<?php echo esc_url($menu_link['url']); ?>"><span><?php echo esc_html($menu_link['title']); ?></span></a>
+                            <a
+                                href="<?php echo esc_url($menu_link['url']); ?>"><span><?php echo esc_html($menu_link['title']); ?></span></a>
                         </div>
                     <?php endif;
                 endwhile; ?>
@@ -104,15 +105,16 @@ get_header(); ?>
                             $year = get_field('year'); ?>
                             <div class="swiper-slide">
                                 <a href="<?php the_permalink(); ?>" class="homeProjectWrap"
-                                    data-url="<?php echo esc_url($sketch_image['sizes']['medium']); ?>">
+                                    data-url="<?php echo isset($sketch_image['sizes']['medium']) ? esc_url($sketch_image['sizes']['medium']) : ''; ?>">
+
                                     <div class="projectMedia">
                                         <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
                                     </div>
                                     <div class="projectInfo">
-                                        <?php if ($project_logo): ?>
-                                            <img src="<?php echo esc_url($project_logo['sizes']['thumbnail']); ?>"
-                                                alt="<?php echo $project_logo['alt']; ?>" class="logo">
-                                        <?php endif; ?>
+                                        <img src="<?php echo $project_logo ? esc_url($project_logo['sizes']['thumbnail']) : ''; ?>"
+                                            alt="<?php echo $project_logo ? $project_logo['alt'] : ''; ?>"
+                                            class="logo <?php echo !$project_logo ? 'noLogo' : ''; ?>">
+
                                         <div class="title-year">
                                             <h2 class="project_name">/<?php the_title(); ?></h2>
                                             <?php if ($year): ?>
