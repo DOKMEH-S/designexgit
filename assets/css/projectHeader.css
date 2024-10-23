@@ -19,6 +19,14 @@ body[data-pagetype="archiveBlog"] header ,
 body.opMenu body[data-pagetype="archiveProject"] header,body.opMenu body[data-pagetype="archiveBlog"] header{
     background-color: var(--white);
 }
+body[data-pagetype="archiveProject"] header ,
+body[data-pagetype="archiveBlog"] header {
+    height: calc(var(--headerHeight)*.7);
+}
+body[data-pagetype="archiveProject"] main ,
+body[data-pagetype="archiveBlog"] main{
+    padding-top: calc(var(--headerHeight)*.7 + 1.875rem);
+}
 .projectHeader-element img {
     display: block;
     -o-object-fit: contain;
@@ -26,7 +34,7 @@ body.opMenu body[data-pagetype="archiveProject"] header,body.opMenu body[data-pa
 }
 .projectHeader-container {
     position: sticky;
-    top: calc(var(--headerHeight) - 1px);
+    top: calc(var(--headerHeight)*.7 - 1px);
     z-index: 10;
     padding-top: 0;
     padding-bottom: 0;
@@ -138,8 +146,8 @@ body.opMenu body[data-pagetype="archiveProject"] header,body.opMenu body[data-pa
     display: -ms-flexbox;
     display: flex;
     position: relative;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding-bottom: .125rem;
+    margin-bottom: .125rem;
     width: 100%;
 }
 .projectHeader-container_row-above:before {
@@ -215,6 +223,14 @@ span.projectHeader-container_row-title {
 
 
 @media only screen and (max-width: 768px) {
+    body[data-pagetype="archiveProject"] header ,
+    body[data-pagetype="archiveBlog"] header {
+        height: calc(var(--headerHeight));
+    }
+    body[data-pagetype="archiveProject"] main ,
+    body[data-pagetype="archiveBlog"] main{
+        padding-top: calc(var(--headerHeight) / 2);
+    }
     .projectHeader-container {
         background-color: transparent !important;
     }

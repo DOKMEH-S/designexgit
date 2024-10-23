@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba591a6b-88e1-404a-8e7f-6dcc8b8db0cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7cdac3b8-8eb5-4170-aa49-4f5b2d4a5935" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/archive-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/archive-project.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/projectHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/projectHeader.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2npajICO2dajaOOlrme3YZeOHwc" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2nphv1YVrGCfbh3jgJzpvX1JqBo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,11 +38,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <created>1729672618823</created>
+      <changelist id="7cdac3b8-8eb5-4170-aa49-4f5b2d4a5935" name="Changes" comment="" />
+      <created>1729676152180</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1729672618823</updated>
-      <workItem from="1729672622621" duration="707000" />
+      <updated>1729676152180</updated>
+      <workItem from="1729676153130" duration="456000" />
     </task>
     <servers />
   </component>
